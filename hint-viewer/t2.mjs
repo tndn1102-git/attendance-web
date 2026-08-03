@@ -1,0 +1,11 @@
+const open=()=>new Promise(r=>{const w=new WebSocket('ws://127.0.0.1:8080');w._rx=[];w.addEventListener('message',e=>w._rx.push(JSON.parse(e.data)));w.addEventListener('open',()=>r(w));});
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+let pass=0,fail=0; const ok=(c,m)=>{c?pass++:(fail++,console.error('  ✗',m));};
+const phone=await open(); phone.send(JSON.stringify({type:'master'})); await wait(100);
+const viewer=await open(); viewer.send(JSON.stringify({type:'master'})); await wait(100);
+const p0=phone._rx.length;
+viewer.send(JSON.stringify({type:'timeSync',seconds:3600})); await wait(150);
+const got=phone._rx.slice(p0).find(m=>m.type==='timeSync'&&m.seconds===3600);
+ok(!!got,'★ 뷰어 timeSync(3600) → 폰이 timeSync 수신');
+console.log(`\n${fail===0?'✅ PASS':'❌ FAIL'} pass=${pass} fail=${fail}`);
+process.exit(fail===0?0:1);

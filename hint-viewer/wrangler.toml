@@ -1,0 +1,7 @@
+name = "lockdown-gm-viewer"
+main = "src/worker.js"
+compatibility_date = "2025-01-15"
+
+# 8080 릴레이 서버 주소를 바꾸려면 여기서 덮어쓰기 (기본값은 worker.js 참고)
+[vars]
+UPSTREAM_WS = "http://fantatgc.iptime.org:8080/"

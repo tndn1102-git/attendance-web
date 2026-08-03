@@ -1,0 +1,17 @@
+{
+  "name": "lockdown-gm-viewer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "락다운시티 힌트폰 GM 뷰어 (Cloudflare Worker 브릿지 + observer)",
+  "scripts": {
+    "gen": "node scripts/gen-sm.mjs",
+    "test": "node test/statemachine.test.mjs && node test/reset.test.mjs",
+    "predev": "node scripts/gen-sm.mjs",
+    "predeploy": "node scripts/gen-sm.mjs && node test/statemachine.test.mjs && node test/reset.test.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}
