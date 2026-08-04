@@ -16,6 +16,7 @@ yt_token.json
 # 락다운시티 힌트폰 라이브 미러 (26MB, 대부분 assets/ 의 PNG·사운드).
 # 배포본은 hint-viewer/phone-patch/ 에 버전별로 다 들어 있으므로 저장소에 넣지 않는다.
 hint-phone/
+hint-phone.zip
 
 # wrangler 로컬 캐시·상태
 .wrangler/
