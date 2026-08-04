@@ -1,0 +1,16 @@
+# 이 프로젝트의 텍스트 파일은 항상 LF 로 둔다.
+#
+# 왜: phone-patch/ 의 파일들은 그대로 FTP 로 서버에 올라가고,
+#     라이브와 로컬을 "바이트 단위로 대조"해 배포를 검증한다.
+#     윈도우 기본값(core.autocrlf=true)이면 체크아웃 때 CRLF 로 바뀌어
+#     내용이 같은데도 전부 다른 파일로 보이고, 롤백본도 라이브와 어긋난다.
+* text=auto eol=lf
+
+# 바이너리는 건드리지 않는다
+*.png binary
+*.jpg binary
+*.zip binary
+*.mp3 binary
+*.ogg binary
+*.ttf binary
+*.woff2 binary

@@ -848,6 +848,58 @@ function makeViewer() {
   ok(V3.get('tRemain') === 4200, 'I25 v140 이하 폰(__t__)의 보고도 그대로 반영 (하위호환)');
 })();
 
+/* ================= J. 엔딩 = 확정 정지 (v142) =================
+   종료 신호(거리 pin26)를 받으면 뷰어 시계도 끝까지 멈춰 있어야 한다.
+   예전엔 엔딩에 플래그만 켜고 시계는 그대로 뒀고, 폰이 10초마다 보내는 시간보고를
+   받을 때마다 tStart() 로 다시 굴려서 "멈췄다가 다시 간다"가 됐다. */
+(function endingStopsClock() {
+  const ending = V => V.upd('streetmega', 'streetmega-2', 26);
+  const running = V => V.get('tInt') !== null;
+
+  /* --- 기본: 엔딩이면 멈춘다 --- */
+  const A = makeViewer();
+  A.upd('__time__', 'tS-aaaa', 3000);              // 폰 보고로 시계가 돌기 시작
+  ok(running(A), 'J1 (준비) 폰 보고로 시계가 돌고 있다');
+  ending(A);
+  ok(!running(A), 'J2 ★ 엔딩 → 뷰어 시계 정지');
+  ok(A.get('S.flags.end') === true, 'J3 엔딩 플래그도 켜짐');
+
+  /* --- 핵심: 엔딩 뒤 폰 보고가 와도 다시 굴러가지 않는다 --- */
+  A.upd('__time__', 'tS-aaaa', 2990);
+  ok(!running(A), 'J4 ★★ 엔딩 뒤 폰 시간보고가 와도 시계가 다시 돌지 않는다');
+  ok(A.get('tRemain') === 2990, 'J5 값은 폰과 똑같이 맞춘다 (표시만)');
+  A.upd('__time__', 'tS-bbbb', 2990);
+  ok(!running(A), 'J6 다른 폰 보고에도 다시 돌지 않는다');
+
+  /* --- 엔딩 뒤 GM 시간 적용도 시계를 되살리지 않는다 --- */
+  A.doc.getElementById('tSet').value = '10:00';
+  A.get('applyTimeInput()');
+  ok(!running(A), 'J7 ★ 엔딩 뒤 GM 시간 적용도 시계를 다시 굴리지 않는다');
+  ok(A.get('tRemain') === 600, 'J8 값은 바뀐다');
+
+  /* --- 엔딩 뒤 게임 시작 핀이 또 들어와도 무시 --- */
+  A.upd('streetmega', 'streetmega-2', 22);
+  ok(!running(A) && A.get('phoneSyncArmed') === false, 'J9 엔딩 뒤 pin22 재수신에도 예약/시작 안 함');
+
+  /* --- 스냅샷으로 엔딩이 들어와도 동일 --- */
+  const B = makeViewer();
+  B.upd('__time__', 'tS-aaaa', 3000);
+  B.snapshot('streetmega', 'streetmega-2', 26, 'on');
+  ok(!running(B), 'J10 ★ 스냅샷으로 온 엔딩도 시계를 멈춘다');
+  B.upd('__time__', 'tS-aaaa', 2980);
+  ok(!running(B), 'J11 그 뒤 폰 보고에도 안 돈다');
+
+  /* --- 초기화하면 풀린다 (다음 팀) --- */
+  const C = makeViewer();
+  C.upd('__time__', 'tS-aaaa', 3000);
+  ending(C);
+  ok(!running(C), 'J12 (준비) 엔딩으로 정지');
+  C.reset();
+  ok(C.get('ended') === false && C.get('tRemain') === 6000, 'J13 초기화로 확정 정지 해제 + 1:40:00');
+  C.upd('__time__', 'tS-aaaa', 5000);
+  ok(running(C), 'J14 ★ 초기화 뒤에는 다시 정상 동작 (다음 팀 진행 가능)');
+})();
+
 console.log(fail === 0
   ? `\n✅ 공유상태 검증 통과 (${pass}/${pass})`
   : `\n❌ 실패 ${fail}건 / 통과 ${pass}건`);

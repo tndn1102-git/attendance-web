@@ -1,6 +1,6 @@
 // 서비스 워커 - 오프라인 지원
 // 버전을 변경하면 캐시가 자동으로 업데이트됩니다
-// rev: 2026-08-04a (v142 — 엔딩/TIME OUT 은 타이머 확정 정지: 재연결·시간적용에도 다시 안 흐름)
+// rev: 2026-08-03b (v141 — 태블릿 시간 자동 동기화: 재시작한 폰이 다른 폰에서 남은시간 복구)
 const CACHE_VERSION = new Date().getTime(); // 타임스탬프로 자동 버전 관리
 const CACHE_NAME = `fantastrick-hint-phone-v${CACHE_VERSION}`;
 const urlsToCache = [

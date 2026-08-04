@@ -1,7 +1,7 @@
 # ============================================================
-#  HINT-PHONE v141 UPLOAD - fantastrick.co.kr/hint-phone/
-#  (v140 mission/details display scheduler + v141 tablet time auto-sync)
-#  Live originals are backed up in phone-patch\live-backup-20260803b\ (previous: -20260803, -20260729)
+#  HINT-PHONE v142 UPLOAD - fantastrick.co.kr/hint-phone/
+#  (v142 ending / TIME OUT stops the timer for good - no restart on reconnect)
+#  Live originals are backed up in phone-patch\live-backup-20260804\ (previous: -20260803b, -20260803, -20260729)
 #  NOTE: ASCII only on purpose - Windows PowerShell 5.1 reads BOM-less
 #        .ps1 as ANSI, so Korean text here would break parsing.
 # ============================================================
@@ -23,7 +23,7 @@ $ViewerUrl = "https://lockdown-gm-viewer.tndn1102.workers.dev"
 Clear-Host
 Write-Host ""
 Write-Host "================================================" -ForegroundColor Cyan
-Write-Host "  HINT-PHONE v141 UPLOAD" -ForegroundColor Cyan
+Write-Host "  HINT-PHONE v142 UPLOAD" -ForegroundColor Cyan
 Write-Host "================================================" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "  Server:   $FtpHost"
@@ -130,7 +130,7 @@ Write-Host ""
 if ($fail -eq 0) { $resultColor = "Green" } else { $resultColor = "Yellow" }
 Write-Host "  Result: $ok OK / $fail FAIL" -ForegroundColor $resultColor
 
-# ---- verify the live site actually serves v141 ----
+# ---- verify the live site actually serves v142 ----
 if ($fail -eq 0) {
     Write-Host ""
     Write-Host "  Verifying live..." -ForegroundColor Yellow
@@ -139,12 +139,12 @@ if ($fail -eq 0) {
         $idx = (New-Object System.Net.WebClient).DownloadString($CheckUrl + "index.html?cb=" + (Get-Random))
         $wsj = (New-Object System.Net.WebClient).DownloadString($CheckUrl + "websocket.js?cb=" + (Get-Random))
         $apj = (New-Object System.Net.WebClient).DownloadString($CheckUrl + "app.js?cb=" + (Get-Random))
-        $vOk = ($idx -match "websocket\.js\?v=141") -and ($idx -match "app\.js\?v=135")
+        $vOk = ($idx -match "websocket\.js\?v=141") -and ($idx -match "app\.js\?v=136")
         $rOk = ($wsj -match "__settime__") -and ($wsj -match "__timeack__") -and ($wsj -match "__ldcCatchUp") `
                -and ($wsj -match "__timereq__") -and ($wsj -match "__timeres__") -and ($wsj -match "_gmTimeSynced")
-        $aOk = ($apj -match "applyStage") -and ($apj -match "cancelStageTimers") -and ($apj -match "catchUpBest")
-        if ($vOk) { Write-Host "    index.html   ?v=141/135  : OK" -ForegroundColor Green }
-        else      { Write-Host "    index.html   ?v=141/135  : NO" -ForegroundColor Red }
+        $aOk = ($apj -match "applyStage") -and ($apj -match "catchUpBest") -and ($apj -match "stopTimerForGood") -and ($apj -match "timerStopped")
+        if ($vOk) { Write-Host "    index.html   ?v=141/136  : OK" -ForegroundColor Green }
+        else      { Write-Host "    index.html   ?v=141/136  : NO" -ForegroundColor Red }
         if ($rOk) { Write-Host "    websocket.js patches     : OK" -ForegroundColor Green }
         else      { Write-Host "    websocket.js patches     : NO" -ForegroundColor Red }
         if ($aOk) { Write-Host "    app.js       scheduler   : OK" -ForegroundColor Green }
@@ -152,7 +152,7 @@ if ($fail -eq 0) {
         $rOk = $rOk -and $aOk
         if ($vOk -and $rOk) {
             Write-Host ""
-            Write-Host "  DONE. Next: refresh BOTH tablets once (v141 must be on both)." -ForegroundColor Green
+            Write-Host "  DONE. Next: refresh BOTH tablets once (v142 must be on both)." -ForegroundColor Green
             Write-Host "  Then in the viewer: type a time + Apply -> must show 2 phones applied:" -ForegroundColor Green
             Write-Host "  $ViewerUrl" -ForegroundColor Cyan
             Write-Host ""
@@ -166,8 +166,8 @@ if ($fail -eq 0) {
     }
 } else {
     Write-Host ""
-    Write-Host "  ROLLBACK: re-upload the files in phone-patch\live-backup-20260803b\" -ForegroundColor Red
-    Write-Host "  to the same remote path (that is the exact live set before v141)." -ForegroundColor Red
+    Write-Host "  ROLLBACK: re-upload the files in phone-patch\live-backup-20260804\" -ForegroundColor Red
+    Write-Host "  to the same remote path (that is the exact live set before v142)." -ForegroundColor Red
 }
 
 Write-Host ""

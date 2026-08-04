@@ -24,13 +24,13 @@
 | `test/statemachine.test.mjs` | 상태머신 진행/분기 검증(39 assert) |
 | `test/reset.test.mjs` | 폰2대+뷰어 공유상태·10탭·스냅샷·힌트·시간세팅·**시간 자동동기화** 검증(162 assert) |
 | `test/phone-display/` | 힌트폰 미션/디테일 표시 검증(Playwright, 수동 실행) — `test/phone-display/README.md` |
-| `phone-patch/*.v141` | 힌트폰 패치 최신본(index / sw / websocket / app) |
+| `phone-patch/*.v142` | 힌트폰 패치 최신본(index / sw / app · websocket 은 v141 그대로) |
 | `PROTOCOL.md` | observer 프로토콜 규격(뷰어·Worker·서버 공통) |
 | `SERVER-PATCH.md` | 8080 서버에 observer 역할 추가 가이드 |
 
 ## 개발/배포
 ```bash
-npm test          # 상태머신 39 + 공유상태 162 검증
+npm test          # 상태머신 39 + 공유상태 176 검증
 npm run gen       # statemachine-src.js 재생성 (dev/deploy 전 자동 실행됨)
 npm run dev       # 로컬 http://127.0.0.1:8787
 npm run deploy    # Cloudflare 배포 (사전 wrangler login 필요)
@@ -71,6 +71,23 @@ GM 이 [시간 적용]으로 손수 맞추기 전까지 손님은 틀린 시간�
 검증: `test/reset.test.mjs` I1~I25 (신뢰 판정 / 응답·채택 규칙 / 릴레이 경유 2대 연동 / 뷰어 표시 / 하위호환)
 + `test/phone-display/live-timesync.test.mjs` — **라이브 파일로** 폰 2대를 띄워 실제 복구까지 확인(매장 릴레이에는 접속 안 함)
 
+## 2026-08-04 수정: 종료 신호 뒤 시간이 다시 흐른다 (v142)
+
+엔딩·TIME OUT 이면 폰·뷰어 모두 시간이 **끝까지 멈춰** 있어야 하는데, 멈췄다가 중간에 다시 흐르거나
+아예 안 멈추는 경우가 있었다. 원인은 정지가 "상태"로 남지 않은 것.
+
+- 폰은 `clearInterval` 만 하고 `timerInterval`·`endTime` 을 그대로 뒀다
+  → `endTime` 이 남아 **`restoreTimer()`(ws 재연결마다 호출)** 가 타이머를 도로 켰고,
+    `timerInterval` 이 truthy 로 남아 `_gmApplyTime`(시간 적용·자동동기화)도 "진행 중"으로 오해해 다시 켰다
+- **뷰어는 엔딩에 플래그만 켜고 시계는 멈추지도 않았다.** 게다가 폰이 계속 보내는 `__time__` 을 받을 때마다
+  `tStart()` 를 불러, 멈춰 있던 시계까지 10초마다 되살렸다
+
+**조치(v142)** — 정지를 상태로 남기고(폰 `timerStopped`, 뷰어 `ended`) **켜는 쪽이 전부 그 값을 확인한다.**
+`startTimer()`·`restoreTimer()`·뷰어 `tStart()` 경로가 모두 막힌다. 해제는 **초기화로만** 된다.
+
+검증: `test/reset.test.mjs` J1~J14(뷰어) + `test/phone-display/timerstop.test.mjs` 16건
+(폰 — ws 재연결·시간적용·TIME OUT·초기화 후 재사용)
+
 ## 배포 현황 (2026-08-02 기준)
 
 | 구성요소 | 상태 | 확인 방법 |
@@ -79,8 +96,9 @@ GM 이 [시간 적용]으로 손수 맞추기 전까지 손님은 틀린 시간�
 | 8080 릴레이 simPin 패치 | ✅ 적용됨 | master로 붙어 `__time__`/`__status__` 트래픽 관측 |
 | 8080 릴레이 **timeSync 블록** | ❌ **없음(적용 안 됨)** — 그래서 v139에서 simPin 경로로 우회 | 시간 적용 시 서버 로그에 `[TIME]` 안 찍힘 |
 | 힌트폰 **v140** (미션 표시 스케줄러) | ✅ 업로드됨(08-03) | 라이브 4파일 = 로컬 v140 바이트 일치, 라이브 시나리오 5 PASS |
-| 힌트폰 **v141** (태블릿 시간 자동동기화) | ✅ **업로드됨**(08-03) | 라이브 4파일 = 로컬 v141 바이트 일치, 라이브 2대 연동 9 PASS |
-| 태블릿 2대에 v141 반영 | ⏳ 새로고침 필요 | 새로고침 후 `?v=141/135` 로 로드되는지 |
+| 힌트폰 **v141** (태블릿 시간 자동동기화) | ✅ 업로드됨(08-03) | 라이브 4파일 = 로컬 v141 바이트 일치, 라이브 2대 연동 9 PASS |
+| 힌트폰 **v142** (종료 시 타이머 확정 정지) | ⏳ 업로드 대기 = `upload-hint-phone.bat` | 업로드 후 `?v=141/136` |
+| 태블릿 2대에 v142 반영 | ⏳ 새로고침 필요 | 새로고침 후 `?v=141/136` 로 로드되는지 (+ 연결모드 버튼) |
 
 ### 2026-08-02 사고: "뷰어와 태블릿 시간이 다르다"
 뷰어의 시간 적용이 `{type:'timeSync'}` 라는 **독자 타입**으로 나갔는데, 매장 서버에 실제로 적용된
@@ -95,19 +113,19 @@ GM 이 [시간 적용]으로 손수 맞추기 전까지 손님은 틀린 시간�
 
 ### 뷰어 재배포
 ```bash
-npm run deploy      # gen + 테스트(39+162) 통과해야 배포됨
+npm run deploy      # gen + 테스트(39+176) 통과해야 배포됨
 ```
 
 ### 힌트폰 패치 업로드
 `phone-patch\upload-hint-phone.bat` 실행 → FTP 비밀번호 입력.
-- 업로드 대상: `phone-patch/deploy/` 의 `websocket.js` · `app.js` · `sw.js` · `index.html` (= v141)
-- 원격 폴더 존재 여부를 먼저 확인한 뒤 올리고, 올린 다음 라이브에서 `?v=141/135` + 패치 코드를 재확인한다.
+- 업로드 대상: `phone-patch/deploy/` 의 `websocket.js` · `app.js` · `sw.js` · `index.html` (= v142)
+- 원격 폴더 존재 여부를 먼저 확인한 뒤 올리고, 올린 다음 라이브에서 `?v=141/136` + 패치 코드를 재확인한다.
 - ⚠️ `index.html` 의 캐시버스트는 **되돌리지 말 것**. 07-29 배경수정 배포가 `app.js?v=133` 이었는데
   그날 밤 v138 배포가 `?v=132` 로 **되돌려서** 태블릿이 배경수정 이전 `app.js` 를 캐시에서 꺼내 쓸 수 있었다.
-  v139 에서 `app.js?v=134`, v140 에서 `app.js?v=135` 로 올렸다.
+  v139 에서 `app.js?v=134`, v140 에서 `?v=135`, v142 에서 `?v=136` 으로 올렸다.
 - 기본값이 안 맞으면: `.\upload-hint-phone.ps1 -RemoteDir '/html/hint-phone/'`
-- **되돌리기**: `phone-patch/live-backup-20260803b/` 가 v141 업로드 직전 라이브 원본(= v140) 그대로다.
-  같은 경로에 다시 올리면 원복. (이전 세대: `live-backup-20260803/` = v139, `live-backup-20260729/` = v131)
+- **되돌리기**: `phone-patch/live-backup-20260804/` 가 v142 업로드 직전 라이브 원본(= v141) 그대로다.
+  같은 경로에 다시 올리면 원복. (이전 세대: `-20260803b` = v140, `-20260803` = v139, `-20260729` = v131)
 - 진행 중인 게임에는 영향 없음(폰은 새로고침할 때만 새 파일을 받음).
 
 ### 매장 릴레이 서버 (이미 적용됨 — 재적용이 필요할 때만)

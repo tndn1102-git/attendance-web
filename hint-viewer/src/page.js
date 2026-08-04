@@ -198,6 +198,8 @@ function applyPin(slaveID, arduinoID, pinNumber, state){
   if(state==='on' && slaveID==='streetmega' && arduinoID==='streetmega-2' && parseInt(pinNumber)===22){
     onPhoneTimerTrigger();
   }
+  // 엔딩(거리 pin26) → 뷰어 시계도 끝까지 정지 (v142)
+  if(S.flags.end) endTimerForGood();
   render();
 }
 
@@ -415,9 +417,23 @@ document.getElementById('gameStartBtn').onclick=()=>{
 
 /* ---------- GM 타이머 (화면 전용) ---------- */
 let tRemain=6000, tEnd=null, tInt=null, autoStarted=false, phoneSyncArmed=false, phoneSyncTimer=null;
+/* 게임이 끝나 시계를 "확정 정지"했는가 (v142)
+   엔딩(거리 pin26)이 오면 뷰어 시계도 끝까지 멈춰 있어야 한다. 예전엔 엔딩에 플래그만 켜고
+   시계는 그대로 뒀고, 폰이 보내는 10초 주기 시간보고를 받을 때마다 tStart() 로 다시 굴렸다.
+   초기화로만 풀린다. */
+let ended=false;
+function endTimerForGood(){
+  if(ended) return;
+  ended=true;
+  tPause();
+  clearTimeout(phoneSyncTimer); phoneSyncTimer=null; phoneSyncArmed=false;
+  tDraw();
+  logLine('sys','★ 엔딩 — 타이머 정지 (초기화 전까지 다시 흐르지 않음)');
+}
 const PHONE_INTRO_MS=137000; // app.js: pin22 후 137초 뒤 startTimer
 // 폰 타이머와 동기화: 거리 pin22 감지 시, 137초 후 100:00부터 시작(폰과 동일 시점)
 function onPhoneTimerTrigger(){
+  if(ended) return;                                      // 끝난 게임은 다시 시작하지 않는다
   if(phoneSyncArmed || autoStarted || tInt) return;      // 이미 시작/예약됐으면 무시
   phoneSyncArmed=true;
   tPause(); tRemain=6000; tDraw();
@@ -448,7 +464,8 @@ function applyTimeInput(){
   if(s===null){ alert('형식: 1:40:00 (시:분:초) · 85:00 (분:초) · 85 (분)'); return; }
   if(!ws||ws.readyState!==WebSocket.OPEN){ alert('연결이 끊겨 있어 폰에 적용할 수 없습니다.'); return; }
   tRemain=s; autoStarted=true; phoneSyncArmed=false;
-  if(tInt){ tEnd=Date.now()+tRemain*1000; } else if(s>0){ tStart(); }
+  // 끝난 게임에서는 값만 바꾸고 시계를 다시 굴리지 않는다 (폰도 같은 규칙)
+  if(tInt){ tEnd=Date.now()+tRemain*1000; } else if(s>0 && !ended){ tStart(); }
   tDraw();
   const sec=Math.max(0,Math.round(s));
   ws.send(JSON.stringify({type:'simPin', slaveID:'__settime__', arduinoID:'gm', pin:sec, state:'on'}));
@@ -494,6 +511,9 @@ function phoneTimeReport(sec, aid){
     return;
   }
   phoneTimes.set(pid,{sec,ts:Date.now()});
+  // 엔딩 뒤에는 값만 맞추고 절대 다시 굴리지 않는다 (v142).
+  // 예전엔 여기서 tStart() 를 불러, 멈춰 있던 시계가 폰 보고 10초마다 되살아났다.
+  if(ended){ tRemain=sec; tDraw(); return; }
   // 방금 시간을 적용했다면 2.5초간은 폰 보고를 받지 않는다.
   // 폰이 값을 바꾸기 직전에 출발한 보고(10초 주기)가 도착해 GM 이 방금 넣은 값을
   // 곧바로 지워버리는 것을 막는다. 폰이 정말 안 먹었다면 이 창이 끝난 뒤 되돌아온다(= 사실 반영).
@@ -523,7 +543,7 @@ function doFullReset(reason){
   freshState();
   // 2) 타이머 (예약된 137초 시작도 취소)
   clearTimeout(phoneSyncTimer); phoneSyncTimer=null;
-  phoneSyncArmed=false; autoStarted=false;
+  phoneSyncArmed=false; autoStarted=false; ended=false;   // 확정 정지 해제 — 초기화만이 이걸 푼다
   tPause(); tEnd=null; tRemain=6000; tDraw();
   clearTimeout(timeAckTimer); timeAckExpect=null; timeAckPhones.clear(); timeApplyAt=0; setAckDot('','var(--mut)');
   const sd=document.getElementById('syncDot');

@@ -176,14 +176,6 @@ let timerInterval = null;
 let timeRemaining = 6000; // 1:40:00 = 100분 = 6000초
 let endTime = null; // 타이머 종료 시간
 
-// 게임이 끝나 타이머를 "확정 정지"했는가 (v142)
-//   엔딩·TIME OUT 은 되돌릴 수 없는 종료다. 그런데 예전엔 clearInterval 만 하고
-//   timerInterval·endTime 을 그대로 뒀더니, endTime 이 남아 있다는 이유로
-//   restoreTimer()(ws 재연결마다 호출)가 타이머를 도로 켰고,
-//   timerInterval 이 truthy 로 남아 _gmApplyTime 도 "진행 중"으로 오해해 다시 켰다.
-//   → 정지를 상태로 남기고, 켜는 쪽에서 전부 이 값을 확인한다. 초기화로만 풀린다.
-let timerStopped = false;
-
 // SNS 활성화 상태
 let isSNSActivated = false;
 // SNS dm 버튼 활성화 상태
@@ -610,7 +602,6 @@ function updateToVersion0() {
 
 // 타이머 시작
 function startTimer() {
-  if (timerStopped) { console.log('게임 종료 상태 — 타이머를 다시 켜지 않는다'); return; }
   if (timerInterval) clearInterval(timerInterval);
 
   // 종료 시간 설정 (현재 시간 + 남은 시간)
@@ -636,9 +627,6 @@ function startTimer() {
 
 // 타이머 복구 (화면 꺼졌다 켜졌을 때)
 function restoreTimer() {
-  // 끝난 게임은 복구하지 않는다. ws 는 게임 뒤에도 계속 재연결되므로
-  // 이 가드가 없으면 엔딩 뒤에 타이머가 저절로 다시 흐른다 (v142)
-  if (timerStopped) return;
   // endTime이 설정되어 있으면 타이머가 이미 시작된 상태
   if (endTime) {
     const now = Date.now();
@@ -699,20 +687,10 @@ function updateTimerDisplay() {
 }
 
 // 타임아웃 표시
-// 타이머를 되돌릴 수 없게 정지한다 (엔딩 · TIME OUT). 초기화로만 풀린다.
-function stopTimerForGood(reason) {
-  timerStopped = true;
-  if (timerInterval) clearInterval(timerInterval);
-  timerInterval = null;   // truthy 로 남으면 "진행 중"으로 오해받아 다시 켜진다
-  endTime = null;         // 남아 있으면 restoreTimer() 가 되살린다
-  console.log('타이머 확정 정지:', reason || '');
-}
-
 function showTimeout() {
-  stopTimerForGood('TIME OUT');
   const timerElement = document.getElementById('timer');
   const timerOverlay = document.querySelector('.timer-overlay');
-
+  
   if (timerElement) {
     timerElement.textContent = 'TIME OUT';
   }
@@ -1063,8 +1041,6 @@ window.resetScreen = function() {
   
   // 타이머 리셋
   if (timerInterval) clearInterval(timerInterval);
-  timerInterval = null;
-  timerStopped = false;   // 확정 정지 해제 — 초기화만이 이걸 푼다 (v142)
   timeRemaining = 6000;
   endTime = null; // 종료 시간도 리셋
   const timerOverlay = document.querySelector('.timer-overlay');
@@ -2127,10 +2103,11 @@ function showEndingScreen() {
   // 예약된 미션 표시 취소 (안 하면 엔딩 화면 위로 미션이 뒤늦게 다시 뜬다)
   cancelStageTimers();
   
-  // 타이머 확정 정지 (v142)
-  // clearInterval 만으로는 부족했다 — timerInterval·endTime 이 남아 있으면
-  // restoreTimer(ws 재연결)·_gmApplyTime(시간 적용/자동동기화)이 다시 켠다.
-  stopTimerForGood('엔딩');
+  // 타이머 정지
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    console.log('타이머 정지됨');
+  }
   
   // 배경 이미지를 page-end.png로 변경
   swapBackground('assets/phone-img/page-end.png');
