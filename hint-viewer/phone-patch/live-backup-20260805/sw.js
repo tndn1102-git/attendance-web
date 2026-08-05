@@ -1,10 +1,6 @@
 // 서비스 워커 - 오프라인 지원
 // 버전을 변경하면 캐시가 자동으로 업데이트됩니다
-// rev: 2026-08-05a (v143 — 사고 재시작은 아무것도 지우지 않음 · 종료 신호 폰끼리 공유 · 버전 보고)
-// ⚠ 이 서비스워커는 **어디에서도 register 되지 않는다**(index.html·script.js 확인, v129~v143).
-//    즉 지금은 동작하지 않는 파일이다. 캐시 갱신은 index.html 의 ?v= 캐시버스트가 전담한다.
-//    등록하려면 캐시 전략부터 network-first 로 바꿔야 한다 — 지금 코드(cache-first + index.html
-//    프리캐시)를 그대로 켜면 새로고침 한 번으로는 최신 파일이 안 내려온다.
+// rev: 2026-08-04a (v142 — 엔딩/TIME OUT 은 타이머 확정 정지: 재연결·시간적용에도 다시 안 흐름)
 const CACHE_VERSION = new Date().getTime(); // 타임스탬프로 자동 버전 관리
 const CACHE_NAME = `fantastrick-hint-phone-v${CACHE_VERSION}`;
 const urlsToCache = [

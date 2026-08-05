@@ -97,6 +97,7 @@ export const PAGE_HTML = /* html */ `<!doctype html>
     <span class="badge"><span id="connDot" class="dot r"></span><span id="connTxt">연결 안 됨</span></span>
     <span class="badge">수신 <b id="msgCount" style="color:var(--tx)">0</b></span>
     <span class="badge" id="stageBadge">단계: —</span>
+    <span class="badge" id="verBadge" title="태블릿 패치 버전 — 두 대가 같아야 한다">폰 —</span>
     <span style="flex:1"></span>
     <button class="sm" id="reconnectBtn">재연결</button>
     <button class="sm d" id="resetBtn">진행 초기화</button>
@@ -111,6 +112,7 @@ export const PAGE_HTML = /* html */ `<!doctype html>
         <button class="p" id="tSetBtn">시간 적용</button>
         <span class="mini" id="syncDot" style="color:var(--mut)">○ 폰 신호 없음</span>
         <span class="mini" id="ackDot" style="color:var(--mut)"></span>
+        <button class="sm d" id="endStopBtn" style="display:none">⏹ 엔딩 정지 재전송</button>
         <span style="flex:1"></span>
         <button class="p" id="gameStartBtn">▶ 게임 시작 신호</button>
       </div>
@@ -268,6 +270,15 @@ function handleMessage(data){
         if(!isNaN(bits)) phoneStatusReport(bits, String(data.arduinoID||'snsdm'));
         break;
       }
+      if(data.slaveID==='__ver__'){ // 폰 패치 버전 보고 (5초 주기, 폰마다 하나씩 · v143+)
+        phoneVerReport(parseInt(data.updates&&data.updates[0]&&data.updates[0].pin), String(data.arduinoID||'v-?'));
+        break;
+      }
+      if(data.slaveID==='__boot__'){ // 게임 도중 재시작한 폰의 알림 — 초기화가 아니다 (v143)
+        logLine('err','⚠ 폰이 게임 도중 재시작됨 — 진행은 스냅샷으로 따라잡고, 시간은 다른 폰에서 자동 동기화됩니다 (초기화 안 함)');
+        break;
+      }
+      if(data.slaveID==='__end__'){ break; } // 폰끼리 주고받는 종료 신호 — 뷰어는 pin26 으로 이미 처리
       if(data.slaveID==='__reset__'){ // 폰 프로그램 초기화 통보 (1=새로고침/부팅, 2=resetScreen)
         const k=parseInt(data.updates&&data.updates[0]&&data.updates[0].pin);
         doFullReset(k===2?'폰 resetScreen() 실행':'폰 프로그램 초기화(새로고침)');
@@ -343,6 +354,7 @@ function renderPhoneStatus(){
   setStat('dmStat',  dm>0,  dm,  total);
   document.getElementById('snsdmAge').textContent=
     '폰 '+total+'대 보고 중 · 마지막 '+new Date().toTimeString().slice(0,8);
+  renderVer();   // 대수가 바뀌면 버전 배지(구버전 몇 대)도 같이 갱신
 }
 setInterval(()=>{
   if(!snsdmLastTs) return;
@@ -352,6 +364,55 @@ setInterval(()=>{
     renderPhoneStatus(); // 한 대가 빠지면 대수 표시를 갱신
   }
 },5000);
+/* ---------- 태블릿 패치 버전 (v143) ----------
+   2026-08-05 사고: 엔딩인데 한 대만 멈췄다. 원인은 그 태블릿이 아직 v141 페이지를
+   열어둔 채였던 것(v142 업로드 후 새로고침 안 함) — v141 은 엔딩에 clearInterval 만 해서
+   ws 재연결마다 restoreTimer() 가 타이머를 도로 켠다.
+   문제는 "어느 태블릿이 구버전인지 GM 이 알 방법이 없었다"는 것이다. 그래서 폰이
+   5초마다 자기 버전을 보고하고, 뷰어는 두 대가 같은 버전인지 헤더에 항상 띄운다.
+   구버전(v142 이하)은 __ver__ 자체를 안 보내므로 "보고 없음"으로 잡힌다. */
+const phoneVers=new Map(); // 폰id → {ver, ts}
+function phoneVerReport(ver, aid){
+  if(!(ver>0)) return;
+  const pid = aid.indexOf('v-')===0 ? aid.slice(2) : aid;
+  phoneVers.set(pid,{ver,ts:Date.now()});
+  renderVer();
+}
+function renderVer(){
+  const el=document.getElementById('verBadge'); if(!el) return;
+  const now=Date.now();
+  phoneVers.forEach((v,k)=>{ if(now-v.ts>PHONE_STALE_MS*2) phoneVers.delete(k); });
+  const total=livePhones().length;                 // __status__ 로 잡힌 폰 대수(구버전도 보낸다)
+  const vers=[...phoneVers.values()].map(v=>v.ver);
+  if(!total && !vers.length){ el.textContent='폰 —'; el.style.color=''; return; }
+  const uniq=[...new Set(vers)];
+  const old=Math.max(0,total-vers.length);         // 버전 보고가 없는 폰 = 구버전
+  if(old>0){
+    el.textContent='폰 ⚠ 구버전 '+old+'대'+(uniq.length?' / v'+uniq.join('·'):'');
+    el.style.color='var(--danger)';
+  } else if(uniq.length>1){
+    el.textContent='폰 ⚠ 버전 불일치 v'+uniq.join(' · v');
+    el.style.color='var(--danger)';
+  } else {
+    el.textContent='폰 v'+uniq[0]+' ×'+vers.length;
+    el.style.color=(total&&vers.length<total)?'var(--warn)':'';
+  }
+}
+/* 엔딩 뒤에도 시간이 흐르는 폰 감지 → GM 에게 알리고 정지 신호를 다시 보낼 수 있게 한다 */
+const endRunners=new Set();
+function noteEndRunner(pid){
+  if(endRunners.has(pid)) return;
+  endRunners.add(pid);
+  setSyncDot('⚠ 엔딩 뒤에도 시간이 흐르는 폰 ('+pid+')','var(--danger)');
+  logLine('err','⚠ 엔딩인데 시간이 계속 흐르는 폰 감지 ('+pid+') — [엔딩 정지 재전송] 을 누르거나 그 태블릿을 새로고침하세요(구버전 의심)');
+  const b=document.getElementById('endStopBtn'); if(b) b.style.display='';
+}
+document.getElementById('endStopBtn').onclick=()=>{
+  if(!ws||ws.readyState!==WebSocket.OPEN){ alert('연결 안 됨'); return; }
+  if(!confirm('힌트폰에 "엔딩 정지" 신호를 다시 보냅니다.\\n\\n· v143 이상 태블릿: 즉시 엔딩 화면 + 시간 확정 정지\\n· 구버전 태블릿: 무시됨 → 그 태블릿은 새로고침이 필요합니다\\n\\n보낼까요?')) return;
+  ws.send(JSON.stringify({type:'simPin',slaveID:'__end__',arduinoID:'end-gm',pin:1,state:'on'}));
+  logLine('sys','⏹ 엔딩 정지 신호 재전송');
+};
 function sendSnsCtl(kind){ // kind: 1=SNS, 2=DM
   if(!ws||ws.readyState!==WebSocket.OPEN){ alert('연결 안 됨'); return; }
   const name=kind===1?'개인 SNS':'개인 메시지(DM)';
@@ -510,10 +571,15 @@ function phoneTimeReport(sec, aid){
     setSyncDot('⚠ 폰 시간 미동기화 ('+pid+')','var(--warn)');
     return;
   }
+  const prev=phoneTimes.get(pid);
   phoneTimes.set(pid,{sec,ts:Date.now()});
   // 엔딩 뒤에는 값만 맞추고 절대 다시 굴리지 않는다 (v142).
   // 예전엔 여기서 tStart() 를 불러, 멈춰 있던 시계가 폰 보고 10초마다 되살아났다.
-  if(ended){ tRemain=sec; tDraw(); return; }
+  if(ended){
+    // 엔딩인데 그 폰의 남은시간이 계속 줄어든다 = 그 태블릿은 안 멈췄다 (v143)
+    if(prev && prev.sec-sec>3) noteEndRunner(pid);
+    tRemain=sec; tDraw(); return;
+  }
   // 방금 시간을 적용했다면 2.5초간은 폰 보고를 받지 않는다.
   // 폰이 값을 바꾸기 직전에 출발한 보고(10초 주기)가 도착해 GM 이 방금 넣은 값을
   // 곧바로 지워버리는 것을 막는다. 폰이 정말 안 먹었다면 이 창이 끝난 뒤 되돌아온다(= 사실 반영).
@@ -549,6 +615,8 @@ function doFullReset(reason){
   const sd=document.getElementById('syncDot');
   if(sd){ clearTimeout(sd._t); sd.textContent='○ 폰 신호 없음'; sd.style.color='var(--mut)'; }
   phoneTimes.clear();   // 폰별 시간 보고도 비움 — 초기화 후 첫 보고부터 다시 비교한다
+  endRunners.clear();   // "엔딩 뒤에도 도는 폰" 경고도 해제
+  const eb=document.getElementById('endStopBtn'); if(eb) eb.style.display='none';
   document.getElementById('tSet').value='';
   // 3) 개인 SNS / DM 상태 (폰별 보고도 비움 — 초기화 후 첫 보고부터 다시 센다)
   snsdmLastTs=0; phones.clear();

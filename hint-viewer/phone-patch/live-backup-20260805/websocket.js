@@ -1,9 +1,6 @@
 // WebSocket 설정
 let ws = null;
 const wsURL = 'ws://fantatgc.iptime.org:8080';
-// 이 패치의 버전. 5초마다 '__ver__' 로 보고해 뷰어가 태블릿별 버전을 보여준다 (v143).
-// 두 태블릿의 버전이 다르면 "한 대만 안 멈춤" 같은 사고가 난다 — GM 이 눈으로 알아야 한다.
-const PHONE_VER = 143;
 let connectionMode = null; // 초기값 null: 사용자가 선택할 때까지 연결하지 않음
 let testChannel = null;
 
@@ -23,30 +20,6 @@ let _gmBootWasReset = (function(){
   } catch(e){}
   return false;
 })();
-
-// ══════════════════════════════════════════════════════════════════════════
-//  부팅 판정 (v143) — "사고 재시작"과 "의도한 초기화"를 구분한다
-//
-//  v142 까지는 폰이 어떤 이유로 켜지든 똑같이 __reset__(부팅 통보) 을 쐈다.
-//  그래서 게임 도중 태블릿 한 대가 꺼졌다 켜지면, 그 통보 때문에
-//    · 멀쩡히 돌던 다른 태블릿이 새로고침돼 연결모드 대기화면(초기화면)으로 가고
-//    · 뷰어의 진행·힌트·타이머까지 통째로 지워졌다.
-//  더 나쁜 건, 그 바람에 시간의 기준이 되는 폰(tS-)이 사라져 재시작한 폰이
-//  시간을 물어볼 상대조차 없어진다는 것 — "시간 동기화가 안 된다"의 진짜 원인.
-//
-//  조치: 부팅 통보를 곧바로 보내지 않고 BOOT_WINDOW_MS 동안 주변을 살핀다.
-//        게임이 이미 돌고 있으면(스냅샷의 pin22 / 다른 폰의 시간 보고)
-//        사고 재시작으로 보고 통보를 취소한다 → 아무것도 지워지지 않는다.
-//        대신 '__boot__' 로 뷰어 로그에만 남긴다.
-//  ※ 10탭·원격 초기화로 인한 새로고침(_gmBootWasReset)은 "깨끗이 시작하라"는
-//    명시적 지시다 — 이 판정을 아예 하지 않는다(걸려 있는 핀에 흔들리면 안 된다).
-// ══════════════════════════════════════════════════════════════════════════
-const BOOT_WINDOW_MS = 6000;         // 스냅샷(5초 주기)·다른 폰 응답을 기다리는 시간
-let _gmBootDecided = _gmBootWasReset; // 의도한 초기화면 기다릴 것 없이 판정 끝
-let _gmGameInProgress = false;        // 부팅 시점에 이미 게임이 돌고 있었나
-let _gmBootAnnouncePending = false;   // 아직 보내지 않은 부팅 통보가 있나
-let _gmBootAnnounceTimer = null;
-let _gmPendingLiveStart = false;      // 유예창 동안 들어온 pin22 의 신뢰 판정 보류
 
 // 재연결 관련 변수
 let reconnectInterval = null;
@@ -138,8 +111,7 @@ function connectWebSocket() {
       _gmResetAnnounced = true;
       // 10탭으로 새로고침 직전에 이미 통보했으면 여기서 또 보내지 않는다(중복 초기화 방지)
       if (_gmBootWasReset) console.log('[GM] 초기화로 인한 새로고침 — 중복 통보 생략');
-      // 사고 재시작일 수 있으므로 곧바로 보내지 않는다 — 주변을 살핀 뒤에 결정 (v143)
-      else _gmScheduleBootAnnounce();
+      else _gmAnnounceReset(1);
     }
 
     // 타이머 복구 (앱이 백그라운드에서 돌아왔을 때)
@@ -149,9 +121,7 @@ function connectWebSocket() {
 
     // 시간을 모르는 상태(재시작 복구 등)면 붙자마자 다른 폰에 물어본다 (v141).
     // 스냅샷으로 진행을 따라잡아도 타이머만은 복구할 길이 없었던 구멍을 메운다.
-    // 처음 얼마간은 촘촘히 묻는다(v143) — 10초 주기만으로는 손님이 틀린 시간을 오래 본다.
-    _gmReqBurstLeft = 8;
-    setTimeout(_gmRequestTimeBurst, 300);
+    setTimeout(_gmRequestTime, 300);
   };
 
   ws.onmessage = (event) => {
@@ -226,14 +196,6 @@ function handleWebSocketMessage(data) {
         _gmMaybeAdoptTime(parseInt(data.updates[0].pin), data.arduinoID);
         break;
       }
-      // 다른 폰이 "게임이 끝났다"고 알림 (v143). 엔딩·TIME OUT 은 두 대가 함께 멈춰야 한다.
-      // 한 대가 종료 핀을 놓쳐도(끊김·구버전 교체 직후 등) 이 신호로 같이 확정 정지한다.
-      if (data.slaveID === '__end__' && data.updates && data.updates[0]) {
-        if (String(data.arduinoID || '') !== 'end-' + _gmPhoneId) {
-          _gmApplyRemoteEnd(parseInt(data.updates[0].pin));
-        }
-        break;
-      }
       // 다른 폰이 새로 본 힌트 (pin = LC 코드 번호)
       if (data.slaveID === '__hint__' && data.updates && data.updates[0]) {
         _gmHintAdd(parseInt(data.updates[0].pin), false);
@@ -284,11 +246,6 @@ function handleWebSocketMessage(data) {
         try {
           data.arduinos.forEach(arduino => {
             (arduino.pins || []).forEach(pin => {
-              // 게임 시작 핀이 이미 걸려 있다 = 내가 켜지기 전에 게임이 시작됐다 (v143)
-              if (data.slaveID === 'streetmega' && arduino.arduinoID === 'streetmega-2' &&
-                  parseInt(pin.pin) === 22 && pin.state === 'on') {
-                _gmNoteGameInProgress('스냅샷에 게임 시작 핀이 이미 켜져 있음');
-              }
               if (_gmPinChanged(data.slaveID, arduino.arduinoID, pin.pin, pin.state)) {
                 checkPinStatus(data.slaveID, arduino.arduinoID, pin.pin, pin.state);
               }
@@ -384,80 +341,11 @@ var _gmTimeSynced = false;
 
 // 게임 시작 핀을 **라이브로** 봤다면 이 폰의 시간은 처음부터 정확하다.
 // (스냅샷 재생 경로에서는 절대 부르지 않는다 — 그게 바로 못 믿는 경우다)
-//
-// ⚠ v143 — "라이브 pin22" 만으로는 부족하다는 게 드러났다.
-//   재시작한 폰에 GM 이 [게임 시작 신호]를 다시 보내면(또는 거리 핀이 다시 밟히면)
-//   그 폰은 그걸 "내가 방금 본 게임 시작"으로 믿고 1:40:00 을 tS-(정답)로 퍼뜨렸다.
-//   → 뷰어 시계까지 1:40:00 으로 되돌아가고, 그 폰은 두 번 다시 남의 시간을 받지 않는다.
-//   그래서 세 가지를 확인한 뒤에만 믿는다:
-//     ① 이 폰이 아직 게임 시작을 모르고 있었나 (알고 있었으면 재전송된 신호다)
-//     ② 부팅 판정이 끝났나 (안 끝났으면 보류 — 스냅샷·다른 폰 응답이 아직 안 왔을 수 있다)
-//     ③ 이미 돌고 있던 게임이 아니었나
 function _gmMarkLiveStart(slaveID, arduinoID, pin, state) {
-  if (!(slaveID === 'streetmega' && arduinoID === 'streetmega-2' && parseInt(pin) === 22 && state === 'on')) return;
-  if (_gmTimeSynced) return;
-  var known = false;
-  try { known = (typeof pinProgress !== 'undefined' && !!(pinProgress && pinProgress.streetmegaPin22)); } catch (e) {}
-  if (known) {
-    console.log('[GM] 이미 시작을 아는 폰 — 시작신호 재전송으로 보고 시간은 신뢰하지 않는다');
-    return;
+  if (slaveID === 'streetmega' && arduinoID === 'streetmega-2' && parseInt(pin) === 22 && state === 'on') {
+    if (!_gmTimeSynced) console.log('[GM] 게임 시작을 라이브로 확인 → 시간 신뢰');
+    _gmTimeSynced = true;
   }
-  if (!_gmBootDecided) {          // 부팅 직후 — 판정을 미뤄둔다
-    _gmPendingLiveStart = true;
-    console.log('[GM] 게임 시작 핀 수신 — 부팅 판정 후에 신뢰 여부를 정한다');
-    return;
-  }
-  if (_gmGameInProgress) {
-    console.log('[GM] 진행 중인 게임의 시작신호 재전송 — 시간을 신뢰하지 않는다');
-    return;
-  }
-  console.log('[GM] 게임 시작을 라이브로 확인 → 시간 신뢰');
-  _gmTimeSynced = true;
-}
-
-// ── 부팅 판정 (v143) ──────────────────────────────────────────────
-// 게임이 이미 돌고 있다는 증거를 봤다 → 사고 재시작이다. 즉시 판정한다.
-function _gmNoteGameInProgress(why) {
-  if (_gmBootWasReset) return;      // 의도한 초기화 — 걸려 있는 핀·보고에 흔들리지 않는다
-  if (_gmGameInProgress) return;
-  _gmGameInProgress = true;
-  console.log('[GM] 이미 진행 중인 게임 감지 (' + why + ')');
-  if (!_gmBootDecided) _gmBootDecide();
-}
-function _gmScheduleBootAnnounce() {
-  _gmBootAnnouncePending = true;
-  if (_gmGameInProgress) { _gmBootDecide(); return; }
-  if (_gmBootAnnounceTimer) return;
-  _gmBootAnnounceTimer = setTimeout(_gmBootDecide, BOOT_WINDOW_MS);
-}
-function _gmBootDecide() {
-  if (_gmBootDecided) return;
-  _gmBootDecided = true;
-  if (_gmBootAnnounceTimer) { clearTimeout(_gmBootAnnounceTimer); _gmBootAnnounceTimer = null; }
-
-  if (_gmBootAnnouncePending) {
-    _gmBootAnnouncePending = false;
-    if (_gmGameInProgress) {
-      // 게임 중이다 → 아무도 초기화하지 않는다. 뷰어에는 재시작 사실만 알린다.
-      console.log('[GM] 게임 진행 중 재시작 — 초기화 통보를 보내지 않는다 (스냅샷으로 따라잡기)');
-      _gmAnnounceBootOnly();
-    } else {
-      _gmAnnounceReset(1);
-    }
-  }
-  if (_gmPendingLiveStart) {       // 유예해 둔 pin22 신뢰 판정
-    _gmPendingLiveStart = false;
-    if (_gmGameInProgress) console.log('[GM] 보류했던 시작 핀 — 진행 중인 게임이었다, 신뢰하지 않음');
-    else { console.log('[GM] 보류했던 시작 핀 — 새 게임 시작이 맞다, 시간 신뢰'); _gmTimeSynced = true; }
-  }
-}
-// 초기화가 아닌 "재시작했다"는 사실만 알리는 채널. 뷰어는 로그만 남기고 아무것도 지우지 않는다.
-function _gmAnnounceBootOnly() {
-  try {
-    if (ws && ws.readyState === WebSocket.OPEN) {
-      ws.send(JSON.stringify({ type: 'simPin', slaveID: '__boot__', arduinoID: 'rb-' + _gmPhoneId, pin: 1, state: 'on' }));
-    }
-  } catch (e) {}
 }
 
 function _gmTimeTag() { return 't' + (_gmTimeSynced ? 'S' : 'U') + '-' + _gmPhoneId; }
@@ -474,12 +362,10 @@ function _gmSendTime(channel) {
 // 다른 폰의 시간 보고를 채택할지 판단. 내가 이미 믿을 만하면 손대지 않는다
 // (돌고 있는 폰이 남의 보고에 흔들리면 안 된다 — 둘 다 벽시계 기준이라 드리프트도 없다).
 function _gmMaybeAdoptTime(sec, arduinoID) {
+  if (_gmTimeSynced) return;
   var aid = String(arduinoID || '');
   if (aid === _gmTimeTag() || aid === 'tS-' + _gmPhoneId || aid === 'tU-' + _gmPhoneId) return;  // 자기 에코
   if (aid.indexOf('tS-') !== 0) return;              // 상대도 모르는 값이면 받지 않는다
-  // 믿을 만한 폰이 시간을 보고하고 있다 = 게임이 돌고 있다 → 내 부팅은 사고 재시작 (v143)
-  _gmNoteGameInProgress('다른 폰이 시간을 보고 중');
-  if (_gmTimeSynced) return;
   if (isNaN(sec) || sec < 0) return;
   console.log('[GM] 다른 폰에서 시간 자동 동기화:', sec, '초');
   _gmApplyTime(sec, 'phone');
@@ -495,15 +381,6 @@ function _gmRequestTime() {
   } catch (e) {}
 }
 setInterval(_gmRequestTime, 10000);
-// 부팅 직후에는 1.5초 간격으로 몇 번 더 묻는다 (v143).
-// 재시작한 태블릿이 10초 넘게 1:40:00 을 띄우고 있으면 손님이 먼저 알아본다.
-var _gmReqBurstLeft = 0;
-function _gmRequestTimeBurst() {
-  if (_gmTimeSynced || _gmReqBurstLeft <= 0) return;
-  _gmReqBurstLeft--;
-  _gmRequestTime();
-  setTimeout(_gmRequestTimeBurst, 1500);
-}
 // 적용 확인 회신. 뷰어가 "몇 대에 먹었는지" 셀 수 있게 폰 식별자를 실어 보낸다.
 // (이게 없으면 서버가 메시지를 삼켜도 GM 은 실패를 영영 모른다 — 이번 사고의 원인)
 function _gmSendTimeAck(sec) {
@@ -563,9 +440,6 @@ setInterval(function(){
       if (_gmHintMask) {
         ws.send(JSON.stringify({ type:'simPin', slaveID:'__hintmask__', arduinoID:'hm-' + _gmPhoneId, pin: _gmHintMask, state:'on' }));
       }
-      // 이 태블릿의 패치 버전 (v143) — 뷰어가 "두 대가 같은 버전인지" 보여준다.
-      // 구버전 태블릿 한 대가 남아 있으면 엔딩에 그 대만 안 멈추는 식으로 사고가 난다.
-      ws.send(JSON.stringify({ type:'simPin', slaveID:'__ver__', arduinoID:'v-' + _gmPhoneId, pin: PHONE_VER, state:'on' }));
     }
   } catch(e){}
 }, 5000);
@@ -677,46 +551,6 @@ setInterval(function(){
 }, 1000);
 
 
-// ══════════════════════════════════════════════════════════════════════════
-//  종료(엔딩 · TIME OUT) 공유 (v143)
-//
-//  엔딩이면 두 태블릿의 시간이 **함께** 끝까지 멈춰야 한다. v142 에서 각 폰의
-//  확정 정지(timerStopped)는 고쳤지만, 정지의 근거가 여전히 "내가 종료 핀을 봤다"
-//  하나뿐이라 한 대가 그 핀을 못 보면 그 대만 계속 흐른다.
-//  종료는 되돌릴 수 없는 사실이므로 폰끼리 알려 함께 멈춘다. 서버 수정 불필요.
-//    pin 1 = 엔딩(거리 pin26)   pin 2 = TIME OUT
-// ══════════════════════════════════════════════════════════════════════════
-var _gmEndApplying = false;   // 원격 신호로 실행 중 → 되쏘지 않는다(핑퐁 방지)
-var _gmEndSent = 0;
-function _gmBroadcastEnd(kind) {
-  try {
-    if (_gmEndApplying) return;
-    if (_gmEndSent & kind) return;
-    _gmEndSent |= kind;
-    if (ws && ws.readyState === WebSocket.OPEN) {
-      ws.send(JSON.stringify({ type: 'simPin', slaveID: '__end__', arduinoID: 'end-' + _gmPhoneId, pin: kind, state: 'on' }));
-      console.log('[GM] 종료 전파 (kind=' + kind + ')');
-    }
-  } catch (e) {}
-}
-function _gmApplyRemoteEnd(kind) {
-  try {
-    // 아직 시작도 안 한 폰(대기화면)은 건드리지 않는다 — 옛 신호의 잔향일 수 있다
-    if (typeof isStarted === 'undefined' || !isStarted) return;
-    if (typeof timerStopped !== 'undefined' && timerStopped) return;   // 이미 확정 정지
-    _gmEndApplying = true;
-    if (kind === 2 && typeof showTimeout === 'function') {
-      showTimeout();
-    } else if (typeof showEndingScreen === 'function') {
-      // 뒤늦게 오는 종료 핀에 두 번 실행되지 않도록 진행 표시도 맞춰둔다
-      try { if (typeof pinProgress !== 'undefined' && pinProgress) pinProgress.streetmegaPin26 = true; } catch (e) {}
-      showEndingScreen();
-    }
-    console.log('[GM] 다른 폰의 종료 신호로 함께 정지 (kind=' + kind + ')');
-  } catch (e) {
-  } finally { _gmEndApplying = false; }
-}
-
 // (v135) 소프트 리셋(_gmSoftReset)은 제거했다.
 // resetScreen 은 pinProgress 만 비울 뿐이라, 5초마다 오는 슬레이브 스냅샷이 그 빈 자리를 채우며
 // 진행을 통째로 재생해버렸다(화면 겹침 + 자동 시작). 원격 초기화도 새로고침으로 통일한다.
@@ -786,11 +620,6 @@ window.addEventListener('load', function(){
       window.resetScreen._gmOrig = _origResetScreen;
     }
   } catch(e){}
-
-  // ── 종료(엔딩·TIME OUT)를 다른 폰에도 알린다 (v143) ──
-  // app.js 는 건드리지 않고 감싸기만 한다. 원격 신호로 실행된 경우엔 되쏘지 않는다.
-  _gmWrap('showEndingScreen', null, function(){ _gmBroadcastEnd(1); });
-  _gmWrap('showTimeout',      null, function(){ _gmBroadcastEnd(2); });
 
   // ── 힌트 사용 개수: UI 설치 + app.js 화면전환 함수 감싸기 ──
   _gmInstallHintUI();

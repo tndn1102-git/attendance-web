@@ -11,7 +11,7 @@ import { dirname, join } from 'path';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
-const PHONE_SRC = readFileSync(join(root, 'phone-patch', 'websocket.v141.js'), 'utf8');
+const PHONE_SRC = readFileSync(join(root, 'phone-patch', 'websocket.v143.js'), 'utf8');
 
 let pass = 0, fail = 0;
 const ok = (cond, msg) => { if (cond) pass++; else { fail++; console.error('  ✗ ' + msg); } };
@@ -205,7 +205,9 @@ function makeViewer() {
   const p = makePhone();
 
   // 1) 최초 연결 = 폰 부팅(프로그램 초기화) → master 등록 + __reset__(pin 1) 1회
+  //    (v143: 사고 재시작과 구분하려고 6초 유예 뒤에 나간다 — L 참조)
   const s1 = p.connect();
+  p.fireTimeout(6000);
   const resets1 = s1.sent.filter(m => m.slaveID === '__reset__');
   ok(s1.sent[0] && s1.sent[0].type === 'master', 'A1 첫 메시지는 master 등록');
   ok(resets1.length === 1, 'A2 부팅 시 __reset__ 통보 1회');
@@ -248,6 +250,7 @@ function makeViewer() {
   ok(A.id() !== B.id(), 'C1 두 폰의 식별자가 다르다');
 
   // --- 초기화 전파: A 부팅 통보 → B 도 "새로고침"으로 초기화, 되쏘지 않음(무한루프 방지) ---
+  A.fireTimeout(6000); B.fireTimeout(6000);   // v143: 부팅 통보 유예창 종료
   B.sent().length = 0;
   const bcast = relay([A], [A, B]);        // A 의 부팅 통보를 서버가 모든 master 에 뿌림
   ok(bcast.some(m => m.slaveID === '__reset__'), 'C2 A 의 __reset__ 이 브로드캐스트됨');
@@ -358,8 +361,13 @@ function makeViewer() {
   snap('safehouse', 'safemega-1', 23, 'on');
   ok(hits.length === 2, 'H4 그 뒤 실제 변화는 정상 반영');
 
-  // 사고 새로고침은 초기화가 아니므로 부팅 통보는 그대로 나간다(다른 폰·뷰어도 맞춰짐)
-  ok(P.sent().filter(m => m.slaveID === '__reset__').length === 1, 'H5 사고 새로고침도 부팅 통보는 보낸다');
+  // v143 — 진행 중인 게임을 스냅샷으로 확인했다면 부팅 통보를 취소한다.
+  // (v142 까지는 여기서 __reset__ 이 나가 멀쩡한 다른 태블릿·뷰어까지 초기화됐다 — L 참조)
+  P.fireTimeout(6000);
+  ok(P.sent().filter(m => m.slaveID === '__reset__').length === 0,
+    'H5 ★★ 게임 중 사고 새로고침이면 초기화 통보를 보내지 않는다 (다른 폰·뷰어 보존)');
+  ok(P.sent().filter(m => m.slaveID === '__boot__').length === 1,
+    'H6 대신 재시작 사실만 뷰어에 알린다');
 })();
 
 /* ================= J. 힌트 사용 개수 (폰) =================
@@ -509,6 +517,7 @@ function makeViewer() {
   // 그 다음 평범한 새로고침(10탭 아님)은 다시 통보한다
   const A3 = makePhone(A2.store);
   A3.connect();
+  A3.fireTimeout(6000);             // v143: 부팅 통보 유예창
   ok(A3.sent().filter(m => m.slaveID === '__reset__').length === 1,
     'E11 ★ 10탭이 아닌 새로고침은 평소대로 통보');
 })();
@@ -525,6 +534,7 @@ function makeViewer() {
     'E14 ★★ 못 보냈으면 "통보 생략" 플래그를 남기지 않는다');
   const P2 = makePhone(P.store);    // 새로고침 후 웹소켓모드 눌러 접속
   P2.connect();
+  P2.fireTimeout(6000);             // v143: 부팅 통보 유예창
   ok(P2.sent().filter(m => m.slaveID === '__reset__').length === 1,
     'E15 ★★ 재접속 시 부팅 통보로 초기화가 전파된다 (초기화가 통째로 유실되지 않음)');
 })();
@@ -735,6 +745,7 @@ function makeViewer() {
       'var updateTimerDisplay=function(){};', p.ctx);
     p.sandbox.checkPinStatus = () => {};
     p.connect();
+    p.fireTimeout(6000);          // v143: 부팅 유예창 종료 (신뢰 판정이 즉시 나도록)
     p.ws().sent.length = 0;
     return p;
   }
@@ -898,6 +909,224 @@ function makeViewer() {
   ok(C.get('ended') === false && C.get('tRemain') === 6000, 'J13 초기화로 확정 정지 해제 + 1:40:00');
   C.upd('__time__', 'tS-aaaa', 5000);
   ok(running(C), 'J14 ★ 초기화 뒤에는 다시 정상 동작 (다음 팀 진행 가능)');
+})();
+
+/* ================= L. 사고 재시작은 아무것도 지우지 않는다 (v143) =================
+   2026-08-05 사고: 게임 도중 태블릿 한 대가 꺼졌다 켜졌더니 부팅 통보(__reset__)가 나가
+   ① 멀쩡히 돌던 다른 태블릿이 대기화면(초기화면)으로 돌아가고 ② 뷰어도 통째로 지워졌다.
+   그 바람에 시간의 기준이 되는 폰(tS-)이 사라져 재시작한 폰은 시간을 물어볼 상대조차 없었다.
+   → 부팅 통보를 6초 유예하고, 그 사이 "게임이 이미 돌고 있다"는 증거가 보이면 취소한다. */
+(function bootDuringGame() {
+  function phone(opts) {
+    const p = makePhone(opts && opts.store);
+    vm.runInContext(
+      'var timeRemaining=6000; var timerInterval=' + (opts && opts.running ? '1' : 'null') + ';' +
+      'var pinProgress={}; var isStarted=false; var timerStopped=false;' +
+      'var __startCalls=0; var startTimer=function(){ __startCalls++; };' +
+      'var updateTimerDisplay=function(){};', p.ctx);
+    p.sandbox.checkPinStatus = (s, a, pin, st) => {
+      if (s === 'streetmega' && a === 'streetmega-2' && parseInt(pin) === 22 && st === 'on') {
+        vm.runInContext('pinProgress.streetmegaPin22=true; isStarted=true;', p.ctx);
+      }
+    };
+    return p;
+  }
+  const resets = p => p.sent().filter(m => m.slaveID === '__reset__');
+  const boots = p => p.sent().filter(m => m.slaveID === '__boot__');
+  const synced = p => vm.runInContext('_gmTimeSynced', p.ctx);
+  const snapPin = (p, pin, state = 'on') =>
+    p.recv({ type: 'slaveRegister', slaveID: 'streetmega', arduinos: [{ arduinoID: 'streetmega-2', pins: [{ pin, state }] }] });
+  const livePin = (p, pin) =>
+    p.recv({ type: 'update', slaveID: 'streetmega', arduinoID: 'streetmega-2', updates: [{ pin, state: 'on' }] });
+
+  /* --- 부팅 통보는 즉시 나가지 않는다 --- */
+  const A = phone(); A.connect();
+  ok(resets(A).length === 0, 'L1 ★ 부팅 통보를 곧바로 보내지 않는다 (사고 재시작일 수 있다)');
+  A.fireTimeout(6000);
+  ok(resets(A).length === 1 && resets(A)[0].pin === 1,
+    'L2 ★ 게임 흔적이 없으면 유예 뒤 평소대로 초기화 통보 (팀 교대·아침 부팅)');
+
+  /* --- 게임 중이면 통보 자체가 취소된다 --- */
+  const B = phone(); B.connect();
+  snapPin(B, 22);                                   // 스냅샷에 게임 시작 핀이 이미 켜져 있음
+  ok(vm.runInContext('_gmGameInProgress', B.ctx) === true, 'L3 스냅샷의 pin22 로 "진행 중"을 감지');
+  ok(resets(B).length === 0, 'L4 ★★ 게임 진행 중 재시작 — __reset__ 을 보내지 않는다 (다른 폰·뷰어가 안 지워짐)');
+  ok(boots(B).length === 1 && boots(B)[0].pin === 1, 'L5 대신 __boot__ 로 "재시작했다"만 알린다');
+  B.fireTimeout(6000);
+  ok(resets(B).length === 0, 'L6 유예시간이 지나도 통보는 나가지 않는다');
+
+  /* --- 다른 폰의 시간 보고만으로도 "진행 중"을 안다 --- */
+  const C = phone({ running: true }); C.connect();
+  C.recv({ type: 'update', slaveID: '__time__', arduinoID: 'tS-aaaa', updates: [{ pin: 3000, state: 'on' }] });
+  ok(resets(C).length === 0, 'L7 ★ 믿을 만한 폰이 시간을 보고 중이면 초기화 통보를 취소한다');
+  ok(vm.runInContext('timeRemaining', C.ctx) === 3000 && synced(C) === true, 'L8 그 보고로 시간도 바로 복구된다');
+
+  /* --- 10탭·원격 초기화는 종전대로 즉시·확실하게 --- */
+  const store = new Map(); store.set('_gmResetSent', '1');
+  const D = phone({ store }); D.connect();
+  ok(resets(D).length === 0, 'L9 의도한 초기화로 새로고침된 폰은 되쏘지 않는다 (종전 규칙 유지)');
+  snapPin(D, 22);
+  ok(vm.runInContext('_gmGameInProgress', D.ctx) === false,
+    'L10 ★ 의도한 초기화면 걸려 있는 핀에 흔들리지 않는다 ("깨끗이 시작"이 명시적 지시)');
+  livePin(D, 22);
+  ok(synced(D) === true, 'L11 초기화 직후 시작 신호는 정상적으로 신뢰한다 (다음 팀 게임 시작)');
+
+  /* --- 부팅 직후 시간 요청 버스트 --- */
+  const E = phone({ running: true }); E.connect();
+  E.sent().length = 0;
+  E.fireTimeout(300);
+  ok(E.sent().filter(m => m.slaveID === '__timereq__').length === 1, 'L12 접속 직후 시간 요청');
+  // 가짜 타이머는 예약 체인을 그 자리에서 끝까지 돌린다 → 버스트 전량이 한 번에 관찰된다
+  E.fireTimeout(1500);
+  const burst = E.sent().filter(m => m.slaveID === '__timereq__').length;
+  ok(burst > 1, 'L13 ★ 부팅 직후에는 1.5초 간격으로 더 묻는다 (10초는 손님이 알아볼 만큼 길다)');
+  ok(burst === 8, 'L14 버스트는 8회(약 12초)에서 멈추고 그 뒤로는 10초 주기로 돌아간다');
+
+  /* --- 버전 보고 --- */
+  const F = phone(); F.connect(); F.sent().length = 0;
+  F.tickStatus();
+  const ver = F.sent().find(m => m.slaveID === '__ver__');
+  ok(ver && ver.pin === 143 && ver.arduinoID === 'v-' + F.id(), 'L15 ★ 폰이 5초마다 자기 패치 버전을 보고한다');
+})();
+
+/* ================= M. "시작 신호 재전송"에 속지 않는다 (v143) =================
+   재시작한 폰에 GM 이 [게임 시작 신호]를 다시 보내면, 그 폰이 1:40:00 을
+   "믿을 만한 값(tS-)"으로 퍼뜨려 뷰어 시계까지 처음으로 되돌렸다. */
+(function restartThenStartSignal() {
+  function phone() {
+    const p = makePhone();
+    vm.runInContext(
+      'var timeRemaining=6000; var timerInterval=1; var pinProgress={}; var isStarted=false;' +
+      'var timerStopped=false; var __startCalls=0; var startTimer=function(){ __startCalls++; };' +
+      'var updateTimerDisplay=function(){};', p.ctx);
+    p.sandbox.checkPinStatus = (s, a, pin, st) => {
+      if (s === 'streetmega' && a === 'streetmega-2' && parseInt(pin) === 22 && st === 'on') {
+        vm.runInContext('pinProgress.streetmegaPin22=true; isStarted=true;', p.ctx);
+      }
+    };
+    p.connect();
+    return p;
+  }
+  const synced = p => vm.runInContext('_gmTimeSynced', p.ctx);
+  const livePin = (p, pin) => p.recv({ type: 'update', slaveID: 'streetmega', arduinoID: 'streetmega-2', updates: [{ pin, state: 'on' }] });
+  const snapPin = (p, pin) => p.recv({ type: 'slaveRegister', slaveID: 'streetmega', arduinos: [{ arduinoID: 'streetmega-2', pins: [{ pin, state: 'on' }] }] });
+
+  /* --- 스냅샷으로 따라잡은 폰에 시작 신호가 다시 오면 --- */
+  const R = phone();
+  snapPin(R, 22);                                   // 재시작 → 스냅샷으로 진행 따라잡기(1:40:00)
+  ok(synced(R) === false, 'M1 (준비) 복구본이라 시간을 못 믿는 상태');
+  livePin(R, 22);                                   // GM 이 [게임 시작 신호] 를 다시 누름
+  ok(synced(R) === false,
+    'M2 ★★ 이미 시작을 아는 폰은 시작신호 재전송을 "라이브 시작"으로 믿지 않는다 (1:40:00 을 정답으로 퍼뜨리면 안 됨)');
+  R.sent().length = 0;
+  R.recv({ type: 'update', slaveID: '__timereq__', arduinoID: 'req-zzzz', updates: [{ pin: 1, state: 'on' }] });
+  ok(!R.sent().some(m => m.slaveID === '__timeres__'), 'M3 ★ 그래서 남의 물음에도 답하지 않는다');
+  R.recv({ type: 'update', slaveID: '__timeres__', arduinoID: 'tS-aaaa', updates: [{ pin: 2400, state: 'on' }] });
+  ok(vm.runInContext('timeRemaining', R.ctx) === 2400 && synced(R) === true,
+    'M4 ★★ 대신 살아 있는 폰에서 제대로 받아온다 (이번 사고의 정상 경로)');
+
+  /* --- 부팅 유예창 안에 들어온 시작 핀은 판정을 미룬다 --- */
+  const G = phone();
+  livePin(G, 22);                                   // 부팅하자마자 시작 핀 (진짜 시작인지 아직 모른다)
+  ok(synced(G) === false && vm.runInContext('_gmPendingLiveStart', G.ctx) === true,
+    'M5 ★ 부팅 직후의 시작 핀은 신뢰 판정을 보류한다');
+  G.fireTimeout(6000);
+  ok(synced(G) === true, 'M6 유예 뒤 게임 흔적이 없으면 진짜 시작으로 확정 → 신뢰');
+
+  const H = phone();
+  H.recv({ type: 'update', slaveID: '__time__', arduinoID: 'tS-bbbb', updates: [{ pin: 3000, state: 'on' }] });
+  vm.runInContext('_gmTimeSynced=false;', H.ctx);   // 받아쓰기는 잠시 무시하고 신뢰 판정만 본다
+  livePin(H, 22);
+  ok(synced(H) === false,
+    'M7 ★★ 이미 게임이 돌고 있었다면 부팅 직후의 시작 핀도 신뢰하지 않는다');
+})();
+
+/* ================= N. 종료(엔딩·TIME OUT) 공유 (v143) =================
+   2026-08-05 사고: 엔딩인데 한 대만 멈췄다(다른 대는 구버전이었다).
+   종료는 되돌릴 수 없는 사실이므로 폰끼리 알려 함께 멈춘다. */
+(function endBroadcast() {
+  function phone(started) {
+    const p = makePhone();
+    vm.runInContext(
+      'var timeRemaining=3000; var timerInterval=1; var timerStopped=false;' +
+      'var isStarted=' + (started ? 'true' : 'false') + '; var pinProgress={};' +
+      'var __ending=0, __timeout=0;' +
+      'function showEndingScreen(){ __ending++; timerStopped=true; timerInterval=null; }' +
+      'function showTimeout(){ __timeout++; timerStopped=true; timerInterval=null; }' +
+      'var updateTimerDisplay=function(){}; var startTimer=function(){};', p.ctx);
+    p.sandbox.checkPinStatus = () => {};
+    p.connect();
+    // websocket.js 의 load 핸들러가 app.js 함수를 감싼다(실제 로드 순서 재현)
+    p.sandbox.window.showEndingScreen = vm.runInContext('showEndingScreen', p.ctx);
+    p.sandbox.window.showTimeout = vm.runInContext('showTimeout', p.ctx);
+    vm.runInContext("_gmWrap('showEndingScreen', null, function(){ _gmBroadcastEnd(1); });" +
+                    "_gmWrap('showTimeout', null, function(){ _gmBroadcastEnd(2); });", p.ctx);
+    p.sent().length = 0;
+    return p;
+  }
+  const ends = p => p.sent().filter(m => m.slaveID === '__end__');
+  const g = (p, k) => vm.runInContext(k, p.ctx);
+
+  /* --- 엔딩을 본 폰이 알린다 --- */
+  const A = phone(true);
+  A.sandbox.window.showEndingScreen();
+  ok(ends(A).length === 1 && ends(A)[0].pin === 1 && ends(A)[0].arduinoID === 'end-' + A.id(),
+    'N1 ★ 엔딩이면 다른 폰에도 종료를 알린다');
+  A.sandbox.window.showEndingScreen();
+  ok(ends(A).length === 1, 'N2 같은 종료를 두 번 쏘지 않는다');
+
+  /* --- 못 본 폰이 그 신호로 함께 멈춘다 --- */
+  const B = phone(true);
+  B.recv({ type: 'update', slaveID: '__end__', arduinoID: 'end-aaaa', updates: [{ pin: 1, state: 'on' }] });
+  ok(g(B, '__ending') === 1 && g(B, 'timerStopped') === true,
+    'N3 ★★ 종료 핀을 놓친 폰도 다른 폰의 신호로 엔딩·확정 정지된다');
+  ok(g(B, 'pinProgress.streetmegaPin26') === true, 'N4 뒤늦게 오는 종료 핀에 두 번 실행되지 않게 표시도 맞춘다');
+  ok(ends(B).length === 0, 'N5 ★ 받아서 실행한 건 되쏘지 않는다 (폰끼리 핑퐁 방지)');
+
+  /* --- TIME OUT 도 같은 규칙 --- */
+  const C = phone(true);
+  C.sandbox.window.showTimeout();
+  ok(ends(C).length === 1 && ends(C)[0].pin === 2, 'N6 TIME OUT 도 전파한다');
+  const D = phone(true);
+  D.recv({ type: 'update', slaveID: '__end__', arduinoID: 'end-aaaa', updates: [{ pin: 2, state: 'on' }] });
+  ok(g(D, '__timeout') === 1 && g(D, 'timerStopped') === true, 'N7 받은 쪽도 TIME OUT 으로 정지');
+
+  /* --- 안전장치 --- */
+  const E = phone(false);   // 아직 시작 전(대기화면)
+  E.recv({ type: 'update', slaveID: '__end__', arduinoID: 'end-aaaa', updates: [{ pin: 1, state: 'on' }] });
+  ok(g(E, '__ending') === 0, 'N8 ★ 대기화면 폰은 옛 종료 신호에 엔딩으로 넘어가지 않는다');
+  const F = phone(true);
+  F.recv({ type: 'update', slaveID: '__end__', arduinoID: 'end-' + F.id(), updates: [{ pin: 1, state: 'on' }] });
+  ok(g(F, '__ending') === 0, 'N9 자기 에코는 무시');
+
+  /* --- 릴레이 경유 실제 2대 --- */
+  const P1 = phone(true), P2 = phone(true);
+  P1.sandbox.window.showEndingScreen();
+  relay([P1], [P1, P2]);
+  ok(g(P2, 'timerStopped') === true && g(P2, '__ending') === 1,
+    'N10 ★★ 한 대가 엔딩을 보면 두 대가 함께 멈춘다 (서버 수정 없이)');
+
+  /* --- 뷰어: 엔딩 뒤에도 도는 폰을 잡아낸다 --- */
+  const V = makeViewer();
+  V.upd('__time__', 'tS-aaaa', 3000);
+  V.upd('streetmega', 'streetmega-2', 26);                 // 엔딩
+  ok(V.get('tInt') === null, 'N11 (준비) 뷰어 시계 정지');
+  V.upd('__time__', 'tS-aaaa', 2990);                      // 그 폰은 계속 흐르고 있다
+  ok(/엔딩 뒤에도/.test(V.doc.getElementById('syncDot').textContent),
+    'N12 ★★ 뷰어가 "엔딩 뒤에도 시간이 흐르는 폰"을 잡아 GM 에게 알린다');
+  ok(V.doc.getElementById('endStopBtn').style.display === '', 'N13 정지 재전송 버튼이 뜬다');
+  ok(V.get('tInt') === null, 'N14 그래도 뷰어 시계는 다시 돌지 않는다');
+
+  /* --- 뷰어: 태블릿 버전 표시 --- */
+  const V2 = makeViewer();
+  V2.upd('__status__', 'snsdm-aaaa', 0); V2.upd('__status__', 'snsdm-bbbb', 0);
+  V2.upd('__ver__', 'v-aaaa', 143); V2.upd('__ver__', 'v-bbbb', 143);
+  ok(/v143 ×2/.test(V2.doc.getElementById('verBadge').textContent), 'N15 두 대가 같은 버전이면 그대로 표시');
+  const V3 = makeViewer();
+  V3.upd('__status__', 'snsdm-aaaa', 0); V3.upd('__status__', 'snsdm-bbbb', 0);
+  V3.upd('__ver__', 'v-aaaa', 143);                        // 한 대는 구버전이라 __ver__ 를 안 보낸다
+  ok(/구버전 1대/.test(V3.doc.getElementById('verBadge').textContent),
+    'N16 ★★ 구버전 태블릿이 남아 있으면 뷰어가 경고한다 (이번 사고를 눈으로 잡는 장치)');
 })();
 
 console.log(fail === 0
