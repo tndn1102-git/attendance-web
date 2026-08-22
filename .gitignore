@@ -20,3 +20,11 @@ hint-phone.zip
 
 # wrangler 로컬 캐시·상태
 .wrangler/
+
+# suno-sleep-yt — OAuth 토큰(변형 이름 yt_token_gayo 등 포함) 절대 커밋 금지
+yt_token*.json
+# suno-sleep-yt 미디어 산출물(곡 mp3·마스터 wav·렌더 mp4)은 저장소에 넣지 않는다
+suno-sleep-yt/**/*.mp3
+suno-sleep-yt/**/*.wav
+suno-sleep-yt/**/*.mp4
+suno-sleep-yt/.pw-profile/

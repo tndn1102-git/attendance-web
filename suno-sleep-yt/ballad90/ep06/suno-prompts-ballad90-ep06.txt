@@ -1,0 +1,856 @@
+==========================================================================
+ 추억 감성가요 (@chueokgamsung) — EP06 곡 프롬프트 8곡   ★붙여넣기 전용본
+ 🔴 **정서 전환 첫 편 — 「그 시절 설렘」 100% · 상실 0곡**
+ 🔊 **음색 보정 첫 편 — EP04·EP05 는 "보정 전", EP06 부터가 "보정 후"다**
+ 2026-08-21 / 발행 = 2026-08-26(수) 07:00 KST / cafe-bgm-music-director
+ 기준 = CLAUDE.md §🔊🔝(2026-08-19 사용자 청취 판정) + §✍️ v2 + oktapbang §8 개정안
+ 블록 순서 = LYRICS → STYLE → EXCLUDE → TITLE
+==========================================================================
+
+ [EP06 컨셉]  2026-08-19 사용자 확정 (`ep06\_컨셉.md`)
+   · 연대 = 2000년대(EP04부터 유지) · 씬 = **여름 끝 하교길** — 늦은 오후 금빛 햇살,
+     버즘나무 그늘, 건조한 공기, 교복, 분식집·문방구가 있는 동네 골목
+   · 정서 = **설렘·진행중 100% · 상실 0곡** (EP04·EP05 는 상실 87.5%였다)
+   · 8곡을 가르는 축 = 정서가 아니라 **관계의 8단계**
+     인지 → 관찰 → 첫 접점 → 구실 → 기다림 → 동행 → 자각 → 문턱 (세트 내 중복 0)
+   · 곡8(문턱) = 고백 완료가 **아니다.** 관계가 가장 확정·지속되는 곡으로 닫는다(루프 낙차 제거)
+   · 제목 앞 훅 = 그시절형(로테이션) · 썸네일 라벨 `2000s KOREAN BALLAD` 고정
+
+
+==========================================================================
+ 🔊 EP05에서 무엇을 왜 바꿨는가 — **딱 두 가지만 바꿨다**
+==========================================================================
+ EP04·EP05 는 두 편 연속 "축을 6개 동시에 바꾸고 아무것도 모르는" 상태였다.
+ 그래서 이번 편은 **음색 4개항(사용자 청취 판정에서 나온 것)** 과 **스트링 단일 가설 실험**
+ 둘만 건드리고, 나머지 음악 축은 **EP05 그대로 고정**한다.
+
+ ── ①  🔴 음색 4개항 (CLAUDE.md §🔊🔝 "✅ EP06 STYLE 수정" 그대로) ────────
+ 사용자 판정 = *"음색이 우리만 어색하다. 옥탑방은 티가 거의 안 난다."* 이게 최우선 과제다.
+ 실측이 밝힌 진실 = **`highs rolled off above seven kilohertz` 는 3편 연속 한 번도 실행되지 않았다**
+ (EP05 보컬 스템이 레퍼런스보다 여전히 +2.42dB 밝았다). 프롬프트로 세 번 안 된 축은 프롬프트로 더
+ 밀지 않는다 → 실제 교정은 `build_master.py` 의 `SHELF = highshelf f=4500 g=-3` 가 한다.
+
+   1. **숫자 지시 삭제** — `highs rolled off above seven kilohertz` 를 전곡에서 뺐다.
+      대신 롤오프는 **반주에만 한정** = `the backing track has a dark top end with no cymbal sizzle`
+   2. **`no air band` 전면 삭제** — STYLE·EXCLUDE 양쪽에서 뺐다. 이 지시가 보컬에 걸리면
+      사람 목소리의 숨·치찰음·존재감(8~16kHz)이 담요 뒤 소리가 된다
+   3. **보컬 공기감 복원** — 전곡에 신설:
+      `The voice keeps its natural breath and air, close-miked and present, soft consonants
+       and breath audible.`
+      ⚠️ `soft consonants` 는 **단독 사용 금지 조항**이 있다. 반드시 위 문장처럼 붙여 쓸 것
+   4. **표현 억제어 축소** — `never belted` 만 남기고 `plain and gentle rather than powerful`·
+      `almost spoken at the start of lines` 는 삭제. EXCLUDE 는 `long vocal runs`·`gospel melisma`·
+      `belted power vocal` 만 유지(소몰이 방지)하고 `shouted high note`·`screaming`·`air band`·
+      `whisper vocals` 는 뺐다 — **크게도 말고 꾸미지도 말고 공기감도 깎으면** 살아 있는 목소리가
+      나올 수가 없다는 게 이번 판정의 핵심이었다.
+ ⚠️ **이 4개항의 효과는 계측이 아니라 귀로만 확인된다.** 8곡 생성 전 1~2곡 청취 확인 권고
+    (§🔊🔝 마지막 줄. 최종 결정은 사용자).
+
+ ── ②  🥇 스트링 단일 가설 실험 = **곡1 ↔ 곡4** ─────────────────────────
+ EP05 실측: 미디엄 3곡 중 **스트링이 있는 곡(곡1)만** BPM 지시 100 → 실측 64.6 으로 실패했고,
+ 스트링 6곡은 **전부 63~68 대역**에 몰렸다. 가설 = **"스트링이 템포를 끌어내린다."**
+ → EP06 은 미디엄 2곡을 **스트링 유무만 다르게** 뽑는다.
+
+   | | 곡1 (인지) | 곡4 (구실) |
+   |---|---|---|
+   | BPM 지시 | around 100 BPM | **around 100 BPM (동일)** |
+   | 그루브·킷·8분 하이햇 | 동일 문구 | **동일 문구** |
+   | 보컬 | 여성 메조 D4~E4 | **여성 메조 D4~E4 (동일)** |
+   | 음절 밀도 문구 | 동일 | **동일** |
+   | 인트로 | 14초 | **14초 (동일)** |
+   | 전조 | 없음 | **없음 (동일)** |
+   | **스트링** | **있음**(첫 마디부터 연속) | **없음**(긴 플레이트 꼬리로 대체) |
+   | 조성 루트 | C major | A major |
+
+   · 다른 축은 **한 글자도 다르지 않게** 썼다. 두 곡 STYLE 을 diff 하면 스트링 문장과
+     조성 루트만 다르다. 조성 루트는 템포에 작용할 경로가 없어 통제 대상에서 제외했다.
+   · 🔴 **전조를 곡1·곡4 에서 뺐다** — EP05 는 곡1(미디엄)에 전조를 걸었지만, 실험쌍 중 한쪽에만
+     전조가 있으면 "스트링만 다르다"가 깨진다. 전조 2곡은 **곡3·곡8(둘 다 정통 발라드)** 로 옮겼다.
+     전조 곡 수(2곡 = 레퍼 24%)는 EP05 그대로다.
+   · **읽는 법** = 곡1 실측 BPM < 곡4 실측 BPM 이면 가설 지지, 둘 다 100 근처면 가설 기각,
+     둘 다 낮으면 원인은 스트링이 아니다. **어느 쪽이든 이번 편에서 처음으로 답이 나온다.**
+
+ ── ③  ⚪ EP05 그대로 고정한 것 (원인 귀속을 위해 일부러 안 건드렸다) ──────
+   · **BPM 숫자 지시** — 미디엄 3곡(100·100·82)만 숫자로 박는다. 정통 발라드는 EP05 대역(66~74)
+   · **8분 하이햇** `a quiet closed hi-hat in eighth notes` (정통은 `almost no hi-hat at all`)
+   · **보컬 음절 밀도** 문구 · **스트링 first-bar 연속** 문구 · **인트로 배분**(14/14/15 · 18/20/22 · 28/30)
+   · **벨팅 1dB 한도** 문구 + 채택 게이트 · **밴드 발라드 1곡**(장르명 금지, 원하는 것만 지시)
+   · 스트링 없는 곡의 `a long warm plate reverb tail` 대체 = EP05 방식 그대로
+
+ ── ④  🎼 정서 전환에 따라 화성만 바뀐다 (음색 축이 아니라 정서 축) ────────
+ 정서를 설렘으로 바꾸면서 화성을 상실 편 그대로 두면 **가사만 밝고 소리는 그대로**가 된다.
+   · 조성 = **장조 7 · 단조 1**(곡5). 곡5는 마지막 후렴에서 **동주 장조**로 푼다
+   · 기본 진행 = `Imaj7 - vi7 - ii7 - V7sus4` 또는 `Imaj7 - III7 - vi7 - IV`(III7 = 세컨더리 도미넌트)
+   · 감정 사건 = 후렴 3~4행의 **`IV → iv`(장→단 하행) 한 번.** 밝은 곡에 그리움 한 방울 —
+     이게 이 니치의 "울림"이고, 곡마다 **딱 한 번만** 쓴다
+   · 베이스 = 2·4번째 코드에서 **3도 베이스**(상행감) · 딜리버리 = **의문행 끝을 살짝 올린다**
+   · ⛔ `no crescendo` 유지. **밝다고 크게 만들지 않는다**
+
+ ── ⑤  🔴 STYLE 길이 = **937~969자** (Suno STYLE 칸은 **1,000자에서 잘린다** · 사용자 실측) ──
+   1차본은 1,704~1,917자였고 **뒤가 잘린 채 들어가고 있었다.** 8곡 전부 다시 압축했다.
+   · 존재적 지시(언어·성별·음역)는 **앞 200자 안** · **마지막 43자는 잘려도 되는 문장**만 둔다
+   · 음색 4개항 3문장(dark top end · natural breath and air · Lead vocal in front)은 **원문 그대로**
+   · 버린 것 = 인트로 초 지정 · 로마숫자 화성 나열 · 베이스/패드 세부 · 믹스 수치 · 음역 설명문
+   · 배제어는 **Suno EXCLUDE 칸이 따로 살아 있으므로 STYLE 에 인라인하지 않는다**(Mureka와 다른 점)
+   · ⚠️ 모델은 **v5.5**(감성가요 전용). v4.5는 Ember&Rain 전용 — STYLE 작법에는 영향 없다
+
+ [Suno 설정]
+   · Custom 모드 · 모델 **v4.5** · **Instrumental OFF** · Extend 금지
+   · Male / Female 버튼 누르지 말 것 (STYLE 안에서 성별을 지정한다)
+   · 🔴 **곡당 1회 생성(=2테이크) → 1개만 채택.** 2테이크가 둘 다 미달이면 그 곡만 재생성
+   · 채택 게이트(EP05 그대로) = 미디엄 실측 BPM 80~104 AND 보컬 온셋 ≥3.5 ·
+     벨팅 정통 [−0.5,+1.0] / R&B [+0.5,+2.4] / 밴드 ≤+1.0 · 밴드 리프트 ≤1.0 · move ≤12
+   · ⚠️ **곡1·곡4 는 게이트 미달이어도 폐기 전에 BPM 값을 먼저 기록할 것** — 이 두 곡의 실측치가
+     이번 편의 유일한 실험 데이터다. 기록 없이 재생성하면 실험이 날아간다
+
+ [받는 폴더]  D:\test3\suno-sleep-yt\ballad90\ep06\music
+
+──────────────────────────────────────────────────────────────────────────
+ 곡별 사양   (★ = EP05에서 바뀐 지점 · 나머지는 전부 고정)
+──────────────────────────────────────────────────────────────────────────
+  #  단계    제목            층      조성        BPM   보컬            호칭  인트로  장치
+  1  인지    오후 네 시     미디엄  C major   100   여성 메조 D4    너   14초   스트링O · ★실험A
+  2  관찰    외웠어요       정통    D major    68   남성 미들톤     그대 20초   거의 무햇 · 존대체
+  3  첫 접점 고맙다고 했어  정통    E major    70   여성 로우알토   너   28초   ★전조+1 · 스트링O
+  4  구실    삼십분         미디엄  A major   100   여성 메조 D4    너   14초   스트링X · ★실험B
+  5  기다림  답장이 없다    정통    B minor    66   여성 저·중음 C4 그대 22초   ★동주 장조 해결
+  6  동행    집 앞까지      미디엄  A♭ major   82   남성 미들(R&B)  너   15초   스트링X · 밀도 최대
+  7  자각    인정           밴드    E major    74   남성 미들로우   너   30초   실드럼 · 톰 필 1회
+  8  문턱    용기           정통    G major    70   여성 메조 D4    너   18초   ★전조+1 · 스트링O
+
+ · 미디엄 3곡 = 1·4·6 (BPM 숫자 지시 100 / 100 / 82) — EP05와 같은 3곡 구성
+ · 스트링(첫 마디부터) 6곡 = 1·2·3·5·7·8 / 없는 2곡 = 4·6 (긴 플레이트 꼬리로 대체) — EP05와 같은 6/2
+ · ★전조 2곡 = 3·8 (+1 반음 · 볼륨 고정) / 나머지 6곡 `No key change, no modulation`
+   (EP05는 1·4였다 — 실험쌍에서 빼기 위해 옮겼다. 곡 수는 그대로)
+ · 호칭 = 그대계 2(2·5) / 너계 6(1·3·4·6·7·8) — 곡 안에서 절대 섞지 않음
+ · 존대체 = 곡2 한 곡만, 그 곡은 전체 통일
+ · 성별 = 여성 5(1·3·4·5·8) / 남성 3(2·6·7) — EP05와 같은 배분
+ · 조성 = 장조 7 · 단조 1(곡5) — ★상실 편(단조 6)에서 뒤집혔다. 정서 전환의 화성적 실체다
+
+ ──────────────────────────────────────────────────────────────────────────
+ 🏷 제목 8개 전면 교체 (2026-08-21 · 사용자 기각 → 실제 2000년대 실측으로 재작성)
+ ──────────────────────────────────────────────────────────────────────────
+ 사용자 판정 = **"제목이 너무 AI 느낌이 난다"** → 1차 제목 8개 전량 폐기.
+ 원인은 게이트였다. 기존 제목 게이트는 **옥탑방(AI 창작 니치 채널) 실측**이라 실제 2000년대와 달랐다.
+ → 실제 2000~2009 국내 히트곡 **343곡 제목을 수집해 문법을 다시 쟀다**
+    (원자료·분석 = `research	itle2000s\_제목규칙.md`).
+
+ | 실측 지표 | 2000년대 343곡 | 우리 1차 제목 8개 | 판정 |
+ |---|---|---|---|
+ | 어절 수 | **1어절 44.5%** · 2어절 33.8% · 3어절 15.5% | 3어절 **75%** · 1어절 0% | 🔴 |
+ | 부사 선행(자꾸·먼저·괜히류) | **0.3%** (343곡 중 1곡) | **50%** (4개) | 🔴 **AI 티의 정체** |
+ | 2인칭 포함 | **6.9%** | 25% | 🔴 |
+ | 명사·명사구 | **49.0%** | 37.5% | 🟠 |
+ | 평균 글자수 | **4.8자**(중앙 4 · 1~3자 30.7%) | 5.6자 · 1~3자 0% | 🟠 |
+
+ **구 → 신 매핑** (⚠️ mp3 파일명·폴더가 구 제목이면 이 표로 대조할 것)
+ | # | 단계 | 구 제목(폐기) | **신 제목** | 형(型) |
+ |---|---|---|---|---|
+ | 1 | 인지 | 자꾸 너를 봐 | **오후 네 시** | 명사구·3어절 (숫자형 = 365일·8282 계열) |
+ | 2 | 관찰 | 그대 걸음 속도 | **외웠어요** | 서술완결·1어절·존대 (세트 유일 존대 곡과 일치) |
+ | 3 | 첫 접점 | 먼저 웃어 줘서 | **고맙다고 했어** | 서술완결·2어절 (그랬나봐·넌 감동이었어 계열) |
+ | 4 | 구실 | 일부러 도는 길 | **삼십분** | 명사구·1어절 (세글자·내사람처럼 붙여쓰기) |
+ | 5 | 기다림 | 오늘은 안 보여 | **답장이 없다** | 서술완결·2어절 (눈물이 안났어 계열) |
+ | 6 | 동행 | 나란히 걷던 길 | **집 앞까지** | 조사 종결 (거리에서·꿈에·둘이서 계열) |
+ | 7 | 자각 | 이런 게 사랑인가 | **인정** | 단일 한자어 명사 (체념·미련·습관·여정 계열) |
+ | 8 | 문턱 | 내일도 이 자리 | **용기** | 단일 한자어 명사 |
+
+ 신 세트 검산 = 명사·명사구 4(50%) · 서술완결 3(37.5%) · 조사 1(12.5%) ·
+ 1어절 4 / 2어절 3 / 3어절 1 · 2인칭 0 · **부사 선행 0** · 시간대어 0 · 부정어 1 · 구조 복제 0
+ ⚠️ 기존 `lyric_gate.py` 의 제목 게이트(4~7자 · 2인칭 2~3 · 감정어 2~3 · 부사 선행 2+)는
+    **이 실측에 의해 폐기 대상**이다. 새 수치로 교체하기 전까지 제목 4개 항목의 X 표시는 **예상된 것**이다.
+
+ [시대 소품 규칙 — 곡당 1종 이하 · 시대 특정은 2곡만]
+     곡5 = 문자 한 통과 답장(기다림 단계의 사건 그 자체) · 곡7 = 방명록(자각 단계의 사건 그 자체)
+     나머지 6곡 = 가방 · 분식집 · 문방구 · 골목 · 갈림길 같은 **시대 중립 소품**으로만
+     ⛔ 영구금지(카톡·스마트폰·인스타·읽씹) 0회. ✅ 2000년대 허용 소품만 사용
+
+ [저작권]
+   · 실존 가수·그룹·곡명 0개. 가사 100% 창작. 프롬프트에도 가수명·곡명을 쓰지 않았다
+   · 레퍼런스에서 가져온 것은 **계측 수치와 제작 관행**이지 멜로디·문구가 아니다
+   · 화성 진행은 저작권 대상이 아니므로 자유롭게 지정했다
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 1 — 관계 단계 ① **인지** / C major / around 100 BPM / 여성 메조(D4) / 미디엄 R&B / 인트로 14초
+        ★스트링 실험 A(스트링 있음) · 8분 하이햇 · 보컬 음절 밀도 · 전조 없음
+        호칭 「너」 · 사건 = 같은 시간 같은 길에 늘 있는 애를 알아챘다. 이름은 아직 모른다
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+수업이 다 끝난 뒤에 문을 나서고
+운동장 옆 그늘로 천천히 걸어가
+오늘도 같은 시간에 네가 지나가
+누구냐고 물어볼 용기도 없어
+걸음이 느려지는 이유를 모르고
+나는 괜히 신발 끈을 다시 묶어
+
+[Pre-Chorus]
+너를 아는 애가 우리 반에 있대
+근데 말 한마디도 못 붙여 봤어
+
+[Chorus]
+왜 자꾸 너를 먼저 찾게 되지?
+저만치 보이면 발이 빨라져
+아직 아무 사이도 아닌 우리 둘
+여름이 끝나가는 이 길 위에서
+이름을 오늘은 물어보고 싶어
+
+[Verse 2]
+분식집 골목에서 너를 또 만났어
+친구랑 웃는 소리가 여기까지 와
+나는 괜히 가방을 고쳐 매고
+네가 지나갈 때까지 그냥 서서
+그늘이 길어질 때까지 그냥 있어
+집에 가는 길이 오늘은 아깝더라
+
+[Pre-Chorus]
+말을 걸 기회는 매일 지나가는데
+오늘도 나는 그냥 뒤에서 걸으며
+
+[Chorus]
+왜 자꾸 너를 먼저 찾게 되지?
+저만치 보이면 발이 빨라져
+아직 아무 사이도 아닌 우리 둘
+여름이 끝나가는 이 길 위에서
+이름을 오늘은 물어보고 싶어
+
+[Bridge]
+네가 다른 길로 갔다면 몰랐겠지
+돌아가는 길에 혼자 웃음이 나
+이런 게 뭔지 나는 아직 모르겠어
+그냥 내일이 조금 기다려지더라
+
+[Chorus]
+왜 자꾸 너를 먼저 찾게 되지?
+저만치 보이면 발이 빨라져
+아직 아무 사이도 아닌 우리 둘
+여름이 끝나가는 이 길 위에서
+이름을 오늘은 부를 수 있을까
+
+[Outro]
+오늘도 같은 시간에 그 길로 가
+
+【STYLE】 ★962자
+Early-2000s Korean R&B pop ballad, sung in Korean by a female mezzo, D4 to E4, a smile in the voice. C major, around 100 BPM, unhurried soul groove. Warm electric piano with ninths and sixths. Soft kit from verse one: quiet closed hi-hat in eighth notes, rim click not a snare, no fills. Small close-miked strings from the first bar, quiet and continuous, dry and near. Every chorus: the major four becomes a minor four for one bar - the one emotional event. Busy conversational singing, many short syllables per bar, endings lifting on questions, volume never rising. On the beat, not behind it, small R&B grace notes, never belted, never strained, no rasp. Last chorus one decibel louder at most, no crescendo. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present, soft consonants and breath audible. Lead vocal clearly in front of the band. Warm modern mix, not retro, no lo-fi noise.
+
+【EXCLUDE】
+sixteenth-note hi-hat, busy hi-hat, bright hi-hat, trap hi-hats, 808 bass, autotune artifacts, sidechain pumping, EDM synths, dubstep, rap, hip hop beat, distorted guitar, guitar solo, rock ballad guitar, heavy rock drums, drum fills, saxophone, full orchestral strings, orchestral swell, cinematic crescendo, power ballad climax, long vocal runs, gospel melisma, belted power vocal, rasp, vinyl crackle, tape hiss, lo-fi noise, rain sounds, nature sounds, cafe ambience, crowd noise, English lyrics, trot, K-pop gloss, bright cymbals, crash cymbals, long instrumental break
+
+【TITLE】
+오후 네 시
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 2 — 관계 단계 ② **관찰** / D major / 68 BPM / 남성 미들톤 / 정통 발라드 / 인트로 20초
+        거의 무하이햇 · 스트링 첫 마디부터 · 존대체 곡(세트 유일) · 전조 없음
+        호칭 「그대」 · 사건 = 걸음 속도·가방 매는 법 같은 사소한 걸 다 외우게 됐다
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+종이 울리면 저는 창밖을 보고
+그대가 나오는 문을 알고 있어요
+가방을 한쪽으로만 매는 사람
+저보다 조금 느리게 걷는 사람
+오늘은 머리를 묶고 나왔는데
+그런 걸 저만 알고 걸어갑니다
+
+[Pre-Chorus]
+인사 한 번 못 해 본 사이이지만
+그대 뒤를 매일 따라 걷습니다
+
+[Chorus]
+그대의 뒷모습을 외우고 있어요
+몇 걸음쯤 뒤에서 천천히 걸으며
+사랑이라 말하기엔 이른 마음을
+오늘도 저는 여기 두고 갑니다
+언젠가 옆에서 같이 걷고 싶어요
+
+[Verse 2]
+매점 앞에서 그대를 봤는데
+친구들 사이에서 웃고 있었어요
+저는 조금 떨어져서 걷다가
+목소리는 생각보다 낮은 편이죠
+그런 것만 하루 종일 생각나고
+이런 저를 그대는 아시나요
+
+[Pre-Chorus]
+여름이 끝나면 이 길도 바뀌지만
+그 전에 한 번은 웃어 보고 싶어요
+
+[Chorus]
+그대의 뒷모습을 외우고 있어요
+몇 걸음쯤 뒤에서 천천히 걸으며
+사랑이라 말하기엔 이른 마음을
+오늘도 저는 여기 두고 갑니다
+언젠가 옆에서 같이 걷고 싶어요
+
+[Bridge]
+먼저 인사했다면 어땠을까요?
+그대는 저를 아직 모르시겠죠
+같은 길을 걷는 사람이 있다는 걸
+오늘도 저는 조용히 따라갑니다
+
+[Chorus]
+그대의 뒷모습을 외우고 있어요
+몇 걸음쯤 뒤에서 천천히 걸으며
+사랑이라 말하기엔 이른 마음을
+오늘도 저는 여기 두고 갑니다
+내일은 그대 쪽으로 가 볼래요
+
+[Outro]
+그런 걸 저만 알고 걸어갑니다
+
+【STYLE】 ★937자
+Early-2000s Korean adult contemporary ballad, sung in Korean by a male mid-range voice, A3 to D4, no female vocals. D major, 68 BPM, slow 4/4. Felt piano leads, pedal held long; a nylon-string guitar doubles it quietly. Almost no hi-hat - soft kick, rim click on the backbeat from verse two, no fills. Small close-miked strings from the first bar, quiet and continuous, dry and near. Every chorus: the major four becomes a minor four for one bar - the one emotional event. Close conversational vocal, on the beat, not behind it, endings lifting on questions, never belted, never strained, no rasp. Last chorus one decibel louder at most, no crescendo. Ending on a held chord, not a fade. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present, soft consonants and breath audible. Lead vocal clearly in front of the band. Warm modern mix, not retro, no lo-fi noise.
+
+【EXCLUDE】
+hi-hat, sixteenth-note hi-hat, busy drums, trap hi-hats, 808 bass, autotune artifacts, sidechain pumping, EDM synths, dubstep, rap, hip hop beat, distorted guitar, guitar solo, rock ballad guitar, heavy rock drums, drum fills, saxophone, full orchestral strings, orchestral swell, cinematic crescendo, big climax, anthemic, power ballad climax, long vocal runs, gospel melisma, key change, modulation, belted power vocal, rasp, vinyl crackle, tape hiss, rain sounds, nature sounds, cafe ambience, crowd noise, English lyrics, trot, K-pop gloss, bright cymbals, crash cymbals
+
+【TITLE】
+외웠어요
+
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 3 — 관계 단계 ③ **첫 접점** / E major / 70 BPM / 여성 로우알토 / 정통 발라드 / 인트로 28초
+        거의 무하이햇 · 스트링 첫 마디부터 · ★마지막 후렴 반음 키업(볼륨 고정)
+        호칭 「너」 · 사건 = 바람에 날아간 종이를 주워 건넸고, 처음으로 「고맙다」는 말을 들었다
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+바람에 종이 한 장이 날아가고
+네 발 앞에서 그게 멈춰 섰어
+나는 그걸 주워서 네게 내밀었어
+손이 나보다 조금 빨랐던 것 같아
+고맙다는 말을 그때 들었어
+나는 아무 대답도 하지 못했어
+
+[Pre-Chorus]
+그 목소리가 하루 종일 남아서
+집에 오는 길 내내 혼자 웃었어
+
+[Chorus]
+오늘 처음 너와 눈이 마주쳤고
+그 다음에 뭐라고 해야 하지?
+이름을 물어볼 걸 그랬나 봐
+별일 아닌 오후가 특별해졌어
+오늘은 조금 다른 하굣길이야
+
+[Verse 2]
+너는 다시 친구들 쪽으로 갔고
+나는 반대쪽으로 천천히 걸었어
+내가 걷는 길만 유난히 길었어
+돌아와 보니 그냥 흔한 종이였어
+그런데 나는 그걸 계속 생각했어
+네 웃는 얼굴이 자꾸 떠오르나 봐
+
+[Pre-Chorus]
+한마디 더 해 볼 기회가 있었는데
+그때 나는 그냥 인사만 하고 왔어
+
+[Chorus]
+오늘 처음 너와 눈이 마주쳤고
+그 다음에 뭐라고 해야 하지?
+이름을 물어볼 걸 그랬나 봐
+별일 아닌 오후가 특별해졌어
+오늘은 조금 다른 하굣길이야
+
+[Bridge]
+조금만 더 용기가 있었다면
+네 목소리를 한 번 더 들었겠지
+사랑이란 말은 아직 너무 멀지만
+오늘 하루가 오래 기억날 것 같아
+
+[Chorus]
+오늘 처음 너와 눈이 마주쳤고
+그 다음에 뭐라고 해야 하지?
+이름을 물어볼 걸 그랬나 봐
+별일 아닌 오후가 특별해졌어
+내일은 내가 먼저 말을 걸까
+
+[Outro]
+나는 아직 그 자리에 서 있어
+
+【STYLE】 ★969자
+Early-2000s Korean adult contemporary ballad, sung in Korean by a female low alto, B3 to D4, dark and relaxed. E major, 70 BPM, slow 4/4. Felt piano; a nylon-string guitar answers with one three-note figure that returns at the end. Almost no hi-hat - soft kick, rim click on the backbeat from verse two, no fills. Small close-miked strings from the first bar, quiet and continuous, dry and near. Every chorus: the major four becomes a minor four for one bar - the one emotional event. Close conversational vocal, on the beat, not behind it, endings lifting on questions, never belted, never strained, no rasp. In the final chorus the song moves up one semitone, harmonic only - one decibel louder at most, no crescendo. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present, soft consonants and breath audible. Lead vocal clearly in front of the band. Warm modern mix, not retro, no lo-fi noise.
+
+【EXCLUDE】
+hi-hat, sixteenth-note hi-hat, busy drums, trap hi-hats, 808 bass, autotune artifacts, sidechain pumping, EDM synths, dubstep, rap, hip hop beat, distorted guitar, guitar solo, rock ballad guitar, heavy rock drums, drum fills, saxophone, full orchestral strings, orchestral swell, cinematic crescendo, big climax, anthemic, power ballad climax, long vocal runs, gospel melisma, belted power vocal, rasp, vinyl crackle, tape hiss, rain sounds, nature sounds, cafe ambience, crowd noise, English lyrics, trot, K-pop gloss, bright cymbals, crash cymbals
+
+【TITLE】
+고맙다고 했어
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 4 — 관계 단계 ④ **구실** / A major / around 100 BPM / 여성 메조(D4) / 미디엄 R&B / 인트로 14초
+        ★스트링 실험 B(스트링 없음 · 긴 플레이트 꼬리로 대체) · 8분 하이햇 · 전조 없음
+        ⚠️ 곡1과 **스트링 문장·조성 루트 외에는 STYLE 이 완전히 동일하다** — 일부러 그렇게 썼다
+        호칭 「너」 · 사건 = 집은 반대쪽인데 네가 가는 길로 일부러 돌아서 간다
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+우리 집은 사실 반대쪽에 있어
+그런데 요즘 나는 이쪽으로 가
+친구가 왜 이리로 오냐고 묻고
+나는 그냥 웃고 대답은 미루고
+십 분이면 될 거리를 삼십 분 걷지
+이 정도 핑계는 나도 만들 줄 알아
+
+[Pre-Chorus]
+오늘도 저만치 네 뒷모습이 보여
+그거 하나로 하루가 길어져
+
+[Chorus]
+일부러 먼 길로 돌아가고 있어
+왜 나는 이 길을 자꾸 고르지?
+오늘은 조금 더 천천히 걸을 거야
+이 길 끝에서 너를 한 번 더 보려고
+핑계라도 하나 더 만들고 싶어
+
+[Verse 2]
+네가 사는 동네를 알아 버렸어
+물어본 적도 없는데 알게 됐어
+문방구 앞에서 괜히 오래 서서
+네가 지나가기를 기다린 적 있어
+그런 나를 나도 조금 알 것 같아
+이런 걸 뭐라 부르는지 모르겠어
+
+[Pre-Chorus]
+오늘은 네 걸음보다 조금 느리게
+뒤에서 같은 속도로 걸으면서
+
+[Chorus]
+일부러 먼 길로 돌아가고 있어
+왜 나는 이 길을 자꾸 고르지?
+오늘은 조금 더 천천히 걸을 거야
+이 길 끝에서 너를 한 번 더 보려고
+핑계라도 하나 더 만들고 싶어
+
+[Bridge]
+네가 나랑 같은 쪽에 산다면
+이런 걸음도 필요가 없지만
+그래도 나는 이 길이 편해졌어
+오래 걸리는 쪽이 더 편해졌어
+
+[Chorus]
+일부러 먼 길로 돌아가고 있어
+왜 나는 이 길을 자꾸 고르지?
+오늘은 조금 더 천천히 걸을 거야
+이 길 끝에서 너를 한 번 더 보려고
+내일은 더 먼 쪽으로 걸어 볼까
+
+[Outro]
+오늘도 먼 쪽으로 걸어서 가
+
+【STYLE】 ★963자
+Early-2000s Korean R&B pop ballad, sung in Korean by a female mezzo, D4 to E4, a smile in the voice. A major, around 100 BPM, unhurried soul groove. Warm electric piano with ninths and sixths. Soft kit from verse one: quiet closed hi-hat in eighth notes, rim click not a snare, no fills. No strings or pad; a long warm plate tail keeps the space full from the first bar. Every chorus: the major four becomes a minor four for one bar - the one emotional event. Busy conversational singing, many short syllables per bar, endings lifting on questions, volume never rising. On the beat, not behind it, small R&B grace notes, never belted, never strained, no rasp. Last chorus one decibel louder at most, no crescendo. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present, soft consonants and breath audible. Lead vocal clearly in front of the band. Warm modern mix, not retro, no lo-fi noise.
+
+【EXCLUDE】
+strings, string section, orchestral swell, full orchestral strings, sixteenth-note hi-hat, busy hi-hat, bright hi-hat, trap hi-hats, 808 bass, autotune artifacts, sidechain pumping, EDM synths, dubstep, rap, hip hop beat, distorted guitar, guitar solo, rock ballad guitar, heavy rock drums, drum fills, saxophone, cinematic crescendo, power ballad climax, long vocal runs, gospel melisma, belted power vocal, rasp, vinyl crackle, tape hiss, lo-fi noise, rain sounds, nature sounds, cafe ambience, crowd noise, English lyrics, trot, K-pop gloss, bright cymbals, crash cymbals, long instrumental break
+
+【TITLE】
+삼십분
+
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 5 — 관계 단계 ⑤ **기다림** / B minor / 66 BPM / 여성 저·중음(C4) / 정통 발라드 / 인트로 22초
+        세트 유일 단조 · ★마지막 후렴에서 동주 장조(B major)로 풀린다 · 스트링 첫 마디부터
+        호칭 「그대」 · 사건 = 아침에 문자 한 통을 보냈고, 그날 그대는 하교길에 나오지 않았다
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+오늘은 그대가 그 앞에 안 보였어
+종이 울리고 나는 한참 서 있었고
+가방을 멘 채로 교문을 봤어
+문자 한 통을 아침에 보내 놓고
+혹시나 싶어서 나는 자꾸 봤어
+사랑 노래만 오후 내내 들었어
+
+[Pre-Chorus]
+무슨 일 생겼나 싶어 나는 걱정돼
+그대 반 앞까지 갔다가 돌아섰어
+
+[Chorus]
+나는 종일 답장을 기다리고 있어
+이름이 뜨는지 그것만 자꾸 봐
+언제 올지 모르는 걸 왜 자꾸 보지?
+해가 아직 남은 이 길에 혼자 서서
+그대가 조금 늦는 거라고 믿어
+
+[Verse 2]
+나는 계단에 앉아 한참 있었어
+지나가는 얼굴마다 다 보면서
+그대 친구들만 웃으며 지나갔어
+혹시 아픈 건 아닌가 싶어졌어
+물어볼 사람도 나한테 없지만
+이런 마음은 어디에 두어야 하지?
+
+[Pre-Chorus]
+괜히 한 번 더 교문 쪽을 봤고
+그대 없는 길이 이렇게 길더라
+
+[Chorus]
+나는 종일 답장을 기다리고 있어
+이름이 뜨는지 그것만 자꾸 봐
+언제 올지 모르는 걸 왜 자꾸 보지?
+해가 아직 남은 이 길에 혼자 서서
+그대가 조금 늦는 거라고 믿어
+
+[Bridge]
+그대가 오늘 많이 아팠다면
+내일은 꼭 나와 줬으면 좋겠어
+내가 보낸 문자는 짧은 인사였어
+답이 없어도 나는 여기 있을게
+
+[Chorus]
+나는 종일 답장을 기다리고 있어
+이름이 뜨는지 그것만 자꾸 봐
+언제 올지 모르는 걸 왜 자꾸 보지?
+해가 아직 남은 이 길에 혼자 서서
+내일은 그대가 나올 거라고 믿어
+
+[Outro]
+오늘은 그대가 그 앞에 안 보였어
+
+【STYLE】 ★964자
+Early-2000s Korean adult contemporary ballad, sung in Korean by a female voice in a low warm register, G3 to C4, close and unhurried. B minor, 66 BPM, slow 4/4. Felt piano leads, pedal held long; a nylon-string guitar doubles it quietly. Almost no hi-hat - soft kick, rim click on the backbeat from verse two, no fills. Small close-miked strings from the first bar, quiet and continuous, dry and near. The waiting is in the harmony, not the volume. In the last chorus the song resolves into the parallel major - same melody, now major. Close conversational vocal, on the beat, not behind it, endings lifting on questions, never belted, never strained, no rasp. Last chorus one decibel louder at most, no crescendo. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present, soft consonants and breath audible. Lead vocal clearly in front of the band. Warm modern mix, not retro, no lo-fi noise.
+
+【EXCLUDE】
+hi-hat, sixteenth-note hi-hat, busy drums, trap hi-hats, 808 bass, autotune artifacts, sidechain pumping, EDM synths, dubstep, rap, hip hop beat, distorted guitar, guitar solo, rock ballad guitar, heavy rock drums, drum fills, saxophone, full orchestral strings, orchestral swell, cinematic crescendo, big climax, anthemic, power ballad climax, long vocal runs, gospel melisma, key change, modulation, belted power vocal, rasp, vinyl crackle, tape hiss, rain sounds, nature sounds, cafe ambience, crowd noise, English lyrics, trot, K-pop gloss, bright cymbals, crash cymbals
+
+【TITLE】
+답장이 없다
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 6 — 관계 단계 ⑥ **동행** / A flat major / around 82 BPM / 남성 미들(R&B) / 미디엄 / 인트로 15초
+        세트 최대 보컬 음절 밀도 · 8분 하이햇 · 스트링 없음(긴 플레이트 꼬리) · 전조 없음
+        호칭 「너」 · 사건 = 처음으로 나란히 걸었고, 골목 하나를 더 돌아서 갔다
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+오늘은 우연히 교문에서 만났어
+어디 가냐고 네가 먼저 물었고
+나는 별일 아닌 척 대답하고
+우리는 그렇게 나란히 걸었어
+발이 자꾸 엉키는 게 웃기고
+무슨 말을 할지 몰라 웃기만 했어
+
+[Pre-Chorus]
+네 걸음이 조금 느려진 것 같아서
+나도 모르게 속도를 맞추고 있어
+
+[Chorus]
+골목 하나를 더 돌아서 가고 있어
+집이 가까워지는 게 왜 아쉽지?
+나는 이 길이 좀 더 남았으면 좋겠어
+네 얘기를 전부 다 놓치기 싫어
+오늘은 늦게 가도 혼나지 뭐
+
+[Verse 2]
+네가 좋아하는 노래를 물어봤어
+나는 그 노래를 집에 와서 찾고
+가사가 온통 사랑 노래더라
+너는 왜 이런 걸 듣냐고 물으며
+그냥 네가 듣는 게 궁금했다고
+그 말은 아직 못 했지만 진심이야
+
+[Pre-Chorus]
+여기서 조금만 더 가면 다 왔는데
+나는 일부러 신호를 한 번 놓쳤어
+
+[Chorus]
+골목 하나를 더 돌아서 가고 있어
+집이 가까워지는 게 왜 아쉽지?
+나는 이 길이 좀 더 남았으면 좋겠어
+네 얘기를 전부 다 놓치기 싫어
+오늘은 늦게 가도 혼나지 뭐
+
+[Bridge]
+여기가 우리 동네였다면 어떨까
+더 걸을 핑계를 찾고 있었지
+오늘 처음 네 옆에서 걸었고
+그게 하루 종일 자꾸 생각나
+
+[Chorus]
+골목 하나를 더 돌아서 가고 있어
+집이 가까워지는 게 왜 아쉽지?
+나는 이 길이 좀 더 남았으면 좋겠어
+네 얘기를 전부 다 놓치기 싫어
+내일도 이 길로 같이 가 줄래?
+
+[Outro]
+오늘은 우리 같이 걸어서 왔어
+
+【STYLE】 ★964자
+Early-2000s Korean R&B pop ballad, sung in Korean by a male mid-range voice, A3 to E4, no female vocals, soulful but soft. A flat major, around 82 BPM, unhurried soul groove. Warm electric piano with ninths and sixths. Soft kit from verse one: quiet closed hi-hat in eighth notes, rim click not a snare, no fills. No strings or pad; a long warm plate tail keeps the space full from the first bar. Every chorus: the major four becomes a minor four for one bar - the one emotional event. The busiest singing of the set - short syllables per bar, pickups before the downbeat, on the beat, not behind it, volume never rising, never belted, never strained, no rasp. Last chorus one decibel louder at most, no crescendo. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present, soft consonants and breath audible. Lead vocal clearly in front of the band. Warm modern mix, not retro, no lo-fi noise.
+
+【EXCLUDE】
+strings, string section, orchestral swell, full orchestral strings, sixteenth-note hi-hat, busy hi-hat, bright hi-hat, trap hi-hats, 808 bass, autotune artifacts, sidechain pumping, EDM synths, dubstep, rap, hip hop beat, distorted guitar, guitar solo, rock ballad guitar, heavy rock drums, loud drums, drum fills, saxophone, cinematic crescendo, big climax, anthemic, power ballad climax, long vocal runs, gospel melisma, key change, modulation, belted power vocal, rasp, vinyl crackle, tape hiss, rain sounds, nature sounds, cafe ambience, crowd noise, English lyrics, trot, K-pop gloss, bright cymbals, crash cymbals, funk slap bass
+
+【TITLE】
+집 앞까지
+
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 7 — 관계 단계 ⑦ **자각** / E major / 74 BPM / 남성 미들로우 / 밴드 발라드 / 인트로 30초
+        실제 드럼킷 · 클린 코러스 일렉 아르페지오 · 마지막 후렴 앞 톰 필 1회 · 스트링 첫 마디부터
+        ⛔ STYLE 에 `rock ballad` 라는 단어를 쓰지 않는다(Suno가 디스토션 절정을 붙인다)
+        호칭 「너」 · 사건 = 네 방명록에 한 줄 쓰다가 다 지우고 창을 닫았다
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+집에 와서 컴퓨터 앞에 앉아
+네 방명록을 한참 들여다봤어
+아는 이름들이 줄줄이 적혀 있고
+나는 거기에 뭘 써야 할지 몰라
+한 줄 쓰다가 굳이 다시 지우고
+결국 아무 말도 안 남기고 나왔어
+
+[Pre-Chorus]
+이런 걸 몇 번이나 반복하다가
+나는 내가 좀 이상해진 것 같아
+
+[Chorus]
+이런 게 사랑이란 걸 이제 알아
+하루를 네 얘기로 다 채우고 있어
+인정하기 싫어서 미뤄 왔지만
+이건 그냥 친구가 아닌 거잖아
+나는 너를 좋아하고 있나 봐
+
+[Verse 2]
+어제는 네 사진을 한참 봤고
+오늘은 그 글씨를 오래 보면서
+별것도 아니라는 걸 왜 자꾸 보지?
+애들은 눈치를 다 챈 것 같아
+혼자 모르는 척 자꾸 웃어 버렸어
+이제는 더 이상 못 속이겠어
+
+[Pre-Chorus]
+괜히 그 창 앞에 한참 있었어
+이 마음을 뭐라 부르면 되는 거지?
+
+[Chorus]
+이런 게 사랑이란 걸 이제 알아
+하루를 네 얘기로 다 채우고 있어
+인정하기 싫어서 미뤄 왔지만
+이건 그냥 친구가 아닌 거잖아
+나는 너를 좋아하고 있나 봐
+
+[Bridge]
+네가 나를 조금이라도 알았다면
+이런 걸 너는 웃어넘기겠지
+그래도 나는 이제 그걸 받아들여
+오늘부터 나는 다르게 볼 거야
+
+[Chorus]
+이런 게 사랑이란 걸 이제 알아
+하루를 네 얘기로 다 채우고 있어
+인정하기 싫어서 미뤄 왔지만
+이건 그냥 친구가 아닌 거잖아
+이제야 그걸 나도 알겠나 봐
+
+[Outro]
+이제야 나도 그 이유를 알겠어
+
+【STYLE】 ★959자
+Early-2000s Korean band ballad, sung in Korean by a male mid-low voice, G3 to C4, no female vocals. E major, 74 BPM, slow 4/4. A real drum kit played softly: closed hi-hat in eighths, side stick on the backbeat, one tom fill before the last chorus. Clean chorused electric guitar in slow arpeggios, one four-note figure between lines. Small close-miked strings from the first bar, quiet and continuous, dry and near. Every chorus: the major four becomes a minor four for one bar - the one emotional event. Plain vocal, on the beat, not behind it, almost no vibrato until line ends, never belted, never strained, no rasp. The band is fuller in the last chorus, not the voice, one decibel at most, no crescendo. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present, soft consonants and breath audible. Lead vocal clearly in front of the band. Warm modern mix, not retro, no lo-fi noise.
+
+【EXCLUDE】
+distorted guitar, distortion, overdriven guitar wall, guitar solo, power ballad climax, double kick, crash cymbals, crash-heavy drums, heavy rock drums, loud drums, drum solo, sixteenth-note hi-hat, busy hi-hat, bright hi-hat, trap hi-hats, 808 bass, autotune artifacts, sidechain pumping, EDM synths, dubstep, rap, hip hop beat, saxophone, full orchestral strings, orchestral swell, cinematic crescendo, anthemic, key change, modulation, long vocal runs, gospel melisma, belted power vocal, rasp, vinyl crackle, tape hiss, rain sounds, nature sounds, cafe ambience, crowd noise, English lyrics, trot, K-pop gloss, bright cymbals
+
+【TITLE】
+인정
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 8 — 관계 단계 ⑧ **문턱** / G major / 70 BPM / 여성 메조(D4) / 정통 발라드 / 인트로 18초
+        ★마지막 후렴 반음 키업(볼륨 고정) · 스트링 첫 마디부터 · 거의 무하이햇
+        호칭 「너」 · 사건 = 갈림길에서 내가 먼저 「내일도 여기서 보자」고 말했고 너도 그러자고 했다
+        ⚠️ 고백 완료가 아니다 — 관계가 가장 확정·지속되는 곡으로 세트를 닫는다(루프 낙차 제거)
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+갈림길 앞에서 우리 둘이 섰고
+여기서부터는 길이 갈라지는 곳
+잘 가라는 말이 잘 안 나왔어
+조금만 더 서 있고 싶어지고
+오늘은 내가 먼저 입을 열었어
+먼저 그 말을 꺼낸 건 나였어
+
+[Pre-Chorus]
+너는 잠깐 웃더니 그러자고 했어
+그 대답 하나에 하루가 환해져
+
+[Chorus]
+너한테 또 보자고 말해 놨어
+우리한테 이제 약속이 생긴 거야
+뭐라고 부를지는 아직 모르겠어
+내일이 왜 이렇게 기다려지지?
+나는 그 이름을 붙이고 싶어
+
+[Verse 2]
+네가 먼저 손을 흔들고 돌아섰고
+나는 거기 그냥 한참 서 있다가
+네 뒷모습이 골목 끝까지 갔어
+가방을 고쳐 매고 천천히 걸었어
+여름이 다 가는 게 조금 아깝고
+아직 사랑이라 하기엔 이르지만
+
+[Pre-Chorus]
+아직 그런 말은 안 해 봤지만
+요즘은 네 앞에서 자꾸 웃음이 나
+
+[Chorus]
+너한테 또 보자고 말해 놨어
+우리한테 이제 약속이 생긴 거야
+뭐라고 부를지는 아직 모르겠어
+내일이 왜 이렇게 기다려지지?
+나는 그 이름을 붙이고 싶어
+
+[Bridge]
+그때 내가 먼저 말을 걸었다면
+오늘도 그냥 스쳐 지나갔겠지
+용기라기엔 작은 한마디였고
+그게 우리를 여기까지 데려왔어
+
+[Chorus]
+너한테 또 보자고 말해 놨어
+우리한테 이제 약속이 생긴 거야
+뭐라고 부를지는 아직 모르겠어
+내일이 왜 이렇게 기다려지지?
+언젠가 이 마음도 전해 줄 거야
+
+[Outro]
+먼저 그 말을 꺼낸 건 나였어
+
+【STYLE】 ★953자
+Early-2000s Korean adult contemporary ballad, sung in Korean by a female mezzo, D4 to E4, a smile in the voice. G major, 70 BPM, slow 4/4. Felt piano leads, pedal held long; a nylon-string guitar doubles it quietly. Almost no hi-hat - soft kick, rim click on the backbeat from verse two, no fills. Small close-miked strings from the first bar, quiet and continuous, dry and near. Every chorus: the major four becomes a minor four for one bar - the one emotional event. Close conversational vocal, on the beat, not behind it, endings lifting on questions, never belted, never strained, no rasp. In the final chorus the song moves up one semitone, harmonic only - one decibel louder at most, no crescendo. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present, soft consonants and breath audible. Lead vocal clearly in front of the band. Warm modern mix, not retro, no lo-fi noise.
+
+【EXCLUDE】
+hi-hat, sixteenth-note hi-hat, busy drums, trap hi-hats, 808 bass, autotune artifacts, sidechain pumping, EDM synths, dubstep, rap, hip hop beat, distorted guitar, guitar solo, rock ballad guitar, heavy rock drums, drum fills, saxophone, full orchestral strings, orchestral swell, cinematic crescendo, big climax, anthemic, power ballad climax, long vocal runs, gospel melisma, belted power vocal, rasp, vinyl crackle, tape hiss, rain sounds, nature sounds, cafe ambience, crowd noise, English lyrics, trot, K-pop gloss, bright cymbals, crash cymbals
+
+【TITLE】
+용기
+
+
+──────────────────────────────────────────────────────────────────────────
+ [관계 8단계 검산 — 세트 내 중복 0 · 정서는 8곡 전부 설렘·진행중]
+──────────────────────────────────────────────────────────────────────────
+  곡1 인지     같은 시간 같은 길에 늘 있는 애를 알아챘다 (이름은 모른다)
+  곡2 관찰     걸음 속도·가방 매는 법·머리 묶은 날까지 외우게 됐다
+  곡3 첫 접점  바람에 날아간 종이를 주워 건넸고 처음으로 「고맙다」를 들었다
+  곡4 구실     집은 반대쪽인데 네가 가는 길로 일부러 돌아간다
+  곡5 기다림   아침에 문자를 보냈고, 그날 그대는 하교길에 나오지 않았다
+  곡6 동행     처음으로 나란히 걸었고 골목 하나를 더 돌아서 갔다
+  곡7 자각     방명록에 한 줄 쓰다 지우고 창을 닫다가 이게 뭔지 알아버렸다
+  곡8 문턱     갈림길에서 내가 먼저 「내일도 여기서 보자」고 말했고 너도 그러자고 했다
+ · **상실 0곡** · 세트 내 정서 아크 없음(§8-1 A-4) · 곡8 = 관계가 가장 확정·지속되는 곡(A-5)
+ · 곡1 = 영상 제목을 가장 직설적으로 받는 곡(A-6)
+
+──────────────────────────────────────────────────────────────────────────
+ [가사 게이트 v3 통과표 — `py -3 tools\lyric_gate.py` 2026-08-21 실행 · exit 0]
+──────────────────────────────────────────────────────────────────────────
+ 곡  제목            글자  행  음절  반복%  후렴 1인 2인 부정 가정 의문 미종%  소품 부사 시간 컨셉
+  1  오후 네 시     441  36 12.17  24.1   3   9   8   1   1   4  25.0   2  13   0   3
+  2  외웠어요   448  36 12.42  25.7   3  11   9   1   1   2  27.8   1   5   0   3
+  3  고맙다고 했어   434  36 11.97  22.6   3   9   7   1   1   4  25.0   0   5   0   3
+  4  삼십분   440  36 12.14  24.1   3  11   8   0   1   4  25.0   0   7   0   3
+  5  답장이 없다   451  36 12.42  25.6   3  11   9   2   1   4  25.0   1  11   0   3
+  6  집 앞까지   445  36 12.25  24.1   3  10   9   1   1   5  25.0   2   4   0   3
+  7  인정 435  36 12.03  23.0   3  10   9   2   1   2  25.0   1   4   0   3
+  8  용기   438  36 12.08  24.7   3  11   7   2   1   3  25.0   2  12   0   3
+ 기준 400~460 34~38 11~13 15~35 3+ 9~11 7~9 ≤2 ≤1 2+ 25~35 0~2 3+ ≤2 ≤3
+ 세트 = 그대계 2(2·5) · 너계 6 · 존대 1(2) · 사랑 6곡(2·3·5·6·7·8) · 눈물 0곡 · 이별 0곡
+       시간대어 0곡 · **전곡 공통 단어 0개** · 계절어 = 여름 5회(3곡)
+ 제목(2026-08-21 재작성 · 2000년대 343곡 실측 기준) = 명사·명사구 4 · 서술완결 3 · 조사 종결 1 ·
+       1어절 4 / 2어절 3 / 3어절 1 · 평균 3.9자 · 2인칭 0 · **부사 선행 0** · 시간대어 0 ·
+       부정·상실어 1 · 존대 1 · 구조 복제 0   ← 옛 옥탑방식 제목 게이트는 폐기됨
+ ✅ **자동 게이트 전 항목 통과.**
+
+ 🔴 EP05 대비 이번에 실제로 달라진 텍스트 지표 (같은 채점기로 잰 값)
+   · **컨셉어** — EP05 「새벽」 곡당 9.8회·8/8곡 → EP06 **한 단어 최대 3회 · 전곡 공통 단어 0개**
+   · **미종결 연결행** — EP05 38.9% → EP06 **25.0~27.8%**(§8-2 하향 반영)
+   · **부정(못/안/않)** — EP05 곡당 3~8회 → EP06 **0~2회**(하한 폐지·상한 적용)
+   · **시간대어** — EP05 전곡 등장 → EP06 **0곡**
+   · **부사(자꾸·괜히·먼저·아직…)** — 곡당 4~13회로 감정 운반을 부사가 한다(§7-4)
+   · 「설레·두근·떨려」 **0회** — 설렘은 전부 행동으로 썼다(신발 끈·가방 고쳐 매기·신호 놓치기·
+     먼 길로 돌아가기·화면 다시 보기·방명록 지우기)
+
+ [사람이 눈으로 본 것 — 자동 판정 불가 항목]
+   · 후렴 마지막 행이 **서술어 완결문 8/8** (명사구 0) — EP01 은 7/8 이 명사구였다
+   · **곡당 사건 8/8** — 위 관계 8단계 표가 그대로 사건이다
+   · 가정문은 **전곡 브릿지에만 1회** · 완료형 후렴(했어/버렸어/없어/끝났어) **0곡**
+
+──────────────────────────────────────────────────────────────────────────
+ [중복 검증 — 스크립트 실행 2026-08-21]
+──────────────────────────────────────────────────────────────────────────
+  · EP01~EP05 **67곡 · 1,528행 전수 대비 완전일치 행 0 · 8자 이상 겹치는 구절 0**
+    (1차 검사에서 12건 검출 — 「결국 아무 말도 못 하」·「사랑이라 부르기엔」·
+     「얼굴이 자꾸 겹쳐 보여」·「무슨 일이 있나 하고」·「나는 아무렇지 않은 척」·
+     「이 길이 더 길었으면」·「마음을 뭐라고 불러야」 → 전부 고쳐서 0으로 만들었다)
+  · EP06 곡 간 동일행 0 · 채점기 오탐 회피어(`그대로`) 미사용 · `당신`·`운명` 0회
+  · 영구금지 현대어(카톡·스마트폰·인스타·읽씹·이어폰) 0회
+
+──────────────────────────────────────────────────────────────────────────
+ [제목 동명 히트곡 확인 — 2026-08-21 실시 · 저작권]
+──────────────────────────────────────────────────────────────────────────
+  1  오후 네 시     ○ 동명곡 없음 (「오후 네시」 완전 일치 미확인)
+  2  외웠어요       ○ 동명곡 없음
+  3  고맙다고 했어  ○ 동명곡 없음 (최재훈 「고마워요」와 형태만 유사 · 일치 아님)
+  4  삼십분         ○ 동명곡 없음
+  5  답장이 없다    ○ 동명곡 없음. ⛔ 원안 「답장」은 **김동률 2017 「답장」과 완전 일치** → 늘려서 회피
+  6  집 앞까지      ○ 동명곡 없음
+  7  인정           ○ 동명 히트곡 미확인 (「미움 받을 용기」류와 무관)
+  8  용기           ○ 동명 히트곡 미확인
+  ⛔ 조사 중 **동명곡이 있어 버린 후보 6개** — 핑계(김건모 1993) · 하굣길(투모로우바이투게더) ·
+     버릇(멜론 동명곡) · 먼 길(정용국 2002 OST·DK) · 그 한마디(이하이) · 답장(김동률).
+     🚨 **실제 2000년대 문법을 따를수록 동명곡 충돌이 급증한다**(짧은 명사 제목이라 선점돼 있다).
+     → 앞으로 제목은 **후보를 2배로 뽑고 검색으로 절반을 버리는 절차**가 기본이다.
+
+──────────────────────────────────────────────────────────────────────────
+ [⚠️ 먼저 말해 두는 위험 요소]
+──────────────────────────────────────────────────────────────────────────
+  1. 🔴 **음색 4개항의 효과는 아직 아무도 듣지 못했다.** 계측은 마스터링 셸빙(f=4500 g=-3)이
+     이미 목표에 안착시켰다고 말하지만, **"AI 티"는 계측 밖의 것**이다.
+     → 8곡 전량 생성 전에 **곡1·곡7 두 곡만 먼저 뽑아 청취 확인**을 강력 권고한다(§🔊🔝).
+  2. 🟠 **보컬 공기감 복원이 역효과일 가능성.** `natural breath and air`는 옥탑방 실측(우리가
+     +2.42dB 더 밝다)과 **반대 방향의 지시**다. 밝기는 후처리 셸빙이 잡는다는 전제 위에 서 있고,
+     그 전제가 틀리면 EP06 은 EP05보다 더 밝게 나온다. **채택 전 `m_air.py` 로 보컬 스템을 잴 것.**
+  3. 🟠 **스트링 실험이 무효가 되는 경우** — 곡1·곡4 중 한 곡이라도 재생성으로 STYLE 을 손대면
+     실험은 끝난다. 두 곡은 **2테이크가 다 미달이어도 BPM 실측치를 먼저 기록**한 뒤 처리할 것.
+  4. 🟡 **길이 미달 위험은 낮다** — 8곡 전부 36행·434~451자로 EP05(425~449자, 실측 4:20~4:50)와
+     같은 밀도다. 다만 미디엄 3곡은 BPM 지시가 먹히면 **같은 글자로 곡이 짧아진다**(3:40~4:10 예상).
+  5. 🟡 **존대 곡(곡2)의 연결어미 종결** — 미종결 게이트를 맞추려고 「~보고 / ~걸으며 / ~지만」으로
+     끝나는 행을 10개 넣었다. 존대체에서 이 어미들은 자연스럽지만, **읽을 때 문장이 길게 이어져**
+     들리므로 Suno 가 호흡을 어디서 끊는지 확인할 것.
+  6. 🟡 **AI disclosure** — 보컬곡이므로 유튜브 업로드 시 **합성 음성 disclosure 필요**(순수
+     인스트루멘털만 면제). EP01~EP05와 동일.
+  7. ⚪ **가사 개정 효과는 여전히 미확인이다.** 가사↔조회 상관은 세 조사 모두 |r|<0.25 였다.
+     이 게이트는 **"읽었을 때 2000년대 가요로 읽히는가"** 의 하한선이지 성장 레버가 아니다.
+
+──────────────────────────────────────────────────────────────────────────
+ [플레이리스트 배치 — 조성·템포·보컬이 실제로 갈리는지]
+──────────────────────────────────────────────────────────────────────────
+  순서   1(C·100·여) → 2(D·68·남존대) → 3(E·70·여알토) → 4(A·100·여) →
+        5(Bm·66·여저음) → 6(A♭·82·남R&B) → 7(E·74·남밴드) → 8(G·70·여)
+  · **템포 파형** = 빠름→느림→느림→빠름→가장 느림→중간→느림→느림.
+    미디엄(1·4)이 앞쪽 1/2 에 배치돼 초반 이탈 구간을 덮고, 유일한 단조(5)가 정중앙에서
+    한 번 가라앉았다가 6·7·8로 다시 붙는다.
+  · **성별 파형** = 여·남·여·여·여·남·남·여 — 같은 성별이 3연속되지 않는다.
+  · **조성** = C→D→E→A→Bm→A♭→E→G. 인접 곡 간 완전5도·장2도 이동만 있고
+    반음 충돌(예: E→F)이 없다. 곡8(G)에서 곡1(C)로 되돌아가는 루프도 **G→C = 딸림→으뜸**이라
+    끊기지 않는다 — 이게 8번 곡을 G major 로 잡은 이유다.
+  · **편성** = 스트링 6곡 / 무스트링 2곡(4·6)이 3곡 간격으로 흩어져 질감이 반복되지 않는다.
+==========================================================================
