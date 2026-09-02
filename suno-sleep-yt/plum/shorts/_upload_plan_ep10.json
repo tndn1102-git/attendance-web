@@ -1,0 +1,20 @@
+{
+ "token": "yt_token.json",
+ "videos": [
+  {
+   "file": "plum/shorts/out_ep10/s25_my_feet_stopped_before_i_did.mp4",
+   "title": "발걸음이 느려지는 잔잔한 카페 음악 #잔잔한음악 #카페플레이리스트 #힐링음악 #cafemusic",
+   "description": ".", "tags": [], "categoryId": 10, "publishAt": "2026-09-19T10:00:00Z"
+  },
+  {
+   "file": "plum/shorts/out_ep10/s26_i_keep_not_getting_up.mp4",
+   "title": "그냥 앉아 있고 싶어지는 기분 좋은 음악 #기분좋은음악 #카페음악 #cafemusic #cafeplaylist",
+   "description": ".", "tags": [], "categoryId": 10, "publishAt": "2026-09-20T10:00:00Z"
+  },
+  {
+   "file": "plum/shorts/out_ep10/s27_i_am_not_on_my_way.mp4",
+   "title": "일이 술술 풀리는 작업용 카페 음악 #작업용음악 #카페BGM #공부할때듣는음악 #cafemusic",
+   "description": ".", "tags": [], "categoryId": 10, "publishAt": "2026-09-22T10:00:00Z"
+  }
+ ]
+}

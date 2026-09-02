@@ -1,0 +1,20 @@
+[
+ {
+  "axis": "잔잔",
+  "name": "01b_my feet stopped before i did",
+  "file": "plum/shorts/hooks_ep10\\hook_01b_my feet stopped before i did.mp3",
+  "hook_db": -0.0
+ },
+ {
+  "axis": "밝음",
+  "name": "05b_i keep not getting up",
+  "file": "plum/shorts/hooks_ep10\\hook_05b_i keep not getting up.mp3",
+  "hook_db": 0.36
+ },
+ {
+  "axis": "빠름",
+  "name": "02b_i am not on my way",
+  "file": "plum/shorts/hooks_ep10\\hook_02b_i am not on my way.mp3",
+  "hook_db": 0.01
+ }
+]

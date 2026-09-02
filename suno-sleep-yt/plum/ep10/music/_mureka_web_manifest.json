@@ -1,0 +1,202 @@
+[
+ {
+  "index": 1,
+  "title": "my feet stopped before i did",
+  "take": 1,
+  "dur_sec": 191.5,
+  "song_id": 158671732604930,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671730900993_CWuu5MXJ9pY4fyAaNGA1Fo_rdovez.mp3",
+  "file": "plum/ep10/music\\01_my feet stopped before i did.mp3"
+ },
+ {
+  "index": 2,
+  "title": "my feet stopped before i did",
+  "take": 2,
+  "dur_sec": 180.8,
+  "song_id": 158671732736002,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671730900993_CWuu5MXJ9pY4fyAaNGA1Fo_bxcavf.mp3",
+  "file": "plum/ep10/music\\02_my feet stopped before i did.mp3"
+ },
+ {
+  "index": 3,
+  "title": "i am not on my way",
+  "take": 1,
+  "dur_sec": 215.2,
+  "song_id": 158671759998977,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671757770756_XwB92Gm3ZZ9J1MSmTHT8zy_lvkbgg.mp3",
+  "file": "plum/ep10/music\\03_i am not on my way.mp3"
+ },
+ {
+  "index": 4,
+  "title": "i am not on my way",
+  "take": 2,
+  "dur_sec": 194.9,
+  "song_id": 158671759998978,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671757770756_XwB92Gm3ZZ9J1MSmTHT8zy_mkukks.mp3",
+  "file": "plum/ep10/music\\04_i am not on my way.mp3"
+ },
+ {
+  "index": 5,
+  "title": "you stopped here first",
+  "take": 1,
+  "dur_sec": 173.9,
+  "song_id": 158671782871041,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671781167105_6EcPvkHqEfR1JqqVDrtK5h_fqkxjb.mp3",
+  "file": "plum/ep10/music\\05_you stopped here first.mp3"
+ },
+ {
+  "index": 6,
+  "title": "you stopped here first",
+  "take": 2,
+  "dur_sec": 183.6,
+  "song_id": 158671782936577,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671781167105_6EcPvkHqEfR1JqqVDrtK5h_vfmmqb.mp3",
+  "file": "plum/ep10/music\\06_you stopped here first.mp3"
+ },
+ {
+  "index": 7,
+  "title": "nobody asked me to stay",
+  "take": 1,
+  "dur_sec": 221.7,
+  "song_id": 158671807971329,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671803908097_8hhvLwcMA8bW627ArD2ztp_yzhkky.mp3",
+  "file": "plum/ep10/music\\07_nobody asked me to stay.mp3"
+ },
+ {
+  "index": 8,
+  "title": "nobody asked me to stay",
+  "take": 2,
+  "dur_sec": 204.2,
+  "song_id": 158671808167937,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671803908097_8hhvLwcMA8bW627ArD2ztp_zxnbsi.mp3",
+  "file": "plum/ep10/music\\08_nobody asked me to stay.mp3"
+ },
+ {
+  "index": 9,
+  "title": "i keep not getting up",
+  "take": 1,
+  "dur_sec": 212.3,
+  "song_id": 158671829139457,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671826911235_J7yoA3LSm4XuxvE9xbHQqb_hgpbye.mp3",
+  "file": "plum/ep10/music\\09_i keep not getting up.mp3"
+ },
+ {
+  "index": 10,
+  "title": "i keep not getting up",
+  "take": 2,
+  "dur_sec": 233.1,
+  "song_id": 158671829204993,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671826911235_J7yoA3LSm4XuxvE9xbHQqb_vehxux.mp3",
+  "file": "plum/ep10/music\\10_i keep not getting up.mp3"
+ },
+ {
+  "index": 11,
+  "title": "we both meant to keep going",
+  "take": 1,
+  "dur_sec": 245.5,
+  "song_id": 158671858368513,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671854174210_EJtnZW6bk4HYLNGCyybJWN_loggrt.mp3",
+  "file": "plum/ep10/music\\11_we both meant to keep going.mp3"
+ },
+ {
+  "index": 12,
+  "title": "we both meant to keep going",
+  "take": 2,
+  "dur_sec": 208.2,
+  "song_id": 158671858434050,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671854174210_EJtnZW6bk4HYLNGCyybJWN_csgnjx.mp3",
+  "file": "plum/ep10/music\\12_we both meant to keep going.mp3"
+ },
+ {
+  "index": 13,
+  "title": "we have not moved in a while",
+  "take": 1,
+  "dur_sec": 193.1,
+  "song_id": 158671881371649,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671879340034_VVaWLUpvSH1Mu49LjgGTQN_usqygz.mp3",
+  "file": "plum/ep10/music\\13_we have not moved in a while.mp3"
+ },
+ {
+  "index": 14,
+  "title": "we have not moved in a while",
+  "take": 2,
+  "dur_sec": 198.6,
+  "song_id": 158671881633793,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671879340034_VVaWLUpvSH1Mu49LjgGTQN_uqlpul.mp3",
+  "file": "plum/ep10/music\\14_we have not moved in a while.mp3"
+ },
+ {
+  "index": 15,
+  "title": "i chose this by not moving",
+  "take": 1,
+  "dur_sec": 188.5,
+  "song_id": 158671904440321,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671900770307_Gz5UpgKjgQsUBX5hbXCf3L_ygfrdc.mp3",
+  "file": "plum/ep10/music\\15_i chose this by not moving.mp3"
+ },
+ {
+  "index": 16,
+  "title": "i chose this by not moving",
+  "take": 2,
+  "dur_sec": 228.7,
+  "song_id": 158671904702465,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671900770307_Gz5UpgKjgQsUBX5hbXCf3L_pezdzp.mp3",
+  "file": "plum/ep10/music\\16_i chose this by not moving.mp3"
+ },
+ {
+  "index": 17,
+  "title": "nothing is up to us",
+  "take": 1,
+  "dur_sec": 206.4,
+  "song_id": 158671929606145,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671925542915_JBxnh1DnnyRsh6d5XMaat8_tebiyl.mp3",
+  "file": "plum/ep10/music\\17_nothing is up to us.mp3"
+ },
+ {
+  "index": 18,
+  "title": "nothing is up to us",
+  "take": 2,
+  "dur_sec": 206.4,
+  "song_id": 158671929868289,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671925542915_JBxnh1DnnyRsh6d5XMaat8_htcdpd.mp3",
+  "file": "plum/ep10/music\\18_nothing is up to us.mp3"
+ },
+ {
+  "index": 19,
+  "title": "i never decided to stay",
+  "take": 1,
+  "dur_sec": 195.5,
+  "song_id": 158671952674818,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671950708738_Qp3KwVEerEqdEvX3b1CfmX_kazmnb.mp3",
+  "file": "plum/ep10/music\\19_i never decided to stay.mp3"
+ },
+ {
+  "index": 20,
+  "title": "i never decided to stay",
+  "take": 2,
+  "dur_sec": 182.2,
+  "song_id": 158671952871425,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260902/music_158671950708738_Qp3KwVEerEqdEvX3b1CfmX_lruyrr.mp3",
+  "file": "plum/ep10/music\\20_i never decided to stay.mp3"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "song": 1,
+  "take": "a",
+  "title": "my feet stopped before i did",
+  "src": "plum/ep10\\music_v95\\01_my feet stopped before i did.mp3",
+  "clap": 0.091
+ },
+ {
+  "song": 1,
+  "take": "b",
+  "title": "my feet stopped before i did",
+  "src": "plum/ep10\\music\\01_my feet stopped before i did.mp3",
+  "clap": 0.111
+ },
+ {
+  "song": 2,
+  "take": "a",
+  "title": "i am not on my way",
+  "src": "plum/ep10\\music\\03_i am not on my way.mp3",
+  "clap": 0.076
+ },
+ {
+  "song": 2,
+  "take": "b",
+  "title": "i am not on my way",
+  "src": "plum/ep10\\music_v95\\04_i am not on my way.mp3",
+  "clap": 0.098
+ },
+ {
+  "song": 3,
+  "take": "a",
+  "title": "you stopped here first",
+  "src": "plum/ep10\\_regen\\s3_r2b.mp3",
+  "clap": 0.054
+ },
+ {
+  "song": 3,
+  "take": "b",
+  "title": "you stopped here first",
+  "src": "plum/ep10\\_regen\\s3_r1b.mp3",
+  "clap": 0.061
+ },
+ {
+  "song": 4,
+  "take": "a",
+  "title": "nobody asked me to stay",
+  "src": "plum/ep10\\music\\08_nobody asked me to stay.mp3",
+  "clap": 0.075
+ },
+ {
+  "song": 4,
+  "take": "b",
+  "title": "nobody asked me to stay",
+  "src": "plum/ep10\\music\\07_nobody asked me to stay.mp3",
+  "clap": 0.08
+ },
+ {
+  "song": 5,
+  "take": "a",
+  "title": "i keep not getting up",
+  "src": "plum/ep10\\_regen\\s5_r1b.mp3",
+  "clap": 0.08
+ },
+ {
+  "song": 5,
+  "take": "b",
+  "title": "i keep not getting up",
+  "src": "plum/ep10\\_regen\\s5_r1a.mp3",
+  "clap": 0.094
+ },
+ {
+  "song": 6,
+  "take": "a",
+  "title": "we both meant to keep going",
+  "src": "plum/ep10\\music\\12_we both meant to keep going.mp3",
+  "clap": 0.099
+ },
+ {
+  "song": 6,
+  "take": "b",
+  "title": "we both meant to keep going",
+  "src": "plum/ep10\\music\\11_we both meant to keep going.mp3",
+  "clap": 0.107
+ },
+ {
+  "song": 7,
+  "take": "a",
+  "title": "we have not moved in a while",
+  "src": "plum/ep10\\_regen\\s7_r2b.mp3",
+  "clap": 0.064
+ },
+ {
+  "song": 7,
+  "take": "b",
+  "title": "we have not moved in a while",
+  "src": "plum/ep10\\_regen\\s7_r1a.mp3",
+  "clap": 0.069
+ },
+ {
+  "song": 8,
+  "take": "a",
+  "title": "i chose this by not moving",
+  "src": "plum/ep10\\music\\15_i chose this by not moving.mp3",
+  "clap": 0.065
+ },
+ {
+  "song": 8,
+  "take": "b",
+  "title": "i chose this by not moving",
+  "src": "plum/ep10\\music\\16_i chose this by not moving.mp3",
+  "clap": 0.08
+ },
+ {
+  "song": 9,
+  "take": "a",
+  "title": "nothing is up to us",
+  "src": "plum/ep10\\music\\17_nothing is up to us.mp3",
+  "clap": 0.07
+ },
+ {
+  "song": 9,
+  "take": "b",
+  "title": "nothing is up to us",
+  "src": "plum/ep10\\music\\18_nothing is up to us.mp3",
+  "clap": 0.077
+ },
+ {
+  "song": 10,
+  "take": "a",
+  "title": "i never decided to stay",
+  "src": "plum/ep10\\music\\19_i never decided to stay.mp3",
+  "clap": 0.073
+ },
+ {
+  "song": 10,
+  "take": "b",
+  "title": "i never decided to stay",
+  "src": "plum/ep10\\music\\20_i never decided to stay.mp3",
+  "clap": 0.09
+ }
+]

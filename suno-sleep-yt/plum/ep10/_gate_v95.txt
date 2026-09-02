@@ -1,0 +1,23 @@
+
+△  0.091 ( 91%)  01_my feet stopped before i did.mp3
+❌  0.123 ( 96%)  02_my feet stopped before i did.mp3
+❌  0.142 ( 97%)  03_i am not on my way.mp3
+△  0.098 ( 94%)  04_i am not on my way.mp3
+❌  0.124 ( 96%)  05_you stopped here first.mp3
+△  0.111 ( 95%)  06_you stopped here first.mp3
+△  0.092 ( 92%)  07_nobody asked me to stay.mp3
+△  0.091 ( 91%)  08_nobody asked me to stay.mp3
+❌  0.139 ( 97%)  09_i keep not getting up.mp3
+❌  0.166 ( 97%)  10_i keep not getting up.mp3
+❌  0.127 ( 97%)  11_we both meant to keep going.mp3
+❌  0.160 ( 97%)  12_we both meant to keep going.mp3
+❌  0.121 ( 96%)  13_we have not moved in a while.mp3
+△  0.096 ( 93%)  14_we have not moved in a while.mp3
+❌  0.127 ( 97%)  15_i chose this by not moving.mp3
+△  0.085 ( 90%)  16_i chose this by not moving.mp3
+△  0.110 ( 95%)  17_nothing is up to us.mp3
+△  0.102 ( 95%)  18_nothing is up to us.mp3
+△  0.094 ( 93%)  19_i never decided to stay.mp3
+△  0.090 ( 91%)  20_i never decided to stay.mp3
+
+게이트 통과: 0/20 (✅=p90 이내, △=경계, ❌=분포 밖)
