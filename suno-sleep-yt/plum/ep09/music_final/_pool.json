@@ -1,0 +1,142 @@
+[
+ {
+  "song": 1,
+  "take": "a",
+  "title": "it doesn't stop at me",
+  "src": "plum/ep09\\music_v95\\02_it doesn't stop at me.mp3",
+  "clap": 0.069
+ },
+ {
+  "song": 1,
+  "take": "b",
+  "title": "it doesn't stop at me",
+  "src": "plum/ep09\\music\\01_it doesn't stop at me.mp3",
+  "clap": 0.104
+ },
+ {
+  "song": 2,
+  "take": "a",
+  "title": "i can see out from anywhere",
+  "src": "_bossa_cand2/regen1_b.mp3 (구판 재생성)",
+  "clap_bossa": 0.074
+ },
+ {
+  "song": 2,
+  "take": "b",
+  "title": "i can see out from anywhere",
+  "src": "_bossa_cand3/fix_a.mp3 (5-3 처방 수정판)",
+  "clap_bossa": 0.077
+ },
+ {
+  "song": 3,
+  "take": "a",
+  "title": "nothing is holding it in",
+  "src": "plum/ep09\\music_v95\\06_nothing is holding it in.mp3",
+  "clap": 0.076
+ },
+ {
+  "song": 3,
+  "take": "b",
+  "title": "nothing is holding it in",
+  "src": "plum/ep09\\music_v95\\05_nothing is holding it in.mp3",
+  "clap": 0.085
+ },
+ {
+  "song": 4,
+  "take": "a",
+  "title": "i am not caught on anything",
+  "src": "plum/ep09\\music\\07_i am not caught on anything.mp3",
+  "clap": 0.062
+ },
+ {
+  "song": 4,
+  "take": "b",
+  "title": "i am not caught on anything",
+  "src": "plum/ep09\\music_v95\\07_i am not caught on anything.mp3",
+  "clap": 0.062
+ },
+ {
+  "song": 5,
+  "take": "a",
+  "title": "this is not being inside",
+  "src": "plum/ep09\\music_v95\\09_this is not being inside.mp3",
+  "clap": 0.078
+ },
+ {
+  "song": 5,
+  "take": "b",
+  "title": "this is not being inside",
+  "src": "plum/ep09\\music_v95\\10_this is not being inside.mp3",
+  "clap": 0.091
+ },
+ {
+  "song": 6,
+  "take": "a",
+  "title": "it passes and takes nothing",
+  "src": "plum/ep09\\music_v95\\11_it passes and takes nothing.mp3",
+  "clap": 0.07
+ },
+ {
+  "song": 6,
+  "take": "b",
+  "title": "it passes and takes nothing",
+  "src": "plum/ep09\\music\\11_it passes and takes nothing.mp3",
+  "clap": 0.094
+ },
+ {
+  "song": 7,
+  "take": "a",
+  "title": "we are not keeping anything out",
+  "src": "plum/ep09\\music_v95\\13_we are not keeping anything out.mp3",
+  "clap": 0.082
+ },
+ {
+  "song": 7,
+  "take": "b",
+  "title": "we are not keeping anything out",
+  "src": "plum/ep09\\music\\14_we are not keeping anything out.mp3",
+  "clap": 0.083
+ },
+ {
+  "song": 8,
+  "take": "a",
+  "title": "every way is a way out",
+  "src": "plum/ep09\\music\\15_every way is a way out.mp3",
+  "clap": 0.075
+ },
+ {
+  "song": 8,
+  "take": "b",
+  "title": "every way is a way out",
+  "src": "plum/ep09\\music\\16_every way is a way out.mp3",
+  "clap": 0.104
+ },
+ {
+  "song": 9,
+  "take": "a",
+  "title": "it goes through both of us",
+  "src": "plum/ep09\\music_v95\\17_it goes through both of us.mp3",
+  "clap": 0.084
+ },
+ {
+  "song": 9,
+  "take": "b",
+  "title": "it goes through both of us",
+  "src": "plum/ep09\\music\\18_it goes through both of us.mp3",
+  "clap": 0.088
+ },
+ {
+  "song": 10,
+  "take": "a",
+  "title": "i stopped bracing for it",
+  "src": "plum/ep09\\music\\19_i stopped bracing for it.mp3",
+  "clap": 0.097
+ },
+ {
+  "song": 10,
+  "take": "b",
+  "title": "i stopped bracing for it",
+  "src": "plum/ep09\\music_v95\\20_i stopped bracing for it.mp3",
+  "clap": 0.11
+ }
+]

@@ -1,0 +1,29 @@
+{
+ "token": "yt_token.json",
+ "videos": [
+  {
+   "file": "plum/shorts/out_ep09/s22_we_are_not_keeping_anything_out.mp4",
+   "title": "무엇도 막지 않는 잔잔한 카페 음악 #잔잔한음악 #카페플레이리스트 #힐링음악 #cafemusic",
+   "description": ".",
+   "tags": [],
+   "categoryId": 10,
+   "publishAt": "2026-09-15T10:00:00Z"
+  },
+  {
+   "file": "plum/shorts/out_ep09/s23_every_way_is_a_way_out.mp4",
+   "title": "어디로든 갈 수 있을 것 같은 기분 좋은 음악 #기분좋은음악 #카페음악 #cafemusic #cafeplaylist",
+   "description": ".",
+   "tags": [],
+   "categoryId": 10,
+   "publishAt": "2026-09-16T10:00:00Z"
+  },
+  {
+   "file": "plum/shorts/out_ep09/s24_nothing_is_holding_it_in.mp4",
+   "title": "속이 뻥 뚫리는 작업용 카페 음악 #작업용음악 #카페BGM #공부할때듣는음악 #cafemusic",
+   "description": ".",
+   "tags": [],
+   "categoryId": 10,
+   "publishAt": "2026-09-17T10:00:00Z"
+  }
+ ]
+}

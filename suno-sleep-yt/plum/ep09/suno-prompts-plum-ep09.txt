@@ -1,0 +1,879 @@
+==========================================================================
+ plum music EP09 — "통째로 열려 있는 집" 편   ★붙여넣기 전용본
+ 각 곡은 위에서부터 가사 → 스타일 → 배제어 → 제목 네 블록 순서다.
+==========================================================================
+
+ [플랫폼]     🔴 **Mureka 로 만드는 첫 편이다.** 1차 배치 모델 = V7.6
+              변환 = py -3 tools\suno_to_mureka.py plum\ep09\suno-prompts-plum-ep09.txt ^
+                       --tail-file plum\_assets\mureka_tail_plum.txt
+              (EXCLUDE 블록 제거 + 꼬리 107자 인라인 · 병합 1,000자 초과 시 중단)
+              생성 = node tools/mureka_web.js <변환본> --out plum/ep09/music --takes 1 --model V7.6
+ [받는 폴더]  D:\test3\suno-sleep-yt\plum\ep09\music
+ [발행]       2026-09-04 (금) 08:00 KST
+ ※ 배제어 블록은 10곡 전부 똑같은 한 줄이다. Mureka 변환기가 이 블록을 지우고
+   꼬리 107자를 STYLE 끝에 인라인으로 붙인다. 사람이 손으로 옮기지 말 것.
+ ※ 기준 문서 = 컨셉-ep09.md. 이 파일은 거기서만 파생됐다.
+ ※ 상위 필터 = CLAUDE.md §🏝️ 럭셔리·깔끔·심플·리조트. 비·슬픔·추억·끝나감 0줄.
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 곡별 한 줄 표                                                        │
+ └──────────────────────────────────────────────────────────────────────┘
+
+ | #  | 정서 결                          | 성별 | 장르     | BPM | 2인칭 |
+ |----|----------------------------------|------|----------|-----|-------|
+ | 1  | 밝음 — 나에게서 멈추는 게 없다        | 여성   | 소울팝      | 100 | ·     |
+ | 2  | 밝음 — 어느 자리에서도 밖이 보인다      | 여성   | 보사노바     |  98 | ●     |
+ | 3  | 여운 DARK — 이 고요는 가둬둔 게 아니다  | 여성   | 소울팝      |  88 | ·     |
+ | 4  | 밝음 — 어디에도 안 걸린다            | 여성   | 소울팝      | 102 | ·     |
+ | 5  | 밝음 — 앉았는데 안에 들어온 게 아니다    | 여성   | 소울팝      | 101 | ·     |
+ | 6  | 여운 DARK — 지나가면서 가져가는 게 없다  | 여성   | 소울팝      |  87 | ·     |
+ | 7  | 밝음 — 아무것도 막고 있지 않다         | 남성   | 소울팝      |  97 | ●     |
+ | 8  | 여운 — 어느 쪽으로도 나갈 수 있다       | 여성   | 보사노바     |  94 | ●     |
+ | 9  | 밝음 — 같은 것이 우리 둘을 지나간다      | 여성   | 소울팝      | 103 | ●     |
+ | 10 | 여운 DARK — 대비하는 걸 그만뒀다       | 여성   | 소울팝      |  89 | ·     |
+
+ · 밝음 6 (#1 #2 #4 #5 #7 #9) / 여운 4 (#3 #6 #8 #10) · 이별·상실 0곡
+ · 🔴 DARK 3곡 (#3 #6 #10) — EP07 에서 환원한 값을 그대로 유지. 보사(#2 #8)에는
+   DARK 를 겹치지 않는다(EP06 보사판정 ⓑ). #8 은 여운이되 warm tone 이다.
+ · 배열 B B Q B B Q B Q B Q — 같은 결 연속 최대 2곡
+   (EP05 = B Q B B Q B Q B B Q / EP06 = B B Q B Q B Q B B Q /
+    EP07 = B Q B B Q B B Q B Q / EP08 = B B Q B Q B B Q B Q · 다섯 편 다 다르다)
+ · 여성 9 / 남성 1(#7) / 듀엣 0 · 보사노바 2(#2 밝음 · #8 여운)
+ · 2인칭 4곡(#2 #7 #8 #9) · 세트 you 토큰 36개 = 1.93% (본문 1,866단어 실측)
+   (EP07 0.55% → EP08 1.43% → EP09 1.93%. cherry 실측 3.8% 쪽으로 한 칸 더 이동시킨 값이다.
+    한 번에 3.8% 로 안 올리는 이유 = 2인칭이 늘면 세트가 연애곡 쪽으로 기운다)
+ · BPM 중앙 97.5 · 범위 87~103 (전곡 85~104 안) · 100 이상 4곡 · 최저 87(#6)
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 설계 의도 — 컨셉("통째로 열려 있는 집")을 곡으로                       │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ 감정 방향 = 시원함 · 해방감 · 막힌 게 없음.                            │
+ │ EP08 이 "내려다보는" 편이었다면 EP09 는 "그냥 지나가는" 편이다.        │
+ │                                                                      │
+ │ 🔑 갈라줘야 할 상대가 둘이다. 둘 다 문법으로 못 박았다.               │
+ │                                                                      │
+ │ ① EP08(높이)과의 축 = 수직·조망 ↔ 수평·관통.                          │
+ │    EP08 은 "눈이 하는 일"의 보고서였다 — 본다 / 멀리 간다 /           │
+ │    닿지 않는다 / 끝을 못 찾는다.                                      │
+ │    EP09 는 **"통과가 벌어지는 자리"의 보고서**다 —                    │
+ │    나에게서 안 멈춘다 / 안 걸린다 / 가둬둔 게 아니다 /                │
+ │    가져가는 게 없다 / 우리 둘을 같이 지나간다.                        │
+ │    화자는 여전히 안 움직이는데 **이번엔 남이 지나간다.**              │
+ │    ⛔ 제목 10개에 far · end · see · height · from here 를 한 번도      │
+ │      안 썼다(EP08 어휘). "본다"는 동사를 세트의 축으로 안 쓴다.        │
+ │                                                                      │
+ │ ② 🔴 EP04(문을 다 열어둔 날)와의 축 — 여기가 이번 편의 진짜 함정이다.  │
+ │    EP04 는 **문을 연 행위**의 편이었다(i left it open all day /        │
+ │    it got in on its own / nobody was trying to get in).               │
+ │    그래서 EP09 에서는 그 재료를 아예 쓰지 않았다:                      │
+ │    ⛔ 열었다·열어뒀다 0줄 (여는 행위가 한 번도 안 나온다)              │
+ │    ⛔ "들어왔다" 계열 0줄 (안으로 들어오는 방향을 안 쓴다)             │
+ │    ✅ 대신 EP09 가 쓰는 재료는 **애초에 벽이 없는 상태**다 —           │
+ │       안 멈춘다 / 안 걸린다 / 가둔 게 없다 / 그냥 지나간다 /          │
+ │       안과 밖이 갈리지 않는다.                                        │
+ │                                                                      │
+ │ ⓐ 통과 — 곡 1 · 곡 6                                                  │
+ │    "나에게서 멈추는 게 없다" · "지나가면서 아무것도 안 가져간다"       │
+ │ ⓑ 안 갇힘 — 곡 3 · 곡 4                                               │
+ │    "이 고요는 가둬둔 게 아니다" · "어디에도 안 걸린다"                 │
+ │ ⓒ 안과 밖이 없음 — 곡 2 · 곡 5 · 곡 8                                 │
+ │    "어느 자리에서도 밖이 보인다" · "앉았는데 안에 들어온 게 아니다" ·  │
+ │    "어느 쪽으로도 나갈 수 있어서 머문다"                              │
+ │ ⓓ 같이 통과됨 — 곡 7 · 곡 9 (2인칭)                                   │
+ │    "우리는 아무것도 막고 있지 않다" · "같은 것이 우리 둘을 지나간다"   │
+ │ ⓔ 몸이 먼저 안다 — 곡 10                                              │
+ │    "대비하는 걸 그만뒀다"                                             │
+ │                                                                      │
+ │ ⛔ 이별·상실 0곡. ⛔ 비·슬픔·추억·회상·아쉬움·끝나감 0줄.             │
+ │ ⛔ 소품 명사 0 (§1-5-1). **벽·문·바람·창·기둥·지붕을 한 번도 안 썼다.** │
+ │    컨셉 문서 지시대로 전부 상태·감각으로 옮겼다 —                     │
+ │    stop at me / caught on / holding it in / being inside /            │
+ │    passes and takes / keeping out / a way out / goes through /        │
+ │    bracing. 계절어·시간대어·카페어도 0.                               │
+ │ ⛔ 컨셉어 도배 방지 = 후렴 훅(4~6단어)을 뺀 본문에서 같은 테마 단어를  │
+ │    곡당 3회 넘게 쓰지 않았고, **10곡 전부에 나오는 테마 단어는 0개**다. │
+ │    (nothing 은 곡1 에 없고, here 는 곡2 에 없고, out 은 곡3·곡6 에 없다) │
+ │ ⛔ 곡 10 은 세트를 닫는 자리인데 닫히지 않는다 —                       │
+ │    마지막 마디가 **3음 없는 완전5도(B flat)** 만 남아 장·단 어느 쪽으로도 │
+ │    안 닫히고, 그 음이 그대로 곡 1 의 B flat major 로 되감긴다.         │
+ └──────────────────────────────────────────────────────────────────────┘
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 편성 — 소울팝 8곡의 밑판을 곡마다 갈랐다 (EP08 방침 계승)              │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │  #  리드(지속 건반)          보조 색              퍼커션            베이스        │
+ │  1  웜 로즈(넓은 보이싱)       클린일렉 슬로우 스웰     브러시 + 림 + 탬버린   라운드 일렉 롱  │
+ │  3  펠트 업라이트(저음역·페달)  활로 켜는 첼로 1대      로우 톰 말렛 + 브러시   뮤트 일렉 짧게 │
+ │  4  코러스 EP               웜 아날로그 패드(무어택)   셰이커 + 소프트 클로즈드 팜뮤트 싱코페 │
+ │  5  소프트 그랜드(페달)       뮤트 클린일렉 8va       머플드 킥 전면        라운드 싱코페  │
+ │  6  다크 타인 EP(슬로우 트레몰로) 스트링 섹션 롱톤 저역   사이드스틱 + 다크     🆕 프렛리스   │
+ │  7  웜 테이프 EP            나일론 느린 아르페지오     말렛 토스 + 클로즈드   라운드 4분음  │
+ │  9  콤보 오르간(저드로바)      월리처 짧은 응답        브러시 + 클로즈드     업라이트 베이스 │
+ │ 10  웜 월리처(테이프)         바리톤 일렉 느린 라인     브러시 + 로우 톰      🆕 신스 베이스 │
+ │                                                                      │
+ │ · 베이스 캐릭터를 소울팝 8곡에서 **8종 전부 다르게** 갈랐다.           │
+ │   (EP08 은 8곡 6종이었다. 신스 베이스는 plum 전 편 통틀어 처음이다)    │
+ │ · 🆕 이번 편은 **관악기를 한 곡도 안 쓴다.** EP08 에서 플루겔혼(#4)이   │
+ │   ❌ 0건으로 통과했지만, **Mureka 첫 편이라 플랫폼 자체가 이미 새 변수** │
+ │   다. 편성 신규성은 여기서 줄이고 게이트 판정을 플랫폼 축에 집중시킨다. │
+ │ · ⛔ 저지속·얇은 악기(칼림바·마림바·글로켄슈필·첼레스타·비브라폰·      │
+ │   핸드팬) 0곡. 리드는 10곡 전부 지속하는 건반이고 기타는 어느 곡에서도 │
+ │   리드가 아니다.                                                      │
+ │ · ⛔ 배제어에서 스무스재즈 차단선(upright bass · jazz trio ·           │
+ │   vibraphone · flugelhorn)은 되살리지 않았다(2026-08-25 제거 확정).   │
+ │   #9 는 그 해제를 실제로 쓴 유일한 곡이다(업라이트 베이스).           │
+ │   saxophone · smoky jazz bar · dim lounge · sultry 는 그대로 배제다.  │
+ └──────────────────────────────────────────────────────────────────────┘
+
+ [조성 · 화성 배분표]  ※ 재생 순서 = 아래 곡 번호 순서 그대로
+
+ | #  | 조성                          | BPM | 장르   | 보컬 | 결        |
+ |----|-------------------------------|-----|--------|------|-----------|
+ | 1  | B flat major                  | 100 | 소울팝    | 여성   | 밝음        |
+ | 2  | G major                       |  98 | 보사노바   | 여성   | 밝음        |
+ | 3  | C sharp minor -> E major      |  88 | 소울팝    | 여성   | 여운 DARK   |
+ | 4  | A flat major                  | 102 | 소울팝    | 여성   | 밝음        |
+ | 5  | F major                       | 101 | 소울팝    | 여성   | 밝음        |
+ | 6  | D major                       |  87 | 소울팝    | 여성   | 여운 DARK   |
+ | 7  | E flat major                  |  97 | 소울팝    | 남성   | 밝음        |
+ | 8  | C major                       |  94 | 보사노바   | 여성   | 여운        |
+ | 9  | A major                       | 103 | 소울팝    | 여성   | 밝음        |
+ | 10 | B flat minor -> D flat major  |  89 | 소울팝    | 여성   | 여운 DARK   |
+
+ · 조성 10개 전부 다름. 5도권 인접 거리를 전부 3칸 이상으로 잡았다
+   (단조 시작 곡은 착지하는 장조로 센다 — EP08 과 같은 셈법)
+   Bb→G 3 · G→E 3 · E→Ab 4 · Ab→F 3 · F→D 3 · D→Eb 5 · Eb→C 3 ·
+   C→A 3 · A→Db 4 · Db→Bb 3 (되감기 지점도 3칸).
+ · 단조 시작 2곡(#3 #10)은 전부 따뜻한 장조로 올라가서 끝난다 —
+   §🎹 minor with a warm major resolution. 이별 정서가 아니라 여운 장치다.
+   #6 은 DARK 이지만 장조다(EP07 #5 · EP08 #8 과 같은 처리) — 단조 3곡은
+   세트를 너무 어둡게 만들고, EP06 △ 2건의 원인이 "세트 최암·최평탄"이었다.
+ · dark warm tone, highs rolled off = #3 #6 #10 (3곡)
+ · behind the beat 계열 = #3 #6 #8 #10 (4곡)
+ · low backing harmony in the chorus = 10곡 전부
+ · lo-fi texture = 10곡 전부
+ · 화성 감정 장치 10개 (EP08 의 10개와 겹침 0):
+   ① 모든 화음이 자리바꿈이라 근음이 베이스에 한 번도 안 온다
+   ② 딸림화음이 sus4 로 두 마디 머물다 해결 없이 그대로 지나간다 (보사)
+   ③ 내성이 반음씩 상행하며 단조가 나란한장조로 열린다
+   ④ 딸림7화음이 하나도 없어 집으로 당기는 힘 자체가 없다 (6/9 진행)
+   ⑤ 상성부가 한 마디에 한 음씩 상행하고 화성은 그 아래에서 바뀐다
+   ⑥ 딸림9화음이 해결 대신 반음 아래 딸림9로 미끄러진다 (트라이톤 대리)
+   ⑦ IV 가 두 마디 동안 으뜸화음인 척 머물다 V 에 끌려 돌아온다
+   ⑧ IV 가 한 번 걸러 장7 ↔ 단6 로 갈아탄다 (보사)
+   ⑨ 같은 선율 한 줄을 IV 위에서 한 번, ii 위에서 그대로 한 번 더 부른다
+   ⑩ 후렴이 장조로 열리고, 마지막 마디는 3음 없는 완전5도만 남는다
+
+
+  ★ plum 전곡 공통 배제어 꼬리 (107자) — Mureka 변환기가 자동으로 붙인다
+  ----------------------------------------------------------------------
+  No belting, no vocal runs, no saxophone, no smoky bar or lounge, no sultry tone, no autotune, no pop gloss.
+  ----------------------------------------------------------------------
+  붙이는 법 = STYLE 본문 + 공백 1칸 + 꼬리. 최대 870 + 1 + 107 = 978 ≤ 1,000.
+  ⚠️ 꼬리의 `autotune, pop gloss` 는 Mureka 의 K-pop 광택에 대한 **추정 배제어**다.
+     첫 결과에서 광택이 안 보이면 이 둘을 빼고 `no melisma` 로 교체 검토(음악감독 의견).
+
+
+  ★ 생성 직후 반드시 돌릴 것 — 이번 편의 게이트는 이중 역할이다
+  ----------------------------------------------------------------------
+  py -3 plum\_assets\clap_gate.py       plum\ep09\music        (임계 0.084)
+  py -3 plum\_assets\clap_gate_bossa.py plum\ep09\music        (보사 #2 #8 · 임계 0.068)
+  ----------------------------------------------------------------------
+  🔴 ❌ 가 몰리면 곡 탓하기 전에 **모델·플랫폼 축을 먼저 의심할 것**(컨셉 §⚠️3).
+     같은 프롬프트를 V9.5 로 다시 돌려 비교하는 것이 1차 대응이다.
+
+  ▸ 리스크 순위 — 생성 후 이 순서로 먼저 잰다
+    1순위 **#3** — 세트 최저역 + 활로 켜는 첼로 1대. plum 에서 현악 독주 리드는
+      처음이고, 이게 뜨면 편곡이 **어쿠스틱 실내악/재즈팝** 쪽으로 샌다.
+      그 방향이 정확히 EP01 R1 기각 사유(CLAP 거리 0.147)다. 첼로가 "보조 색"이
+      아니라 리드로 들리면 그 트랙은 버린다.
+    2순위 **보사 #2 · #8** — 결과 무관하게 임계(0.068) 근처에 붙는다.
+      EP06·EP07·EP08 3편 연속 관측. 별도 게이트로 반드시 따로 잰다.
+      ⚠️ EP07 에서 "밝은 보사가 위험"이라는 내 사전 예측이 정확히 반대로 빗나갔다.
+         **결(밝음/여운)로 위험을 예측하지 않는다.** 둘 다 잰다.
+    3순위 **#10** — 신스 베이스가 plum 전 편 통틀어 처음이고, 세트 최암·저BPM 이다.
+      어택 없는 저역이 뭉치면 booming sub bass 쪽으로 흐른다.
+    4순위 **#4** — 아날로그 패드가 얇아지면 sparse(EP06 진단 1순위) 재발 경로다.
+    ▸ 전 곡 공통 = **Mureka 광택**(autotune·pop gloss). 게이트 숫자가 아니라
+      2~3트랙만 확대해 보컬 상단을 확인해야 잡힌다.
+  ▸ 20트랙 중 2트랙까지는 버려도 유니크 분량 하한(50분) 안이다. 3트랙부터 재생성.
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 1   세트를 여는 곡 · 나에게서 멈추는 게 없다 (밝음)
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+Whatever comes in here keeps going
+I am not the last stop for any of it
+I used to be where everything collected
+That is not how this place works
+
+[Pre-Chorus]
+Maybe I was made to be a stopping place
+Things gathered in me because they could
+Even the small ones stayed for years
+
+[Chorus]
+It doesn't stop at me
+Whatever arrives is already leaving
+I am not asked to hold on to it
+It doesn't stop at me
+
+[Verse 2]
+I feel it come and I feel it go
+The going is the part I never had
+Every worry has somewhere else to be
+I am lighter between each one
+
+[Pre-Chorus]
+What was I keeping all of it for?
+I did not choose to be the end of things
+Even that job has been taken from me
+
+[Chorus]
+It doesn't stop at me
+Whatever arrives is already leaving
+I have nowhere to put it and that is fine
+It doesn't stop at me
+
+[Bridge]
+Even the part of me that collects
+Has come up empty and easy
+
+[Outro]
+It doesn't stop at me
+I am letting the rest of it pass
+
+【STYLE】 ★856자
+Warm soul pop for a cafe, B flat major, 100 BPM. Female vocal in a low alto,
+easy and open, close-mic, on the beat, little vibrato. Narrow melody, small
+steps and repeated notes inside a fourth, one short phrase returning; the
+chorus stays on the verse's notes; lift from the band. Rounded, soft
+consonants, never strained or belted, no vocal edge. Full band, dense and
+soft: warm Rhodes electric piano holding a four-note motif, clean electric
+guitar in slow swells, low backing harmony in the chorus, round electric bass
+in long half notes, soft kit clearly there, brushed snare, tambourine on four.
+Harmony Bbmaj9/D - Ebmaj9/G - Gm11/D - F6/9/C, every chord in an inversion,
+the root never in the bass. Vocals behind the band, blended in, not upfront.
+Warm open tone, softened top, tape warmth, lo-fi texture. Steady tempo, about
+two and a half minutes.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+it doesn't stop at me
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 2   보사노바 · 2인칭 · 어느 자리에 앉아도 밖이 보인다 (밝음)
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+I sat down without choosing a side
+You did the same and we both face out
+Neither of us picked the better view
+There is not a worse one to pick
+
+[Pre-Chorus]
+Maybe I always chose my seat carefully
+I wanted my back against something solid
+Even that care has gone out of me
+
+[Chorus]
+I can see out from anywhere
+You could turn around and lose nothing
+Whatever I want to look at is already there
+I can see out from anywhere
+
+[Verse 2]
+You keep glancing up like you forgot
+I forget it too and remember again
+Every time it is still true
+You and I are getting used to it
+
+[Pre-Chorus]
+Did we need this much room?
+You laughed before I finished asking
+Even the asking felt light
+
+[Chorus]
+I can see out from anywhere
+You could turn around and lose nothing
+Whatever we came in with has thinned
+I can see out from anywhere
+
+[Bridge]
+The part of me that sat with its back covered
+Has put its hands down
+
+[Outro]
+I can see out from anywhere
+I am going to sit loosely next to you
+
+【STYLE】 ★859자
+Bossa nova soul pop for a cafe, G major, 98 BPM. Female vocal in a low alto,
+understated bossa phrasing, close-mic, unhurried, little vibrato. Narrow
+melody, small steps inside a fourth, one short phrase returning; the chorus
+stays on the verse's notes; lift from the band. Rounded, soft consonants,
+never strained or belted, no vocal edge. Full band, dense and soft: warm
+electric piano leading and sustaining, nylon-string guitar only in soft
+off-beat comping, low backing harmony in the chorus, round syncopated
+electric bass, soft kit clearly there, brushes on snare, shaker, closed hats.
+Harmony Gmaj9 - Em9 - Am9 - Cmaj9, turning back before it ever reaches the
+five chord. Vocals behind the band, blended in, not upfront. Warm tone,
+softened top, tape warmth, lo-fi texture. No upright bass, not a jazz trio.
+Steady tempo, about two and a half minutes.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+i can see out from anywhere
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 3   이 고요는 누가 가둬둔 게 아니다 (여운 · DARK)
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+It is quiet and no one is enforcing it
+The sound has somewhere to go from here
+Whatever gets loud does not stay loud
+The quiet comes back without help
+
+[Pre-Chorus]
+Maybe I thought calm had to be kept
+I used to guard it like it would run
+Even that watching has stopped
+
+[Chorus]
+Nothing is holding it in
+It stays because it has no reason to leave
+Whatever I was protecting was never at risk
+Nothing is holding it in
+
+[Verse 2]
+I have been still for a long time now
+No one shut anything to make that happen
+Every sound goes past me and thins
+I get to hear the end of each one
+
+[Pre-Chorus]
+How much of my calm was effort?
+I could not tell the difference before
+Even the effort has gone quiet
+
+[Chorus]
+Nothing is holding it in
+It stays because it has no reason to leave
+Whatever wants to leave is welcome to
+Nothing is holding it in
+
+[Bridge]
+Whatever I was keeping shut
+Was never trying to get away
+
+[Outro]
+Nothing is holding it in
+I am going to let it stay loose
+
+【STYLE】 ★859자
+Soul pop for a cafe, C sharp minor lifting to E major, 88 BPM. Female vocal
+in a low alto, low and settled, close-mic, behind the beat, little
+vibrato. Narrow melody, small steps and repeated notes inside a fourth, one
+short phrase returning; the chorus stays on the verse's notes; lift from the
+band. Rounded, soft consonants, never strained or belted, no vocal edge. Full
+band, dense and soft: felt upright piano low in its range, pedal held, a bowed cello
+moving slowly under it, low backing harmony in the chorus, muted electric bass
+on the roots, soft kit clearly there, mallets on a low tom, no hats. Harmony
+C#m11 - Amaj7 - E/G# - B7sus4, an inner voice climbing by half steps, the
+chorus opening onto E major. Vocals behind the band, blended in, not upfront. Dark warm tone, highs
+rolled off, lo-fi texture. Steady tempo, about two and a half minutes.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+nothing is holding it in
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 4   어디에도 걸리지 않고 하루가 지나갔다 (밝음 · 세트 2위 BPM)
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+I got through a whole day without stopping
+Not one thing reached out and held me
+I keep waiting to be pulled aside
+It has not happened since I came
+
+[Pre-Chorus]
+Maybe I used to walk into everything
+I found the edge of every small thing
+Even the ones I never saw
+
+[Chorus]
+I am not caught on anything
+Nothing has a grip on the way I move
+Whatever I pass, I pass all the way by
+I am not caught on anything
+
+[Verse 2]
+My shoulders have stopped going first
+I am not turning sideways to fit
+Every step here is the full step
+I take up the room I take up
+
+[Pre-Chorus]
+When did I start moving so carefully?
+I do not remember agreeing to that
+Even the care has fallen off me
+
+[Chorus]
+I am not caught on anything
+Nothing has a grip on the way I move
+Whatever used to hook me is not here
+I am not caught on anything
+
+[Bridge]
+The part of me that watched my footing
+Has stopped looking down
+
+[Outro]
+I am not caught on anything
+I am going to keep moving easy
+
+【STYLE】 ★850자
+Bright soul pop for a cafe, A flat major, 102 BPM. Female vocal in a low alto,
+light and even, close-mic, on the beat, little vibrato. Narrow melody, small
+steps and repeated notes inside a fourth, one short phrase returning; the
+chorus stays on the verse's notes; lift from the band. Rounded, soft
+consonants, never strained or belted, no vocal edge. Full band, dense and
+soft: chorused electric piano on a five-note motif, warm analog pad in long
+tones, no attack, low backing harmony in the chorus, palm-muted electric bass,
+lightly syncopated, soft kit clearly there, shaker, brushed snare, soft hats.
+Harmony Ab6/9 - Db6/9 - Bbm9 - Eb6/9sus4, no dominant seventh anywhere,
+nothing pulling home. Vocals behind the
+band, blended in, not upfront. Warm open tone, softened top, tape warmth,
+lo-fi texture. Steady tempo, about two and a half minutes.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+i am not caught on anything
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 5   앉았는데 안으로 들어온 게 아니다 (밝음)
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+I am sitting down and I am still out here
+This does not count as going in
+The day is the same on both sides of me
+I gave up nothing to sit like this
+
+[Pre-Chorus]
+Maybe I only ever had two choices
+Out in all of it or shut away from it
+Even that split has stopped making sense
+
+[Chorus]
+This is not being inside
+I am under something and still in the day
+Whatever I came out for is still happening
+This is not being inside
+
+[Verse 2]
+I can feel the same air I walked in with
+Nothing about it changed when I sat
+Every part of it reaches me here
+I am not on the other side of anything
+
+[Pre-Chorus]
+Why did I make it either or?
+I traded the day for being comfortable
+Even that trade is off the table now
+
+[Chorus]
+This is not being inside
+I am under something and still in the day
+Whatever I would have missed is with me
+This is not being inside
+
+[Bridge]
+Even the part of me that settles in
+Has not closed up this time
+
+[Outro]
+This is not being inside
+I am staying out here sitting down
+
+【STYLE】 ★847자
+Bright soul pop for a cafe, F major, 101 BPM. Female vocal in a low alto,
+relaxed and plain, close-mic, on the beat, little vibrato. Narrow melody,
+small steps and repeated notes inside a fourth, one short phrase returning;
+the chorus stays on the verse's notes; lift from the band. Rounded, soft
+consonants, never strained or belted, no vocal edge. Full band, dense and
+soft: soft grand piano in wide open chords, pedal held, muted clean electric
+an octave up, low backing harmony in the chorus, round syncopated electric
+bass, soft kit clearly there, muffled kick forward, brushed snare. Harmony
+Fmaj9 - Gm9 - Bbmaj9 - C6/9, the top voice climbing one step a bar while the
+chords move under it. Vocals behind the
+band, blended in, not upfront. Warm open tone, softened top, tape warmth,
+lo-fi texture. Steady tempo, about two and a half minutes.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+this is not being inside
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 6   지나가면서 아무것도 가져가지 않는다 (여운 · DARK · 세트 최저 BPM)
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+Things move through all day long
+None of them ask me for anything
+I used to give something to every one
+That has stopped without me noticing
+
+[Pre-Chorus]
+Maybe I was in the way of everything
+I stood where it all had to come through
+Even standing still wore me down then
+
+[Chorus]
+It passes and takes nothing
+I am the same after it as before
+Whatever went by is not carrying me
+It passes and takes nothing
+
+[Verse 2]
+I look at what is left at the end of an hour
+It is all still mine, all of it
+Every crossing used to leave a mark
+I have run out of new ones
+
+[Pre-Chorus]
+What was I giving away back then?
+I never noticed it leaving me
+Even the giving has quieted down
+
+[Chorus]
+It passes and takes nothing
+I am the same after it as before
+Whatever I expected to lose is still here
+It passes and takes nothing
+
+[Bridge]
+Every count I used to keep
+Has come out the same
+
+[Outro]
+It passes and takes nothing
+I am going to stop keeping count
+
+【STYLE】 ★865자
+Soul pop for a cafe, D major, 87 BPM. Female vocal in a low alto, quiet and
+still, close-mic, a little behind the beat, little vibrato. Narrow melody,
+small steps and repeated notes inside a fourth, one short phrase returning;
+the chorus stays on the verse's notes; lift from the band. Rounded, soft
+consonants, never strained or belted, no vocal edge. Full band, dense and
+soft: dark tine electric piano low in its range with a slow tremolo, a small
+string section in long low held notes, low backing harmony in the chorus,
+fretless bass with slow slides, soft kit clearly there, side stick instead of
+snare, brushes, dark hats. Harmony Dmaj9 - Bm9 - E9 - Eb9, the five chord
+sliding down a half step instead of resolving. Vocals behind the band, blended
+in, not upfront. Dark warm tone, highs rolled off, lo-fi texture. Steady
+tempo, about two and a half minutes.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+it passes and takes nothing
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 7   남성 · 2인칭 · 우리 둘 다 아무것도 막고 있지 않다 (밝음)
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+You came and sat down without asking
+Nothing had to be moved for you
+We are letting the whole day come at us
+Neither of us is turning any of it away
+
+[Pre-Chorus]
+Maybe I used to sort what got near me
+I kept a short list of what was allowed
+Even you would have been checked once
+
+[Chorus]
+We are not keeping anything out
+You and I are letting it all come through
+Whatever wants to be here can be here
+We are not keeping anything out
+
+[Verse 2]
+You talk and stop and I do not fill it
+The sound of everything else comes in
+Every so often one of us looks up
+Nothing we let near has hurt us yet
+
+[Pre-Chorus]
+Should we be more careful than this?
+You shrugged before I finished asking
+Even your caution feels far off
+
+[Chorus]
+We are not keeping anything out
+You and I are letting it all come through
+Whatever we would have stopped, we did not
+We are not keeping anything out
+
+[Bridge]
+Even the part of me that screens for trouble
+Has taken the day off
+
+[Outro]
+We are not keeping anything out
+I am not closing any of it on you
+
+【STYLE】 ★859자
+Warm soul pop for a cafe, E flat major, 97 BPM. Male lead, low and warm,
+half-spoken, close-mic, on the beat, little vibrato, no female vocals. Narrow
+melody, small steps and repeated notes inside a fourth, one short phrase
+returning; the chorus stays on the verse's notes; lift from the band. Rounded,
+soft consonants, never strained or belted, no vocal edge. Full band, dense and
+soft: warm tape electric piano on chords, nylon guitar in slow arpeggios on
+the motif, low backing harmony in the chorus, round electric bass in quarter
+notes, soft kit clearly there, brushed snare, mallets on toms. Harmony Ebmaj9
+- Cm9 - Fm9 - Abmaj9, the four chord held two bars as if it were home before
+B flat pulls back.
+Vocals behind the band, blended in, not upfront. Warm open tone, softened top,
+tape warmth, lo-fi texture. Steady tempo, about two and a half minutes.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+we are not keeping anything out
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 8   보사노바 · 2인칭 · 어느 쪽으로도 나갈 수 있어서 머문다 (여운 · DARK 아님)
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+We could go from here in any direction
+Nobody would have to move for us
+I keep noticing that and liking it
+You noticed it before I said it
+
+[Pre-Chorus]
+Maybe staying is easy when leaving is easy
+I never settled where there was one way out
+Even that carefulness has gone soft
+
+[Chorus]
+Every way is a way out
+You and I are not shut in from any side
+Whatever we choose, we could unchoose it
+Every way is a way out
+
+[Verse 2]
+I have not looked for the way out once
+It is the not looking that tells me
+Every time before, I knew where it was
+That took more from me than you know
+
+[Pre-Chorus]
+Would you tell me if you wanted to go?
+You would not have to say it out loud
+Even that would be easy here
+
+[Chorus]
+Every way is a way out
+You and I are not shut in from any side
+Whatever holds us here is not holding
+Every way is a way out
+
+[Bridge]
+The part of me that watched the way back
+Has stopped keeping track
+
+[Outro]
+Every way is a way out
+You and I are staying because we can
+
+【STYLE】 ★827자
+Bossa nova soul pop for a cafe, C major, 94 BPM. Female vocal in a low alto,
+understated bossa phrasing, close-mic, behind the beat, little vibrato. Narrow
+melody, small steps and repeated notes inside a fourth, one short phrase
+returning; the chorus stays on the verse's notes; lift from the band. Rounded,
+soft consonants, never strained or belted, no vocal edge. Full band, dense:
+nylon-string guitar in bossa comping, warm electric piano sustaining chords
+through it, low backing harmony in the chorus, round syncopated electric bass,
+soft kit clearly there, brushes on snare, side stick. Harmony Cmaj9 - Fmaj7 -
+Dm9 - G13, the four chord turning to F minor 6 every other pass. Vocals behind
+the band, blended in, not upfront. Warm tone, softened top, tape warmth, lo-fi
+texture. Steady tempo, about two and a half minutes.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+every way is a way out
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 9   2인칭 · 같은 것이 우리 둘을 그대로 지나간다 (밝음 · 세트 최고 BPM)
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+You felt it before you said anything
+I felt the same thing a second later
+Neither of us had to describe it
+It went through you and then through me
+
+[Pre-Chorus]
+Maybe we are not as separate as we act
+I kept my part of it from you for years
+Even that habit is thinning out here
+
+[Chorus]
+It goes through both of us
+You and I are not sealed off from each other
+Whatever reaches you reaches me too
+It goes through both of us
+
+[Verse 2]
+You breathe out and I hear it land
+I say something small and you already knew
+Every easy thing between us stays easy
+Nothing has to be carried across
+
+[Pre-Chorus]
+Do you feel how little work this is?
+You told me once without any words
+Even the telling was not needed
+
+[Chorus]
+It goes through both of us
+You and I are not sealed off from each other
+Whatever I was holding alone is shared
+It goes through both of us
+
+[Bridge]
+Even the part of me that stays private
+Has opened without deciding to
+
+[Outro]
+It goes through both of us
+I am not putting any of it back
+
+【STYLE】 ★865자
+Bright soul pop for a cafe, A major, 103 BPM. Female vocal in a low alto,
+bright and unhurried, close-mic, on the beat, little vibrato. Narrow melody,
+small steps and repeated notes inside a fourth, one short phrase returning;
+the chorus stays on the verse's notes; lift from the band. Rounded, soft
+consonants, never strained or belted, no vocal edge. Full band, dense and
+soft: soft combo organ on low drawbars holding chords, no Leslie, a Wurlitzer
+answering in short figures, low backing harmony in the chorus, upright bass
+played round and warm, soft kit clearly there, brushes on snare, closed hats.
+Harmony Amaj9 - D6/9 - Bm9 - E6/9, the chorus phrase sung once over D and then
+again unchanged over B minor. Vocals behind the band, blended in, not upfront.
+Warm open tone, softened top, tape warmth, lo-fi texture. Steady tempo, about
+two and a half minutes.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+it goes through both of us
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 10   세트를 닫는 곡 · 몸이 대비하는 걸 그만뒀다 · 3음 없는 5도로 곡 1 로 되감김 (여운 · DARK)
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+I noticed that I am not ready for anything
+There is nothing coming that I have to meet
+My whole body had a job and quit it
+I did not tell it that it could
+
+[Pre-Chorus]
+Maybe I was holding myself together for nothing
+I kept a little tension in reserve
+Even that has spent itself out
+
+[Chorus]
+I stopped bracing for it
+Nothing here is going to arrive hard
+Whatever I was ready for is not coming
+I stopped bracing for it
+
+[Verse 2]
+I sit the way I would sit alone
+There is no part of me on watch
+Every hour of this has been the same
+I am beginning to trust the next one
+
+[Pre-Chorus]
+How long was I braced like that?
+I cannot find where it started
+Even the question has gone soft
+
+[Chorus]
+I stopped bracing for it
+Nothing here is going to arrive hard
+Whatever is next can find me like this
+I stopped bracing for it
+
+[Bridge]
+Every worst thing I stayed ready for
+Has not once shown up
+
+[Outro]
+I stopped bracing for it
+I am going to stay soft about it
+
+【STYLE】 ★856자
+Soul pop for a cafe, B flat minor lifting to D flat major, 89 BPM. Female
+vocal in a low alto, low and settled, close-mic, behind the beat, little
+vibrato. Narrow melody, small steps and repeated notes inside a fourth, one
+short phrase returning; the chorus stays on the verse's notes; lift from the
+band. Rounded, soft consonants, never strained or belted, no vocal edge. Full
+band, dense: warm Wurlitzer electric piano through tape, baritone guitar in
+slow low lines, low backing harmony in the chorus, round synth bass, no
+attack, soft kit clearly there, brushes on snare, low toms, dark hats. Harmony
+Bbm9 - Gbmaj9 - Dbmaj9/F - Ab6/9, the chorus opening on D flat, the last bar
+a bare open fifth with no third. Vocals behind the
+band, blended in, not upfront. Dark warm tone, highs rolled off, lo-fi
+texture. Steady tempo, about two and a half minutes.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+i stopped bracing for it

@@ -1,0 +1,53 @@
+{
+ "token": "yt_token.json",
+ "videos": [
+  {
+   "file": "plum/shorts/out_ep06/s14_the_day_went_loose_on_me.mp4",
+   "title": "긴장이 스르르 풀리는 잔잔한 음악 #잔잔한음악 #cafeplaylist #휴양지음악 #힐링음악",
+   "description": ".",
+   "tags": [],
+   "categoryId": 10,
+   "publishAt": "2026-09-03T10:00:00Z"
+  },
+  {
+   "file": "plum/shorts/out_ep06/s15_better_just_by_sitting_down.mp4",
+   "title": "앉아서 일할 때 틀어두는 카페 음악 #작업용음악 #카페BGM #공부할때듣는음악 #cafemusic",
+   "description": ".",
+   "tags": [],
+   "categoryId": 10,
+   "publishAt": "2026-09-05T10:00:00Z"
+  },
+  {
+   "file": "plum/shorts/out_ep07/s17_the_still_part_is_the_good_part.mp4",
+   "title": "물가에서 듣기 좋은 여름 카페 음악 #카페음악 #cafeplaylist #여름플레이리스트 #기분좋은음악",
+   "description": ".",
+   "tags": [],
+   "categoryId": 10,
+   "publishAt": "2026-09-08T10:00:00Z"
+  },
+  {
+   "file": "plum/shorts/out_ep07/s18_my_weight_went_somewhere_else.mp4",
+   "title": "몸이 가벼워지는 작업용 카페 음악 #작업용음악 #카페BGM #공부할때듣는음악 #cafemusic",
+   "description": ".",
+   "tags": [],
+   "categoryId": 10,
+   "publishAt": "2026-09-09T10:00:00Z"
+  },
+  {
+   "file": "plum/shorts/out_ep08/s20_i_watch_it_the_whole_way_in.mp4",
+   "title": "시야가 탁 트이는 기분 좋은 음악 #기분좋은음악 #카페음악 #cafemusic #여름플레이리스트",
+   "description": ".",
+   "tags": [],
+   "categoryId": 10,
+   "publishAt": "2026-09-12T10:00:00Z"
+  },
+  {
+   "file": "plum/shorts/out_ep08/s21_we_look_the_same_way.mp4",
+   "title": "숨이 길어지는 작업용 카페 음악 #작업용음악 #카페BGM #공부할때듣는음악 #backgroundmusic",
+   "description": ".",
+   "tags": [],
+   "categoryId": 10,
+   "publishAt": "2026-09-13T10:00:00Z"
+  }
+ ]
+}
