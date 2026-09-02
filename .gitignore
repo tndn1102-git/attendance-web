@@ -27,4 +27,4 @@ yt_token*.json
 suno-sleep-yt/**/*.mp3
 suno-sleep-yt/**/*.wav
 suno-sleep-yt/**/*.mp4
-suno-sleep-yt/.pw-profile/
+suno-sleep-yt/.pw-profile*/
