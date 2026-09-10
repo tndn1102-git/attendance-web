@@ -1,0 +1,22 @@
+[
+ {
+  "index": 9,
+  "title": "한 곡만",
+  "take": 1,
+  "dur_sec": 206.9,
+  "song_id": 160130836529153,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160130832334853_EwRZp9qy6nH3Gp8UpUfKGn_jujogh.mp3",
+  "file": "ballad90/ep11/_regen_V9.5_5\\09_한 곡만.mp3"
+ },
+ {
+  "index": 10,
+  "title": "한 곡만",
+  "take": 2,
+  "dur_sec": 227.1,
+  "song_id": 160130836594690,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160130832334853_EwRZp9qy6nH3Gp8UpUfKGn_ecuxqo.mp3",
+  "file": "ballad90/ep11/_regen_V9.5_5\\10_한 곡만.mp3"
+ }
+]

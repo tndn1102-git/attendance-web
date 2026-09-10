@@ -1,0 +1,74 @@
+[
+ {
+  "n": 1,
+  "ko": "바통",
+  "en": "The Baton",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep10\\titlecards\\card_01.png",
+  "start": 0.0,
+  "end": 202.23,
+  "mmss": "00:00"
+ },
+ {
+  "n": 2,
+  "ko": "체육복",
+  "en": "Gym Uniform",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep10\\titlecards\\card_02.png",
+  "start": 202.23,
+  "end": 409.66,
+  "mmss": "03:22"
+ },
+ {
+  "n": 3,
+  "ko": "풀리지 않게",
+  "en": "So It Won't Come Undone",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep10\\titlecards\\card_03.png",
+  "start": 409.66,
+  "end": 625.05,
+  "mmss": "06:49"
+ },
+ {
+  "n": 4,
+  "ko": "목이 쉬었어요",
+  "en": "I Lost My Voice",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep10\\titlecards\\card_04.png",
+  "start": 625.05,
+  "end": 817.28,
+  "mmss": "10:25"
+ },
+ {
+  "n": 5,
+  "ko": "줄다리기",
+  "en": "Tug of War",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep10\\titlecards\\card_05.png",
+  "start": 817.28,
+  "end": 1030.03,
+  "mmss": "13:37"
+ },
+ {
+  "n": 6,
+  "ko": "가만있어 봐",
+  "en": "Hold Still",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep10\\titlecards\\card_06.png",
+  "start": 1030.03,
+  "end": 1232.46,
+  "mmss": "17:10"
+ },
+ {
+  "n": 7,
+  "ko": "200미터",
+  "en": "200 Meters",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep10\\titlecards\\card_07.png",
+  "start": 1232.46,
+  "end": 1441.41,
+  "mmss": "20:32"
+ },
+ {
+  "n": 8,
+  "ko": "흰 선",
+  "en": "The White Line",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep10\\titlecards\\card_08.png",
+  "start": 1441.41,
+  "end": 1651.68,
+  "mmss": "24:01"
+ }
+]

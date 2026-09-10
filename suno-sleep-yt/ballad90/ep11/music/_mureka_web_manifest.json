@@ -1,0 +1,162 @@
+[
+ {
+  "index": 1,
+  "title": "기차표",
+  "take": 1,
+  "dur_sec": 172.2,
+  "song_id": 160128877723649,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160128876150786_W5XRedEjVq3fy3XyB4rxZH_kzjnkl.mp3",
+  "file": "ballad90/ep11/music\\01_기차표.mp3"
+ },
+ {
+  "index": 2,
+  "title": "기차표",
+  "take": 2,
+  "dur_sec": 200.2,
+  "song_id": 160128877985793,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160128876150786_W5XRedEjVq3fy3XyB4rxZH_tfyacb.mp3",
+  "file": "ballad90/ep11/music\\02_기차표.mp3"
+ },
+ {
+  "index": 3,
+  "title": "귤 까 줄게",
+  "take": 1,
+  "dur_sec": 216.3,
+  "song_id": 160128905052161,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160128903348225_A3beiBq2tBKaEgYy8V8BYi_usruim.mp3",
+  "file": "ballad90/ep11/music\\03_귤 까 줄게.mp3"
+ },
+ {
+  "index": 4,
+  "title": "귤 까 줄게",
+  "take": 2,
+  "dur_sec": 190.2,
+  "song_id": 160128905248769,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160128903348225_A3beiBq2tBKaEgYy8V8BYi_abihgv.mp3",
+  "file": "ballad90/ep11/music\\04_귤 까 줄게.mp3"
+ },
+ {
+  "index": 5,
+  "title": "양보",
+  "take": 1,
+  "dur_sec": 201.3,
+  "song_id": 160128923860993,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160128921894913_SVBknxz8LPNCwCfVRNqusK_syghbp.mp3",
+  "file": "ballad90/ep11/music\\05_양보.mp3"
+ },
+ {
+  "index": 6,
+  "title": "양보",
+  "take": 2,
+  "dur_sec": 210.6,
+  "song_id": 160128923926529,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160128921894913_SVBknxz8LPNCwCfVRNqusK_kqycek.mp3",
+  "file": "ballad90/ep11/music\\06_양보.mp3"
+ },
+ {
+  "index": 7,
+  "title": "들켰어",
+  "take": 1,
+  "dur_sec": 197.3,
+  "song_id": 160128947191809,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160128943259653_8Zz2GxdoUCNvycpgVGMMxr_cpxtid.mp3",
+  "file": "ballad90/ep11/music\\07_들켰어.mp3"
+ },
+ {
+  "index": 8,
+  "title": "들켰어",
+  "take": 2,
+  "dur_sec": 209.9,
+  "song_id": 160128947191810,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160128943259653_8Zz2GxdoUCNvycpgVGMMxr_faecyg.mp3",
+  "file": "ballad90/ep11/music\\08_들켰어.mp3"
+ },
+ {
+  "index": 9,
+  "title": "한 곡만",
+  "take": 1,
+  "dur_sec": 207.7,
+  "song_id": 160128970063873,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160128968359937_CXcNS1c8AD64JdDePBr1SA_yqricp.mp3",
+  "file": "ballad90/ep11/music\\09_한 곡만.mp3"
+ },
+ {
+  "index": 10,
+  "title": "한 곡만",
+  "take": 2,
+  "dur_sec": 211.6,
+  "song_id": 160128970063874,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160128968359937_CXcNS1c8AD64JdDePBr1SA_bkewar.mp3",
+  "file": "ballad90/ep11/music\\10_한 곡만.mp3"
+ },
+ {
+  "index": 11,
+  "title": "계란 두 알",
+  "take": 1,
+  "dur_sec": 193.9,
+  "song_id": 160128993067009,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160128991035395_UMF9GZnKDhRC9YYWVf4aTh_sxoytm.mp3",
+  "file": "ballad90/ep11/music\\11_계란 두 알.mp3"
+ },
+ {
+  "index": 12,
+  "title": "계란 두 알",
+  "take": 2,
+  "dur_sec": 191.1,
+  "song_id": 160128993198081,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160128991035395_UMF9GZnKDhRC9YYWVf4aTh_amsssj.mp3",
+  "file": "ballad90/ep11/music\\12_계란 두 알.mp3"
+ },
+ {
+  "index": 13,
+  "title": "잠든 척",
+  "take": 1,
+  "dur_sec": 197.7,
+  "song_id": 160129014038529,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129012072450_AfkoV7wGo2rXzPQKz8xwcC_amtnnn.mp3",
+  "file": "ballad90/ep11/music\\13_잠든 척.mp3"
+ },
+ {
+  "index": 14,
+  "title": "잠든 척",
+  "take": 2,
+  "dur_sec": 225.5,
+  "song_id": 160129014169602,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129012072450_AfkoV7wGo2rXzPQKz8xwcC_emsfxg.mp3",
+  "file": "ballad90/ep11/music\\14_잠든 척.mp3"
+ },
+ {
+  "index": 15,
+  "title": "내릴 역",
+  "take": 1,
+  "dur_sec": 204.0,
+  "song_id": 160129039204354,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129035075585_S716tDKm8BSSBGH5r6jk3c_gbpfww.mp3",
+  "file": "ballad90/ep11/music\\15_내릴 역.mp3"
+ },
+ {
+  "index": 16,
+  "title": "내릴 역",
+  "take": 2,
+  "dur_sec": 184.1,
+  "song_id": 160129039400961,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129035075585_S716tDKm8BSSBGH5r6jk3c_odaozb.mp3",
+  "file": "ballad90/ep11/music\\16_내릴 역.mp3"
+ }
+]

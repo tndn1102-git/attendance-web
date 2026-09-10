@@ -1,0 +1,22 @@
+[
+ {
+  "index": 13,
+  "title": "200미터",
+  "take": 1,
+  "dur_sec": 228.3,
+  "song_id": 160131847290881,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160131843620865_9spEX22zZCNvCAHVZ8HVou_kixeir.mp3",
+  "file": "ballad90/ep10/_regen_V9.5_7\\13_200미터.mp3"
+ },
+ {
+  "index": 14,
+  "title": "200미터",
+  "take": 2,
+  "dur_sec": 207.3,
+  "song_id": 160131847553025,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160131843620865_9spEX22zZCNvCAHVZ8HVou_izprvv.mp3",
+  "file": "ballad90/ep10/_regen_V9.5_7\\14_200미터.mp3"
+ }
+]

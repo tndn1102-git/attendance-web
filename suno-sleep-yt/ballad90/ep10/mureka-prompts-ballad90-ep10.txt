@@ -1,0 +1,731 @@
+==========================================================================
+ 추억 감성가요 (@chueokgamsung) — EP10 곡 프롬프트 8곡   ★Mureka 3편째 · 가을 첫 편★
+ 🎤 **씬 = 가을 체육대회가 막 끝난 학교 운동장 스탠드 · 한낮 · 은행나무**
+      (콘크리트 계단식 스탠드 · 마사토 운동장의 흰 석회 트랙 라인 · 본부석 흰 천막 ·
+       삼각 깃발 · 계단 위에 남은 물병·체육복·은행잎)
+ 정서 = **설렘·진행중 100% · 상실 0곡** · 계절어 3곡×1회 · 시간대어 0 · 연대 = 2000년대
+ 🌞 **사운드 = 밝은 설렘**(CLAUDE.md §🌞🔝 · EP08 v2·EP09 사용자 통과 "설렘 느낌 난다") — 장조 8곡 · 90~118 BPM
+ 2026-09-10 / 발행 = 2026-09-23(수) 07:00 KST / cafe-bgm-music-director
+ 기준 = CLAUDE.md §🎚(Mureka 압축 작법) + §🌞🔝 + §🔊🔝 + §🏷🔝(2000년대 343곡) + §✍️ v2 + §🔬
+ 블록 순서 = <LYRICS> → <STYLE> → <TITLE>   ⛔ EXCLUDE 블록 없음
+==========================================================================
+
+ 🔴 이 편은 **EP09 에서 사용자 청취로 통과한 STYLE 문법을 그대로 계승**한다. 바꾼 것은
+    조성·BPM·편성·보컬 배치·가사뿐이고, 문장 골격(음색 문장·90s 프레이징 잠금·배제어 꼬리)은 그대로다.
+    · 유지 = 한국어 이중 잠금 · 성별/음역 앞 200자 · never belted · 음색 문장 ·
+      slightly behind the beat / small vibrato at line ends only · Lead vocal clearly in front of the band ·
+      밝은 화성 사건 1개 · 배제어(no trot / no K-pop gloss / no autotune) · 마지막 50자 = 잘려도 되는 문장
+    · 🆕 **남성 3곡(2·5·7)만 한 문장 추가** = `He sings through to the final line, never drifting back.`
+      EP09 교훈 3(남성 저음역 V7.6 = 마지막 25% 무가사 / 목소리 후퇴)을 **음역을 미들로 올리고**
+      **"끝까지 부른다"를 긍정문으로** 막는다. ⚠️ 이 문장은 **검증된 적이 없다** — 효과는 스템 게이트로 볼 것.
+
+ [Mureka 설정]
+   · Style 칸 = <STYLE> 블록을 통째로 붙여넣기 (하드 상한 1,000자 · 이 파일 전곡 949~975자)
+   · Lyrics 칸 = <LYRICS> 블록을 통째로 붙여넣기 (구조 태그 포함 — MusiCoT 가 태그로 구조를 먼저 계획한다)
+     ⛔ [Intro]·[Instrumental]·[Interlude] 태그를 쓰지 않았다(그 자리에 무가사 시간이 배정된다). [Outro] 는 전곡 가사 1행
+   · ⛔ **EXCLUDE 칸이 없다.** 배제어는 전부 STYLE 본문 끝에 인라인으로 녹여 두었다
+   · 모델 = **V7.6**(EP08·EP09 채택 모델). 이상 시 V9.5 교차 · 파일명에 `_v76`/`_v95` 접미어를 남길 것
+   · 곡당 1회 생성(=2테이크) → 1개 채택. 💳 **편당 상한 12회** — 8생성 + 재생성 4 이내, 넘으면 그 곡을 빼고 7곡 편성
+   · 받는 폴더 = `D:\test3\suno-sleep-yt\ballad90\ep10\music`
+
+ [압축 규칙 — §🎚 그대로]
+   ① 한국어 이중 잠금 = 앞 `sung in Korean` + 뒤 `No English lyrics`
+   ② 성별+음역은 앞 200자 안. 남성곡은 `no female vocals`, 여성곡은 `no male vocals` 를 같은 자리에
+   ③ 억제어는 `never belted` + `never strained, no rasp` (곡4만 `never shrill` 추가 — 세트 최고음 여성)
+   ④ `slightly behind the beat, small vibrato at line ends only` — 90s 프레이징 잠금. 8/8곡
+   ⑤ `Lead vocal clearly in front of the band.` — 8/8곡
+   ⑥ 화성은 로마숫자를 버리고 **밝은 감정 사건 1개 문장**으로. ⛔ aching minor 계열 전량 없음
+   ⑦ 마지막 50자는 잘려도 되는 문장만 = 전곡 `Bright airy modern mix, not retro.` 로 끝난다
+   ⑧ 배제어 = `no trot, no K-pop gloss, no autotune` 유지 + 곡별 1개(곡5 `no brass section` = 트로트 관악 차단)
+   ⑨ ⛔ `soft consonants` 는 전곡에서 쓰지 않는다(한국어 조사·받침 판정과 충돌)
+   ⑩ ⛔ 로마숫자 화성·곡 길이·인트로 초 지정·리버브/스테레오 수치 전량 없음
+
+ [음색 문장 — EP06 사용자 청취 합격분. 문구를 바꾸지 말 것]
+   · `The backing track has a dark top end with no cymbal sizzle.`
+   · `The voice keeps its natural breath and air, close-miked and present.`
+   · `Lead vocal clearly in front of the band.`
+
+ [🚨 먼저 뽑을 곡 = 곡2(남성 미들·C장조 104 어쿠스틱) · 곡3(여성 저·중음 A장조 90 읊는 포크팝)]
+   컨셉 지시대로 **남성곡 1 + 저음역 읊는 곡 1 을 곡1~3 앞순서**에 뒀다.
+   남성 미들 음역이 V7.6 에서 성립하는지(EP09 곡2 재발 여부)가 여기서 제일 먼저 드러난다.
+   그다음 트로트 위험 대표곡 = **곡5(B♭ 112 오르간 바운스)**, 앙칼짐 위험 대표곡 = **곡4(D4~G4 하이메조)**.
+
+──────────────────────────────────────────────────────────────────────────
+ 곡별 사양
+──────────────────────────────────────────────────────────────────────────
+  #  제목          영문 자막               층                조성        BPM  보컬                 호칭  리드 악기
+  1  바통          The Baton              밝은 밴드 팝       G major    118  여성 메조 C4~E4       너   쟁글 클린 일렉 2대 + 실드럼
+  2  체육복        Gym Uniform            써니 어쿠스틱 팝   C major    104  남성 미들 C4~F4       너   스틸현 스트럼 + 피아노 4음 응답
+  3  풀리지 않게    So It Won't Come Undone 라이트 포크팝     A major     90  여성 저·중음 G3~C4    너   핑거피킹 + 멜로디카 응답
+  4  목이 쉬었어요  I Lost My Voice        밝은 피아노 팝     D major     96  여성 하이메조 D4~G4   그대  업라이트 피아노 + 피치카토 + 글로켄
+  5  줄다리기      Tug of War             바운싱 소울팝      B flat major 112 남성 미들 C4~F4       너   라이트 오르간 + 바운스 베이스
+  6  가만있어 봐    Hold Still             라이트 삼바-보사   E flat major 102 여성 소프트 메조 C4~E4 그대  나일론 삼바-보사 컴핑 + 일렉피아노
+  7  200미터       200 Meters             웜 소울팝          A flat major  98 남성 미들 B3~E4       너   워리처 + 뮤트 기타 오프비트
+  8  흰 선         The White Line         밝은 스트링 팝     F major    110  여성 메조 D4~F4       너   스트링 훅 + 스틸현 스트럼
+
+ · 🔴 **BPM = 90 / 96 / 98 / 102 / 104 / 110 / 112 / 118** — 세트 중심 **103.75**, 최저 90, 최고 118.
+   같은 성별끼리 최소 6 BPM 을 벌렸다 — 여성 90/96/102/110/118 · 남성 98/104/112
+ · 조성 = **장조 8 · 단조 0 · 전조 0곡.** 밝기는 화성이 아니라 템포·편곡·보컬 톤으로 낸다
+ · 조성 흐름 G→C→A→D→B♭→E♭→A♭→F, **루프 = 곡8(F) → 곡1(G) = 온음 위 리프트.**
+   ★EP08 은 딸림→으뜸, EP09 는 버금딸림→으뜸이었다 — 이번엔 **위로 들어 올리는 이음매**로 세트 끝맛을 바꿨다.
+   반음·트라이톤 충돌 0
+ · 성별 = 여 5(1·3·4·6·8) / **남 3(2·5·7) — 전원 미들 음역** · 같은 성별 3연속 없음
+ · 호칭 = 그대계 2(4·6) / 너계 6 · 존대체 = **곡4 한 곡만**, 그 곡은 전체 통일
+ · 층 = 8곡 전부 다르다 — 밴드(1) · 어쿠스틱(2) · 포크팝(3) · 피아노(4) · 오르간 소울(5) · 삼바-보사(6) ·
+   워리처 소울(7) · 스트링 팝(8). **EP09 와 겹치는 리드 = 스틸현 스트럼(2)·워리처 계열(7) 둘뿐**이고
+   EP09 에 없던 리드 4종(멜로디카·피치카토·오르간·스트링 훅)을 새로 넣었다
+
+ [시대 소품 규칙]  2000년대 허용 = 체육복·청백 머리띠·호루라기·방송 스피커·콩주머니
+   ⛔ 영구금지(카톡·스마트폰·인스타·읽씹·이어폰·폰) 0회 · ⛔ 시간대어(밤·새벽·저녁) 0회
+   ⛔ EP09 소재(자리 맡기·젓가락·물컵·버스·앞접시·이름표·분식집) · EP08(노래방·마이크·예약번호·탬버린·노래책) ·
+      EP07 자판기 · **EP11 소재(기차·MT·삶은 계란·창밖 들판·짐칸·역)** 0회
+   🍂 계절어 = 곡3 「은행나무」 · 곡6 「가을」 · 곡8 「은행잎」 — **각 1회, 3곡뿐**. 후렴(3회 반복)에는 넣지 않았다
+
+ [저작권]
+   · 실존 가수·그룹·곡명 0개. 가사 100% 창작. 프롬프트에도 가수명·곡명을 쓰지 않았다
+
+──────────────────────────────────────────────────────────────────────────
+  곡 1 — 바통 / G major / 118 BPM / 여성 메조(C4~E4) / 밝은 밴드 팝 (세트 최속 · 오프너)
+        리드 = 쟁글 클린 일렉 스트럼 + 두 번째 클린 기타 상승 응답 · 실드럼(8분햇·백비트·핸드클랩) · 마지막 후렴 앞 톰 필 1회
+        밝은 사건 = 프리코러스가 계단식으로 올라가 후렴이 add9 로 착지
+        호칭 「너」 · 사건 = 계주 마지막 주자인 나에게 네가 바통을 넘기다 손이 닿았고, 그 손으로 결승선까지 뛰었다
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+출발선 뒤에서 나는 발을 굴러 봐
+우리 반 응원 소리가 점점 커지고
+코너 저쪽에서 네가 돌아 나오고
+머리에 묶은 띠가 바람에 날리고
+한 칸씩 가까워지는 모습 보면서
+나는 뒤로 손을 길게 뻗어 놓았어
+
+[Pre-Chorus]
+발소리가 바로 뒤까지 다가오고
+나는 앞만 보고 숨을 골라 놓아
+
+[Chorus]
+바통을 받는 순간 손이 닿았어
+네가 건넨 온기가 아직 남아 있어
+결승선까지 나는 곧장 달려
+이 기분을 뭐라고 해야 하는 거니
+운동장이 오늘따라 짧게 느껴져
+
+[Verse 2]
+앞사람 등을 보고 한 명씩 제치고
+바람이 귓가에서 크게 울리고
+등 뒤에서 네 목소리가 따라와
+끝까지 가라고 몇 번이나 외쳐서
+내 발이 땅에 닿는 것도 몰랐어
+가슴에 달린 번호가 펄럭거려
+
+[Pre-Chorus]
+하얀 줄이 눈앞에 가까워지고
+나는 숨을 한 번 크게 들이켜
+
+[Chorus]
+바통을 받는 순간 손이 닿았어
+네가 건넨 온기가 아직 남아 있어
+결승선까지 나는 곧장 달려
+이 기분을 뭐라고 해야 하는 거니
+뒤돌아보니 네가 두 손을 흔들어
+
+[Bridge]
+네가 넘어졌다면 어땠을까 몰라
+그 생각에 내가 더 꽉 쥐었나 봐
+우리 반 몫까지 뛰어 주고 싶어서
+오늘은 발이 저절로 앞으로 가
+
+[Chorus]
+바통을 받는 순간 손이 닿았어
+네가 건넨 온기가 아직 남아 있어
+결승선까지 나는 곧장 달려
+이 기분을 뭐라고 해야 하는 거니
+사랑도 이렇게 숨이 차는 거였니
+
+[Outro]
+숨이 아직 차서 웃고만 서 있어
+
+【STYLE】 ★975자
+Early-2000s Korean bright band pop, sung in Korean by a female mezzo, C4 to E4, fresh and quick, no male vocals, never belted, never strained, no rasp. G major, 118 BPM, driving but light. A jangly clean electric guitar strums the pulse and leads, a second clean guitar answering in short rising figures. A real kit played light: closed hi-hat in eighths, snare on the backbeat, handclaps on two and four, one tom fill before the last chorus. The pre-chorus climbs stepwise into a lifted add-nine chord, the one bright event. Quick smiling delivery, slightly behind the beat, small vibrato at line ends only. The band is fuller in the last chorus, not the voice, no crescendo. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present. Lead vocal clearly in front of the band. No English lyrics, no autotune, no trot, no K-pop gloss, no distorted guitar, no guitar solo. Bright airy modern mix, not retro.
+
+【TITLE】
+바통
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 2 — 체육복 / C major / 104 BPM / 남성 미들(C4~F4) / 써니 어쿠스틱 팝
+        리드 = 스틸현 어쿠스틱 스트럼(주도) + 밝은 피아노 4음 응답 · 브러시 백비트+탬버린+셰이커
+        밝은 사건 = 후렴마다 밝은 세컨더리 도미넌트가 밀어 올린다
+        ★남성 = 미들 음역(저음역 금지 · EP09 교훈) + "마지막 후렴까지 끝까지 부른다" 문장 추가
+        호칭 「너」 · 사건 = 체육복을 두고 온 네게 내 상의를 빌려줬고, 네가 소매를 두 번 접어 입고 달렸다
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+교실 안이 아침부터 시끄럽고
+너는 가방만 몇 번씩 뒤적거려
+입을 옷을 두고 왔다고 울상인데
+나는 내 걸 슬쩍 꺼내서 내밀어
+괜히 무심한 척 고개를 돌리고
+받아 드는 소리만 귀로 들었어
+
+[Pre-Chorus]
+소매가 너무 길어 손이 안 보여서
+두 번 접어 올리면서 웃고 있어
+
+[Chorus]
+내 체육복을 입고 네가 달려가
+등 뒤로 헐렁한 옷자락이 날리고
+운동장 맨 끝에서도 제일 눈에 띄어
+이런 게 좋아하는 거 맞는 거니
+박수 치는 손이 저절로 빨라져
+
+[Verse 2]
+결승선 앞에서 날 찾는 것 같고
+나는 스탠드에서 팔을 크게 흔들어
+숨을 고르면서 옷깃을 여미고
+괜히 내가 먼저 얼굴이 빨개져
+친구들이 옆구리를 쿡 찔러 와
+너는 모르는 척 딴 데를 보고
+
+[Pre-Chorus]
+돌려주려는 손을 내가 밀어내고
+오늘은 그냥 걸치고 있으라 말해
+
+[Chorus]
+내 체육복을 입고 네가 달려가
+등 뒤로 헐렁한 옷자락이 날리고
+운동장 맨 끝에서도 제일 눈에 띄어
+이런 게 좋아하는 거 맞는 거니
+접어 올린 소매가 너한테 어울려
+
+[Bridge]
+그 옷을 챙겨 왔다면 어땠을까
+나는 멀리서 구경만 하고 있었겠지
+오늘 두고 온 네 덕분에 웃어
+네 옆에 이렇게 처음 서 본 것 같아
+
+[Chorus]
+내 체육복을 입고 네가 달려가
+등 뒤로 헐렁한 옷자락이 날리고
+운동장 맨 끝에서도 제일 눈에 띄어
+이런 게 좋아하는 거 맞는 거니
+사랑을 빌려준 것 같아 웃음이 나
+
+[Outro]
+너는 소매를 또 걷어 올리고 있어
+
+【STYLE】 ★955자
+Early-2000s Korean sunny acoustic pop, sung in Korean by a male mid-range voice, C4 to F4, bright and easygoing, no female vocals, never belted, never strained, no rasp. C major, 104 BPM, light and bouncing. A steel-string acoustic guitar strums the pulse and leads, a bright piano answering with a four-note figure. Light kit: brushed backbeat, tambourine, shaker. Small close-miked strings from the first bar, airy and sweet. A bright secondary dominant lifts every chorus, the one bright event. Warm grinning delivery, slightly behind the beat, small vibrato at line ends only, one decibel at most, no crescendo. He sings through to the final line, never drifting back. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present. Lead vocal clearly in front of the band. No English lyrics, no autotune, no trot, no K-pop gloss, no dance-pop synths. Bright airy modern mix, not retro.
+
+【TITLE】
+체육복
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 3 — 풀리지 않게 / A major / 90 BPM / 여성 저·중음(G3~C4) / 라이트 어쿠스틱 포크팝 (세트 최저속)
+        리드 = 스틸현 핑거피킹 + 멜로디카 한 소절 응답 · 브러시+셰이커+부드러운 킥
+        ★딜리버리 = 행 첫머리는 말하듯, 그다음 멜로디로 튄다(저음역·읊는 곡 = 곡1~3 앞순서 규칙)
+        밝은 사건 = 후렴 다운비트마다 sus4 가 위로 풀린다
+        호칭 「너」 · 사건 = 스탠드 계단에서 풀린 내 운동화 끈을 네가 한 칸 아래 쪼그려 앉아 두 번 묶어 줬다
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+스탠드 맨 윗칸에 걸터앉았는데
+은행나무 그늘이 발밑까지 와
+운동화 끈 한쪽이 풀려 있는 걸
+나는 모른 척하고 슬쩍 두었어
+그걸 본 네가 계단을 내려오고
+한 칸 아래에 쪼그려 앉는 거야
+
+[Pre-Chorus]
+내가 한다고 해도 고개를 젓고
+발 좀 이리 내 보라고 손짓해
+
+[Chorus]
+네가 내 신발 끈을 묶어 주는 동안
+나는 한 칸 위에서 숨만 쉬고 있어
+매듭을 두 번씩 꼭꼭 지어 놓고
+이 마음을 너도 벌써 알아챘니
+먼지 묻은 손으로 조심스레 당겨
+
+[Verse 2]
+주위에서 친구들이 휘파람 불고
+방송에서는 폐회식 곡이 흐르고
+괜히 하늘만 올려다보고 있고
+네 정수리에 햇빛이 내려앉아
+다 됐다며 툭 치고 일어서는데
+한 번 더 풀어 볼까 생각이 들어
+
+[Pre-Chorus]
+괜히 혼자 발을 한 번 굴러 봐
+두 번 묶은 게 아직도 단단해
+
+[Chorus]
+네가 내 신발 끈을 묶어 주는 동안
+나는 한 칸 위에서 숨만 쉬고 있어
+매듭을 두 번씩 꼭꼭 지어 놓고
+이 마음을 너도 벌써 알아챘니
+오늘따라 계단 햇볕이 따뜻해
+
+[Bridge]
+그때 끈이 안 풀렸다면 어땠을까
+우리는 그냥 스쳐 지나갔겠지
+풀리지 않게 한 번 더 매 줬으니
+사랑도 이렇게 묶이는 건가 봐
+
+[Chorus]
+네가 내 신발 끈을 묶어 주는 동안
+나는 한 칸 위에서 숨만 쉬고 있어
+매듭을 두 번씩 꼭꼭 지어 놓고
+이 마음을 너도 벌써 알아챘니
+이제 일어나도 발이 가벼워
+
+[Outro]
+나는 가만히 발을 내려다보고 있어
+
+【STYLE】 ★967자
+Early-2000s Korean light acoustic folk-pop, sung in Korean by a female voice in a low warm register, G3 to C4, relaxed and playful, no male vocals, never belted, never strained, no rasp. A major, 90 BPM, an easy lilting walk. A fingerpicked steel-string acoustic guitar leads, a melodica answering each line with a short sunny phrase. Light kit: brushes, shaker, a soft kick. Small close-miked strings from the first bar, airy and sweet. A suspended fourth resolves upward on every chorus downbeat, the one bright event. The phrasing starts close to speech, then breaks into melody, slightly behind the beat, small vibrato at line ends only, no crescendo. Ending on a held chord, not a fade. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present. Lead vocal clearly in front of the band. No English lyrics, no autotune, no trot, no K-pop gloss, no harmonica. Bright airy modern mix, not retro.
+
+【TITLE】
+풀리지 않게
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 4 — 목이 쉬었어요 / D major / 96 BPM / 여성 라이트 하이메조(D4~G4) / 밝은 피아노 팝 · 세트 유일 존대곡
+        리드 = 밝은 업라이트 피아노 스타카토 + 스트링 피치카토 응답 + 글로켄슈필 훅 더블 · 브러시+셰이커+후렴 탬버린
+        밝은 사건 = 후렴이 볕 드는 4도 화음으로 열렸다가 제자리로 돌아온다
+        호칭 「그대」 · 존대체 전체 통일 · 사건 = 청군 자리에서 나 혼자 일어나 백군인 그대의 계주를 목이 쉬도록 응원했다
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+우리 반 친구들이 깃발을 흔들고
+마지막 계주가 곧 시작한다네요
+출발선에 선 그대가 보였어요
+머리에 흰 띠를 질끈 묶으시고
+저는 파란 띠를 손에 쥐고 있어요
+같은 편이 아닌 게 괜히 서운해요
+
+[Pre-Chorus]
+호루라기가 길게 한 번 울리고
+저도 모르게 몸이 앞으로 가요
+
+[Chorus]
+청군 자리에서 저 혼자 일어나서
+백군인 그대 이름을 불렀어요
+목이 다 쉬도록 소리를 질렀어요
+제 목소리가 그대한테 들렸나요
+친구들이 놀란 눈으로 쳐다보고 있어요
+
+[Verse 2]
+그대가 코너를 돌아 나오고
+저는 두 손을 입에 대고 서서
+한 명씩 따라잡는 모습이 보여서
+우리 편 점수판은 잊어버렸어요
+결승선 앞에서 가슴을 내밀면
+박수를 제일 크게 쳤던 것 같아요
+
+[Pre-Chorus]
+반장이 먼저 앉으라고 팔을 당겨도
+입이 좀처럼 다물어지질 않았어요
+
+[Chorus]
+청군 자리에서 저 혼자 일어나서
+백군인 그대 이름을 불렀어요
+목이 다 쉬도록 소리를 질렀어요
+제 목소리가 그대한테 들렸나요
+그대가 뒤돌아 웃은 것 같았어요
+
+[Bridge]
+같은 편이었다면 어땠을까요
+대놓고 크게 부를 수 있었겠죠
+몰래 한 응원이라 더 좋았나 봐요
+사랑은 이렇게 들키는 건가요
+
+[Chorus]
+청군 자리에서 저 혼자 일어나서
+백군인 그대 이름을 불렀어요
+목이 다 쉬도록 소리를 질렀어요
+제 목소리가 그대한테 들렸나요
+내일은 쉰 목으로 인사할게요
+
+[Outro]
+건너편 스탠드를 아직 보고 있어요
+
+【STYLE】 ★968자
+Early-2000s Korean bright piano pop, sung in Korean by a female light high mezzo, D4 to G4, formal polite speech, sparkling, no male vocals, never belted, never strained, never shrill, no rasp. D major, 96 BPM, light and skipping. A bright upright piano leads with bouncing staccato chords, small strings answering in pizzicato, a glockenspiel doubling the top note of the hook. Light kit: brushed backbeat, shaker, tambourine in the chorus. The chorus opens onto a sunlit four chord and steps back home, the one bright event. Cheerful secretive delivery, slightly behind the beat, small vibrato at line ends only, one decibel at most, no crescendo. Ending on a held chord, not a fade. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present. Lead vocal clearly in front of the band. No English lyrics, no autotune, no trot, no K-pop gloss, no dance-pop synths. Bright airy modern mix, not retro.
+
+【TITLE】
+목이 쉬었어요
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 5 — 줄다리기 / B flat major / 112 BPM / 남성 미들(C4~F4) / 바운싱 소울팝
+        리드 = 라이트 오르간 짧은 코드 + 오프비트로 튀는 라운드 베이스 + 클린 일렉 짧은 응답 · 8분햇+탬버린+2·4 핸드클랩
+        밝은 사건 = 후렴마다 4도에서 5도로 들어 올린다
+        ⛔ 관악(brass) 금지 = 트로트로 새는 지름길 · 남성 = 미들 음역 + 끝까지 부르기 문장
+        호칭 「너」 · 사건 = 줄다리기에서 같은 편 네 바로 뒤에 서서 같은 밧줄을 당겼고, 이겼다
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+호루라기 불기 전 밧줄을 나눠 잡고
+어쩌다 보니 내 바로 앞이 너야
+청군 띠를 똑같이 이마에 둘렀는데
+나는 괜히 줄만 꽉 쥐어 보고
+발을 벌리라는 선생님 말에
+나도 모르게 네 발을 따라 해
+
+[Pre-Chorus]
+시작 소리에 모두 뒤로 누워
+나는 네 등만 보면서 꽉 버텨
+
+[Chorus]
+구령에 맞춰서 줄을 당기면서
+네 뒤에 서 있는 나는 웃고만 있어
+네 머리칼이 자꾸 코앞에 날려서
+이렇게 좋은 걸 뭐라고 부르니
+줄이 한 뼘씩 우리 쪽으로 와
+
+[Verse 2]
+저쪽 편이 한 번 크게 끌어당겨
+우리 줄이 흙바닥에 끌려가고
+네가 뒤를 돌아보며 이를 악물어
+따라서 발꿈치에 힘을 꽉 줘 봐
+다 같이 한 발씩 도로 물러서면
+흰 깃발이 이쪽으로 기울어
+
+[Pre-Chorus]
+마지막 호루라기가 길게 울리고
+모두가 흙바닥에 주저앉아
+
+[Chorus]
+구령에 맞춰서 줄을 당기면서
+네 뒤에 서 있는 나는 웃고만 있어
+네 머리칼이 자꾸 코앞에 날려서
+이렇게 좋은 걸 뭐라고 부르니
+손바닥에 줄 자국이 빨갛게 남아
+
+[Bridge]
+다른 편에 섰다면 어땠을까
+마주 보고 반대로 당겼겠지
+같은 편에 서 있는 게 나는 좋아
+사랑도 이렇게 끌려가는 걸까
+
+[Chorus]
+구령에 맞춰서 줄을 당기면서
+네 뒤에 서 있는 나는 웃고만 있어
+네 머리칼이 자꾸 코앞에 날려서
+이렇게 좋은 걸 뭐라고 부르니
+두 손바닥이 나란히 빨갛게 됐어
+
+[Outro]
+우리는 아직 흙바닥에 앉아 있어
+
+【STYLE】 ★949자
+Early-2000s Korean bright bouncing soul-pop, sung in Korean by a male mid-range voice, C4 to F4, bright and cheeky, no female vocals, never belted, never strained, no rasp. B flat major, 112 BPM, a pull-and-release bounce. A light organ with short bright chords leads, a round bass bouncing on offbeats, short clean guitar stabs answering. Light kit: closed hi-hat in eighths, tambourine, handclaps on two and four. Every chorus lifts through a bright four to five, the one bright event. Playful rhythmic delivery, pickups before the downbeat, slightly behind the beat, small vibrato at line ends only, no crescendo. He sings through to the final line, staying forward. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present. Lead vocal clearly in front of the band. No English lyrics, no autotune, no trot, no K-pop gloss, no brass section. Bright airy modern mix, not retro.
+
+【TITLE】
+줄다리기
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 6 — 가만있어 봐 / E flat major / 102 BPM / 여성 소프트 메조(C4~E4) / 라이트 삼바-보사 팝
+        리드 = 나일론현 삼바-보사 컴핑(주도) + 웜 일렉피아노 단음 응답 · 소프트 삼바 브러시+셰이커+림
+        밝은 사건 = 후렴이 밝은 경과 화음을 딛고 major 9th 로 올라선다
+        호칭 「그대」(반말) · 사건 = 박 터뜨리기에서 박이 터져 쏟아진 종이꽃이 그대 앞머리에 붙었고, 내가 하나씩 떼어 줬다
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+장대 끝에 매달린 박을 올려다보고
+우리는 콩주머니를 한 줌씩 쥐어
+셋을 세고 같이 던지자고 했는데
+나는 자꾸 그대 쪽만 보다가
+한 번은 엉뚱한 데로 던져 버리고
+그대가 그걸 보고 크게 웃어
+
+[Pre-Chorus]
+몇 번 만에 박이 툭 하고 벌어지고
+가을 햇빛 속으로 꽃가루가 쏟아져
+
+[Chorus]
+가만있어 봐 머리에 뭐가 붙었어
+그대 앞머리에 종이꽃이 앉았어
+내가 하나씩 떼어 주는 동안
+그대는 왜 눈을 꼭 감고 있는 거니
+박수 소리가 멀리서 들려와
+
+[Verse 2]
+색색의 조각들이 어깨에 내려앉고
+우리 반 현수막이 펼쳐지는데
+다들 박수 치며 소리를 지르고
+나만 그대 쪽으로 몸을 돌려
+손을 뻗으려다 잠깐 멈추고
+괜히 내 어깨부터 털어 봤어
+
+[Pre-Chorus]
+그러다 눈이 딱 마주쳐 버려서
+나도 모르게 먼저 말이 나와
+
+[Chorus]
+가만있어 봐 머리에 뭐가 붙었어
+그대 앞머리에 종이꽃이 앉았어
+내가 하나씩 떼어 주는 동안
+그대는 왜 눈을 꼭 감고 있는 거니
+조그만 꽃잎이 손바닥에 남아
+
+[Bridge]
+박이 끝내 안 터졌다면 어땠을까
+이렇게 가까이 설 일도 없었겠지
+하늘에서 꽃이 내려준 핑계 같아
+사랑이 이렇게 쏟아지면 좋겠어
+
+[Chorus]
+가만있어 봐 머리에 뭐가 붙었어
+그대 앞머리에 종이꽃이 앉았어
+내가 하나씩 떼어 주는 동안
+그대는 왜 눈을 꼭 감고 있는 거니
+마지막 한 조각은 두고 싶어져
+
+[Outro]
+아직 어깨 위에 한 조각이 있어
+
+【STYLE】 ★961자
+Early-2000s Korean light samba-bossa pop, sung in Korean by a female soft mezzo, C4 to E4, sunny and teasing, no male vocals, never belted, never strained, no rasp. E flat major, 102 BPM, a light skipping samba lilt. A nylon-string guitar comps the samba-bossa figure and leads, a warm electric piano answering in single notes. Light kit: brushes with a soft samba feel, shaker, rim clicks. Small close-miked strings from the first bar, airy and sweet. Each chorus steps up through a bright passing chord into a major ninth, the one bright event. Soft smiling delivery, slightly behind the beat, small vibrato at line ends only, no crescendo. Ending on a held chord, not a fade. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present. Lead vocal clearly in front of the band. No English lyrics, no autotune, no trot, no K-pop gloss, no dance-pop synths. Bright airy modern mix, not retro.
+
+【TITLE】
+가만있어 봐
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 7 — 200미터 / A flat major / 98 BPM / 남성 미들(B3~E4) / 웜 소울팝
+        리드 = 워리처 일렉피아노(6th·9th) + 뮤트 클린 기타 오프비트 · 8분햇+셰이커+2·4 핸드클랩
+        스트링 X(짧고 밝은 플레이트) · 밝은 사건 = 짧은 상승 베이스 런 끝에 후렴이 major 9th 로 착지
+        남성 = 미들 음역 + 끝까지 부르기 문장 · 가사에서는 「이백 미터」로 풀어 쓴다(숫자 발음 오류 방지)
+        호칭 「너」 · 사건 = 이백 미터를 뛰는 동안 네가 내 물병을 두 손에 쥐고 결승선 너머에서 기다리고 있었다
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+마시던 걸 너한테 잠깐 맡겨 두고
+금방 뛰고 올 테니 들고 있으라 해
+너는 알았다며 고개를 끄덕이고
+나는 출발선에 손을 짚고 앉아
+총소리가 나기 전 한 번 돌아봐
+네가 스탠드 끝으로 걸어가
+
+[Pre-Chorus]
+탕 하고 소리가 울리자마자
+나는 아무 생각 없이 뛰어나가
+
+[Chorus]
+이백 미터를 달리는 동안에도
+결승선 너머에 네가 서 있었어
+내 물병을 두 손에 꼭 쥐고서
+처음부터 거기 서 있던 거니
+나는 숨보다 먼저 웃음이 터져
+
+[Verse 2]
+곡선을 돌 때 바람이 거꾸로 불고
+다리가 조금씩 무거워지면서
+하얀 줄 저편에 네 모습이 보여
+파란 걸 머리 위로 흔들고 있어서
+나도 모르게 한 번 더 밀어붙여
+몇 등인지는 아무래도 좋아
+
+[Pre-Chorus]
+들어오자마자 뚜껑을 열어서
+네가 내 쪽으로 내밀어 주는데
+
+[Chorus]
+이백 미터를 달리는 동안에도
+결승선 너머에 네가 서 있었어
+내 물병을 두 손에 꼭 쥐고서
+처음부터 거기 서 있던 거니
+반쯤 남은 물이 유난히 달아
+
+[Bridge]
+그 자리에 없었다면 어땠을까
+나는 바닥에 그냥 누워 버렸겠지
+괜히 한 바퀴 더 뛰고 싶어져
+사랑이 이렇게 기다려 주는 걸까
+
+[Chorus]
+이백 미터를 달리는 동안에도
+결승선 너머에 네가 서 있었어
+내 물병을 두 손에 꼭 쥐고서
+처음부터 거기 서 있던 거니
+다음엔 내가 끝에서 기다릴게
+
+[Outro]
+아직 뚜껑을 쥔 채로 웃고 있어
+
+【STYLE】 ★975자
+Early-2000s Korean warm soul-pop, sung in Korean by a male mid-range voice, B3 to E4, grinning, no female vocals, never belted, never strained, no rasp. A flat major, 98 BPM, an easy strutting groove. A Wurlitzer electric piano with sixths and ninths leads, a clean muted guitar on short offbeat chords. Light kit: closed hi-hat in eighths, shaker, handclaps on two and four. A short rising bass run lands every chorus on a bright major ninth, the one bright event. No strings, a short bright plate. Busy conversational singing, pickups before the downbeat, slightly behind the beat, small vibrato at line ends only, no crescendo. He sings through to the final line, never drifting back. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present. Lead vocal clearly in front of the band. No English lyrics, no autotune, no trot, no K-pop gloss, no sixteenth-note hi-hat. Bright airy modern mix, not retro.
+
+【TITLE】
+200미터
+
+
+──────────────────────────────────────────────────────────────────────────
+  곡 8 — 흰 선 / F major / 110 BPM / 여성 메조(D4~F4) / 밝은 스트링 팝 (세트를 닫는 곡)
+        리드 = 작은 스트링이 짧고 밝은 보잉으로 훅을 연주 + 스틸현 어쿠스틱 스트럼 + 피아노 단음 · 브러시+셰이커+후렴 탬버린
+        스트링 = 세트에서 가장 넓고 밝게 · 전조 없음 · 루프 = 곡8(F) → 곡1(G) 온음 위 리프트
+        밝은 사건 = 마지막 후렴이 더 넓고 밝은 보이싱으로 열린다
+        호칭 「너」 · 사건 = 다 끝난 운동장에서 아까 뛰던 트랙의 흰 선을 따라 둘이 한 바퀴를 천천히 걸었다
+        ⚠️ 고백이 아니라 관계가 가장 확정·지속되는 곡(내년에도 같은 편)으로 세트를 닫는다
+──────────────────────────────────────────────────────────────────────────
+
+【LYRICS】
+[Verse 1]
+본부석 천막을 걷는 소리가 나고
+방송 스피커도 조용해졌어
+스탠드에 흩어진 물병을 줍다가
+나는 괜히 네 쪽을 한 번 봤어
+너도 나를 보고 있었던 거니
+누가 먼저랄 것도 없이 내려가
+
+[Pre-Chorus]
+트랙 위에 떨어진 은행잎 하나를
+네가 주워서 내 손에 올려 줘
+
+[Chorus]
+흰 선을 따라 우리 둘이 걷고
+아까는 숨차게 뛰던 그 길을
+이번엔 네 걸음에 맞춰 느리게 가
+내년에도 너랑 같은 편 하고 싶어
+운동장이 이렇게 넓은 줄 몰랐어
+
+[Verse 2]
+계주 때 넘어질 뻔한 곡선에서
+우리는 괜히 속도를 더 늦추고
+응원하던 목소리 흉내를 내며
+서로 어깨를 툭툭 치고 웃어
+결승선 앞에서 둘 다 멈춰 서서
+아무도 먼저 넘지 않으려고 해
+
+[Pre-Chorus]
+하얀 석회 가루가 신발에 묻고
+나는 그걸 털지 않고 그냥 두려 해
+
+[Chorus]
+흰 선을 따라 우리 둘이 걷고
+아까는 숨차게 뛰던 그 길을
+이번엔 네 걸음에 맞춰 느리게 가
+내년에도 너랑 같은 편 하고 싶어
+선 끝에서 다시 처음으로 돌아가
+
+[Bridge]
+오늘이 더 길었다면 좋겠지만
+내일 교실에서 또 볼 수 있잖아
+주머니 속에 넣은 걸 만지작거려
+앞으로도 발맞춰 가면 되는 거니
+
+[Chorus]
+흰 선을 따라 우리 둘이 걷고
+아까는 숨차게 뛰던 그 길을
+이번엔 네 걸음에 맞춰 느리게 가
+내년에도 너랑 같은 편 하고 싶어
+한 바퀴만 더 돌자고 말해 볼까
+
+[Outro]
+우리는 아직 선 위에 서 있어
+
+【STYLE】 ★971자
+Early-2000s Korean bright string-led pop, sung in Korean by a female mezzo, D4 to F4, warm and glowing, no male vocals, never belted, never strained, no rasp. F major, 110 BPM, light and rolling. Small strings lead with the hook in short bright bows, a steel-string acoustic guitar strumming beneath, a piano placing single notes between lines. Light kit: brushed backbeat, shaker, tambourine in the chorus. Strings from the first bar, the widest of the set. The final chorus opens into a wider brighter voicing, the one bright event, one decibel at most, no crescendo. Sweet walking delivery, slightly behind the beat, small vibrato at line ends only. Ending on a held chord, not a fade. The backing track has a dark top end with no cymbal sizzle. The voice keeps its natural breath and air, close-miked and present. Lead vocal clearly in front of the band. No English lyrics, no autotune, no trot, no K-pop gloss, no dance-pop synths. Bright airy modern mix, not retro.
+
+【TITLE】
+흰 선
+
+
+──────────────────────────────────────────────────────────────────────────
+ [사건 검산 — 8곡 전부 다르고, 전부 이 씬(가을 체육대회 하루와 막 끝난 운동장) 안에서 나왔다]
+──────────────────────────────────────────────────────────────────────────
+  곡1  계주 마지막 주자인 나에게 네가 바통을 넘기다 손이 닿았고, 그대로 결승선까지 뛰었다
+  곡2  체육복을 두고 온 네게 내 상의를 빌려줬고, 네가 소매를 두 번 접어 입고 달렸다
+  곡3  스탠드 계단에서 풀린 내 운동화 끈을 네가 한 칸 아래 쪼그려 앉아 두 번 묶어 줬다
+  곡4  청군 자리에서 나 혼자 일어나, 백군인 그대의 계주를 목이 쉬도록 응원했다
+  곡5  줄다리기에서 같은 편 네 바로 뒤에 서서 같은 밧줄을 당겼고, 이겼다
+  곡6  박 터뜨리기에서 박이 터져 쏟아진 종이꽃이 그대 앞머리에 붙었고, 내가 하나씩 떼어 줬다
+  곡7  이백 미터를 뛰는 동안 네가 내 물병을 두 손에 쥐고 결승선 너머에서 기다리고 있었다
+  곡8  다 끝난 운동장에서 아까 뛰던 트랙의 흰 선을 따라 둘이 한 바퀴를 천천히 걸었다
+ · **상실 0곡** · 세트 내 정서 아크 없음 · 단계 이름표 없음 · 곡8 = 관계가 가장 확정·지속되는 곡(내년에도 같은 편)
+ · 소재 분산 = 계주·결승선(1) · 체육복(2) · 운동화 끈·스탠드 계단(3) · 청백·응원·호루라기(4) ·
+   줄다리기·같은 편(5) · 박 터뜨리기(6) · 물병·결승선(7) · 흰 선·방송 스피커·은행잎(8).
+   **한 소재가 8곡 전부에 나오지 않는다**(게이트 = 전곡 공통 단어 0개)
+ · ⚠️ EP07 「겉옷」(추워서 겉옷을 건넴)과 겹치지 않게 곡2는 **"추위"가 아니라 "안 가져와서 입고 뛰었다"** 로 비틀었다
+ · 가정문(~다면)은 **8곡 모두 브릿지에만 1회.** 곡8 브릿지는 「어땠을까」 대신 「좋겠지만」으로 바꿔
+   8곡 공통어가 생기지 않게 했다(초안에서 「어땠」이 8곡 공통으로 잡혔다)
+
+──────────────────────────────────────────────────────────────────────────
+ 🏷 제목 — 후보 22개 → 웹 동명곡 검색 → **8개 확정** (게이트 v4)
+──────────────────────────────────────────────────────────────────────────
+ | # | 확정 제목 | 형(型) | 어절/자수 | 동명곡 검색 결과 |
+ |---|---|---|---|---|
+ | 1 | 바통 | ①단일 명사 | 1어절·2자 | ○ 국내 동명 가요 확인되지 않음 |
+ | 2 | 체육복 | ①단일 명사 | 1어절·3자 | ○ 동명 가요 확인되지 않음 |
+ | 3 | 풀리지 않게 | ②짧은 완결문 | 2어절·5자 | ⚠️ M.C the Max 「흩어지지 않게」(2022)와 문형만 같고 단어가 다르다. 동명곡 없음 |
+ | 4 | 목이 쉬었어요 | ②짧은 완결문(존대) | 2어절·6자 | ○ 동명곡 확인되지 않음 |
+ | 5 | 줄다리기 | ①단일 명사 | 1어절·4자 | ○ 동명 가요 확인되지 않음 |
+ | 6 | 가만있어 봐 | ②짧은 완결문 | 2어절·5자 | ○ 제목으로 쓰인 곡 확인되지 않음 |
+ | 7 | 200미터 | ④숫자형 | 1어절·5자 | ⚠️ AKMU 「200%」(2014)와 별개 단어. 동명곡 없음 |
+ | 8 | 흰 선 | ③명사구 | 2어절·2자 | ○ 동명곡 확인되지 않음 |
+
+ [탈락 14개와 사유]
+   · **들리셨나요** — ⛔ 태연 「들리나요...」(2008, 드라마 OST 히트)의 존대 변형. 문구 충돌
+   · **거기 있었구나** — ⛔ 찬송가 「거기 너 있었는가」와 문구 근접 + **찬송가 연상**(plum 에서 기각된 축)
+   · **머리 위에** — ⛔ 이강 「머리 위에」 동명곡 존재
+   · **한 바퀴** — ⛔ 「동네 한 바퀴」(윤종신 · CB Mass 2003 타이틀곡)와 핵심 구 겹침
+   · **물 한 모금** — ⛔ 성인가요 「물 한모금 술 한모금」과 구 겹침 → 트로트 연상 위험
+   · **마지막 주자** — 채점기가 「~자」를 서술형으로 분류 + 「마지막」의 끝맺음 뉘앙스
+   · **종이꽃** · **결승선** · **은행잎** — 1어절 제목 쿼터(3~4) 초과. 결승선은 「흰 선」과 「선」도 겹친다
+   · **같은 편** — ⛔ EP07 「같은 쪽」과 **구조 복제**(관형사+1음절 명사)
+   · **3번 레인** — 「레인」이 Rain(비·가수명)으로 읽힌다
+   · **두 번 묶었어** · **운동화 끈** — 상황을 설명한다(§🏷 "제목은 상황을 설명하지 않는다")
+   · **파란 물병** — EP09 「물컵」 소재 근접
+ 🚨 EP06~EP09 에 이어 이번에도 절반 이상을 버렸다 — **후보 2배 뽑아 절반 버리기**를 기본 절차로 유지.
+
+──────────────────────────────────────────────────────────────────────────
+ [⚠️ 먼저 말해 두는 위험 요소]
+──────────────────────────────────────────────────────────────────────────
+  1. 🔴 **남성 3곡을 미들(C4~F4 / B3~E4)로 올렸지만 V7.6 이 음역 지시를 따를지는 모른다.**
+     EP09 곡2(A3~D4·92)가 마지막 25% 무가사 / 목소리 후퇴로 재생성됐다. 이번 남성곡은 전부 98 BPM 이상이고
+     `He sings through to the final line, never drifting back.` 를 넣었지만 **검증 안 된 문장**이다.
+     → **곡2 를 먼저 뽑아 스템 게이트(belt·후반 보컬 소실)부터 볼 것.** 또 나오면 곡2·5·7 은 V9.5 교차.
+  2. 🔴 **곡5(오르간 바운스 112)가 트로트로 샐 위험이 세트 최대다.** 오르간+바운스 베이스+박수는
+     한국 모델에서 성인가요 쪽으로 기울기 쉽다. `no trot, no brass section` 이 방어선. 새면 오르간을 일렉피아노로 바꿔 재생성.
+  3. 🟠 **곡4(D4~G4)는 세트에서 가장 높은 여성 음역**이다. 앙칼짐 위험 → `never shrill` 추가. 존대 종결
+     「~어요/~나요」가 20행이 넘는다. 발음이 뭉개지거나 날카로우면 곡4만 재생성.
+  4. 🟠 **곡3 멜로디카는 Mureka 가 하모니카·아코디언으로 바꿔 부를 수 있다**(→ 포크·트로트 쪽). `no harmonica` 로
+     한쪽만 막았다. 아코디언이 나오면 멜로디카 문장을 글로켄슈필로 바꿔 재생성.
+  5. 🟠 **곡7 제목은 「200미터」지만 가사는 전부 「이백 미터」로 풀어 썼다** — 숫자 발음 오류 방지.
+     타이틀카드·자막에는 제목 표기 그대로 쓸 것.
+  6. 🟡 **곡1은 밴드곡이라 스트링 문장을 뺐다**(글자수 절감). 밝기가 모자라면 스트링 한 문장을 되살리고
+     `one tom fill` 문장을 대신 뺀다.
+  7. 🟡 **가사 분량 428~458자·36행은 EP09(446~459자·36행)와 같다.** EP09 실측 전곡 ≥3:00 이었으므로 같은 결과를
+     기대하되, 2:30 을 밑돌면 가사가 아니라 [Outro] 가사 1~2행 추가로 늘릴 것.
+  8. 🟡 **AI disclosure** — 보컬곡이므로 업로드 시 **합성 콘텐츠 표시 필수**. 본편 + 쇼츠 2편 = 3편 전부.
+  9. ⚪ **가을 첫 편이라는 것이 조회를 올린다는 근거는 없다.** 계절 전환 시점은 cherry 실측(첫 「가을」 09-18)을
+     따랐을 뿐이다. 정서비율 vs 조회 상관은 |r|<0.26 였다(§🔊🔝). **조회수로 팔지 말 것.**
+
+──────────────────────────────────────────────────────────────────────────
+ [플레이리스트 배치 — 조성·템포·성별·편성이 실제로 갈리는지]
+──────────────────────────────────────────────────────────────────────────
+  순서   1(G·118·여밴드) → 2(C·104·남) → 3(A·90·여저음) → 4(D·96·여존대) →
+        5(B♭·112·남오르간) → 6(E♭·102·여보사) → 7(A♭·98·남소울) → 8(F·110·여스트링)
+  · **템포 파형** = **118(최고)** → 104 → **90(최저)** → 96 → 112 → 102 → 98 → 110.
+    출발 총소리처럼 세트 최속으로 열고, 2·3에서 한 번에 내려앉힌 뒤 4·5로 다시 끌어올린다.
+    6·7에서 숨을 고르고 8로 완만히 올라가 닫는다. **전 구간 90 이상**이라 처지는 자리가 없다.
+    ★EP09(114→92→88→120→100→94→104→108)는 최고점이 4번이었다 — 이번엔 **1번**이다(파형 자체가 다르다).
+  · **성별 파형** = 여·남·여·여·남·여·남·여 — 같은 성별 3연속 없음. ★EP09(여·남·여·남·여·여·남·여)와 남성 자리가 다르다(2·5·7).
+  · **조성** = G → C → A → D → B♭ → E♭ → A♭ → F, 전부 장조.
+    G→C(4도) · C→A(단3도 아래) · A→D(4도) · D→B♭(장3도 아래) · B♭→E♭(4도) · E♭→A♭(4도) ·
+    A♭→F(단3도 아래) · **F→G(온음 위 = 밝은 리프트)로 곡1에 되돌아온다.** 반음·트라이톤 충돌 0.
+  · **층** = 8곡 전부 다르고 인접한 두 곡이 같은 리드를 쓰는 자리가 없다(루프 이음매 8→1 = 스트링 → 쟁글 기타).
+  · **리듬 악기로도 갈렸다** = 실드럼+톰필(1) · 브러시+탬버린(2·4·8) · 브러시+소프트 킥(3) ·
+    8분햇+핸드클랩(5·7) · 삼바 브러시+림(6). 무햇 곡 0곡.
+==========================================================================

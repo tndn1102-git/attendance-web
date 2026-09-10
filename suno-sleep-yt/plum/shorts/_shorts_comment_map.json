@@ -1,0 +1,237 @@
+{
+ "_note": "plum 쇼츠 고정댓글 대장. 쇼츠ID -> {track, ep, main}. 새 쇼츠 예약할 때마다 여기에 추가할 것.",
+ "mains": {
+  "01": "DGfCqO7PNY0",
+  "02": "HgMQJdUi5Lo",
+  "03": "Ivy9g433te4",
+  "04": "u_Xkc4qfHVA",
+  "05": "708KFB7ejiY",
+  "06": "yOU5nub7XEY",
+  "07": "OuSjKOFFVoc",
+  "08": "J-qDbu1IsGg",
+  "09": "jTWRk9367LE",
+  "10": "YAnBwwFKy2k",
+  "11": "UhOAdLxVSHg",
+  "12": "BuO7WVQCpmg",
+  "13": "ivswQ2jt3KI"
+ },
+ "shorts": [
+  {
+   "n": "s01",
+   "id": "FyS0yB0E9TY",
+   "ep": "02",
+   "track": "in a good mood about you"
+  },
+  {
+   "n": "s02",
+   "id": "4oDWkG18ddA",
+   "ep": "01",
+   "track": "the way you say my name"
+  },
+  {
+   "n": "s03",
+   "id": "LRSTwG7h7fE",
+   "ep": "02",
+   "track": "call me when youre close"
+  },
+  {
+   "n": "s04",
+   "id": "ZazS3WjKLKc",
+   "ep": "03",
+   "track": "nobodys timing me"
+  },
+  {
+   "n": "s05",
+   "id": "HxndUjPe_JE",
+   "ep": "03",
+   "track": "it comes down with me"
+  },
+  {
+   "n": "s06",
+   "id": "-2Okn3x6GB0",
+   "ep": "03",
+   "track": "theres room for all of it"
+  },
+  {
+   "n": "s07",
+   "id": "2fzKvFSmVj4",
+   "ep": "04",
+   "track": "it finds me where i am"
+  },
+  {
+   "n": "s08",
+   "id": "GHhPeDJt8ps",
+   "ep": "04",
+   "track": "let it come through me"
+  },
+  {
+   "n": "s09",
+   "id": "ywYKE4goBxc",
+   "ep": "04",
+   "track": "i left it open all day"
+  },
+  {
+   "n": "s10",
+   "id": "Q4bqE71tTAY",
+   "ep": "05",
+   "track": "nothing is moving me along"
+  },
+  {
+   "n": "s11",
+   "id": "svIlyZkSl64",
+   "ep": "05",
+   "track": "im not in a hurry to leave"
+  },
+  {
+   "n": "s12",
+   "id": "pMkkFrU2hrA",
+   "ep": "05",
+   "track": "where was i going so fast"
+  },
+  {
+   "n": "s13",
+   "id": "uPuIq-VKyfo",
+   "ep": "06",
+   "track": "you made room before i asked"
+  },
+  {
+   "n": "s14",
+   "id": "Mb0pem7boFM",
+   "ep": "06",
+   "track": "the day went loose on me"
+  },
+  {
+   "n": "s15",
+   "id": "6t5o9xVCBOg",
+   "ep": "06",
+   "track": "better just by sitting down"
+  },
+  {
+   "n": "s16",
+   "id": "Oafk3gs6CDI",
+   "ep": "07",
+   "track": "nothing is pulling at me"
+  },
+  {
+   "n": "s17",
+   "id": "2q4fScC7k1Y",
+   "ep": "07",
+   "track": "the still part is the good part"
+  },
+  {
+   "n": "s18",
+   "id": "OvgKog5N3CA",
+   "ep": "07",
+   "track": "my weight went somewhere else"
+  },
+  {
+   "n": "s19",
+   "id": "wK3qIiE10pw",
+   "ep": "08",
+   "track": "as far as i can see is enough"
+  },
+  {
+   "n": "s20",
+   "id": "HQrPDdyXTHQ",
+   "ep": "08",
+   "track": "i watch it the whole way in"
+  },
+  {
+   "n": "s21",
+   "id": "WZ2Ba68dv_8",
+   "ep": "08",
+   "track": "we look the same way"
+  },
+  {
+   "n": "s22",
+   "id": "EAOPdG5wYek",
+   "ep": "09",
+   "track": "we are not keeping anything out"
+  },
+  {
+   "n": "s23",
+   "id": "U9s2CxT_ai8",
+   "ep": "09",
+   "track": "every way is a way out"
+  },
+  {
+   "n": "s24",
+   "id": "TXGYIB_OyEg",
+   "ep": "09",
+   "track": "nothing is holding it in"
+  },
+  {
+   "n": "s25",
+   "id": "ML2oEJnfNow",
+   "ep": "10",
+   "track": "my feet stopped before i did",
+   "_note": "2026-09-05 찬송가 처방으로 곡1 재생성 → 쇼츠 재업로드(구 UfNGVEVyBps 삭제)"
+  },
+  {
+   "n": "s26",
+   "id": "52mZjA_b1iI",
+   "ep": "10",
+   "track": "i keep not getting up"
+  },
+  {
+   "n": "s27",
+   "id": "FIjHKKOF0T4",
+   "ep": "10",
+   "track": "i am not on my way"
+  },
+  {
+   "n": "s28",
+   "id": "tdmvnzVKvQ0",
+   "ep": "11",
+   "track": "no one is going to say when"
+  },
+  {
+   "n": "s29",
+   "id": "fXG7foG3lYk",
+   "ep": "11",
+   "track": "we ran out of reasons"
+  },
+  {
+   "n": "s30",
+   "id": "LckaPU1aidU",
+   "ep": "11",
+   "track": "you are not late for anything"
+  },
+  {
+   "n": "s31",
+   "id": "LU2HGqP-wY8",
+   "ep": "12",
+   "track": "i have somewhere to come back to"
+  },
+  {
+   "n": "s32",
+   "id": "PVwDaJ2643c",
+   "ep": "12",
+   "track": "the choosing is behind me"
+  },
+  {
+   "n": "s33",
+   "id": "Zc3U8G9jA2w",
+   "ep": "12",
+   "track": "we are keeping this one"
+  },
+  {
+   "n": "s34",
+   "id": "1HhG7zmXdsA",
+   "ep": "13",
+   "track": "the light got softer"
+  },
+  {
+   "n": "s35",
+   "id": "biZWvN3gYWQ",
+   "ep": "13",
+   "track": "the longer i stay"
+  },
+  {
+   "n": "s36",
+   "id": "rVzEBU8YLqk",
+   "ep": "13",
+   "track": "this air suits us both"
+  }
+ ]
+}

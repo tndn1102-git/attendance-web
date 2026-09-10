@@ -1,0 +1,162 @@
+[
+ {
+  "index": 1,
+  "title": "바통",
+  "take": 1,
+  "dur_sec": 200.6,
+  "song_id": 160129764818946,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129760690179_8KqEdNaAptHYipdZgiVFWJ_vueqoi.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\01_바통.mp3"
+ },
+ {
+  "index": 2,
+  "title": "바통",
+  "take": 2,
+  "dur_sec": 203.4,
+  "song_id": 160129765081089,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129760690179_8KqEdNaAptHYipdZgiVFWJ_azdwxk.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\02_바통.mp3"
+ },
+ {
+  "index": 3,
+  "title": "체육복",
+  "take": 1,
+  "dur_sec": 184.5,
+  "song_id": 160129789984770,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129788018693_RQUc8Po28sBXuAmjPyiXrn_yaivbe.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\03_체육복.mp3"
+ },
+ {
+  "index": 4,
+  "title": "체육복",
+  "take": 2,
+  "dur_sec": 205.8,
+  "song_id": 160129790050305,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129788018693_RQUc8Po28sBXuAmjPyiXrn_jpyqfv.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\04_체육복.mp3"
+ },
+ {
+  "index": 5,
+  "title": "풀리지 않게",
+  "take": 1,
+  "dur_sec": 213.8,
+  "song_id": 160129813118977,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129811021825_ToZrtooEYyZEj13eugyJxX_gmimqf.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\05_풀리지 않게.mp3"
+ },
+ {
+  "index": 6,
+  "title": "풀리지 않게",
+  "take": 2,
+  "dur_sec": 254.9,
+  "song_id": 160129813184513,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129811021825_ToZrtooEYyZEj13eugyJxX_lmfeqs.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\06_풀리지 않게.mp3"
+ },
+ {
+  "index": 7,
+  "title": "목이 쉬었어요",
+  "take": 1,
+  "dur_sec": 172.0,
+  "song_id": 160129832058881,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129830354946_EJCstzM4rBXBcwXzDcz1MS_cflrny.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\07_목이 쉬었어요.mp3"
+ },
+ {
+  "index": 8,
+  "title": "목이 쉬었어요",
+  "take": 2,
+  "dur_sec": 190.6,
+  "song_id": 160129832124417,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129830354946_EJCstzM4rBXBcwXzDcz1MS_exmdsi.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\08_목이 쉬었어요.mp3"
+ },
+ {
+  "index": 9,
+  "title": "줄다리기",
+  "take": 1,
+  "dur_sec": 211.2,
+  "song_id": 160129861419009,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129857552390_TN57635sQZghthwD8L6RtE_dmvzxi.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\09_줄다리기.mp3"
+ },
+ {
+  "index": 10,
+  "title": "줄다리기",
+  "take": 2,
+  "dur_sec": 202.7,
+  "song_id": 160129861550081,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129857552390_TN57635sQZghthwD8L6RtE_vbnmyu.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\10_줄다리기.mp3"
+ },
+ {
+  "index": 11,
+  "title": "가만있어 봐",
+  "take": 1,
+  "dur_sec": 209.1,
+  "song_id": 160129884422145,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129882718209_U8z5FWAUGCMqCpYvbKnPeU_vtjxwm.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\11_가만있어 봐.mp3"
+ },
+ {
+  "index": 12,
+  "title": "가만있어 봐",
+  "take": 2,
+  "dur_sec": 200.8,
+  "song_id": 160129884618753,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129882718209_U8z5FWAUGCMqCpYvbKnPeU_senryo.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\12_가만있어 봐.mp3"
+ },
+ {
+  "index": 13,
+  "title": "200미터",
+  "take": 1,
+  "dur_sec": 228.7,
+  "song_id": 160131513909250,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160131509714948_QGrivcPEcXMB4cDpQpricB_xfwgen.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\13_200미터.mp3"
+ },
+ {
+  "index": 14,
+  "title": "200미터",
+  "take": 2,
+  "dur_sec": 258.8,
+  "song_id": 160131514040321,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160131509714948_QGrivcPEcXMB4cDpQpricB_xxdfok.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\14_200미터.mp3"
+ },
+ {
+  "index": 15,
+  "title": "흰 선",
+  "take": 1,
+  "dur_sec": 200.0,
+  "song_id": 160129930559489,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129928921089_NPhow5i2a6MnPHpaifcK5q_crpiej.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\15_흰 선.mp3"
+ },
+ {
+  "index": 16,
+  "title": "흰 선",
+  "take": 2,
+  "dur_sec": 223.9,
+  "song_id": 160129930756097,
+  "model": "V7.6",
+  "mp3_url": "cos-prod/song/audio/20260910/music_160129928921089_NPhow5i2a6MnPHpaifcK5q_bpxncz.mp3",
+  "file": "ballad90/ep10/_regen_V7.6_7\\16_흰 선.mp3"
+ }
+]

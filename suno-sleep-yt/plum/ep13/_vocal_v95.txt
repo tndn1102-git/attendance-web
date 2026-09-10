@@ -1,0 +1,86 @@
+[1/20] 01_warm feels good again.mp3
+[2/20] 02_warm feels good again.mp3
+[3/20] 03_something in me unclenched.mp3
+[4/20] 04_something in me unclenched.mp3
+[5/20] 05_the light got softer.mp3
+[6/20] 06_the light got softer.mp3
+[7/20] 07_nowhere warmer to be.mp3
+[8/20] 08_nowhere warmer to be.mp3
+[9/20] 09_the side of you i lean on.mp3
+[10/20] 10_the side of you i lean on.mp3
+[11/20] 11_this air suits us both.mp3
+[12/20] 12_this air suits us both.mp3
+[13/20] 13_it reaches the middle of me.mp3
+[14/20] 14_it reaches the middle of me.mp3
+[15/20] 15_comfortable in my skin.mp3
+[16/20] 16_comfortable in my skin.mp3
+[17/20] 17_the longer i stay.mp3
+[18/20] 18_the longer i stay.mp3
+[19/20] 19_heavy in the good way.mp3
+[20/20] 20_heavy in the good way.mp3
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+파일                                    길이 유성구간 최대(초2초+ 유성 비율유성구간 p90( 멜리스마/유성초alpha 고역비F0 중앙(Hz)보컬−반주(dB)   중간층 점유    드럼 점유   베이스 점유
+-----------------------------------------------------------------------------------------------------------------------------------
+01_warm feels good again.mp3         226     1.44O    0.00O    0.60O    1.37O  -11.83O  277.61O   -6.26O    0.16O    0.34O    0.30X
+02_warm feels good again.mp3         222     1.46O    0.00O    0.67O    1.94O  -10.58O  269.15O   -5.88O    0.16O    0.25!    0.37X
+03_something in me unclenched.mp3    228     1.47O    0.00O    0.85O    1.36O  -10.60O  302.50!   -6.67O    0.18O    0.36O    0.28X
+04_something in me unclenched.mp3    215     1.84O    0.00O    0.87O    1.84O  -11.93O  295.30!   -4.96O    0.12O    0.32O    0.31X
+05_the light got softer.mp3          213     1.18O    0.00O    0.66O    1.90O   -9.26O  281.29O   -6.27O    0.12O    0.28O    0.39X
+06_the light got softer.mp3          210     1.44O    0.00O    0.76O    1.44O   -9.32O  293.70!   -7.37O    0.13O    0.33O    0.38X
+07_nowhere warmer to be.mp3          217     1.66O    0.00O    0.73O    2.09O   -9.87O  274.81O   -6.33O    0.18O    0.24!    0.39X
+08_nowhere warmer to be.mp3          227     1.50O    0.00O    0.60O    1.64O  -10.61O  266.10O   -6.13O    0.23O    0.22X    0.34X
+09_the side of you i lean on.mp3     219     1.86O    0.00O    0.87O    1.66O  -14.36O  264.10O   -4.96O    0.36O    0.12X    0.26X
+10_the side of you i lean on.mp3     232     2.08O    0.01O    0.82O    1.54O  -11.04O  293.57!   -6.94O    0.31O    0.13X    0.39X
+11_this air suits us both.mp3        242     2.83O    0.02O    0.73O    1.23O  -12.99O  221.13O   -7.15O    0.15O    0.28O    0.41X
+12_this air suits us both.mp3        217     1.71O    0.00O    0.75O    1.32O  -13.32O  148.07O   -4.31O    0.12O    0.28O    0.31X
+13_it reaches the middle of me.mp3   248     1.28O    0.00O    0.77O    1.50O  -11.51O  291.61O   -6.91O    0.13O    0.33O    0.36X
+14_it reaches the middle of me.mp3   224     1.54O    0.00O    0.76O    1.26O  -10.38O  293.61!   -6.59O    0.16O    0.28O    0.38X
+15_comfortable in my skin.mp3        219     1.41O    0.00O    0.62O    1.42O  -11.33O  262.79O   -6.75O    0.11O    0.31O    0.40X
+16_comfortable in my skin.mp3        223     1.44O    0.00O    0.78O    1.84O  -11.01O  279.67O   -6.98O    0.14O    0.31O    0.37X
+17_the longer i stay.mp3             224     2.22O    0.01O    0.70O    1.74O  -11.07O  263.25O   -7.22O    0.17O    0.34O    0.33X
+18_the longer i stay.mp3             202     1.49O    0.00O    0.71O    1.95O  -11.51O  262.63O   -7.71O    0.15O    0.36O    0.34X
+19_heavy in the good way.mp3         202     1.48O    0.00O    0.64O    1.57O  -12.05O  275.51O   -5.19O    0.44O    0.11X    0.19X
+20_heavy in the good way.mp3         222     1.16O    0.00O    0.73O    1.35O  -11.93O  265.17O   -6.13O    0.30O    0.15X    0.35X
+-----------------------------------------------------------------------------------------------------------------------------------
+20트랙 · 탈락 20 · 경고 0 · 통과 0
+O 통과 / ! 경고(구간 청취) / X 탈락(재생성)
+원자료: plum/ep13/_vocal_v95.json

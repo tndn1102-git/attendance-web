@@ -1,0 +1,11 @@
+CLAP 게이트 · 거리 p90=0.084 (cherry 내부 평균 0.057) · 찬송가축 ❌≥0.00 ⚠️≥-0.05
+
+✅  0.082 ( 88%)  ✅      -0.175  r01_warm feels good again.mp3
+✅  0.076 ( 84%)  ✅      -0.209  r02_warm feels good again.mp3
+△  0.107 ( 95%)  ✅      -0.189  r07_nowhere warmer to be.mp3
+❌  0.126 ( 97%)  ✅      -0.177  r08_nowhere warmer to be.mp3
+△  0.109 ( 95%)  ✅      -0.166  r17_the longer i stay.mp3
+△  0.094 ( 93%)  ✅      -0.185  r18_the longer i stay.mp3
+
+거리축 통과: 2/6 (✅=p90 이내, △=경계, ❌=분포 밖)
+✅ 찬송가축 탈락 0곡

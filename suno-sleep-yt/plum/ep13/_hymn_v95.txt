@@ -1,0 +1,45 @@
+  ...01_warm feels good again.mp3  max=-0.2271 @0:50  med=-0.2604
+  ...02_warm feels good again.mp3  max=-0.1942 @2:10  med=-0.2514
+  ...03_something in me unclenched.mp3  max=-0.1589 @3:00  med=-0.2284
+  ...04_something in me unclenched.mp3  max=-0.1230 @2:40  med=-0.2519
+  ...05_the light got softer.mp3  max=-0.1043 @2:40  med=-0.2646
+  ...06_the light got softer.mp3  max=-0.2098 @1:50  med=-0.2712
+  ...07_nowhere warmer to be.mp3  max=-0.1848 @2:40  med=-0.2320
+  ...08_nowhere warmer to be.mp3  max=-0.1449 @2:40  med=-0.2319
+  ...09_the side of you i lean on.mp3  max=-0.1556 @1:50  med=-0.2189
+  ...10_the side of you i lean on.mp3  max=-0.1750 @1:40  med=-0.2141
+  ...11_this air suits us both.mp3  max=-0.2369 @3:30  med=-0.2802
+  ...12_this air suits us both.mp3  max=-0.2394 @1:50  med=-0.2783
+  ...13_it reaches the middle of me.mp3  max=-0.1715 @3:00  med=-0.2474
+  ...14_it reaches the middle of me.mp3  max=-0.1694 @2:30  med=-0.2552
+  ...15_comfortable in my skin.mp3  max=-0.2107 @2:50  med=-0.2603
+  ...16_comfortable in my skin.mp3  max=-0.2098 @0:30  med=-0.2675
+  ...17_the longer i stay.mp3  max=-0.1012 @2:40  med=-0.2586
+  ...18_the longer i stay.mp3  max=-0.2106 @1:50  med=-0.2564
+  ...19_heavy in the good way.mp3  max=-0.2019 @0:30  med=-0.2387
+  ...20_heavy in the good way.mp3  max=-0.1854 @1:40  med=-0.2509
+
+===== 찬송가 마진 순위 (높을수록 교회음악 쪽) =====
+마진      중앙값    최고구간   곡
+-0.1012  -0.2586   2:40    17_the longer i stay.mp3
+-0.1043  -0.2646   2:40    05_the light got softer.mp3
+-0.1230  -0.2519   2:40    04_something in me unclenched.mp3
+-0.1449  -0.2319   2:40    08_nowhere warmer to be.mp3
+-0.1556  -0.2189   1:50    09_the side of you i lean on.mp3
+-0.1589  -0.2284   3:00    03_something in me unclenched.mp3
+-0.1694  -0.2552   2:30    14_it reaches the middle of me.mp3
+-0.1715  -0.2474   3:00    13_it reaches the middle of me.mp3
+-0.1750  -0.2141   1:40    10_the side of you i lean on.mp3
+-0.1848  -0.2320   2:40    07_nowhere warmer to be.mp3
+-0.1854  -0.2509   1:40    20_heavy in the good way.mp3
+-0.1942  -0.2514   2:10    02_warm feels good again.mp3
+-0.2019  -0.2387   0:30    19_heavy in the good way.mp3
+-0.2098  -0.2675   0:30    16_comfortable in my skin.mp3
+-0.2098  -0.2712   1:50    06_the light got softer.mp3
+-0.2106  -0.2564   1:50    18_the longer i stay.mp3
+-0.2107  -0.2603   2:50    15_comfortable in my skin.mp3
+-0.2271  -0.2604   0:50    01_warm feels good again.mp3
+-0.2369  -0.2802   3:30    11_this air suits us both.mp3
+-0.2394  -0.2783   1:50    12_this air suits us both.mp3
+
+저장 -> _hymn_scan.json

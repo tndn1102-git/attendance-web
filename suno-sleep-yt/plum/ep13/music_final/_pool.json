@@ -1,0 +1,222 @@
+[
+ {
+  "song": 1,
+  "take": "a",
+  "title": "warm feels good again",
+  "file": "01_warm feels good again.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/_regen/r02_warm feels good again.mp3",
+  "clap": 0.076,
+  "_regen": true,
+  "dur": 236.3
+ },
+ {
+  "song": 1,
+  "take": "b",
+  "title": "warm feels good again",
+  "file": "02_warm feels good again.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/_regen/r01_warm feels good again.mp3",
+  "clap": 0.082,
+  "_regen": true,
+  "dur": 216.6
+ },
+ {
+  "song": 2,
+  "take": "a",
+  "title": "something in me unclenched",
+  "file": "03_something in me unclenched.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/03_something in me unclenched.mp3",
+  "clap": 0.082,
+  "_regen": false,
+  "dur": 227.7
+ },
+ {
+  "song": 2,
+  "take": "b",
+  "title": "something in me unclenched",
+  "file": "04_something in me unclenched.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/04_something in me unclenched.mp3",
+  "clap": 0.093,
+  "_regen": false,
+  "dur": 215.1
+ },
+ {
+  "song": 3,
+  "take": "a",
+  "title": "the light got softer",
+  "file": "05_the light got softer.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/06_the light got softer.mp3",
+  "clap": 0.077,
+  "_regen": false,
+  "dur": 209.8
+ },
+ {
+  "song": 3,
+  "take": "b",
+  "title": "the light got softer",
+  "file": "06_the light got softer.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/05_the light got softer.mp3",
+  "clap": 0.096,
+  "_regen": false,
+  "dur": 212.6
+ },
+ {
+  "song": 4,
+  "take": "a",
+  "title": "nowhere warmer to be",
+  "file": "07_nowhere warmer to be.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/_regen/r07_nowhere warmer to be.mp3",
+  "clap": 0.107,
+  "_regen": true,
+  "dur": 240.3
+ },
+ {
+  "song": 4,
+  "take": "b",
+  "title": "nowhere warmer to be",
+  "file": "08_nowhere warmer to be.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/08_nowhere warmer to be.mp3",
+  "clap": 0.115,
+  "_regen": false,
+  "dur": 226.8
+ },
+ {
+  "song": 5,
+  "take": "a",
+  "title": "the side of you i lean on",
+  "file": "09_the side of you i lean on.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/09_the side of you i lean on.mp3",
+  "clap": 0.119,
+  "_regen": false,
+  "dur": 218.6
+ },
+ {
+  "song": 5,
+  "take": "b",
+  "title": "the side of you i lean on",
+  "file": "10_the side of you i lean on.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/10_the side of you i lean on.mp3",
+  "clap": 0.132,
+  "_regen": false,
+  "dur": 231.6
+ },
+ {
+  "song": 6,
+  "take": "a",
+  "title": "this air suits us both",
+  "file": "11_this air suits us both.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/11_this air suits us both.mp3",
+  "clap": 0.086,
+  "_regen": false,
+  "dur": 242.0
+ },
+ {
+  "song": 6,
+  "take": "b",
+  "title": "this air suits us both",
+  "file": "12_this air suits us both.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/12_this air suits us both.mp3",
+  "clap": 0.11,
+  "_regen": false,
+  "dur": 216.8
+ },
+ {
+  "song": 7,
+  "take": "a",
+  "title": "it reaches the middle of me",
+  "file": "13_it reaches the middle of me.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/13_it reaches the middle of me.mp3",
+  "clap": 0.094,
+  "_regen": false,
+  "dur": 247.6
+ },
+ {
+  "song": 7,
+  "take": "b",
+  "title": "it reaches the middle of me",
+  "file": "14_it reaches the middle of me.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/14_it reaches the middle of me.mp3",
+  "clap": 0.109,
+  "_regen": false,
+  "dur": 224.3
+ },
+ {
+  "song": 8,
+  "take": "a",
+  "title": "comfortable in my skin",
+  "file": "15_comfortable in my skin.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/16_comfortable in my skin.mp3",
+  "clap": 0.098,
+  "_regen": false,
+  "dur": 223.1
+ },
+ {
+  "song": 8,
+  "take": "b",
+  "title": "comfortable in my skin",
+  "file": "16_comfortable in my skin.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/15_comfortable in my skin.mp3",
+  "clap": 0.107,
+  "_regen": false,
+  "dur": 219.0
+ },
+ {
+  "song": 9,
+  "take": "a",
+  "title": "the longer i stay",
+  "file": "17_the longer i stay.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/_regen/r18_the longer i stay.mp3",
+  "clap": 0.094,
+  "_regen": true,
+  "dur": 229.9
+ },
+ {
+  "song": 9,
+  "take": "b",
+  "title": "the longer i stay",
+  "file": "18_the longer i stay.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/18_the longer i stay.mp3",
+  "clap": 0.1,
+  "_regen": false,
+  "dur": 202.3
+ },
+ {
+  "song": 10,
+  "take": "a",
+  "title": "heavy in the good way",
+  "file": "19_heavy in the good way.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/19_heavy in the good way.mp3",
+  "clap": 0.118,
+  "_regen": false,
+  "dur": 202.5
+ },
+ {
+  "song": 10,
+  "take": "b",
+  "title": "heavy in the good way",
+  "file": "20_heavy in the good way.mp3",
+  "model": "V9.5",
+  "src": "plum/ep13/music_v95/20_heavy in the good way.mp3",
+  "clap": 0.139,
+  "_regen": false,
+  "dur": 222.3
+ }
+]

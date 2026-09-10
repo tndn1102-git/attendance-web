@@ -1,0 +1,74 @@
+[
+ {
+  "n": 1,
+  "ko": "기차표",
+  "en": "Train Ticket",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep11\\titlecards\\card_01.png",
+  "start": 0.0,
+  "end": 201.83,
+  "mmss": "00:00"
+ },
+ {
+  "n": 2,
+  "ko": "귤 까 줄게",
+  "en": "I'll Peel You a Tangerine",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep11\\titlecards\\card_02.png",
+  "start": 201.83,
+  "end": 393.58,
+  "mmss": "03:21"
+ },
+ {
+  "n": 3,
+  "ko": "양보",
+  "en": "Giving Up the Window Seat",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep11\\titlecards\\card_03.png",
+  "start": 393.58,
+  "end": 605.81,
+  "mmss": "06:33"
+ },
+ {
+  "n": 4,
+  "ko": "들켰어",
+  "en": "Got Caught",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep11\\titlecards\\card_04.png",
+  "start": 605.81,
+  "end": 804.72,
+  "mmss": "10:05"
+ },
+ {
+  "n": 5,
+  "ko": "한 곡만",
+  "en": "Just One Song",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep11\\titlecards\\card_05.png",
+  "start": 804.72,
+  "end": 1023.51,
+  "mmss": "13:24"
+ },
+ {
+  "n": 6,
+  "ko": "계란 두 알",
+  "en": "Two Boiled Eggs",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep11\\titlecards\\card_06.png",
+  "start": 1023.51,
+  "end": 1218.98,
+  "mmss": "17:03"
+ },
+ {
+  "n": 7,
+  "ko": "잠든 척",
+  "en": "Pretending to Sleep",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep11\\titlecards\\card_07.png",
+  "start": 1218.98,
+  "end": 1418.29,
+  "mmss": "20:18"
+ },
+ {
+  "n": 8,
+  "ko": "내릴 역",
+  "en": "Our Stop",
+  "file": "D:\\test3\\suno-sleep-yt\\ballad90\\ep11\\titlecards\\card_08.png",
+  "start": 1418.29,
+  "end": 1622.28,
+  "mmss": "23:38"
+ }
+]

@@ -1,0 +1,25 @@
+CLAP 게이트 · 거리 p90=0.084 (cherry 내부 평균 0.057) · 찬송가축 ❌≥0.00 ⚠️≥-0.05
+
+△  0.115 ( 96%)  ✅      -0.227  01_warm feels good again.mp3
+❌  0.124 ( 96%)  ✅      -0.194  02_warm feels good again.mp3
+✅  0.082 ( 88%)  ✅      -0.159  03_something in me unclenched.mp3
+△  0.093 ( 92%)  ✅      -0.123  04_something in me unclenched.mp3
+△  0.096 ( 93%)  ✅      -0.104  05_the light got softer.mp3
+✅  0.077 ( 85%)  ✅      -0.210  06_the light got softer.mp3
+❌  0.141 ( 97%)  ✅      -0.185  07_nowhere warmer to be.mp3
+△  0.115 ( 96%)  ✅      -0.145  08_nowhere warmer to be.mp3
+❌  0.119 ( 96%)  ✅      -0.156  09_the side of you i lean on.mp3
+❌  0.132 ( 97%)  ✅      -0.175  10_the side of you i lean on.mp3
+△  0.086 ( 90%)  ✅      -0.237  11_this air suits us both.mp3
+△  0.110 ( 95%)  ✅      -0.239  12_this air suits us both.mp3
+△  0.094 ( 93%)  ✅      -0.172  13_it reaches the middle of me.mp3
+△  0.109 ( 95%)  ✅      -0.169  14_it reaches the middle of me.mp3
+△  0.107 ( 95%)  ✅      -0.211  15_comfortable in my skin.mp3
+△  0.098 ( 94%)  ✅      -0.210  16_comfortable in my skin.mp3
+❌  0.121 ( 96%)  ✅      -0.101  17_the longer i stay.mp3
+△  0.100 ( 94%)  ✅      -0.211  18_the longer i stay.mp3
+❌  0.118 ( 96%)  ✅      -0.202  19_heavy in the good way.mp3
+❌  0.139 ( 97%)  ✅      -0.185  20_heavy in the good way.mp3
+
+거리축 통과: 2/20 (✅=p90 이내, △=경계, ❌=분포 밖)
+✅ 찬송가축 탈락 0곡

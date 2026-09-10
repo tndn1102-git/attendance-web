@@ -1,0 +1,20 @@
+[
+ {
+  "axis": "잔잔",
+  "name": "10_the side of you i lean on",
+  "file": "plum/ep13/_hooks\\hook_10_the side of you i lean on.mp3",
+  "hook_db": 0.17
+ },
+ {
+  "axis": "밝음",
+  "name": "05_the light got softer",
+  "file": "plum/ep13/_hooks\\hook_05_the light got softer.mp3",
+  "hook_db": 0.35
+ },
+ {
+  "axis": "빠름",
+  "name": "02_warm feels good again",
+  "file": "plum/ep13/_hooks\\hook_02_warm feels good again.mp3",
+  "hook_db": -0.14
+ }
+]

@@ -1,0 +1,30 @@
+[1/6] r01_warm feels good again.mp3
+[2/6] r02_warm feels good again.mp3
+[3/6] r07_nowhere warmer to be.mp3
+[4/6] r08_nowhere warmer to be.mp3
+[5/6] r17_the longer i stay.mp3
+[6/6] r18_the longer i stay.mp3
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+파일                                    길이 유성구간 최대(초2초+ 유성 비율유성구간 p90( 멜리스마/유성초alpha 고역비F0 중앙(Hz)보컬−반주(dB)   중간층 점유    드럼 점유   베이스 점유
+-----------------------------------------------------------------------------------------------------------------------------------
+r01_warm feels good again.mp3        217     1.69O    0.00O    0.67O    1.63O  -11.21O  290.70O   -5.88O    0.21O    0.24X    0.34X
+r02_warm feels good again.mp3        236     1.42O    0.00O    0.66O    1.85O  -11.67O  278.80O   -7.28O    0.14O    0.30O    0.40X
+r07_nowhere warmer to be.mp3         240     1.52O    0.00O    0.69O    1.90O  -11.74O  274.96O   -5.69O    0.19O    0.30O    0.30X
+r08_nowhere warmer to be.mp3         248     1.36O    0.00O    0.59O    1.48O  -11.87O  276.43O   -5.78O    0.19O    0.26O    0.33X
+r17_the longer i stay.mp3            228     1.31O    0.00O    0.70O    1.99O  -10.29O  282.33O   -6.61O    0.11O    0.23X    0.47X
+r18_the longer i stay.mp3            230     1.60O    0.00O    0.63O    1.90O   -9.74O  277.65O   -6.01O    0.20O    0.21X    0.37X
+-----------------------------------------------------------------------------------------------------------------------------------
+6트랙 · 탈락 6 · 경고 0 · 통과 0
+O 통과 / ! 경고(구간 청취) / X 탈락(재생성)
+원자료: plum/ep13/_vocal_regen.json

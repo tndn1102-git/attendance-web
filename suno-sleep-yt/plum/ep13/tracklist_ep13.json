@@ -1,0 +1,367 @@
+{
+ "loops": 3,
+ "seed": 20260918080,
+ "total_sec": 13438.1,
+ "tracks": [
+  {
+   "i": 1,
+   "at": 0.0,
+   "ts": "0:00",
+   "title": "the longer i stay"
+  },
+  {
+   "i": 2,
+   "at": 230.2,
+   "ts": "3:50",
+   "title": "nowhere warmer to be"
+  },
+  {
+   "i": 3,
+   "at": 470.82,
+   "ts": "7:50",
+   "title": "this air suits us both"
+  },
+  {
+   "i": 4,
+   "at": 713.83,
+   "ts": "11:53",
+   "title": "something in me unclenched"
+  },
+  {
+   "i": 5,
+   "at": 942.14,
+   "ts": "15:42",
+   "title": "the light got softer"
+  },
+  {
+   "i": 6,
+   "at": 1152.36,
+   "ts": "19:12",
+   "title": "comfortable in my skin"
+  },
+  {
+   "i": 7,
+   "at": 1376.08,
+   "ts": "22:56",
+   "title": "it reaches the middle of me"
+  },
+  {
+   "i": 8,
+   "at": 1623.97,
+   "ts": "27:03",
+   "title": "heavy in the good way"
+  },
+  {
+   "i": 9,
+   "at": 1827.46,
+   "ts": "30:27",
+   "title": "the side of you i lean on"
+  },
+  {
+   "i": 10,
+   "at": 2046.41,
+   "ts": "34:06",
+   "title": "warm feels good again"
+  },
+  {
+   "i": 11,
+   "at": 2283.49,
+   "ts": "38:03",
+   "title": "something in me unclenched"
+  },
+  {
+   "i": 12,
+   "at": 2499.36,
+   "ts": "41:39",
+   "title": "it reaches the middle of me"
+  },
+  {
+   "i": 13,
+   "at": 2724.81,
+   "ts": "45:24",
+   "title": "nowhere warmer to be"
+  },
+  {
+   "i": 14,
+   "at": 2952.38,
+   "ts": "49:12",
+   "title": "warm feels good again"
+  },
+  {
+   "i": 15,
+   "at": 3169.88,
+   "ts": "52:49",
+   "title": "heavy in the good way"
+  },
+  {
+   "i": 16,
+   "at": 3392.87,
+   "ts": "56:32",
+   "title": "the light got softer"
+  },
+  {
+   "i": 17,
+   "at": 3606.58,
+   "ts": "1:00:06",
+   "title": "this air suits us both"
+  },
+  {
+   "i": 18,
+   "at": 3823.89,
+   "ts": "1:03:43",
+   "title": "the longer i stay"
+  },
+  {
+   "i": 19,
+   "at": 4026.74,
+   "ts": "1:07:06",
+   "title": "the side of you i lean on"
+  },
+  {
+   "i": 20,
+   "at": 4258.69,
+   "ts": "1:10:58",
+   "title": "comfortable in my skin"
+  },
+  {
+   "i": 21,
+   "at": 4478.36,
+   "ts": "1:14:38",
+   "title": "the side of you i lean on"
+  },
+  {
+   "i": 22,
+   "at": 4697.46,
+   "ts": "1:18:17",
+   "title": "the light got softer"
+  },
+  {
+   "i": 23,
+   "at": 4907.85,
+   "ts": "1:21:47",
+   "title": "something in me unclenched"
+  },
+  {
+   "i": 24,
+   "at": 5136.67,
+   "ts": "1:25:36",
+   "title": "this air suits us both"
+  },
+  {
+   "i": 25,
+   "at": 5379.75,
+   "ts": "1:29:39",
+   "title": "comfortable in my skin"
+  },
+  {
+   "i": 26,
+   "at": 5603.25,
+   "ts": "1:33:23",
+   "title": "it reaches the middle of me"
+  },
+  {
+   "i": 27,
+   "at": 5851.65,
+   "ts": "1:37:31",
+   "title": "the longer i stay"
+  },
+  {
+   "i": 28,
+   "at": 6082.52,
+   "ts": "1:41:22",
+   "title": "heavy in the good way"
+  },
+  {
+   "i": 29,
+   "at": 6285.43,
+   "ts": "1:44:45",
+   "title": "nowhere warmer to be"
+  },
+  {
+   "i": 30,
+   "at": 6526.35,
+   "ts": "1:48:46",
+   "title": "warm feels good again"
+  },
+  {
+   "i": 31,
+   "at": 6763.12,
+   "ts": "1:52:43",
+   "title": "it reaches the middle of me"
+  },
+  {
+   "i": 32,
+   "at": 6987.9,
+   "ts": "1:56:27",
+   "title": "the longer i stay"
+  },
+  {
+   "i": 33,
+   "at": 7190.55,
+   "ts": "1:59:50",
+   "title": "nowhere warmer to be"
+  },
+  {
+   "i": 34,
+   "at": 7417.66,
+   "ts": "2:03:37",
+   "title": "the light got softer"
+  },
+  {
+   "i": 35,
+   "at": 7631.41,
+   "ts": "2:07:11",
+   "title": "this air suits us both"
+  },
+  {
+   "i": 36,
+   "at": 7848.5,
+   "ts": "2:10:48",
+   "title": "comfortable in my skin"
+  },
+  {
+   "i": 37,
+   "at": 8068.32,
+   "ts": "2:14:28",
+   "title": "heavy in the good way"
+  },
+  {
+   "i": 38,
+   "at": 8291.71,
+   "ts": "2:18:11",
+   "title": "the side of you i lean on"
+  },
+  {
+   "i": 39,
+   "at": 8524.27,
+   "ts": "2:22:04",
+   "title": "something in me unclenched"
+  },
+  {
+   "i": 40,
+   "at": 8740.25,
+   "ts": "2:25:40",
+   "title": "warm feels good again"
+  },
+  {
+   "i": 41,
+   "at": 8957.84,
+   "ts": "2:29:17",
+   "title": "the longer i stay"
+  },
+  {
+   "i": 42,
+   "at": 9188.03,
+   "ts": "2:33:08",
+   "title": "comfortable in my skin"
+  },
+  {
+   "i": 43,
+   "at": 9411.87,
+   "ts": "2:36:51",
+   "title": "heavy in the good way"
+  },
+  {
+   "i": 44,
+   "at": 9615.53,
+   "ts": "2:40:15",
+   "title": "it reaches the middle of me"
+  },
+  {
+   "i": 45,
+   "at": 9863.78,
+   "ts": "2:44:23",
+   "title": "something in me unclenched"
+  },
+  {
+   "i": 46,
+   "at": 10092.15,
+   "ts": "2:48:12",
+   "title": "nowhere warmer to be"
+  },
+  {
+   "i": 47,
+   "at": 10333.09,
+   "ts": "2:52:13",
+   "title": "the light got softer"
+  },
+  {
+   "i": 48,
+   "at": 10543.7,
+   "ts": "2:55:43",
+   "title": "this air suits us both"
+  },
+  {
+   "i": 49,
+   "at": 10786.87,
+   "ts": "2:59:46",
+   "title": "warm feels good again"
+  },
+  {
+   "i": 50,
+   "at": 11024.32,
+   "ts": "3:03:44",
+   "title": "the side of you i lean on"
+  },
+  {
+   "i": 51,
+   "at": 11243.92,
+   "ts": "3:07:23",
+   "title": "nowhere warmer to be"
+  },
+  {
+   "i": 52,
+   "at": 11471.35,
+   "ts": "3:11:11",
+   "title": "warm feels good again"
+  },
+  {
+   "i": 53,
+   "at": 11688.85,
+   "ts": "3:14:48",
+   "title": "heavy in the good way"
+  },
+  {
+   "i": 54,
+   "at": 11912.3,
+   "ts": "3:18:32",
+   "title": "comfortable in my skin"
+  },
+  {
+   "i": 55,
+   "at": 12132.25,
+   "ts": "3:22:12",
+   "title": "the longer i stay"
+  },
+  {
+   "i": 56,
+   "at": 12334.98,
+   "ts": "3:25:34",
+   "title": "the light got softer"
+  },
+  {
+   "i": 57,
+   "at": 12548.1,
+   "ts": "3:29:08",
+   "title": "the side of you i lean on"
+  },
+  {
+   "i": 58,
+   "at": 12780.43,
+   "ts": "3:33:00",
+   "title": "it reaches the middle of me"
+  },
+  {
+   "i": 59,
+   "at": 13005.69,
+   "ts": "3:36:45",
+   "title": "something in me unclenched"
+  },
+  {
+   "i": 60,
+   "at": 13221.38,
+   "ts": "3:40:21",
+   "title": "this air suits us both"
+  }
+ ]
+}
