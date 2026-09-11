@@ -1,0 +1,30 @@
+[1/6] r05_my head feels rinsed.mp3
+[2/6] r06_my head feels rinsed.mp3
+[3/6] r09_one breath and i am clear.mp3
+[4/6] r10_one breath and i am clear.mp3
+[5/6] r13_your voice gets here first.mp3
+[6/6] r14_your voice gets here first.mp3
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+파일                                    길이 유성구간 최대(초2초+ 유성 비율유성구간 p90( 멜리스마/유성초alpha 고역비F0 중앙(Hz)보컬−반주(dB)   중간층 점유    드럼 점유   베이스 점유
+-----------------------------------------------------------------------------------------------------------------------------------
+r05_my head feels rinsed.mp3         210     0.99O    0.00O    0.66O    1.44O  -10.93O  292.48O   -5.67O    0.18O    0.28O    0.32X
+r06_my head feels rinsed.mp3         198     1.53O    0.00O    0.60O    1.74O  -10.51O  274.48O   -6.60O    0.19O    0.29O    0.34X
+r09_one breath and i am clear.mp3    222     1.68O    0.00O    0.71O    1.78O   -9.33O  254.18O   -8.80O    0.15O    0.37O    0.36X
+r10_one breath and i am clear.mp3    211     1.86O    0.00O    0.62O    1.43O  -11.21O  277.84O   -7.55O    0.10O    0.39O    0.36X
+r13_your voice gets here first.mp3   216     1.73O    0.00O    0.74O    1.96O  -13.20O  177.28O   -5.33O    0.10O    0.29O    0.37X
+r14_your voice gets here first.mp3   221     1.47O    0.00O    0.86O    2.04O  -14.77O  182.50O   -5.96O    0.18O    0.29O    0.32X
+-----------------------------------------------------------------------------------------------------------------------------------
+6트랙 · 탈락 6 · 경고 0 · 통과 0
+O 통과 / ! 경고(구간 청취) / X 탈락(재생성)
+원자료: plum/ep14/_vocal_regen.json

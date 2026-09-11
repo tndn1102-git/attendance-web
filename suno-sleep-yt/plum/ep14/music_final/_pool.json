@@ -1,0 +1,222 @@
+[
+ {
+  "song": 1,
+  "take": "a",
+  "title": "the far things look close",
+  "file": "01_the far things look close.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/01_the far things look close.mp3",
+  "clap": 0.092,
+  "_regen": false,
+  "dur": 208.3
+ },
+ {
+  "song": 1,
+  "take": "b",
+  "title": "the far things look close",
+  "file": "02_the far things look close.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/02_the far things look close.mp3",
+  "clap": 0.096,
+  "_regen": false,
+  "dur": 232.6
+ },
+ {
+  "song": 2,
+  "take": "a",
+  "title": "so still i can hear it",
+  "file": "03_so still i can hear it.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/04_so still i can hear it.mp3",
+  "clap": 0.087,
+  "_regen": false,
+  "dur": 220.6
+ },
+ {
+  "song": 2,
+  "take": "b",
+  "title": "so still i can hear it",
+  "file": "04_so still i can hear it.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/03_so still i can hear it.mp3",
+  "clap": 0.095,
+  "_regen": false,
+  "dur": 209.2
+ },
+ {
+  "song": 3,
+  "take": "a",
+  "title": "my head feels rinsed",
+  "file": "05_my head feels rinsed.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/06_my head feels rinsed.mp3",
+  "clap": 0.086,
+  "_regen": false,
+  "dur": 197.5
+ },
+ {
+  "song": 3,
+  "take": "b",
+  "title": "my head feels rinsed",
+  "file": "06_my head feels rinsed.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/_regen/r05_my head feels rinsed.mp3",
+  "clap": 0.093,
+  "_regen": true,
+  "dur": 210.3
+ },
+ {
+  "song": 4,
+  "take": "a",
+  "title": "every word arrives whole",
+  "file": "07_every word arrives whole.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/08_every word arrives whole.mp3",
+  "clap": 0.101,
+  "_regen": false,
+  "dur": 187.2
+ },
+ {
+  "song": 4,
+  "take": "b",
+  "title": "every word arrives whole",
+  "file": "08_every word arrives whole.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/07_every word arrives whole.mp3",
+  "clap": 0.124,
+  "_regen": false,
+  "dur": 210.6
+ },
+ {
+  "song": 5,
+  "take": "a",
+  "title": "one breath and i am clear",
+  "file": "09_one breath and i am clear.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/_regen/r09_one breath and i am clear.mp3",
+  "clap": 0.114,
+  "_regen": true,
+  "dur": 221.6
+ },
+ {
+  "song": 5,
+  "take": "b",
+  "title": "one breath and i am clear",
+  "file": "10_one breath and i am clear.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/10_one breath and i am clear.mp3",
+  "clap": 0.13,
+  "_regen": false,
+  "dur": 232.5
+ },
+ {
+  "song": 6,
+  "take": "a",
+  "title": "the blur has lifted",
+  "file": "11_the blur has lifted.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/12_the blur has lifted.mp3",
+  "clap": 0.101,
+  "_regen": false,
+  "dur": 199.1
+ },
+ {
+  "song": 6,
+  "take": "b",
+  "title": "the blur has lifted",
+  "file": "12_the blur has lifted.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/11_the blur has lifted.mp3",
+  "clap": 0.123,
+  "_regen": false,
+  "dur": 209.6
+ },
+ {
+  "song": 7,
+  "take": "a",
+  "title": "your voice gets here first",
+  "file": "13_your voice gets here first.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/13_your voice gets here first.mp3",
+  "clap": 0.095,
+  "_regen": false,
+  "dur": 223.6
+ },
+ {
+  "song": 7,
+  "take": "b",
+  "title": "your voice gets here first",
+  "file": "14_your voice gets here first.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/_regen/r13_your voice gets here first.mp3",
+  "clap": 0.098,
+  "_regen": true,
+  "dur": 215.5
+ },
+ {
+  "song": 8,
+  "take": "a",
+  "title": "nothing sticks to me here",
+  "file": "15_nothing sticks to me here.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/16_nothing sticks to me here.mp3",
+  "clap": 0.127,
+  "_regen": false,
+  "dur": 203.3
+ },
+ {
+  "song": 8,
+  "take": "b",
+  "title": "nothing sticks to me here",
+  "file": "16_nothing sticks to me here.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/15_nothing sticks to me here.mp3",
+  "clap": 0.132,
+  "_regen": false,
+  "dur": 194.4
+ },
+ {
+  "song": 9,
+  "take": "a",
+  "title": "the distance holds still",
+  "file": "17_the distance holds still.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/17_the distance holds still.mp3",
+  "clap": 0.094,
+  "_regen": false,
+  "dur": 210.2
+ },
+ {
+  "song": 9,
+  "take": "b",
+  "title": "the distance holds still",
+  "file": "18_the distance holds still.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/18_the distance holds still.mp3",
+  "clap": 0.118,
+  "_regen": false,
+  "dur": 237.6
+ },
+ {
+  "song": 10,
+  "take": "a",
+  "title": "one thought at a time",
+  "file": "19_one thought at a time.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/20_one thought at a time.mp3",
+  "clap": 0.082,
+  "_regen": false,
+  "dur": 232.9
+ },
+ {
+  "song": 10,
+  "take": "b",
+  "title": "one thought at a time",
+  "file": "20_one thought at a time.mp3",
+  "model": "V9.5",
+  "src": "plum/ep14/music_v95/19_one thought at a time.mp3",
+  "clap": 0.083,
+  "_regen": false,
+  "dur": 220.3
+ }
+]

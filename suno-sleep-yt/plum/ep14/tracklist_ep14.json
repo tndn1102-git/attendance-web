@@ -1,0 +1,367 @@
+{
+ "loops": 3,
+ "seed": 20260921080,
+ "total_sec": 12877.0,
+ "tracks": [
+  {
+   "i": 1,
+   "at": 0.0,
+   "ts": "0:00",
+   "title": "the far things look close"
+  },
+  {
+   "i": 2,
+   "at": 209.05,
+   "ts": "3:29",
+   "title": "so still i can hear it"
+  },
+  {
+   "i": 3,
+   "at": 430.76,
+   "ts": "7:10",
+   "title": "your voice gets here first"
+  },
+  {
+   "i": 4,
+   "at": 655.28,
+   "ts": "10:55",
+   "title": "nothing sticks to me here"
+  },
+  {
+   "i": 5,
+   "at": 859.47,
+   "ts": "14:19",
+   "title": "one thought at a time"
+  },
+  {
+   "i": 6,
+   "at": 1093.28,
+   "ts": "18:13",
+   "title": "every word arrives whole"
+  },
+  {
+   "i": 7,
+   "at": 1281.06,
+   "ts": "21:21",
+   "title": "one breath and i am clear"
+  },
+  {
+   "i": 8,
+   "at": 1503.41,
+   "ts": "25:03",
+   "title": "the blur has lifted"
+  },
+  {
+   "i": 9,
+   "at": 1703.43,
+   "ts": "28:23",
+   "title": "my head feels rinsed"
+  },
+  {
+   "i": 10,
+   "at": 1901.66,
+   "ts": "31:41",
+   "title": "the distance holds still"
+  },
+  {
+   "i": 11,
+   "at": 2112.38,
+   "ts": "35:12",
+   "title": "the distance holds still"
+  },
+  {
+   "i": 12,
+   "at": 2350.86,
+   "ts": "39:10",
+   "title": "so still i can hear it"
+  },
+  {
+   "i": 13,
+   "at": 2560.48,
+   "ts": "42:40",
+   "title": "your voice gets here first"
+  },
+  {
+   "i": 14,
+   "at": 2776.34,
+   "ts": "46:16",
+   "title": "every word arrives whole"
+  },
+  {
+   "i": 15,
+   "at": 2987.61,
+   "ts": "49:47",
+   "title": "one breath and i am clear"
+  },
+  {
+   "i": 16,
+   "at": 3220.54,
+   "ts": "53:40",
+   "title": "the far things look close"
+  },
+  {
+   "i": 17,
+   "at": 3453.75,
+   "ts": "57:33",
+   "title": "my head feels rinsed"
+  },
+  {
+   "i": 18,
+   "at": 3664.83,
+   "ts": "1:01:04",
+   "title": "nothing sticks to me here"
+  },
+  {
+   "i": 19,
+   "at": 3859.65,
+   "ts": "1:04:19",
+   "title": "one thought at a time"
+  },
+  {
+   "i": 20,
+   "at": 4081.04,
+   "ts": "1:08:01",
+   "title": "the blur has lifted"
+  },
+  {
+   "i": 21,
+   "at": 4291.79,
+   "ts": "1:11:31",
+   "title": "nothing sticks to me here"
+  },
+  {
+   "i": 22,
+   "at": 4496.07,
+   "ts": "1:14:56",
+   "title": "so still i can hear it"
+  },
+  {
+   "i": 23,
+   "at": 4717.62,
+   "ts": "1:18:37",
+   "title": "your voice gets here first"
+  },
+  {
+   "i": 24,
+   "at": 4942.32,
+   "ts": "1:22:22",
+   "title": "the distance holds still"
+  },
+  {
+   "i": 25,
+   "at": 5153.25,
+   "ts": "1:25:53",
+   "title": "one thought at a time"
+  },
+  {
+   "i": 26,
+   "at": 5387.03,
+   "ts": "1:29:47",
+   "title": "my head feels rinsed"
+  },
+  {
+   "i": 27,
+   "at": 5585.05,
+   "ts": "1:33:05",
+   "title": "one breath and i am clear"
+  },
+  {
+   "i": 28,
+   "at": 5807.51,
+   "ts": "1:36:47",
+   "title": "every word arrives whole"
+  },
+  {
+   "i": 29,
+   "at": 5995.54,
+   "ts": "1:39:55",
+   "title": "the blur has lifted"
+  },
+  {
+   "i": 30,
+   "at": 6195.53,
+   "ts": "1:43:15",
+   "title": "the far things look close"
+  },
+  {
+   "i": 31,
+   "at": 6404.88,
+   "ts": "1:46:44",
+   "title": "the distance holds still"
+  },
+  {
+   "i": 32,
+   "at": 6643.64,
+   "ts": "1:50:43",
+   "title": "nothing sticks to me here"
+  },
+  {
+   "i": 33,
+   "at": 6838.59,
+   "ts": "1:53:58",
+   "title": "so still i can hear it"
+  },
+  {
+   "i": 34,
+   "at": 7048.71,
+   "ts": "1:57:28",
+   "title": "my head feels rinsed"
+  },
+  {
+   "i": 35,
+   "at": 7260.06,
+   "ts": "2:01:00",
+   "title": "the blur has lifted"
+  },
+  {
+   "i": 36,
+   "at": 7470.73,
+   "ts": "2:04:30",
+   "title": "every word arrives whole"
+  },
+  {
+   "i": 37,
+   "at": 7682.3,
+   "ts": "2:08:02",
+   "title": "one thought at a time"
+  },
+  {
+   "i": 38,
+   "at": 7903.29,
+   "ts": "2:11:43",
+   "title": "the far things look close"
+  },
+  {
+   "i": 39,
+   "at": 8137.08,
+   "ts": "2:15:37",
+   "title": "your voice gets here first"
+  },
+  {
+   "i": 40,
+   "at": 8353.58,
+   "ts": "2:19:13",
+   "title": "one breath and i am clear"
+  },
+  {
+   "i": 41,
+   "at": 8586.66,
+   "ts": "2:23:06",
+   "title": "the distance holds still"
+  },
+  {
+   "i": 42,
+   "at": 8797.82,
+   "ts": "2:26:37",
+   "title": "one breath and i am clear"
+  },
+  {
+   "i": 43,
+   "at": 9020.41,
+   "ts": "2:30:20",
+   "title": "nothing sticks to me here"
+  },
+  {
+   "i": 44,
+   "at": 9224.46,
+   "ts": "2:33:44",
+   "title": "so still i can hear it"
+  },
+  {
+   "i": 45,
+   "at": 9445.76,
+   "ts": "2:37:25",
+   "title": "one thought at a time"
+  },
+  {
+   "i": 46,
+   "at": 9679.18,
+   "ts": "2:41:19",
+   "title": "the blur has lifted"
+  },
+  {
+   "i": 47,
+   "at": 9879.31,
+   "ts": "2:44:39",
+   "title": "the far things look close"
+  },
+  {
+   "i": 48,
+   "at": 10087.93,
+   "ts": "2:48:07",
+   "title": "my head feels rinsed"
+  },
+  {
+   "i": 49,
+   "at": 10285.89,
+   "ts": "2:51:25",
+   "title": "every word arrives whole"
+  },
+  {
+   "i": 50,
+   "at": 10473.85,
+   "ts": "2:54:33",
+   "title": "your voice gets here first"
+  },
+  {
+   "i": 51,
+   "at": 10698.1,
+   "ts": "2:58:18",
+   "title": "the far things look close"
+  },
+  {
+   "i": 52,
+   "at": 10931.19,
+   "ts": "3:02:11",
+   "title": "your voice gets here first"
+  },
+  {
+   "i": 53,
+   "at": 11147.63,
+   "ts": "3:05:47",
+   "title": "the blur has lifted"
+  },
+  {
+   "i": 54,
+   "at": 11357.65,
+   "ts": "3:09:17",
+   "title": "one thought at a time"
+  },
+  {
+   "i": 55,
+   "at": 11578.32,
+   "ts": "3:12:58",
+   "title": "so still i can hear it"
+  },
+  {
+   "i": 56,
+   "at": 11788.39,
+   "ts": "3:16:28",
+   "title": "one breath and i am clear"
+  },
+  {
+   "i": 57,
+   "at": 12021.77,
+   "ts": "3:20:21",
+   "title": "nothing sticks to me here"
+  },
+  {
+   "i": 58,
+   "at": 12216.64,
+   "ts": "3:23:36",
+   "title": "my head feels rinsed"
+  },
+  {
+   "i": 59,
+   "at": 12428.03,
+   "ts": "3:27:08",
+   "title": "the distance holds still"
+  },
+  {
+   "i": 60,
+   "at": 12666.4,
+   "ts": "3:31:06",
+   "title": "every word arrives whole"
+  }
+ ]
+}

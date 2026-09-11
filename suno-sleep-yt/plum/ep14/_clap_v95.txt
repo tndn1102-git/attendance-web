@@ -1,0 +1,25 @@
+CLAP 게이트 · 거리 p90=0.084 (cherry 내부 평균 0.057) · 찬송가축 ❌≥0.00 ⚠️≥-0.05
+
+△  0.092 ( 92%)  ✅      -0.204  01_the far things look close.mp3
+△  0.096 ( 93%)  ✅      -0.134  02_the far things look close.mp3
+△  0.095 ( 93%)  ✅      -0.159  03_so still i can hear it.mp3
+△  0.087 ( 90%)  ✅      -0.200  04_so still i can hear it.mp3
+❌  0.129 ( 97%)  ✅      -0.146  05_my head feels rinsed.mp3
+△  0.086 ( 90%)  ✅      -0.209  06_my head feels rinsed.mp3
+❌  0.124 ( 96%)  ✅      -0.205  07_every word arrives whole.mp3
+△  0.101 ( 94%)  ✅      -0.181  08_every word arrives whole.mp3
+❌  0.150 ( 97%)  ✅      -0.230  09_one breath and i am clear.mp3
+❌  0.130 ( 97%)  ✅      -0.214  10_one breath and i am clear.mp3
+❌  0.123 ( 96%)  ✅      -0.185  11_the blur has lifted.mp3
+△  0.101 ( 94%)  ✅      -0.091  12_the blur has lifted.mp3
+△  0.095 ( 93%)  ✅      -0.172  13_your voice gets here first.mp3
+❌  0.128 ( 97%)  ✅      -0.217  14_your voice gets here first.mp3
+❌  0.132 ( 97%)  ✅      -0.173  15_nothing sticks to me here.mp3
+❌  0.127 ( 97%)  ✅      -0.217  16_nothing sticks to me here.mp3
+△  0.094 ( 92%)  ✅      -0.191  17_the distance holds still.mp3
+❌  0.118 ( 96%)  ✅      -0.151  18_the distance holds still.mp3
+✅  0.083 ( 89%)  ✅      -0.198  19_one thought at a time.mp3
+✅  0.082 ( 88%)  ✅      -0.181  20_one thought at a time.mp3
+
+거리축 통과: 2/20 (✅=p90 이내, △=경계, ❌=분포 밖)
+✅ 찬송가축 탈락 0곡

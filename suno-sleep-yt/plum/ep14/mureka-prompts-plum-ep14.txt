@@ -1,0 +1,1123 @@
+==========================================================================
+ plum music EP14 — "공기가 맑아서 마음까지 개운해요" 편 (가을 2편째)   ★붙여넣기 전용본
+ 각 곡은 위에서부터 가사 -> 스타일 -> 배제어 -> 제목 네 블록 순서다.
+==========================================================================
+
+ [플랫폼]     Mureka 여섯 번째 편. 곡당 V9.5 만 1생성(= 2테이크).
+              변환 = py -3 tools\suno_to_mureka.py plum\ep14\suno-prompts-plum-ep14.txt ^
+                       --tail-file plum\_assets\mureka_tail_plum.txt --ack-loss
+              (EXCLUDE 블록 제거 + 꼬리 169자 인라인 · 본문 상한 830 · 병합 상한 1,000)
+ [받는 폴더]  D:\test3\suno-sleep-yt\plum\ep14\music
+ [발행]       2026-09-21 (월) 08:00 KST
+ [기준 문서]  컨셉-ep14.md · CLAUDE.md §🎤🔴🔴(2026-09-07 보컬 상시규칙) ·
+              ep10\_보컬처방-v2.md · ep10\_보컬힘-계측.md · ep10\_찬송가-처방.md
+ [상위 필터]  CLAUDE.md §🏝️ 럭셔리·깔끔·심플·리조트. 비·슬픔·추억·끝나감 0줄.
+              + 컨셉 §ⓐ 🍂 가을 우울 함정 금지 — 가을은 "공기가 좋아졌다"로만 쓴다.
+
+ 🔴 이 편도 **곡 축을 EP11·EP12·EP13 과 글자 단위로 같게 둔다.** 바뀐 것은
+    테마(온도 → 맑음)·씬·문형과, 매 편 새로 쓰는 조성·BPM·편성·화성·가사뿐이다.
+    EP13 이 "몸이 풀리는 따뜻함" 이었다면 EP14 는 "머리가 트이는 청량함" 이다 —
+    그 차이는 **가사와 화성 장치**가 만든다. 믹스 문구는 한 글자도 안 바꿨다(아래 표).
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 곡별 한 줄 표                                                        │
+ └──────────────────────────────────────────────────────────────────────┘
+
+ | #  | 정서 결                                | 성별 | 장르     | BPM | 2인칭 |
+ |----|----------------------------------------|------|----------|-----|-------|
+ | 1  | 밝음 — 먼 것들이 가깝게 보인다            | 여성   | 소울팝      |  98 | ·     |
+ | 2  | 여운 DARK — 너무 고요해서 다 들린다        | 여성   | 소울팝      |  88 | ·     |
+ | 3  | 밝음 — 머리를 한 번 헹군 것 같다           | 여성   | 소울팝      | 101 | ·     |
+ | 4  | 여운 — 네 말이 한 글자도 안 깎이고 온다     | 여성   | 보사노바     |  90 | ●     |
+ | 5  | 밝음 — 숨 한 번에 맑아진다                | 여성   | 소울팝      | 100 | ·     |
+ | 6  | 여운 DARK — 흐릿하던 게 걷혔다             | 여성   | 소울팝      |  86 | ·     |
+ | 7  | 밝음 — 네 목소리가 너보다 먼저 온다         | 남성   | 소울팝      |  96 | ●     |
+ | 8  | 밝음 — 여기선 아무것도 안 들러붙는다        | 여성   | 보사노바     |  94 | ·     |
+ | 9  | 여운 DARK — 먼 곳이 가만히 있다            | 여성   | 소울팝      |  89 | ·     |
+ | 10 | 밝음 — 생각이 하나씩 차례로 온다           | 여성   | 소울팝      | 103 | ·     |
+
+ · 밝음 6 (#1 #3 #5 #7 #8 #10) / 여운 4 (#2 #4 #6 #9) · 이별·상실 0곡
+ · DARK 3곡 (#2 #6 #9) — 전부 소울팝. 보사(#4 #8)에 DARK 를 겹치지 않았다
+   (EP06 보사판정 ⓑ). #4 는 여운이되 warm tone 이다.
+ · 배열 B Q B Q B Q B B Q B — 같은 결 연속 최대 2곡(#7 #8 · 루프 이음매 #10 → #1)
+   이음매 10(B) → 1(B) → 2(Q) 로 밝음이 2연속에서 끊긴다.
+   여운 자리 {2,4,6,9} = **아홉 편과 겹치지 않는 신규 조합**
+   (EP05 {2,5,7,10} · EP06 {3,5,7,10} · EP07 {2,5,8,10} · EP08 {3,5,8,10} ·
+    EP09 {3,6,8,10} · EP10 {2,4,7,10} · EP11 {3,6,7,10} · EP12 {2,4,7,9} · EP13 {2,5,7,9})
+ · ⚠️ **보사 배치 = #4(여운 non-DARK) · #8(밝음).** 여운 네 칸 중 세 칸이 DARK 라
+   non-DARK 여운은 한 칸뿐이고 그 칸을 #4 로 잡았다. 보사 여운이 #4 에 앉는 건
+   plum 처음이다(EP10 #7 · EP11 #7 · EP12 #2 · EP13 #5).
+   두 보사의 간격 = 앞으로 4곡 · 되감기 쪽으로 6곡.
+ · 여성 9 / 남성 1(#7) / 듀엣 0 — 남성은 컨셉 지정 밝음 자리 {3,5,7,8} 중 #7.
+   (EP11·EP12 #5 · EP13 #6 — 세 편과 다른 자리. #8 은 보사라 뺐다)
+   #7(남성 소울팝) → #8(여성 보사) 는 밝음 2연속이지만 성별·장르가 동시에 바뀐다.
+ · 2인칭 2곡(#4 #7) — 세트 you 비율 **실측 1.65%** (you·your 39 / 본문 2,369단어).
+   cherry 3.8% 쪽을 억지로 올리지 않는다(컨셉 §ⓐ). 두 곡 다 "소리가 멀리서도
+   깎이지 않고 닿는다" 는 맑음의 청각판이라 2인칭이 자연스러운 자리에만 넣었다.
+ · BPM 중앙 95 · 범위 86~103 (전곡 85~104 안) · 100 이상 3곡(#3 #5 #10) · 최저 86(#6)
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 🔴 이번 편에서 바뀐 것 / 안 바뀐 것 (결과 귀속용 — 반드시 읽을 것)      │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ ⛔ **곡 축은 EP11·EP12·EP13 과 동일 고정. 바뀐 것은 테마·씬·문형뿐.**  │
+ │                                                                      │
+ │ ⛔ 안 바꾼 것 (EP13 과 글자 단위로 같은 축 — 이번 판정의 대조축)        │
+ │   · 꼬리 169자 · STYLE 본문 상한 830자 (실측 817~827)                 │
+ │   · 보컬 필수 4문구 — half voice, near speech, as if humming to        │
+ │     herself(#7 = himself) · lines end early · almost no vibrato ·     │
+ │     lifts because the band opens, not because she(#7 = he) pushes     │
+ │   · 보컬 금지 — easy and open · little vibrato ·                       │
+ │     세미콜론 뒤 단독 lift from the band (전 곡 0회)                    │
+ │   · 가사 232~248단어 · 10섹션 · 32행 · 유니크 27~28행                  │
+ │   · 찬송가 처방 B-1~B-5 10곡 전량 · never dropping out 10곡 ·          │
+ │     ends on a plucked chord 10곡 · 페이드 지시 0                       │
+ │   · Vocals behind the band, blended in, not upfront (cherry 핵심)     │
+ │   · 믹스 문구 — 밝음 `Warm tone, softened top, tape warmth, lo-fi` /   │
+ │     DARK `Dark warm tone, highs rolled off, lo-fi` — EP11~13 그대로    │
+ │   · 길이 지시 about two and a half minutes + the lyric filling all     │
+ │   · 소울팝 8 + 보사 2 · 여성 9 + 남성 1 · 20트랙 · 정지 배경           │
+ │   · 관악기·현악 독주 0곡 · 저지속 얇은 악기 0곡 · 기타는 리드도        │
+ │     베이스도 아님 · 지속 요소 곡 2개(EP12·EP13 과 같은 수)             │
+ │   · EXCLUDE 블록 28항목 — EP13 과 한 글자도 다르지 않다                │
+ │     (변환기 손실 회계가 EP12·EP13 과 같은 표를 내야 정상이다)          │
+ │                                                                      │
+ │ ✅ 바꾼 것 (곡 축이 아닌 것만)                                         │
+ │   ① 테마 = 온도(EP13) → **맑음(선명함)**. 주어 "나", 시제 현재.       │
+ │      몸의 감각(EP13) 대신 **지각** — 보인다 · 들린다 · 숨 · 생각.      │
+ │   ② 씬 = 가을 단풍 실내 → **사용자 선택 대기**(외관 2 · 실내 2)        │
+ │   ③ 제목 문형 = 계절+감정형 → **감탄·궁금증형** · 이모지 🍂 유지      │
+ │   ④ 조성 10개·BPM·편성·화성 장치 = 전부 새 값(매 편 하는 일)           │
+ │   ⑤ 보사 #5 #10 → **#4 #8** · 남성 #6 → **#7** (여운 자리가 바뀌어서)  │
+ │                                                                      │
+ │ ⚠️ 맑음을 **믹스 문구로 표현하지 않은 이유** — `crisp` · `airy` ·       │
+ │    `bright top` 같은 말은 ① cherry 의 어두운 믹스(8k+ ~1%)와 반대이고 │
+ │    ② 보컬 게이트 alpha 고역비를 밀어 올린다(보컬처방 v2 §1).           │
+ │    `airy` 는 숨 섞인 헤드보이스를 부르는 쪽으로 읽힐 수 있다.          │
+ │    → 청량함은 **가사(지각어)와 화성(밝아지는 장치)** 이 맡는다.        │
+ │    ⛔ 이번 편 결과를 곡 축의 개별 문구 탓으로 돌리지 말 것 — 안 바꿨다.│
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 🔴 곡 길이 — EP13 교훈("유니크 74분")을 가사로 풀 수 있는가 (실측)     │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ EP11~EP13 채택곡 24곡을 곡별로 대조했다 (`_vocal_v95.txt` 길이 ×       │
+ │ 프롬프트의 단어수·음절수·BPM).                                        │
+ │   · 평균 길이 219초 · 단어수 ↔ 길이 r = −0.09 · BPM ↔ 길이 r = −0.13  │
+ │   · 음절수 ↔ 길이 r = −0.07 — **셋 다 사실상 0**                      │
+ │   · 편별 유니크 = EP11 72.3분 · EP12 72.5분 · EP13 74.7분              │
+ │ → 이 축(230~250단어 · 같은 길이 문구)에서 곡 길이는 **Mureka 쪽 성질**│
+ │   이지 가사량으로 움직이는 값이 아니다. 단어를 줄이면 길이는 그대로고  │
+ │   **밀도(단어/보컬초)만 떨어진다** — 그게 EP10 의 "아~ 늘어짐" 이다.  │
+ │ → 그래서 이번 편은 **구조를 늘리지 않고**(32행 그대로 · 후렴 3회 반복 │
+ │   없음) 단어를 예산 **아래쪽**에 뒀다: 232~248 (EP13 235~249).         │
+ │   이건 "안 부풀린다" 까지이지 "짧아진다" 는 약속이 아니다.            │
+ │ ⚠️ 예상 유니크 = **약 70~75분** (20트랙 × 약 215~225초).               │
+ │    50~62분에 들이려면 레버는 가사가 아니라 **믹스 단계 편성**(트랙 수) │
+ │    또는 **축 변경**(길이 문구·곡 수)이다 — 둘 다 음악감독 단독 결정이 │
+ │    아니고 90일 동결과 부딪히므로 여기서 건드리지 않았다.               │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 설계 의도 — 컨셉("공기가 맑아서 머리까지 개운하다")을 곡으로           │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ 감정 방향 = 개운함 · 선명함 · 가벼워짐 · 숨이 깊어짐.                  │
+ │ 10곡 전부 "좋은 공기가 왔다" 를 **지각으로** 말한다 — 먼 것이 또렷이   │
+ │ 보이고, 작은 소리가 들리고, 숨이 바닥까지 가고, 생각이 하나씩 온다.   │
+ │                                                                      │
+ │ ⛔ 가사 계절어 0 — autumn · fall · leaves · leaf · maple · ginkgo ·     │
+ │    harvest · September · October · sweater · scarf · chill · cold ·   │
+ │    cool · summer · winter 를 10곡 어디에도 안 썼다(스크립트로 grep).   │
+ │    시간대어(afternoon · evening · night · morning · hour · clock ·    │
+ │    today)도 0. **계절은 배경·제목·설명문이 말한다.**                    │
+ │ ⛔ 끝나감 0줄 — gone · over · end · last · past · left · fall 류 0회.  │
+ │    "예전엔 흐렸다" 류 대비는 #6 한 곡(흐릿함이 걷혔다)과 #10 한 줄       │
+ │    ("Straight lines where there were knots before") 뿐이고, 둘 다      │
+ │    "지금 또렷하다" 쪽으로 닫힌다. 아쉬워하는 줄은 없다.                  │
+ │ ⛔ 소품 명사 0 (§1-5-1) — 창·잔·의자·문·책을 한 번도 안 썼다.          │
+ │    #1 의 "air like glass" 는 소품이 아니라 공기의 비유다.              │
+ │    어휘는 닫힌 집합 — air · sky · blue · line · edge · breath · head · │
+ │    eyes · voice · name · quiet. 씬은 배경이 담당한다.                  │
+ │ ⛔ **warm/soft 계열 0 (EP13 이 가진 어휘)** — warm · soft · gentle ·   │
+ │    melt · cozy · tender · heavy · loosen · lean 가사 0회.              │
+ │    (STYLE 의 `Warm soul pop` · `Warm tone` 은 곡 축 문구라 그대로다)   │
+ │                                                                      │
+ │ 인접 편 재료 차단 (컨셉 §ⓐ) — 전부 문법으로 막았다.                    │
+ │ ① EP09 공간 · EP10 행위 · EP11 시간 · EP12 결정 · EP13 온도 → **맑음.**│
+ │    ⛔ EP13 재료 0줄: warm feels good · something in me · the light got  │
+ │      softer · nowhere warmer · the side of you · this air suits ·      │
+ │      the middle of me · comfortable in my skin · the longer i ·        │
+ │      heavy in the good way                                             │
+ │    ⛔ EP12 재료 0줄: already decided · come back · choosing ·           │
+ │      keeping this one (decide · choose · keep · return 도 0)          │
+ │    ⛔ EP11 재료 0줄: keeping count · not late · keeps being now         │
+ │      (count · late 0)                                                  │
+ │ ② EP09~EP13 가사와 첫 4단어를 스크립트로 대조해 **EP13 문장틀과     │
+ │    겹친 5행을 고쳐 썼다**("This is the kind of…" · "We do not have     │
+ │    to…" ×2 · "Every step I take…" · "Nothing in me…").                 │
+ │    남은 3행은 EP10·EP12 의 흔한 틀("Every one of them…" 등)이다.       │
+ │ ③ 제목 중복 회피 — EP01~EP13 전 곡 제목과 대조했다(verify_prompts).    │
+ │    EP09 공간편에 이미 "lighter than…" · "as far as i can see…" ·      │
+ │    "wider than i thought" · "there is nothing in the way" 가 있어      │
+ │    그 말들은 제목에서도 가사에서도 피했다.                             │
+ │ ④ 컨셉어 도배 방지 = **10곡 전부에 등장하는 내용어 0개.**             │
+ │    최다 = comes 8곡 · air·right 7곡 · clear 5곡 · clean 5곡.           │
+ │    제목에 clear 가 들어간 곡은 #5 하나다.                              │
+ │                                                                      │
+ │ ⓐ 멀리까지 또렷하다 — #1 · #9 (DARK)                                  │
+ │    "먼 것들이 가깝게 보인다" · "먼 곳이 가만히 있다"                    │
+ │ ⓑ 머리가 헹궈졌다 — #3 · #6 (DARK) · #10                              │
+ │    "머리를 헹군 것 같다" · "흐릿함이 걷혔다" · "생각이 하나씩 온다"     │
+ │ ⓒ 숨이 깊어진다 — #5  "숨 한 번에 맑아진다"                            │
+ │ ⓓ 소리가 깎이지 않고 닿는다 — #2 (DARK) · #4 (보사, 2인칭) · #7 (남성) │
+ │    "너무 고요해서 들린다" · "네 말이 통째로 온다" · "목소리가 먼저 온다"│
+ │ ⓔ 가벼워진다 — #8 (보사)  "아무것도 안 들러붙는다"                     │
+ │                                                                      │
+ │ ⛔ 이별·상실 0곡. ⛔ 비·슬픔·추억·회상·아쉬움·끝나감 0줄.             │
+ │ ⛔ 후렴을 세 번째로 반복하지 않았다. 늘린 것은 유니크 행이다 —         │
+ │    Post-Chorus 2행 · Verse 3 3행 · Bridge 3행이 전부 새 문장이다.     │
+ │ ⛔ [Intro]·[Instrumental]·[Interlude]·[Solo] 태그 0개.                │
+ │    [Outro] 는 10곡 전부 가사 2행을 갖는다(무가사 구간 차단).           │
+ │ · ⚠️ EP13 의 두 문형을 10곡 전부에서 버렸다 —                          │
+ │   ① 아웃트로 둘째 행 **몸 부위 보고**(My jaw is soft…) → EP14 는       │
+ │     **지각 보고**다 — 보인다·들린다·생각한다("I hear the near and the │
+ │     far at once"). 몸 부위가 주어인 곡은 #5(lungs)·#8(feet) 둘뿐.      │
+ │   ② 질문을 **브리지에서 둘째 프리코러스 첫 행으로 옮겼다** — 10곡 전부 │
+ │     (#1 #10 은 한 줄씩 더). 세트 12/320행 = 3.8% (cherry 물음표 3.2%). │
+ │     브리지는 대신 7곡이 **짧은 나열·대구 3행**이다("In, and… / Out…").│
+ │   같은 문형을 두 편 연속 쓰면 두 편이 한 편처럼 들린다(EP12 원칙 계승).│
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 편성 — 소울팝 8곡의 밑판을 곡마다 갈랐다 (EP08~EP13 방침 계승)         │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │  #  리드(지속 건반)         보조 색               퍼커션              베이스          │
+ │  1  일렉트릭 그랜드(4음)      클린 기타 오프비트 더블스톱   소프트 킷+크로스스틱+셰이커 플랫와운드 짧은 8분  │
+ │  2  다크 로즈(저역·2음)      슬로어택 패드(멀리) ★지속   사이드스틱+소프트 킥+다크햇 딥 베이스 한 박 한 음 │
+ │  3  코러스 스테이지 로즈(3음)  테이프 피아노 오프비트 화음   소프트 킷+스네어+탬버린+햇  팜뮤트 스타카토 4분  │
+ │  5  업라이트 피아노(4음)      뮤트 기타 오프비트 촙       소프트 킥+림클릭+카바사+햇  라운드와운드 싱코페 8분│
+ │  6  펠트 업라이트(저역·2음)   뮤트 기타 2음 플럭          브러시+로우톰+다크햇       썸뮤트 짧은 8분     │
+ │  7  월리처(4음)             코러스 기타 오프비트 화음     소프트 킷+브러시 스네어+셰이커 펠트뮤트 짧은 점음표 │
+ │  9  소프트 그랜드(저역·3음)   로우 테이프 스트링(멀리) ★지속 말렛 로우톰+햇          다크 베이스 하행, 짧게│
+ │ 10  타인 피아노(고역·3음)     월리처 오프비트 짧은 화음     소프트 킥+스네어+셰이커     픽 베이스 짧은 8분   │
+ │                                                                      │
+ │ · 리드 8종 · 보조 8종 · 퍼커션 8종 · 베이스 8종을 전부 다르게 갈랐다.  │
+ │   EP13 과 네 칸이 통째로 같은 곡은 없다. 같은 자리(#1·#2·#9 등)끼리    │
+ │   겹치는 칸은 최대 1칸이다.                                            │
+ │ · 🔴 **지속 요소는 곡당 최대 1개**(찬송가 처방 B-2-4).                 │
+ │   지속 요소를 가진 곡은 #2(슬로어택 패드) · #9(테이프 스트링) **둘뿐**,│
+ │   두 곡 모두 리듬 요소 3개 이상과 같이 간다. 나머지 8곡은 0개다.       │
+ │   `pad` 는 B-1 금지 형태(수식 없는 단독)가 아니라 `slow-attack pad`,   │
+ │   EP11 #6 과 같은 허용 형태다.                                          │
+ │   ⚠️ **세트 최저 BPM #6(86)에는 지속 요소를 일부러 안 줬다**(EP13 방침).│
+ │ · 🔴 전 곡에 `every bar` 로 도는 하이햇 또는 셰이커가 있고,            │
+ │   `never dropping out` 이 10곡 전부에 박혀 있다(B-2-1·B-2-3).         │
+ │   `ends on a plucked chord` 도 10곡 전부(B-2-2). 페이드 지시 0.       │
+ │ · 오르간 0곡(찬송가 프로브와 가장 가까운 건반). 핑거 스냅 0곡(EP13 #3 │
+ │   에서 힙합 라벨 누출 후보로 올렸던 요소).                             │
+ │ · ⛔ 저지속·얇은 악기(칼림바·마림바·글로켄슈필·첼레스타·비브라폰·      │
+ │   핸드팬) 0곡. 리드는 10곡 전부 지속하는 건반이고, 기타는 어느 곡에서도│
+ │   리드가 아니며 **베이스 라인도 맡지 않는다.** 콩가·클라베 0.         │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 🔴 보사 2곡(#4 #8) 처방 — B-4 그대로                                  │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ ⛔ 딸림13(9·11·13 텐션 딸림화음) · 미해결 sus 지속 · upright bass ·    │
+ │    jazz trio · 나일론 기타를 리드로 두는 것 — 전부 없다.              │
+ │ ✅ ① 건반이 리드지만 **`electric piano in short chords`** 다           │
+ │      (`leading and sustaining` 은 B-4 금지어라 안 썼다)               │
+ │    ② `nylon guitar off-beat comping only` (기타 강등)                 │
+ │    ③ `brushes, hats, shaker every bar, never dropping out`            │
+ │    ④ `No upright bass, no jazz trio.` 를 STYLE **본문**에             │
+ │ ✅ 화성에 딸림화음이 아예 없다. 두 곡 다 `no dominant chords` 명시.    │
+ │    #4 = bVImaj7(Bbmaj7) → I(Dmaj9) — 반음계 3도 관계로 곧장 집에 닿는다│
+ │    #8 = v9(Ebm9) → I(Abmaj9) — 딸림 자리의 화음이 **단조**라 이끎음이 │
+ │         없다. 5도 근음 하행 운동은 살리고 딸림 기능만 뺐다.            │
+ │    ⚠️ EP11(bVII→I · IV→I) · EP12(ii→I · vi→I) · EP13(bII→I · iii→I)  │
+ │    여섯 형태를 **전부 피했다** — 다섯 편 연속 같은 종지면 보사가 한 곡 │
+ │    이 된다.                                                            │
+ │    · #4 의 bVI 는 EP13 #4(소울팝)에서 "딸림 앞에 한 번 빛나는 색" 으로 │
+ │      쓴 화음이다. 이번엔 **딸림을 거치지 않는 종지 자체**로 쓴다 —      │
+ │      같은 화음, 다른 장치. 숨기지 않고 적어 둔다.                       │
+ │ ⚠️ B-4 의 경고 그대로: **딸림 없음 + 정적 루프를 같이 걸면 화성이      │
+ │    정지해 곧바로 찬송가가 된다.** 그래서 푼 쪽은 정적 루프다 —        │
+ │    두 곡 다 네 번째 화음이 첫 화음으로 **떨어지는 운동**을 갖는다.    │
+ │    단 #8 의 v→I 는 이끎음이 없어 #4 보다 **끌어당김이 약하다**.        │
+ └──────────────────────────────────────────────────────────────────────┘
+
+ [조성 · 화성 배분표]  ※ 재생 순서 = 아래 곡 번호 순서 그대로
+
+ | #  | 조성                          | BPM | 장르   | 보컬 | 결        |
+ |----|-------------------------------|-----|--------|------|-----------|
+ | 1  | G major                       |  98 | 소울팝    | 여성   | 밝음        |
+ | 2  | E flat major                  |  88 | 소울팝    | 여성   | 여운 DARK   |
+ | 3  | B major                       | 101 | 소울팝    | 여성   | 밝음        |
+ | 4  | D major                       |  90 | 보사노바   | 여성   | 여운        |
+ | 5  | F sharp major                 | 100 | 소울팝    | 여성   | 밝음        |
+ | 6  | C minor -> C major            |  86 | 소울팝    | 여성   | 여운 DARK   |
+ | 7  | E major                       |  96 | 소울팝    | 남성   | 밝음        |
+ | 8  | A flat major                  |  94 | 보사노바   | 여성   | 밝음        |
+ | 9  | F sharp minor -> A major      |  89 | 소울팝    | 여성   | 여운 DARK   |
+ | 10 | D flat major                  | 103 | 소울팝    | 여성   | 밝음        |
+
+ · 조성 10개 전부 다름. 5도권 인접 거리를 전부 3칸 이상으로 잡았다
+   (단조 시작 곡은 착지하는 장조로 센다 — EP08~EP13 과 같은 셈법)
+   G→Eb 4 · Eb→B 4 · B→D 3 · D→F# 4 · F#→C 6 · C→E 4 · E→Ab 4 ·
+   Ab→A 5 · A→Db 4 · Db→G 6 (되감기 지점도 6칸).
+   (조합은 스크립트로 전수 탐색해 조건을 다 만족하는 해 중에서 골랐다)
+ · EP11·EP12·EP13 과 **같은 자리에 같은 조성이 하나도 없다**(편 간 슬롯 대조).
+ · 샤프 조성 6곡(G·B·D·F#·E·A 착지) — EP13 의 플랫 5곡과 반대로 기울였다.
+   ⚠️ 추정이다. Mureka 가 조성 이름만으로 음색을 바꾼다는 근거는 없다.
+   EP13 과 같은 이유(해가 없다)로 한 선택이고, 효과로 주장하지 않는다.
+ · 단조 시작 2곡의 착지가 **서로 다르다** —
+   #6 은 **같은 으뜸의 장조**(C minor → C major, 피카르디 3도)로 매 바퀴 맑아지고,
+   #9 는 **나란한 장조**(F sharp minor → A major)로 끝에서 열린다.
+   EP08~EP13 의 단조곡은 전부 나란한 장조 착지였다 — 피카르디는 plum 처음.
+   #2 는 DARK 이지만 장조다(EP07~EP13 과 같은 처리) — 단조 3곡은 세트를 너무 어둡게 만든다.
+   #9 의 F# minor → A major 는 EP09~EP13 에 없던 조합이다.
+ · dark warm tone, highs rolled off = #2 #6 #9 (3곡)
+ · behind the beat = #2 #6 #9 (3곡)
+ · one harmony voice, last chorus, no choir = 10곡 전부
+ · lo-fi = 10곡 전부
+ · 화성 감정 장치 10개 (EP09~EP13 의 50개 장치와 같은 장치 0 · 계열 겹침은 아래 ⑦에 명시):
+   ① II 가 장조인데 V 로 가지 않고 IV 로 올라간다 — 리디안의 들뜬 밝음 (#1)
+   ② 루프가 다섯 마디다 — 으뜸에 한 마디를 더 줘 고요가 한 번 더 머문다 (#2)
+   ③ 3도 위 빌린 장화음(bIII)이 루프 둘째 칸에서 시야를 연다 (#3)
+   ④ bVI 장7화음이 딸림을 거치지 않고 곧장 으뜸에 닿는다 (#4 보사)
+   ⑤ 딸림이 버금딸림으로 한 걸음 물러났다가 집에 온다 (V→IV→I) (#5)
+   ⑥ 단조 루프가 매 바퀴 같은 으뜸의 장조로 맑아진다 — 피카르디 3도 (#6)
+   ⑦ III 을 딸림7로 올려 vi 를 끌어온다(V/vi) (#7)
+      · EP11 ④ (VI → ii) 와 같은 부차딸림 **계열**이다. 목적지가 다르다(ii → vi).
+   ⑧ 딸림 자리의 화음이 단조(v9)라 이끎음 없이 집에 닿는다 (#8 보사)
+   ⑨ 단조의 V 만 장조로 올려 곡 전체에 반음 끌어당김이 딱 하나다(C#7) (#9)
+   ⑩ 루프가 IV 에서 출발해 끝에서야 으뜸에 닿는다 (IV-V-iii-vi-V-I) (#10)
+   · ① ③ ⑥ 이 이번 편 테마의 화성판이다 — "한 칸이 확 밝아진다",
+     "시야가 열린다", "어두운 루프가 맑게 개인다".
+   · ⚠️ ② ⑥ ⑨ 는 Mureka 가 그대로 따를 확률이 낮은 지시다(마디 수 · 바퀴마다
+     다른 착지 · 마지막 후렴만 다른 착지). 안 따라도 곡이 무너지는 지시가 아니라
+     방향 표시로 뒀다(EP13 ② 와 같은 처리).
+
+
+  ★ plum 전곡 공통 배제어 꼬리 (169자) — Mureka 변환기가 자동으로 붙인다
+  ----------------------------------------------------------------------
+  One note per syllable, the band carrying every lift. No melisma, no sustained high
+  notes, no head voice, no saxophone, no smoky bar or lounge, no autotune, no pop gloss.
+  ----------------------------------------------------------------------
+  붙이는 법 = STYLE 본문 + 공백 1칸 + 꼬리. 최대 827 + 1 + 169 = 997 <= 1,000.
+  ⛔ 이 파일의 배제어 블록을 손으로 지우지 말 것 — 변환기가 이 블록과
+     꼬리를 대조해 **사라지는 항목을 세는 손실 회계**를 돌린다(2026-09-07 신설).
+
+
+  ★ 생성 직후 반드시 돌릴 것 (세 게이트는 서로 다른 축이다)
+  ----------------------------------------------------------------------
+  py -3 plum\_assets\clap_gate.py       plum\ep14\music     (장르 · 임계 0.084)
+  py -3 plum\_assets\clap_gate_bossa.py plum\ep14\music     (보사 #4 #8 · 0.068)
+  py -3 plum\_assets\hymn_scan.py       plum\ep14\music     (찬송가 · <= -0.05)
+  py -3 plum\_assets\vocal_gate.py      plum\ep14\music --words 236
+  ----------------------------------------------------------------------
+  · 모델 = **V9.5 만 생성한다**(컨셉 §ⓔ). V7.6 은 EP11 에서 20/20 폐기됐고
+    EP09·EP10 채택 28트랙 중 보컬축을 **0회** 통과했다.
+    10곡 미달 시 그 곡만 V9.5 로 재생성한다 — 모델을 바꿔 채우지 말 것.
+  · 💳 생성 상한 **13회**(10 + 재생성 3) — CLAUDE.md §💳🔝🔴.
+    걸리면 그 곡을 빼고 9곡 편성. 재생성을 더 하지 않는다.
+    보사 한쪽-❌ 는 재생성 대상에서 제외(컨셉 §ⓔ · EP12 6클립 전멸 · EP13 동일 판단).
+  · 파일명·매니페스트에 `_v95` 접미어를 반드시 남긴다.
+  · 🎧 사용자 청취는 EP11 에서 "9.5 통과" 확정을 받았고 곡 축이 동일하므로
+    **샘플 페이지만 만들어 자료로 남긴다**(결정 관문 아님, §💳).
+
+  ▸ 리스크 순위 — 생성 후 이 순서로 먼저 잰다
+    1순위 **#4 · #8 보사** — EP06~EP13 여덟 편 연속 임계(0.068) 근처였고
+      EP12 는 6클립이 전멸했다. 이번엔 **#4 를 먼저** 본다 — 세트 보사 중 느린
+      쪽(90)이고 여운이라 어택밀도 하한이 가장 가깝다. bVImaj7 은 반음계
+      색이라 스무스재즈 쪽 CLAP 거리가 벌어질 수 있다.
+      #8 은 v→I 에 이끎음이 없어 끌어당김이 약하다 — 정적 루프 쪽으로 기울면
+      찬송가 마진이 오른다. 끝 15초의 어택밀도를 본다.
+      ⚠️ 결(밝음/여운)로 위험을 예측하지 말 것 — EP07 에서 정확히 반대로 빗나갔다.
+    2순위 **#2** — DARK + 지속 요소(슬로어택 패드) + 느린 E flat major +
+      **으뜸에 한 마디 더**(5마디 루프). 찬송가 프로브가 가장 좋아하는
+      "느린 장조 + 지속 층 + 으뜸 체류" 조합이 세트에서 유일하게 여기 있다.
+      모델이 5마디를 따르면 그 한 마디가 **퍼커션 위의 으뜸 지속**이 된다 —
+      never dropping out 이 지켜지는지(드럼이 그 마디에서 빠지지 않는지) 본다.
+    3순위 **#6** — 세트 최저 BPM(86) + DARK + 매 바퀴 단조→장조 전환.
+      지속 요소는 0개로 막았다. 모델이 장조 착지를 무시하면 결이 우울로 샌다 —
+      후렴 착지와 아웃트로 15초를 같이 본다.
+    4순위 **#7(남성)** — 유일한 남성곡이고 필수 문구 대명사를 바꾼 유일한 곡이다
+      (`not because he pushes` · `humming to himself`). 성별 누출부터 확인한다.
+      G#7(V/vi)은 라운지 색으로 열릴 확률이 낮은 흔한 소울 진행이지만 CLAP 라벨을 본다.
+    5순위 **#10 #3 #5** — 103·101·100 BPM. Mureka 의 K-pop 광택이 열린다면 여기가
+      첫 자리다. #5 의 뮤트 기타 오프비트 촙이 F# 장조 100 BPM 에서 레게·스카로
+      새는지(찬송가 처방 (A) 위험 2), #3 의 bIII 가 록 쪽 리프트로 들리는지 본다.
+    6순위 **#9** — DARK 인데 곡 안에 딸림7(C#7)이 하나 있다. 단조 딸림이
+      토치·설트리 쪽으로 열리면 EXCLUDE 의 torch ballad · sultry 가 막아야 한다.
+      CLAP 라벨에서 jazz 계열이 뜨는지 본다.
+    ▸ 전 곡 공통 = **밀도**. 단어/보컬초 >= 2.0 을 못 넘기면 가사가 아니라
+      곡 길이가 원인이다 — 그때는 테이크 폐기가 아니라 그 곡만 재생성한다.
+  ▸ 20트랙 중 2트랙까지는 버려도 유니크 분량 하한(50분) 안이다. 3트랙부터 재생성.
+
+--------------------------------------------------------------------------
+  곡 1   세트를 여는 곡 · 먼 것들이 가깝게 보인다 (밝음)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  the far things look close
+--------------------------------------------------------------------------
+
+ [Mureka 이관본] suno_to_mureka.py 자동 변환. 원본 = suno-prompts-plum-ep14.txt
+ EXCLUDE 블록은 없다 — 배제어는 각 STYLE 끝에 인라인으로 들어가 있다.
+ 되살리지 말 것: mureka_gen.py 는 병합이 1,000자를 넘으면 배제어를 통째로 버린다.
+
+
+--------------------------------------------------------------------------
+  the far things look close
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I step outside into air like glass
+I can see the far side of everything
+Lines I never noticed are standing sharp
+The whole view sits up straight for me
+
+[Pre-Chorus]
+Maybe the air was always like this
+Even my eyes feel washed and new
+Every shape has a line drawn around it
+
+[Chorus]
+The far things look close enough to touch
+Every edge is drawn in one sure line
+I can read the blue from here
+The far things look close
+
+[Post-Chorus]
+Nothing wavers when I turn my head
+I see it all the first time
+
+[Verse 2]
+I pick out colors I never named
+The blue gets deeper each time I look up
+Every far shape is small and sharp
+My shoulders open and my chin comes up
+
+[Pre-Chorus]
+Was it this bright the whole time?
+Or did I just now open my eyes?
+I am taking every bit of it in
+
+[Chorus]
+The far things look close enough to touch
+Every edge is drawn in one sure line
+Nothing out there is hiding from me
+The far things look close
+
+[Verse 3]
+My head is as open as the sky
+I could trace the far line with one finger
+This is what it looks like to really see
+
+[Bridge]
+The world was never really that far away
+It only needed air like this to show it
+I am standing right inside of it
+
+[Outro]
+The far things look close
+Even the sky has an edge I can find
+
+【STYLE】 ★987자 (상한 1000)
+Warm soul pop for a cafe, G major, 98 BPM. Female low alto, half voice, near speech, as
+if humming to herself. Narrow melody in a fourth, one phrase returning; the chorus keeps
+those notes and lifts because the band opens, not because she pushes; lines end early.
+Rounded consonants, almost no vibrato. Full band, dense and soft: electric grand,
+four-note motif, struck short; clean guitar in off-beat double stops; one harmony voice,
+last chorus, no choir; flatwound bass in short eighths; soft kit, cross-stick, shaker
+every bar, never dropping out. Harmony Gmaj9 - A9 - Cmaj9 - D9 to Gmaj9, the second
+chord major, rising to the fourth. Vocals behind the band, blended in, not upfront. Warm
+tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two and a half
+minutes, the lyric filling all of it. One note per syllable, the band carrying every
+lift. No melisma, no sustained high notes, no head voice, no saxophone, no smoky bar or
+lounge, no autotune, no pop gloss.
+
+【TITLE】
+the far things look close
+
+
+--------------------------------------------------------------------------
+  so still i can hear it
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+It is so still I can hear my pulse
+A voice from far off carries right to me
+Every little sound arrives on its own
+Nothing runs into anything else
+
+[Pre-Chorus]
+Maybe I have never listened this close
+Even my breathing has a shape
+Every pause is sharp on both sides
+
+[Chorus]
+It is so still I can hear it
+The quiet has an edge that I can touch
+I do not need to answer it
+So still I can hear it
+
+[Post-Chorus]
+One sound, and then the space around it
+One more, and the space again
+
+[Verse 2]
+I sit with my eyes half closed and listen
+The distance comes in thin and sharp
+Somewhere far a voice says a single word
+I hear the word and none of the noise
+
+[Pre-Chorus]
+How far does a quiet like this go?
+Further than I can hear, I think
+Even the far side of it is still
+
+[Chorus]
+It is so still I can hear it
+The quiet has an edge that I can touch
+I let it be the only thing here
+So still I can hear it
+
+[Verse 3]
+My thoughts step back and give it room
+My chest is open and it fills right up
+Not one thing in me is making noise
+
+[Bridge]
+The quiet is not empty, it is full
+Full of small and certain things
+I can hear each one of them by name
+
+[Outro]
+So still I can hear it
+I hear the near and the far at once
+
+【STYLE】 ★994자 (상한 1000)
+Soul pop for a cafe, E flat major, 88 BPM. Female low alto, half voice, near speech, as
+if humming to herself, behind the beat. Narrow melody in a fourth, one phrase returning;
+the chorus keeps those notes and lifts because the band opens, not because she pushes;
+lines end early. Rounded consonants, almost no vibrato. Full band, dense and soft: dark
+Rhodes, low, two-note motif, struck short; a slow-attack pad, far back; one harmony
+voice, last chorus, no choir; deep bass, a short note a beat; side stick, soft kick,
+dark hats every bar, never dropping out. Harmony Ebmaj9 - Cm9 - Abmaj9 - Bb9 to Ebmaj9,
+a five-bar loop, home given an extra bar. Vocals behind the band, blended in, not
+upfront. Dark warm tone, highs rolled off, lo-fi. Ends on a plucked chord, about two and
+a half minutes, the lyric filling all of it. One note per syllable, the band carrying
+every lift. No melisma, no sustained high notes, no head voice, no saxophone, no smoky
+bar or lounge, no autotune, no pop gloss.
+
+【TITLE】
+so still i can hear it
+
+
+--------------------------------------------------------------------------
+  my head feels rinsed
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I take a breath and my head goes clear
+Like somebody rinsed it out with light
+The busy noise in me has run off somewhere
+There is room to think in here for once
+
+[Pre-Chorus]
+Maybe the air did it, maybe I did
+Even the thoughts I have feel new
+Every one of them comes out clean
+
+[Chorus]
+My head feels rinsed and bright and light
+I can hear myself think in here
+Every thought has room to stand up straight
+My head feels rinsed
+
+[Post-Chorus]
+Clean as the sky with nothing in it
+I could see through to the other side
+
+[Verse 2]
+The crowd in my head is thinning out
+I can pick out one voice, and it is mine
+Every word I think arrives in order
+I say a thing and I mean it plain
+
+[Pre-Chorus]
+Who knew a head could feel this light?
+Even the thinking feels like breathing
+Every part of it is moving freely
+
+[Chorus]
+My head feels rinsed and bright and light
+I can hear myself think in here
+There is a clean line under every thought
+My head feels rinsed
+
+[Verse 3]
+I blink and the whole view sharpens
+I blink again and it stays that way
+I can work with a head this clear
+
+[Bridge]
+Nothing new has happened to me
+Only the air, only a breath
+Only some space where the noise had been
+
+[Outro]
+My head feels rinsed
+I can think straight through to the blue
+
+【STYLE】 ★996자 (상한 1000)
+Warm soul pop for a cafe, B major, 101 BPM. Female low alto, half voice, near speech, as
+if humming to herself. Narrow melody in a fourth, one phrase returning; the chorus keeps
+those notes and lifts because the band opens, not because she pushes; lines end early.
+Rounded consonants, almost no vibrato. Full band, dense and soft: chorused stage Rhodes,
+three-note motif, struck short; tape piano in short off-beat chords; one harmony voice,
+last chorus, no choir; palm-muted bass in staccato quarters; soft kit, snare,
+tambourine, hats every bar, never dropping out. Harmony Bmaj9 - Dmaj9 - Emaj9 - F#9 to
+Bmaj9, a borrowed chord a minor third up. Vocals behind the band, blended in, not
+upfront. Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two
+and a half minutes, the lyric filling all of it. One note per syllable, the band
+carrying every lift. No melisma, no sustained high notes, no head voice, no saxophone,
+no smoky bar or lounge, no autotune, no pop gloss.
+
+【TITLE】
+my head feels rinsed
+
+
+--------------------------------------------------------------------------
+  every word arrives whole
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+You speak to me from a few steps away
+I hear it like you are right beside me
+The air takes nothing out of your voice
+Every word arrives whole
+
+[Pre-Chorus]
+Maybe the air is thin enough to carry it
+Even your quiet comes through to me
+Every breath you take is in the words
+
+[Chorus]
+Every word you say arrives whole
+Nothing gets lost on the way to me
+I even hear the part you almost say
+Every word arrives whole
+
+[Post-Chorus]
+You say my name and it sounds new
+I say yours and it lands right there
+
+[Verse 2]
+No one has to raise their voice
+No one has to sit up close
+The space between us is bright and open
+It carries us both without a sound
+
+[Pre-Chorus]
+Do you hear me the way I hear you?
+Straight from here to where you are
+Even the small words make it across
+
+[Chorus]
+Every word you say arrives whole
+Nothing gets lost on the way to me
+You could say it low and I would know it
+Every word arrives whole
+
+[Verse 3]
+I answer and it reaches you first time
+You smile at the second word I say
+This is how near the far can be
+
+[Bridge]
+There is only air and light between us
+Nothing else stands in between
+It turns the distance into nothing
+
+[Outro]
+Every word arrives whole
+I can hear you breathe from where I am
+
+【STYLE】 ★991자 (상한 1000)
+Bossa nova for a cafe, D major, 90 BPM. Female low alto, half voice, near speech, as if
+humming to herself. Narrow melody in a fourth, one phrase returning; the chorus keeps
+those notes and lifts because the band opens, not because she pushes; lines end early.
+Rounded consonants, almost no vibrato. Full band, dense and soft: electric piano in
+short chords; nylon guitar off-beat comping only; one harmony voice, last chorus, no
+choir; bass in short dotted notes; brushes, hats, shaker every bar, never dropping out.
+No upright bass, no jazz trio. Harmony Dmaj9 - Bm9 - Em9 - Bbmaj7 to Dmaj9, the flat
+sixth dropping home, no dominant chords. Vocals behind the band, blended in, not
+upfront. Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two
+and a half minutes, the lyric filling all of it. One note per syllable, the band
+carrying every lift. No melisma, no sustained high notes, no head voice, no saxophone,
+no smoky bar or lounge, no autotune, no pop gloss.
+
+【TITLE】
+every word arrives whole
+
+
+--------------------------------------------------------------------------
+  one breath and i am clear
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I breathe in deep and the air goes far
+It is cleaner than anything I know
+It runs down through my ribs and out
+I breathe out and my chest goes wide
+
+[Pre-Chorus]
+Maybe that is all it ever took
+Even my eyes feel brighter from it
+Every breath goes somewhere new in me
+
+[Chorus]
+One breath and I am clear
+One more and I am clearer still
+I can feel it in the back of my eyes
+One breath and I am clear
+
+[Post-Chorus]
+In through the nose, out through a smile
+Fresh from the top to the bottom of me
+
+[Verse 2]
+The air out here has nothing in it
+No dust, no noise, no weight at all
+I breathe it and I feel it work
+Like everything is set in order
+
+[Pre-Chorus]
+Why did I ever breathe so short?
+I cannot find the reason now
+Even the reason looks far and small
+
+[Chorus]
+One breath and I am clear
+One more and I am clearer still
+Nothing I think has a cloud around it
+One breath and I am clear
+
+[Verse 3]
+I take them slow without trying to
+Each one opens wider than the one before
+This is how breathing is meant to feel
+
+[Bridge]
+In, and the whole sky comes with it
+Out, and the noise goes with it
+In, and there is only here
+
+[Outro]
+One breath and I am clear
+My lungs are full of the whole blue sky
+
+【STYLE】 ★997자 (상한 1000)
+Warm soul pop for a cafe, F sharp major, 100 BPM. Female low alto, half voice, near
+speech, as if humming to herself. Narrow melody in a fourth, one phrase returning; the
+chorus keeps those notes and lifts because the band opens, not because she pushes; lines
+end early. Rounded consonants, almost no vibrato. Full band, dense and soft: upright
+piano, four-note motif, struck short; muted guitar chopping off-beats; one harmony
+voice, last chorus, no choir; round-wound bass in syncopated eighths; soft kick, rim
+click, cabasa, hats every bar, never dropping out. Harmony F#maj9 - D#m9 - C#9 - Bmaj9
+to F#maj9, the fifth stepping back to the fourth. Vocals behind the band, blended in,
+not upfront. Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about
+two and a half minutes, the lyric filling all of it. One note per syllable, the band
+carrying every lift. No melisma, no sustained high notes, no head voice, no saxophone,
+no smoky bar or lounge, no autotune, no pop gloss.
+
+【TITLE】
+one breath and i am clear
+
+
+--------------------------------------------------------------------------
+  the blur has lifted
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+The blur is lifting off of everything
+I can see the shape of things through it
+Every outline sharpens on its own
+I watch it happen and I do not say a word
+
+[Pre-Chorus]
+Maybe it was only in my eyes
+Maybe it was in my head the whole time
+Even so, it is lifting now
+
+[Chorus]
+The blur has lifted from me
+I can see where one thing meets the next
+Every line is quiet and exact
+The blur has lifted
+
+[Post-Chorus]
+Nothing out there moved but my eyes
+Nothing changed but how I see
+
+[Verse 2]
+I look at my hands and they are sharp
+I look at the sky and it is deep
+There is a stillness under all of it
+I breathe it in without a sound
+
+[Pre-Chorus]
+Was it always this plain to see?
+It was, and I am seeing it
+Even the dark is clear at the edges
+
+[Chorus]
+The blur has lifted from me
+I can see where one thing meets the next
+Even the shadows have clean sides
+The blur has lifted
+
+[Verse 3]
+Right now I am nothing but quiet
+I can see further than I thought I could
+This is a still I can see through
+
+[Bridge]
+The quiet is deep and it is clean
+Deep and clean all the way down
+I can see right to the bottom of it
+
+[Outro]
+The blur has lifted
+Each line of the far blue is mine to see
+
+【STYLE】 ★997자 (상한 1000)
+Soul pop for a cafe, C minor to C major, 86 BPM. Female low alto, half voice, near
+speech, as if humming to herself, behind the beat. Narrow melody in a fourth, one phrase
+returning; the chorus keeps those notes and lifts because the band opens, not because
+she pushes; lines end early. Rounded consonants, almost no vibrato. Full band, dense and
+soft: felt upright piano, low, two-note motif, struck short; muted guitar, two-note
+plucks; one harmony voice, last chorus, no choir; thumb-muted bass in short eighths;
+brushes, low tom, dark hats every bar, never dropping out. Harmony Cm9 - Abmaj9 - Fm9 -
+G7 to Cmaj9, the minor clearing to its own major. Vocals behind the band, blended in,
+not upfront. Dark warm tone, highs rolled off, lo-fi. Ends on a plucked chord, about two
+and a half minutes, the lyric filling all of it. One note per syllable, the band
+carrying every lift. No melisma, no sustained high notes, no head voice, no saxophone,
+no smoky bar or lounge, no autotune, no pop gloss.
+
+【TITLE】
+the blur has lifted
+
+
+--------------------------------------------------------------------------
+  your voice gets here first
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+You say my name from a long way off
+It gets to me like you are next to me
+The air does not take a thing from it
+I turn around and I grin at you
+
+[Pre-Chorus]
+Maybe it is the air, maybe it is you
+Even from far I can read your face
+Every little look comes through
+
+[Chorus]
+Your voice gets here first
+A long way ahead of the rest of you
+I can hear you smiling as you talk
+Your voice gets here first
+
+[Post-Chorus]
+Say it again and I will hear it twice
+Say anything at all, I am listening
+
+[Verse 2]
+We are a good way apart and it is fine
+Every word gets here in one piece
+I see your hand go up from far away
+You look like you are standing close
+
+[Pre-Chorus]
+Who made the air this clean for us?
+Nobody did, it is simply like this
+Even the distance is on our side
+
+[Chorus]
+Your voice gets here first
+A long way ahead of the rest of you
+Not a single word of it wears thin
+Your voice gets here first
+
+[Verse 3]
+Come a little closer or stay where you are
+Either way I can hear you fine
+Your voice is the clearest thing out here
+
+[Bridge]
+I could raise my voice and I do not need to
+A word the size of a breath will do
+That is how little is in between us
+
+[Outro]
+Your voice gets here first
+Your laugh arrives a step before you do
+
+【STYLE】 ★997자 (상한 1000)
+Warm soul pop for a cafe, E major, 96 BPM. Male low baritone, half voice, near speech,
+as if humming to himself, no female vocals. Narrow melody in a fourth, one phrase
+returning; the chorus keeps those notes and lifts because the band opens, not because he
+pushes; lines end early. Rounded consonants, almost no vibrato. Full band, dense and
+soft: Wurlitzer, four-note motif, struck short; chorused guitar in off-beat chords; one
+harmony voice, last chorus, no choir; felt-muted bass, short dotted notes; soft kit,
+brushed snare, shaker every bar, never dropping out. Harmony Emaj9 - G#7 - C#m9 - Amaj9
+- B9 to Emaj9, the third chord made dominant. Vocals behind the band, blended in, not
+upfront. Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two
+and a half minutes, the lyric filling all of it. One note per syllable, the band
+carrying every lift. No melisma, no sustained high notes, no head voice, no saxophone,
+no smoky bar or lounge, no autotune, no pop gloss.
+
+【TITLE】
+your voice gets here first
+
+
+--------------------------------------------------------------------------
+  nothing sticks to me here
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+The air is so fresh it goes right through me
+Whatever I carried slides right off
+I shake out my hands and they feel new
+My steps come out light and quick
+
+[Pre-Chorus]
+Maybe the air is too fresh for worry
+Even the small worries slip away
+Every care I have is thin as air
+
+[Chorus]
+Nothing sticks to me here
+Not a worry, not a word, not a weight
+I am light from my head to my feet
+Nothing sticks to me here
+
+[Post-Chorus]
+Brush it off, it never lands
+Brush it off, and I am brand new
+
+[Verse 2]
+I laugh at nothing much and it rings
+It rings out bright across the way
+I feel as fresh as the air itself
+My chest is wide with nothing in it
+
+[Pre-Chorus]
+Is it the air or is it me?
+Whatever it is, I will take it
+Even my name sounds lighter here
+
+[Chorus]
+Nothing sticks to me here
+Not a worry, not a word, not a weight
+It all rolls off as fast as it comes
+Nothing sticks to me here
+
+[Verse 3]
+I could float if I thought about it
+I think about it and I have to smile
+Light is the only way to be here
+
+[Bridge]
+Bright air, open hands, quick feet
+Nothing to carry, nothing to fix
+I am free in every direction I face
+
+[Outro]
+Nothing sticks to me here
+My feet barely touch the ground
+
+【STYLE】 ★987자 (상한 1000)
+Bossa nova for a cafe, A flat major, 94 BPM. Female low alto, half voice, near speech,
+as if humming to herself. Narrow melody in a fourth, one phrase returning; the chorus
+keeps those notes and lifts because the band opens, not because she pushes; lines end
+early. Rounded consonants, almost no vibrato. Full band, dense and soft: electric piano
+in short chords; nylon guitar off-beat comping only; one harmony voice, last chorus, no
+choir; bass in short eighths; brushes, hats, shaker every bar, never dropping out. No
+upright bass, no jazz trio. Harmony Abmaj9 - Fm9 - Dbmaj9 - Ebm9 to Abmaj9, the fifth
+chord minor, no dominant chords. Vocals behind the band, blended in, not upfront. Warm
+tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two and a half
+minutes, the lyric filling all of it. One note per syllable, the band carrying every
+lift. No melisma, no sustained high notes, no head voice, no saxophone, no smoky bar or
+lounge, no autotune, no pop gloss.
+
+【TITLE】
+nothing sticks to me here
+
+
+--------------------------------------------------------------------------
+  the distance holds still
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I look out as far as the air will go
+The far line holds still and so do I
+Every shape out there is cut so clean
+I can name the blue behind the blue
+
+[Pre-Chorus]
+Maybe I have never looked this far
+Maybe I never had the air for it
+Even my breathing slows to watch
+
+[Chorus]
+The distance holds still for me
+Clear to the very edge of it
+Nothing moves and nothing needs to
+The distance holds still
+
+[Post-Chorus]
+I hold still along with it
+We are both quiet, it and I
+
+[Verse 2]
+I look deeper and it sharpens more
+Far things are small and perfectly made
+The quiet goes out as far as I see
+It reaches further than my eyes can go
+
+[Pre-Chorus]
+What is out there at the very edge?
+More of this, and every bit of it sharp
+Even the edge is holding still
+
+[Chorus]
+The distance holds still for me
+Clear to the very edge of it
+I can rest my eyes on the far side
+The distance holds still
+
+[Verse 3]
+I am small in it and it feels right
+My thoughts go out there and wander slow
+I can see deep into the quiet
+
+[Bridge]
+Nothing out there is asking a thing
+Nothing in here is waiting for an answer
+Only the far, and the air, and me
+
+[Outro]
+The distance holds still
+The far line and I are both at rest
+
+【STYLE】 ★996자 (상한 1000)
+Soul pop for a cafe, F sharp minor to A major, 89 BPM. Female low alto, half voice, near
+speech, as if humming to herself, behind the beat. Narrow melody in a fourth, one phrase
+returning; the chorus keeps those notes and lifts because the band opens, not because
+she pushes; lines end early. Rounded consonants, almost no vibrato. Full band, dense and
+soft: soft grand, low, three-note motif, struck short; low tape strings, far back; one
+harmony voice, last chorus, no choir; dark bass stepping down, short; mallets on a low
+tom, hats every bar, never dropping out. Harmony F#m9 - Dmaj9 - Bm9 - C#7 to F#m9, the
+five raised to major, ending on Amaj9. Vocals behind the band, blended in, not upfront.
+Dark warm tone, highs rolled off, lo-fi. Ends on a plucked chord, about two and a half
+minutes, the lyric filling all of it. One note per syllable, the band carrying every
+lift. No melisma, no sustained high notes, no head voice, no saxophone, no smoky bar or
+lounge, no autotune, no pop gloss.
+
+【TITLE】
+the distance holds still
+
+
+--------------------------------------------------------------------------
+  one thought at a time
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+My head is quiet and the sky is wide
+Thoughts come in one at a time
+Each one stands there bright and plain
+I look at it and let it pass
+
+[Pre-Chorus]
+Maybe a head is meant to feel this way
+Even the busy part of me is calm
+Every thought waits for the one before
+
+[Chorus]
+One thought at a time
+Each one clear and none of them in a rush
+I can see each one from every side
+One thought at a time
+
+[Post-Chorus]
+This one first, and then that one
+Nothing crowds and nothing shoves
+
+[Verse 2]
+It is all so clean I can think in it
+Straight lines where there were knots before
+I pick one up and it is light
+I set it down and pick the next
+
+[Pre-Chorus]
+When did it get this simple?
+Right about the time I breathed in
+Even the hard ones come in plain
+
+[Chorus]
+One thought at a time
+Each one clear and none of them in a rush
+Nothing piles up behind my eyes
+One thought at a time
+
+[Verse 3]
+I am quick and bright and light on my feet
+The sky is doing half the thinking
+This is a head I like to be in
+
+[Bridge]
+Clear sky, clear head, clear line of sight
+Nothing is tangled, nothing is loud
+Where do I start? Right here, right now
+
+[Outro]
+One thought at a time
+Here comes the first one, bright and plain
+
+【STYLE】 ★991자 (상한 1000)
+Warm soul pop for a cafe, D flat major, 103 BPM. Female low alto, half voice, near
+speech, as if humming to herself. Narrow melody in a fourth, one phrase returning; the
+chorus keeps those notes and lifts because the band opens, not because she pushes; lines
+end early. Rounded consonants, almost no vibrato. Full band, dense and soft: tine piano,
+high, three-note motif, struck short; Wurlitzer in short off-beat chords; one harmony
+voice, last chorus, no choir; picked bass in short eighths; soft kick, snare, shaker
+every bar, never dropping out. Harmony Gbmaj9 - Ab9 - Fm9 - Bbm9 - Ab9 to Dbmaj9,
+starting on the fourth, home at the close. Vocals behind the band, blended in, not
+upfront. Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two
+and a half minutes, the lyric filling all of it. One note per syllable, the band
+carrying every lift. No melisma, no sustained high notes, no head voice, no saxophone,
+no smoky bar or lounge, no autotune, no pop gloss.
+
+【TITLE】
+one thought at a time

@@ -84,6 +84,12 @@ print(r.stdout or r.stderr)
 if r.returncode != 0:
     sys.exit('⚠️ 실패 rc=%d' % r.returncode)
 # 밀린 작업이 PC 켜질 때 돌도록 (EP09 작업과 같은 설정)
+# 🔴 2026-09-11: 창 없이 실행(run_hidden.vbs). 보이는 콘솔을 닫으면 작업이 0xC000013A 로 끊긴다
+#    (plum-ep11-comment 가 댓글만 달고 고정 전에 죽었다). 트리거·설정은 그대로, 실행만 wscript 로 바꾼다.
+VBS = os.path.join(HERE, 'run_hidden.vbs')
+ps_act = ("$a = New-ScheduledTaskAction -Execute 'wscript.exe' -Argument '\"%s\" \"%s\"'; "
+          "Set-ScheduledTask -TaskName '%s' -Action $a | Out-Null" % (VBS, cmd_path, name))
+subprocess.run(['powershell', '-NoProfile', '-Command', ps_act], capture_output=True, text=True)
 ps = ("$s = (Get-ScheduledTask -TaskName '%s').Settings; $s.StartWhenAvailable = $true; "
       "$s.DisallowStartIfOnBatteries = $false; $s.StopIfGoingOnBatteries = $false; "
       "Set-ScheduledTask -TaskName '%s' -Settings $s | Out-Null; 'StartWhenAvailable=' + "

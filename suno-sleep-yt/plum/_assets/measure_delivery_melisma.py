@@ -330,6 +330,7 @@ ALL = {
     'EP11': lambda: jobs_ours('MUREKA', 'EP11', r'plum\ep11\music_final'),
     'EP12': lambda: jobs_ours('MUREKA', 'EP12', r'plum\ep12\music_final'),
     'EP13': lambda: jobs_ours('MUREKA', 'EP13', r'plum\ep13\music_final'),
+    'EP14': lambda: jobs_ours('MUREKA', 'EP14', r'plum\ep14\music_final'),
 }
 
 

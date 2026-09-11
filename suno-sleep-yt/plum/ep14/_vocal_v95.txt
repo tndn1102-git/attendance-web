@@ -1,0 +1,86 @@
+[1/20] 01_the far things look close.mp3
+[2/20] 02_the far things look close.mp3
+[3/20] 03_so still i can hear it.mp3
+[4/20] 04_so still i can hear it.mp3
+[5/20] 05_my head feels rinsed.mp3
+[6/20] 06_my head feels rinsed.mp3
+[7/20] 07_every word arrives whole.mp3
+[8/20] 08_every word arrives whole.mp3
+[9/20] 09_one breath and i am clear.mp3
+[10/20] 10_one breath and i am clear.mp3
+[11/20] 11_the blur has lifted.mp3
+[12/20] 12_the blur has lifted.mp3
+[13/20] 13_your voice gets here first.mp3
+[14/20] 14_your voice gets here first.mp3
+[15/20] 15_nothing sticks to me here.mp3
+[16/20] 16_nothing sticks to me here.mp3
+[17/20] 17_the distance holds still.mp3
+[18/20] 18_the distance holds still.mp3
+[19/20] 19_one thought at a time.mp3
+[20/20] 20_one thought at a time.mp3
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+파일                                    길이 유성구간 최대(초2초+ 유성 비율유성구간 p90( 멜리스마/유성초alpha 고역비F0 중앙(Hz)보컬−반주(dB)   중간층 점유    드럼 점유   베이스 점유
+-----------------------------------------------------------------------------------------------------------------------------------
+01_the far things look close.mp3     208     1.35O    0.00O    0.62O    1.78O   -8.35O  326.98!   -6.39O    0.14O    0.34O    0.33X
+02_the far things look close.mp3     233     1.57O    0.00O    0.71O    1.76O  -10.67O  278.04O   -8.12O    0.11O    0.31O    0.45X
+03_so still i can hear it.mp3        209     1.18O    0.00O    0.66O    2.14!  -12.20O  251.26O   -6.45O    0.13O    0.33O    0.35X
+04_so still i can hear it.mp3        221     1.59O    0.00O    0.72O    1.59O  -12.35O  269.47O   -6.09O    0.16O    0.30O    0.34X
+05_my head feels rinsed.mp3          214     2.03O    0.01O    0.66O    1.52O  -11.50O  265.74O   -6.41O    0.17O    0.31O    0.33X
+06_my head feels rinsed.mp3          198     1.34O    0.00O    0.55O    1.44O  -10.77O  263.60O   -7.32O    0.19O    0.25!    0.39X
+07_every word arrives whole.mp3      211     2.20O    0.01O    0.83O    1.83O  -12.21O  276.61O   -5.67O    0.30O    0.19X    0.28X
+08_every word arrives whole.mp3      187     2.38O    0.01O    0.77O    1.35O  -13.12O  294.31!   -4.72O    0.38O    0.07X    0.28X
+09_one breath and i am clear.mp3     212     1.28O    0.00O    0.58O    1.44O  -11.91O  249.65O   -7.79O    0.17O    0.31O    0.37X
+10_one breath and i am clear.mp3     232     1.38O    0.00O    0.62O    1.43O  -11.03O  258.99O   -9.67O    0.14O    0.31O    0.46X
+11_the blur has lifted.mp3           210     0.93O    0.00O    0.55O    1.84O  -12.40O  265.43O   -6.31O    0.18O    0.29O    0.33X
+12_the blur has lifted.mp3           199     0.83O    0.00O    0.56O    1.42O  -10.42O  272.54O   -8.33O    0.29O    0.26!    0.32X
+13_your voice gets here first.mp3    224     1.86O    0.00O    0.81O    2.04O  -14.71O  185.46O   -5.59O    0.18O    0.24X    0.36X
+14_your voice gets here first.mp3    224     1.35O    0.00O    0.84O    1.79O  -13.37O  170.08O   -7.07O    0.19O    0.29O    0.36X
+15_nothing sticks to me here.mp3     194     1.70O    0.00O    0.74O    1.38O  -11.69O  264.42O   -4.93O    0.32O    0.15X    0.27X
+16_nothing sticks to me here.mp3     203     1.40O    0.00O    0.82O    1.79O  -13.73O  264.68O   -4.41O    0.30O    0.15X    0.27X
+17_the distance holds still.mp3      210     1.13O    0.00O    0.59O    2.14!   -8.55O  253.54O   -7.79O    0.14O    0.33O    0.39X
+18_the distance holds still.mp3      238     1.29O    0.00O    0.58O    1.50O   -9.22O  257.62O   -7.01O    0.17O    0.38O    0.28X
+19_one thought at a time.mp3         220     1.50O    0.00O    0.72O    1.52O  -11.48O  267.98O   -7.10O    0.15O    0.33O    0.36X
+20_one thought at a time.mp3         233     1.78O    0.00O    0.67O    1.49O  -11.23O  292.26O   -7.90O    0.16O    0.28O    0.41X
+-----------------------------------------------------------------------------------------------------------------------------------
+20트랙 · 탈락 20 · 경고 0 · 통과 0
+O 통과 / ! 경고(구간 청취) / X 탈락(재생성)
+원자료: plum/ep14/_vocal_v95.json

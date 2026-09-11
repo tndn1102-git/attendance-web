@@ -1,0 +1,20 @@
+[
+ {
+  "axis": "잔잔",
+  "name": "16_nothing sticks to me here",
+  "file": "plum/ep14/_hooks\\hook_16_nothing sticks to me here.mp3",
+  "hook_db": 0.17
+ },
+ {
+  "axis": "밝음",
+  "name": "01_the far things look close",
+  "file": "plum/ep14/_hooks\\hook_01_the far things look close.mp3",
+  "hook_db": 0.37
+ },
+ {
+  "axis": "빠름",
+  "name": "10_one breath and i am clear",
+  "file": "plum/ep14/_hooks\\hook_10_one breath and i am clear.mp3",
+  "hook_db": 0.14
+ }
+]
