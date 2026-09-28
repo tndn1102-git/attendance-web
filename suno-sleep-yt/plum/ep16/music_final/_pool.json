@@ -1,0 +1,222 @@
+[
+ {
+  "song": 1,
+  "take": "a",
+  "title": "my steps come easy",
+  "file": "01_my steps come easy.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/01_my steps come easy.mp3",
+  "clap": 0.102,
+  "_regen": false,
+  "dur": 226.3
+ },
+ {
+  "song": 1,
+  "take": "b",
+  "title": "my steps come easy",
+  "file": "02_my steps come easy.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/02_my steps come easy.mp3",
+  "clap": 0.121,
+  "_regen": false,
+  "dur": 210.6
+ },
+ {
+  "song": 2,
+  "take": "a",
+  "title": "i set it down",
+  "file": "03_i set it down.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/03_i set it down.mp3",
+  "clap": 0.068,
+  "_regen": false,
+  "dur": 185.2
+ },
+ {
+  "song": 2,
+  "take": "b",
+  "title": "i set it down",
+  "file": "04_i set it down.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/04_i set it down.mp3",
+  "clap": 0.073,
+  "_regen": false,
+  "dur": 212.0
+ },
+ {
+  "song": 3,
+  "take": "a",
+  "title": "light on my feet",
+  "file": "05_light on my feet.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/_regen/r05_light on my feet.mp3",
+  "clap": 0.075,
+  "_regen": true,
+  "dur": 208.2
+ },
+ {
+  "song": 3,
+  "take": "b",
+  "title": "light on my feet",
+  "file": "06_light on my feet.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/_regen/r06_light on my feet.mp3",
+  "clap": 0.075,
+  "_regen": true,
+  "dur": 188.0
+ },
+ {
+  "song": 4,
+  "take": "a",
+  "title": "i could float here",
+  "file": "07_i could float here.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/07_i could float here.mp3",
+  "clap": 0.065,
+  "_regen": false,
+  "dur": 186.8
+ },
+ {
+  "song": 4,
+  "take": "b",
+  "title": "i could float here",
+  "file": "08_i could float here.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/08_i could float here.mp3",
+  "clap": 0.116,
+  "_regen": false,
+  "dur": 238.8
+ },
+ {
+  "song": 5,
+  "take": "a",
+  "title": "the quiet holds it for me",
+  "file": "09_the quiet holds it for me.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/_regen/r09_the quiet holds it for me.mp3",
+  "clap": 0.065,
+  "_regen": true,
+  "dur": 212.0
+ },
+ {
+  "song": 5,
+  "take": "b",
+  "title": "the quiet holds it for me",
+  "file": "10_the quiet holds it for me.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/09_the quiet holds it for me.mp3",
+  "clap": 0.067,
+  "_regen": false,
+  "dur": 204.4
+ },
+ {
+  "song": 6,
+  "take": "a",
+  "title": "nothing to hold up",
+  "file": "11_nothing to hold up.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/11_nothing to hold up.mp3",
+  "clap": 0.1,
+  "_regen": false,
+  "dur": 202.5
+ },
+ {
+  "song": 6,
+  "take": "b",
+  "title": "nothing to hold up",
+  "file": "12_nothing to hold up.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/12_nothing to hold up.mp3",
+  "clap": 0.109,
+  "_regen": false,
+  "dur": 192.9
+ },
+ {
+  "song": 7,
+  "take": "a",
+  "title": "up on my toes",
+  "file": "13_up on my toes.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/_regen/r13_up on my toes.mp3",
+  "clap": 0.079,
+  "_regen": true,
+  "dur": 197.8
+ },
+ {
+  "song": 7,
+  "take": "b",
+  "title": "up on my toes",
+  "file": "14_up on my toes.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/14_up on my toes.mp3",
+  "clap": 0.088,
+  "_regen": false,
+  "dur": 214.7
+ },
+ {
+  "song": 8,
+  "take": "a",
+  "title": "light as we go",
+  "file": "15_light as we go.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/15_light as we go.mp3",
+  "clap": 0.069,
+  "_regen": false,
+  "dur": 212.3
+ },
+ {
+  "song": 8,
+  "take": "b",
+  "title": "light as we go",
+  "file": "16_light as we go.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/16_light as we go.mp3",
+  "clap": 0.086,
+  "_regen": false,
+  "dur": 214.5
+ },
+ {
+  "song": 9,
+  "take": "a",
+  "title": "let it sit where it is",
+  "file": "17_let it sit where it is.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/17_let it sit where it is.mp3",
+  "clap": 0.088,
+  "_regen": false,
+  "dur": 218.4
+ },
+ {
+  "song": 9,
+  "take": "b",
+  "title": "let it sit where it is",
+  "file": "18_let it sit where it is.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/18_let it sit where it is.mp3",
+  "clap": 0.092,
+  "_regen": false,
+  "dur": 196.1
+ },
+ {
+  "song": 10,
+  "take": "a",
+  "title": "lighter than i came in",
+  "file": "19_lighter than i came in.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/19_lighter than i came in.mp3",
+  "clap": 0.08,
+  "_regen": false,
+  "dur": 196.8
+ },
+ {
+  "song": 10,
+  "take": "b",
+  "title": "lighter than i came in",
+  "file": "20_lighter than i came in.mp3",
+  "model": "V9.5",
+  "src": "plum/ep16/music_v95/20_lighter than i came in.mp3",
+  "clap": 0.1,
+  "_regen": false,
+  "dur": 211.0
+ }
+]

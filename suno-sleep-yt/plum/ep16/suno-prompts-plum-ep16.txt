@@ -1,0 +1,1199 @@
+==========================================================================
+ plum music EP16 — "여기만 오면 발걸음이 가벼워져요" 편 (가을 4편째)   ★붙여넣기 전용본
+ 각 곡은 위에서부터 가사 -> 스타일 -> 배제어 -> 제목 네 블록 순서다.
+==========================================================================
+
+ [플랫폼]     Mureka 여덟 번째 편. 곡당 V9.5 만 1생성(= 2테이크).
+              변환 = py -3 tools\suno_to_mureka.py plum\ep16\suno-prompts-plum-ep16.txt ^
+                       --tail-file plum\_assets\mureka_tail_plum.txt --ack-loss
+              (EXCLUDE 블록 제거 + 꼬리 169자 인라인 · 본문 상한 830 · 병합 상한 1,000)
+ [받는 폴더]  D:\test3\suno-sleep-yt\plum\ep16\music
+ [발행]       2026-10-02 (금) 08:00 KST
+ [기준 문서]  컨셉-ep16.md · CLAUDE.md §🎤🔴🔴(2026-09-07 보컬 상시규칙) ·
+              ep10\_보컬처방-v2.md · ep10\_보컬힘-계측.md · ep10\_찬송가-처방.md
+ [상위 필터]  CLAUDE.md §🏝️ 럭셔리·깔끔·심플·리조트. 비·슬픔·추억·끝나감 0줄.
+              + 컨셉 §ⓐ 🍂 가을 우울 함정 금지 — 떨어짐·가라앉음·끝나감 0줄.
+                가벼움은 "무게가 빠진다"로만 쓴다(풀림 X · 추락 X).
+
+ 🔴 이 편도 **곡 축을 EP11~EP15 와 글자 단위로 같게 둔다.** 바뀐 것은
+    테마(향 → 가벼움)·씬·문형과, 매 편 새로 쓰는 조성·BPM·편성·화성·가사뿐이다.
+    EP15 가 코와 숨(맡는다·스며든다)이었다면 EP16 은 몸의 무게(내려놓는다·
+    떠오른다·발이 가볍다)다 — 그 차이는 **가사와 화성 장치**가 만든다.
+    믹스 문구는 한 글자도 안 바꿨다(아래 표).
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 곡별 한 줄 표                                                        │
+ └──────────────────────────────────────────────────────────────────────┘
+
+ | #  | 정서 결                                | 성별 | 장르     | BPM | 2인칭 |
+ |----|----------------------------------------|------|----------|-----|-------|
+ | 1  | 밝음 — 이 길에 들어서면 발이 저절로 가볍다  | 여성   | 보사노바     |  96 | ·     |
+ | 2  | 여운 DARK — 들고 온 것을 내려놓는다        | 여성   | 소울팝      |  89 | ·     |
+ | 3  | 밝음 — 발이 가볍다, 너도 봤으면           | 여성   | 소울팝      | 102 | ●     |
+ | 4  | 밝음 — 여기선 떠오를 것 같다              | 여성   | 소울팝      |  94 | ·     |
+ | 5  | 여운 DARK — 고요가 대신 들어 준다         | 여성   | 소울팝      |  86 | ·     |
+ | 6  | 여운 — 애써 버티고 있을 게 없다           | 여성   | 보사노바     |  91 | ·     |
+ | 7  | 밝음 — 발끝으로 올라선다                 | 여성   | 소울팝      |  99 | ·     |
+ | 8  | 밝음 — 둘이 가볍게 걷는다                | 남성   | 소울팝      |  96 | ●     |
+ | 9  | 여운 DARK — 그냥 거기 두자               | 여성   | 소울팝      |  88 | ·     |
+ | 10 | 밝음 — 들어올 때보다 가볍다              | 여성   | 소울팝      | 100 | ·     |
+
+ · 밝음 6 (#1 #3 #4 #7 #8 #10) / 여운 4 (#2 #5 #6 #9) · 이별·상실 0곡
+ · DARK 3곡 (#2 #5 #9) — 전부 소울팝. 보사(#1 #6)에 DARK 를 겹치지 않았다
+   (EP06 보사판정 ⓑ). #6 은 여운이되 warm tone 이다.
+ · 배열 B Q B B Q Q B B Q B (컨셉 §ⓓ 그대로) — 같은 결 연속 최대 2곡
+   (#3 #4 · #5 #6 · #7 #8 · 루프 이음매 #10 → #1). 이음매 10(B) → 1(B) → 2(Q) 로
+   밝음이 2연속에서 끊긴다.
+   여운 자리 {2,5,6,9} = **열한 편과 겹치지 않는 신규 조합**
+   (EP05 {2,5,7,10} · EP06 {3,5,7,10} · EP07 {2,5,8,10} · EP08 {3,5,8,10} ·
+    EP09 {3,6,8,10} · EP10 {2,4,7,10} · EP11 {3,6,7,10} · EP12 {2,4,7,9} ·
+    EP13 {2,5,7,9} · EP14 {2,4,6,9} · EP15 {2,5,8,9})
+ · ⚠️ **보사 배치 = #1(밝음) · #6(여운 non-DARK).** 여운 네 칸 중 세 칸이 DARK 라
+   non-DARK 여운은 한 칸뿐이고, 그 칸을 #6 으로 잡았다 — 그래야 여운 2연속(#5 #6)
+   안에서 장르(소울팝 → 보사)와 톤(dark → warm)이 동시에 바뀐다.
+   · **보사가 세트를 여는 건 plum 처음이다**(밝음 보사 자리 EP11 #2 · EP12 #8 ·
+     EP13 #10 · EP14 #8 · EP15 #3). 보사 여운이 #6 에 앉는 것도 처음이다
+     (EP11 #7 · EP12 #2 · EP13 #5 · EP14 #4 · EP15 #8).
+   · 두 보사의 간격 = 앞으로 5곡 · 되감기 쪽으로 5곡 — **세트 안에서 정확히 등간격.**
+   · #1 을 보사로 둔 이유 = 테마의 첫 장면이 "걸어 들어오는 발걸음"이고,
+     보사의 나일론 오프비트 + 셰이커가 그 걸음을 가장 직접 그린다.
+   · ⚠️ **곡 번호는 설계 순서이지 재생 순서가 아니다.** 본편 믹스는 시드 셔플이다
+     (EP15 실측: tracklist_ep15.json 첫 트랙 = 설계 #10). 그래서 "#1 이 세트를 연다"는
+     설계상의 의미이고, 실제로 무엇이 0:00 에 오는지는 믹스 단계가 정한다.
+ · 여성 9 / 남성 1(#8) / 듀엣 0 — 남성은 컨셉 권장 밝음 자리 {3,8} 중 #8.
+   (EP11·EP12 #5 · EP13 #6 · EP14 #7 · EP15 #4 — 다섯 편과 다른 자리)
+   #7(여성 소울팝 99) → #8(남성 소울팝 96) 는 밝음 2연속이지만 성별이 바뀐다.
+   #3 → #4 는 둘 다 여성 소울팝이라 **BPM(102 → 94) · 2인칭(● → ·) · 리드 건반
+   (Wurlitzer → Rhodes) · 지속층(0 → 1)** 네 축을 동시에 갈랐다.
+ · 2인칭 2곡(#3 #8) — 세트 you 비율 **실측 0.68%** (you·your 16 / 본문 2,351단어).
+   컨셉 §ⓐ 가 주어 "나"를 지정했으므로 cherry 3.8% 쪽으로 올리지 않았다.
+   #3 은 "너도 이 걸음을 봤으면" 하는 혼잣말, #8 은 둘이 나란히 걷는 장면이라
+   2인칭이 장면 자체인 자리에만 넣었다.
+ · BPM 중앙 95 · 범위 86~102 (전곡 85~104 안) · 100 이상 2곡(#3 #10) · 최저 86(#5)
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 🔴 이번 편에서 바뀐 것 / 안 바뀐 것 (결과 귀속용 — 반드시 읽을 것)      │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ ⛔ **곡 축은 EP11~EP15 와 동일 고정. 바뀐 것은 테마·씬·문형뿐.**       │
+ │                                                                      │
+ │ ⛔ 안 바꾼 것 (EP15 와 글자 단위로 같은 축 — 이번 판정의 대조축)        │
+ │   · 꼬리 169자 · STYLE 본문 상한 830자 (실측 811~829)                 │
+ │   · 보컬 필수 4문구 — half voice, near speech, as if humming to        │
+ │     herself(#8 = himself) · lines end early · almost no vibrato ·     │
+ │     lifts because the band opens, not because she(#8 = he) pushes     │
+ │   · 보컬 금지 — easy and open · little vibrato ·                       │
+ │     세미콜론 뒤 단독 lift from the band (전 곡 0회)                    │
+ │   · 가사 231~243단어 · 10섹션 · 32행 · 유니크 27행                     │
+ │   · 찬송가 처방 B-1~B-5 10곡 전량 · never dropping out 10곡 ·          │
+ │     ends on a plucked chord 10곡 · 페이드 지시 0                       │
+ │   · Vocals behind the band, blended in, not upfront (cherry 핵심)     │
+ │   · 믹스 문구 — 밝음 `Warm tone, softened top, tape warmth, lo-fi` /   │
+ │     DARK `Dark warm tone, highs rolled off, lo-fi` — EP11~15 그대로    │
+ │   · 길이 지시 about two and a half minutes + the lyric filling all     │
+ │     of it                                                             │
+ │   · 소울팝 8 + 보사 2 · 여성 9 + 남성 1 · 20트랙 · 정지 배경           │
+ │   · 관악기·현악 독주 0곡 · 저지속 얇은 악기 0곡 · 기타는 리드도        │
+ │     베이스도 아님 · 지속 요소 곡 2개(EP12~EP15 와 같은 수)             │
+ │   · EXCLUDE 블록 28항목 — EP15 와 한 글자도 다르지 않다                │
+ │     (변환기 손실 회계가 EP12~EP15 와 같은 표를 내야 정상이다)          │
+ │                                                                      │
+ │ ✅ 바꾼 것 (곡 축이 아닌 것만)                                         │
+ │   ① 테마 = 향(EP15) → **가벼움(무게가 빠짐)**. 주어 "나", 시제 현재.   │
+ │      후각·숨(EP15) 대신 **몸과 동작** — 내려놓는다 · 발이 가볍다 ·     │
+ │      떠오른다 · 발끝으로 선다 · 그냥 거기 둔다.                         │
+ │   ② 씬 = **사용자 선택 대기**(외관 2 · 실내 2, 컨셉 §ⓑ)                │
+ │   ③ 제목 문형 = 감각 고백형 → **몸 변화 체감형**(16번째) · 이모지 🍂   │
+ │   ④ 조성 10개·BPM·편성·화성 장치 = 전부 새 값(매 편 하는 일)           │
+ │   ⑤ 보사 #3 #8 → **#1 #6** · 남성 #4 → **#8** (여운 자리가 바뀌어서)   │
+ │   ⑥ 단조 시작 곡 2 → **1**(#2) — DARK 3곡 중 2곡(#5 #9)이 장조다.       │
+ │      "가벼움" 편에서 단조를 둘 넘기지 않았다(아래 조성 배분표).        │
+ │                                                                      │
+ │ ⚠️ 가벼움을 **믹스 문구로 표현하지 않은 이유** — `airy` · `light` ·    │
+ │    `floating` 같은 말은 ① 숨 섞인 헤드보이스를 부르는 쪽으로 읽힐 수   │
+ │    있고(꼬리의 no head voice 와 정면 충돌) ② `floating` 은 패드·리버브 │
+ │    꼬리를 부른다(찬송가 처방 B-2-4 위반 위험).                         │
+ │    → 가벼움은 **가사(동작어)와 화성(무게를 덜어내는 장치)** 이 맡는다. │
+ │    ⛔ 이번 편 결과를 곡 축의 개별 문구 탓으로 돌리지 말 것 — 안 바꿨다.│
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 🔴 곡 길이 — EP14·EP15 결론을 그대로 적용한다 (새 실측 없음)           │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ EP11~EP13 채택 24곡 대조(EP14 머리말): 단어수 ↔ 길이 r = −0.09 ·      │
+ │ BPM ↔ 길이 r = −0.13 · 음절수 ↔ 길이 r = −0.07 — 셋 다 사실상 0.      │
+ │ → 이 축에서 곡 길이는 **Mureka 쪽 성질**이다. 가사량은 길이 레버가     │
+ │   아니라 **밀도(단어/보컬초) 레버**다.                                 │
+ │ → 그래서 이번 편도 **구조를 늘리지 않고**(32행 그대로 · 후렴 3회 반복 │
+ │   없음) 단어를 예산 안에 뒀다: 231~243 (EP15 233~250 · 세트 2,351단어).│
+ │ ⚠️ 예상 유니크 = **약 70~75분** (20트랙 × 약 215~225초). 컨셉의       │
+ │    50~62분 목표와의 차이는 가사로 못 줄인다 — EP15 와 같은 판단으로    │
+ │    건드리지 않았다(레버는 편성·축 변경이고 둘 다 90일 동결과 부딪힌다).│
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 설계 의도 — 컨셉("들어서는 순간 몸이 가벼워진다")을 곡으로             │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ 감정 방향 = 가벼움 · 무게가 빠짐 · 떠오름 · 느긋한 발걸음.             │
+ │ 10곡 전부 가벼움을 **상태가 아니라 동작**으로 쓴다 — 걷는다 · 내려놓는다│
+ │ · 뛰듯 걷는다 · 떠오른다 · 대신 들어 준다 · 팔을 늘어뜨린다 · 발끝으로 │
+ │ 선다 · 나란히 걷는다 · 그냥 둔다 · 발을 까딱인다.                      │
+ │                                                                      │
+ │ ⛔ 구체 소품 명사 **곡당 최대 1개**(컨셉 §ⓐ) — 스크립트로 셌다.        │
+ │    #4 feather · #7 balloon · 나머지 8곡 0개.                           │
+ │    문·창·잔·의자·책·코트·테이블 0회. 공간은 street · road · room ·      │
+ │    floor · ground · air · sky 로만 잡고 씬은 배경이 담당한다.          │
+ │    몸은 steps · feet · heels · toes · arms · hands · chest 로 쓴다.    │
+ │ ⛔ 가사 계절어 0 — autumn · fall · leaves · leaf · maple · ginkgo ·     │
+ │    harvest · September · October · sweater · scarf · chill · cold ·   │
+ │    cool · summer · winter · spring · 시간대어(afternoon · evening ·    │
+ │    night · tonight · morning · hour · clock · today) 10곡 0회(grep).   │
+ │ ⛔ 우울·추락 연상 0 — fall · drop · sink · sank · gone · over · end ·   │
+ │    last · past · left · leave 10곡 0회(grep).                          │
+ │    ⚠️ `down` 은 #2 한 곡에만 6회 있다 — 전부 컨셉 §ⓐ 가 예시로 준       │
+ │    "i set it down"(내려놓는다) 한 구문이다. 다른 9곡은 down 0회.       │
+ │    무게를 "떨어뜨린다"가 아니라 **"손으로 내려놓는다"** 로만 썼다.      │
+ │ ⛔ 풀림 계열 0 (컨셉 §ⓐ "풀림이 아니라 무게가 빠짐") — loosen ·        │
+ │    unclench · release · unwind · let go 0회.                           │
+ │ ⛔ EP13 어휘 0 — warm · soft · gentle · melt · cozy · tender · heavy · │
+ │    lean 가사 0회. (STYLE 의 `Warm soul pop`·`Warm tone` 은 곡 축 문구) │
+ │ ⛔ EP15 어휘 0 — smell · scent · sweet(ness) · reach · arrive · first · │
+ │    carry 0회. breath 는 2곡(#6 #10) 각 1회만.                          │
+ │                                                                      │
+ │ 인접 편 재료 차단 (컨셉 §ⓐ) — 전부 문자열로 grep 했다.                 │
+ │ ① EP15 재료 0줄: it stays on my hands · you carry it in with you ·    │
+ │    it fills me by degrees · reaches me · gets there first ·           │
+ │    breathe it in · (제목 my shoulders know 계열도 0)                   │
+ │ ② EP14 재료 0줄: the far things look close · so still i can hear it · │
+ │    my head feels rinsed · one breath and i am clear · the blur has    │
+ │    lifted · your voice gets here first · clear 0회                     │
+ │ ③ EP13 재료 0줄: warm feels good again · something in me(unclenched)  │
+ │    · the light got softer · the longer i stay (stay 0회)               │
+ │ ④ EP12 재료 0줄: already decided · come back · keeping this one        │
+ │    (keep · decide · choose · return 0회)                               │
+ │ ⑤ EP11 재료 0줄: keeping count · not late · keeps being now            │
+ │ ⑥ EP01~EP15 전 곡 가사와 **글자까지 같은 행 0개**(3단어 이상 행 대조). │
+ │ ⑦ 제목 중복 회피 — EP01~EP15 전 곡 제목과 대조(verify_prompts).       │
+ │ ⑧ 컨셉어 도배 방지 = **10곡 전부에 등장하는 내용어 0개.**             │
+ │    최다 = go 9곡 · light·nothing·way 8곡 · open·wide·whole 7곡.         │
+ │    "light" 가 제목에 들어간 곡은 #3 #8 #10 셋뿐이다.                   │
+ │ ⑨ "hands are free" 는 2곡(#3 #8)으로 묶었다(초안 4곡 → 2곡).          │
+ │                                                                      │
+ │ ⓐ 발걸음이 가볍다 — #1 (보사) · #3 · #8 (남성·둘이 걷기)               │
+ │ ⓑ 떠오른다 · 올라선다 — #4 (리디안) · #7 (올라가는 종지)               │
+ │ ⓒ 내려놓는다 · 대신 들어 준다 — #2 (DARK) · #5 (DARK)                  │
+ │ ⓓ 애쓸 게 없다 · 그냥 둔다 — #6 (보사 여운) · #9 (DARK)                │
+ │ ⓔ 들어올 때보다 가볍다 — #10 (세트를 닫고 #1 로 되감긴다)              │
+ │                                                                      │
+ │ ⛔ 이별·상실 0곡. ⛔ 비·슬픔·추억·회상·아쉬움·끝나감 0줄.             │
+ │ ⛔ 후렴을 세 번째로 반복하지 않았다. 늘린 것은 유니크 행이다 —         │
+ │    Post-Chorus 2행 · Verse 3 3행 · Bridge 3행이 전부 새 문장이다.     │
+ │ ⛔ [Intro]·[Instrumental]·[Interlude]·[Solo] 태그 0개.                │
+ │    [Outro] 는 10곡 전부 가사 2행을 갖는다(무가사 구간 차단).           │
+ │ · ⚠️ **EP15 의 네 문형을 10곡 전부에서 버렸다** (두 편 연속 같은 문형 │
+ │   = 두 편이 한 편처럼 들린다, EP12 원칙 계승):                          │
+ │   ① 질문 자리 = Verse 3 첫 행(EP15 10곡) → **Verse 2 첫 행**(10곡).     │
+ │     EP14 의 "둘째 프리코러스 첫 행"과도 다른 자리다.                   │
+ │     세트 10/320행 = 3.1% (cherry 물음표 3.2%).                         │
+ │   ② 브리지 = 한 문장이 세 행에 걸쳐 흐름(EP15) → **세 문장이 점점      │
+ │     짧아진다**(13~16단어 → 7~8단어 → 2~3단어: "I am here" · "It can wait" · │
+ │     "I rise" · "Just this"). 행이 짧아지는 것 자체가 무게가 빠지는     │
+ │     모양이다. 10곡 전부 같은 모양.                                     │
+ │   ③ 아웃트로 둘째 행 = 향이 몸 어디에 남았나(EP15) → **몸이 지금 하는 │
+ │     동작 하나**(I walk right in · I sit back · I skip inside · I drift │
+ │     across the room · I sway a little · We walk right in · My feet are │
+ │     tapping). 곡 끝마다 "가벼워진 몸이 움직인다"를 한 번씩 찍는다.     │
+ │   ④ 문두 And = 7/320행 = **2.2%** (EP15 4.1% · cherry 2.9% · 기각 R4   │
+ │     19.6%). 초안에서 27행(8.4%)이 나와 아웃트로 10행을 포함해 20행을   │
+ │     고쳤다. 문두 Maybe 1행(#10) · Even 0 · Every 계열은 산발.          │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 편성 — 소울팝 8곡의 밑판을 곡마다 갈랐다 (EP08~EP15 방침 계승)         │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │  #  리드(지속 건반)          보조 색                퍼커션                 베이스          │
+ │  2  다크 타인 피아노(저역·2음) 뮤트 기타 단음 플럭         브러시+로우탐+다크햇          테이프 베이스 짧은 두 음 │
+ │  3  브라이트 월리처(4음)      클린 기타 오프비트 촙        소프트 킥+스네어+탬버린       라운드와운드 미는 8분 │
+ │  4  스테이지 로즈(3음)        로우 테이프 스트링(멀리) ★지속 소프트 킥+크로스스틱+셰이커   플랫와운드 짧은 점음표 │
+ │  5  펠트 업라이트(저역·2음)    월리처 오프비트 짧은 화음     말렛 플로어탐+림클릭+다크햇    다크 베이스 박마다 짧게 │
+ │  7  테이프 일렉 피아노(4음)    두 번째 피아노 짧은 대답      소프트 킷+브러시 스네어+카바사  썸뮤트 베이스 짧은 8분 │
+ │  8  소프트 그랜드(3음)        코러스 기타 오프비트 더블스톱  소프트 킥+림샷+햇            핑거 베이스 짧은 싱코페 │
+ │  9  다크 수트케이스 로즈(3음)  테이프 피아노 오프비트 짧은 화음 사이드스틱+펠트 킥+다크햇    딥 베이스 짧게        │
+ │ 10  브라이트 베이비 그랜드(고역·3음) 웜 멜로트론(멀리) ★지속  소프트 킷+스네어+셰이커·햇    픽 베이스 짧은 8분    │
+ │                                                                      │
+ │ · 리드 8종 · 보조 8종 · 퍼커션 8종 · 베이스 8종을 전부 다르게 갈랐다.  │
+ │   EP15 와 **같은 자리끼리 겹치는 칸 0**(EP15 #7 사이드스틱 → EP16 #9, │
+ │   EP15 #2 테이프 스트링 → EP16 #4 처럼 자리를 옮긴 재료는 있다).       │
+ │ · 🔴 **지속 요소는 곡당 최대 1개**(찬송가 처방 B-2-4).                 │
+ │   지속 요소를 가진 곡은 #4(테이프 스트링) · #10(멜로트론) **둘뿐**,    │
+ │   둘 다 **밝음**이고 리듬 요소 3개 이상과 같이 간다.                   │
+ │   ⚠️ **EP12~EP15 와 달리 DARK 3곡의 지속 요소를 0개로 뺐다** —          │
+ │   이번 DARK 는 세트 최저 BPM #5(86) · 베이스 하행 #9 · 네아폴리탄       │
+ │   왕복 #2 라 셋 다 "한 화음 체류"에 가까운 모양이 있다. 거기에 지속층을 │
+ │   겹치지 않기 위해서다. 빈자리는 뮤트 기타 · 월리처 · 테이프 피아노의   │
+ │   짧은 컴핑이 메운다(B-5: 지우지 말고 컴핑으로 대체).                  │
+ │ · 🔴 전 곡에 `every bar` 로 도는 하이햇·셰이커·탬버린·카바사가 있고,   │
+ │   `never dropping out` 이 10곡 전부에 박혀 있다(B-2-1·B-2-3).         │
+ │   `ends on a plucked chord` 도 10곡 전부(B-2-2). 페이드 지시 0.       │
+ │ · 오르간 0곡 · 핑거 스냅 0곡 · 콩가·클라베 0.                           │
+ │ · ⛔ 저지속·얇은 악기(칼림바·마림바·글로켄슈필·첼레스타·비브라폰·      │
+ │   핸드팬) 0곡. #5 의 말렛은 **플로어탐을 치는 말렛**이지 말렛 건반이   │
+ │   아니다(`mallets on a floor tom` 으로 대상까지 적었다).               │
+ │   리드는 10곡 전부 지속하는 건반이고, 기타는 어느 곡에서도 리드가     │
+ │   아니며 **베이스 라인도 맡지 않는다.**                                 │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 🔴 보사 2곡(#1 #6) 처방 — B-4 그대로                                  │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ ⛔ 딸림13(9·11·13 텐션 딸림화음) · 미해결 sus 지속 · upright bass ·    │
+ │    jazz trio · 나일론 기타를 리드로 두는 것 — 전부 없다.              │
+ │ ✅ ① 건반이 리드지만 **`electric piano in short chords`** 다           │
+ │    ② `nylon guitar off-beat comping only` (기타 강등)                 │
+ │    ③ `brushes, hats, shaker every bar, never dropping out`            │
+ │    ④ `No upright bass, no jazz trio.` 를 STYLE **본문**에             │
+ │ ✅ 화성에 딸림화음이 아예 없다. 두 곡 다 `no dominant chords` 명시.    │
+ │    #1 = IImaj(F6/9) → I(Ebmaj9) — 리디안 II 가 온음 아래로 내려앉아   │
+ │         집에 닿는다. F6/9 에는 7음(Eb)이 없어 V/V 가 되지 않는다       │
+ │         (F9 로 쓰면 딸림이 되므로 일부러 6/9 로 적었다).               │
+ │         A → Bb 가 반음 올라 풀린다 — 이끎음 없이 끌어당김.             │
+ │    #6 = bVIImaj7(Amaj7) → IV(Emaj9) → I(Bmaj9) — 이중 변격종지.       │
+ │         딸림 자리에 bVII 과 IV 가 차례로 서서, 화성이 "한 계단씩        │
+ │         내려놓으며" 집에 든다. 정지 루프가 아니라 세 화음 연속 운동.   │
+ │    ⚠️ EP11(bVII→I · IV→I) · EP12(ii→I · vi→I) · EP13(bII→I · iii→I) · │
+ │    EP14(bVI→I · v→I) · EP15(iv6→I · bIII→I) 열 형태를 **전부 피했다.** │
+ │    · 계열 겹침은 숨기지 않는다 — #6 의 두 화음(bVII · IV)은 각각 EP11  │
+ │      보사 두 곡의 종지 화음이다. 이번엔 **둘을 한 줄로 이어 붙인 것**  │
+ │      자체가 장치다 — 같은 화음, 다른 장치. #1 의 II 장조는 EP14 ① ·   │
+ │      EP15 ④ 에 있었지만 둘 다 소울팝에서 V 와 얽힌 장치였고, 이번엔    │
+ │      **딸림 없이 곧장 I 로 떨어지는 보사 종지**다.                     │
+ │ ⚠️ B-4 의 경고 그대로: **딸림 없음 + 정적 루프를 같이 걸면 화성이      │
+ │    정지해 곧바로 찬송가가 된다.** 그래서 두 곡 다 네 번째 화음이 첫   │
+ │    화음으로 **온음·완전4도 이동으로 떨어지는 운동**을 갖는다.          │
+ │    단 #6 은 여운 + 91 BPM 이라 어택밀도 하한이 세트 보사 중 더 가깝다. │
+ └──────────────────────────────────────────────────────────────────────┘
+
+ [조성 · 화성 배분표]  ※ 설계 순서. 실제 믹스는 셔플(EP15 실측: 첫 트랙 = 설계 #10)
+
+ | #  | 조성                          | BPM | 장르   | 보컬 | 결        |
+ |----|-------------------------------|-----|--------|------|-----------|
+ | 1  | E flat major                  |  96 | 보사노바   | 여성   | 밝음        |
+ | 2  | C sharp minor -> E major      |  89 | 소울팝    | 여성   | 여운 DARK   |
+ | 3  | F major                       | 102 | 소울팝    | 여성   | 밝음        |
+ | 4  | F sharp major                 |  94 | 소울팝    | 여성   | 밝음        |
+ | 5  | C major                       |  86 | 소울팝    | 여성   | 여운 DARK   |
+ | 6  | B major                       |  91 | 보사노바   | 여성   | 여운        |
+ | 7  | B flat major                  |  99 | 소울팝    | 여성   | 밝음        |
+ | 8  | A major                       |  96 | 소울팝    | 남성   | 밝음        |
+ | 9  | A flat major                  |  88 | 소울팝    | 여성   | 여운 DARK   |
+ | 10 | D major                       | 100 | 소울팝    | 여성   | 밝음        |
+
+ · 조성 10개 전부 다름. 5도권 인접 거리를 **전부 5칸 이상**으로 잡았다
+   (단조 시작 곡은 착지하는 장조로 센다 — EP08~EP15 와 같은 셈법)
+   Eb→E 5 · E→F 5 · F→F# 5 · F#→C 6 · C→B 5 · B→Bb 5 · Bb→A 5 · A→Ab 5 ·
+   Ab→D 6 · D→Eb 5 (되감기 지점 5칸). 인접 곡이 매번 반음 또는 증4도 건너뛴다.
+ · EP11~EP15 다섯 편과 **같은 자리에 같은 조성이 하나도 없다**(편 간 슬롯 대조).
+   🔑 이 두 조건(최소 5칸 + 다섯 편 슬롯 회피)을 동시에 만족하는 배열은
+   스크립트 전수 탐색에서 **딱 1개**였다(최소 4칸으로 풀면 841개).
+   그래서 조성은 이 해로 고정하고, 단조 시작 곡 수를 거기에 맞췄다.
+ · 샤프 5 · 플랫 4 · C 1 — EP15 와 같은 균형.
+   ⚠️ 추정이다. Mureka 가 조성 이름만으로 음색을 바꾼다는 근거는 없다.
+ · 단조 시작 곡 = **#2 하나**(C sharp minor → E major, EP05~EP15 에 없던 짝).
+   유일해의 #5(C) · #9(Ab) 는 나란한 단조(Am · Fm)가 이미 쓰인 짝이라
+   (EP13 #9 Am→C · EP12 #7 · EP15 #5 Fm→Ab) **둘 다 DARK 장조로 뒀다.**
+   · "가벼움" 편에서 단조가 1곡이면 세트가 한 칸 밝아진다 — 테마와 같은 방향.
+   · DARK 장조 2곡(#5 #9)의 어둠은 조성이 아니라 **믹스(Dark warm tone ·
+     highs rolled off) · behind the beat · 저역 리드 · 빌린 화음**이 만든다
+     (EP07~EP15 의 DARK 장조와 같은 처리).
+ · dark warm tone, highs rolled off = #2 #5 #9 (3곡)
+ · behind the beat = #2 #5 #9 (3곡)
+ · one harmony voice, last chorus, no choir = 10곡 전부
+ · lo-fi = 10곡 전부
+ · 화성 감정 장치 10개 (EP09~EP15 의 장치와 같은 장치 0 · 계열 겹침은 아래에 명시):
+   ① 리디안 II(F6/9)가 온음 아래 으뜸으로 내려앉는다 — 딸림 없는 보사 종지 (#1)
+   ② 단조 으뜸 위로 반음 위 화음(Neapolitan, Dmaj9)이 닿았다 돌아온다 —
+      무게를 한 번 들었다 놓는 모양. 마지막에 나란한 장조 E 로 열린다 (#2)
+   ③ IV 에서 시작해 IV - V - iii - vi 로 도는 "왕도 진행"(시티팝 표준) (#3)
+      · EP14 #10 도 IV 에서 시작했지만 IV - V - iii - vi 순서는 plum 처음이다.
+   ④ 으뜸화음 자체가 #11 을 품는다(F#maj7#11) — 착지가 무겁지 않은 집.
+      딸림도 7음 없는 C#6 으로 가볍게 (#4)
+      · EP13 #8 은 IV 에 #11 을 얹었다. 이번엔 **으뜸 자리**다 — 같은 색, 다른 자리.
+   ⑤ 딸림(G9)이 으뜸 대신 빌린 bVI(Abmaj9)로 비껴 앉았다가 집에 든다 (#5)
+      · EP13 #2 의 V→vi(속임종지)와 같은 운동, 다른 화음(장조 bVI).
+      · EP14 보사 bVI→I 와 같은 화음이지만 이번엔 **딸림 뒤에 오는 속임** 자리다.
+   ⑥ bVII → IV → I 이중 변격종지 — 딸림 없이 두 계단으로 집에 든다 (#6 보사)
+   ⑦ bVI → bVII → I 로 **올라가며** 집에 든다 — "발끝으로 올라서는" 종지 (#7)
+      · 두 화음 모두 딸림이 아닌 maj7 이다. 개별 화음은 EP11·EP14 보사 종지에
+        있었으나, 둘을 이어 **상행**으로 쓰는 건 plum 처음이다.
+   ⑧ 이끎음 위 반감7(G#m7b5) — 근음 없는 딸림 9화음이라 "힘을 뺀 딸림" (#8)
+      · EP15 ② 의 반감7은 빌린 ii(Gm7b5 in F)였다. 이번엔 **vii** 자리다.
+   ⑨ 베이스가 한 화음마다 한 계단씩 내려간다(Ab - G - F - Eb - Db) (#9)
+      · EP11 #3 는 한 화음 아래 베이스가 올라갔다. 이번엔 화음이 바뀌며 내려간다.
+   ⑩ iv 단조(Gm6)가 같은 마디 안에서 IV 장조(Gmaj9)로 밝아진다 (#10)
+      · EP10 ⑥ 의 IV→iv(밝음 → 그늘)를 **거꾸로** 돌렸다 — 그늘이 걷히는 방향.
+   · ② ⑤ ⑨ 가 DARK 의 장치이고 ① ④ ⑦ ⑩ 이 테마의 화성판이다 — "내려앉는다",
+     "착지가 무겁지 않다", "올라선다", "그늘이 걷힌다".
+   · ⚠️ ② ⑨ ⑩ 은 Mureka 가 그대로 따를 확률이 낮은 지시다(한 번 닿았다 돌아옴 ·
+     화음마다 베이스 하행 · 한 마디 안의 iv→IV). 안 따라도 곡이 무너지는 지시가
+     아니라 방향 표시로 뒀다(EP13 ② · EP14 ② ⑥ ⑨ · EP15 ⑤ ⑨ ⑩ 과 같은 처리).
+   · ⚠️ ⑨ 의 계단식 베이스 하행은 **찬송가·캐논 진행과 같은 모양**이다.
+     그래서 #9 에는 지속 요소를 0개로 막고, 베이스를 `deep bass, short` 로 끊고,
+     사이드스틱 + 펠트 킥 + 다크햇 + 테이프 피아노 오프비트로 어택을 채웠다.
+
+
+  ★ plum 전곡 공통 배제어 꼬리 (169자) — Mureka 변환기가 자동으로 붙인다
+  ----------------------------------------------------------------------
+  One note per syllable, the band carrying every lift. No melisma, no sustained high
+  notes, no head voice, no saxophone, no smoky bar or lounge, no autotune, no pop gloss.
+  ----------------------------------------------------------------------
+  붙이는 법 = STYLE 본문 + 공백 1칸 + 꼬리. 최대 829 + 1 + 169 = 999 <= 1,000.
+  ⛔ 이 파일의 배제어 블록을 손으로 지우지 말 것 — 변환기가 이 블록과
+     꼬리를 대조해 **사라지는 항목을 세는 손실 회계**를 돌린다(2026-09-07 신설).
+
+
+  ★ 생성 직후 반드시 돌릴 것 (세 게이트는 서로 다른 축이다)
+  ----------------------------------------------------------------------
+  py -3 plum\_assets\clap_gate.py       plum\ep16\music     (장르 · 임계 0.084)
+  py -3 plum\_assets\clap_gate_bossa.py plum\ep16\music     (보사 #1 #6 · 0.068)
+  py -3 plum\_assets\hymn_scan.py       plum\ep16\music     (찬송가 · <= -0.05)
+  py -3 plum\_assets\vocal_gate.py      plum\ep16\music --words 235
+  ----------------------------------------------------------------------
+  · 모델 = **V9.5 만 생성한다**(컨셉 §ⓔ). V7.6 은 EP11 에서 20/20 폐기됐고
+    EP09·EP10 채택 28트랙 중 보컬축을 **0회** 통과했다.
+    10곡 미달 시 그 곡만 V9.5 로 재생성한다 — 모델을 바꿔 채우지 말 것.
+  · 💳 생성 상한 **13회**(10 + 재생성 3) — CLAUDE.md §💳🔝🔴.
+    걸리면 그 곡을 빼고 9곡 편성. 재생성을 더 하지 않는다.
+    보사 한쪽-❌ 는 재생성 대상에서 제외(컨셉 §ⓔ · EP12 6클립 전멸 · EP13 동일 판단).
+  · 파일명·매니페스트에 `_v95` 접미어를 반드시 남긴다.
+  · ⏰ 발행까지 4일(컨셉 머리말) — 재생성 판단은 **첫 배치 게이트 결과 한 번으로** 끝낸다.
+  · 🎧 샘플 페이지는 자료로만 남긴다(결정 관문 아님, §💳).
+
+  ▸ 리스크 순위 — 생성 후 이 순서로 먼저 잰다
+    1순위 **#6 · #1 보사** — 🔴 **EP15 보사 4클립은 보사 게이트에서 전부 미달**이었다
+      (_clap_bossa.txt: 0.104 · 0.101 · 0.137 · △0.093, 임계 0.068). EP12 는 6클립이
+      전멸했다. 규칙대로 보사 한쪽-❌ 는 재생성 대상이 아니므로(컨셉 §ⓔ) EP15 는
+      그대로 실었다 — **이번에도 통과를 기대하지 말고, 둘 중 덜 먼 테이크를 고르는
+      선택 문제로 본다.** #6 을 먼저 본다 — 세트 보사 중 느린 쪽(91)이고 여운이라
+      어택밀도 하한이 가장 가깝다. #1 은 F6/9 의 리디안 색이 스무스재즈 쪽 CLAP
+      거리를 벌릴 수 있다.
+      ⚠️ 보사 처방(B-4)은 EP11~EP15 다섯 편 동안 **글자 단위로 고정**돼 있었고
+      그 사이 통과가 계속 안 나왔다. 처방 문구 자체를 바꿀지는 **이 파일의 범위
+      밖**이다(곡 축 동결) — EP16 결과까지 모아 따로 판단할 것.
+      ⚠️ 결(밝음/여운)로 위험을 예측하지 말 것 — EP07 에서 정확히 반대로 빗나갔다.
+    2순위 **#9** — DARK + 계단식 베이스 하행(캐논 모양) + 88 BPM.
+      찬송가 프로브가 좋아하는 "화음이 한 음씩 내려가는 성가 모양"이 세트에서
+      유일하게 여기 있다. 지속 요소는 0개로 막았다. 끝 15초 어택밀도와
+      아웃트로에서 퍼커션이 빠지는지를 먼저 본다.
+    3순위 **#5** — 세트 최저 BPM(86) + DARK + 빌린 bVI.
+      Abmaj9 가 라운지 쪽 라벨로 열리면 EXCLUDE 의 dim lounge · torch ballad 가
+      막아야 한다. never dropping out 이 지켜지는지 아웃트로를 본다.
+    4순위 **#8(남성)** — 유일한 남성곡이고 필수 문구 대명사를 바꾼 유일한 곡이다
+      (`not because he pushes` · `humming to himself`). 성별 누출부터 확인한다.
+      G#m7b5 는 재즈 쪽 색이라 CLAP 에서 smooth jazz 라벨이 뜨는지도 본다.
+    5순위 **#2** — 유일한 단조 시작 + Neapolitan(Dmaj9). 반음 위 장7화음이
+      몽환·앰비언트 쪽으로 읽히면 편곡이 얇아질 수 있다(R2 소편성 재발 경계).
+    6순위 **#3 #10** — 102·100 BPM. Mureka 의 K-pop 광택이 열린다면 여기가
+      첫 자리다. #3 의 왕도 진행(IV-V-iii-vi)은 J-pop·시티팝 표준이라
+      광택 쪽으로 기울 여지가 세트에서 가장 크다. #10 은 지속층(멜로트론)을 가진
+      밝음 곡이라 아웃트로 지속화음 체류를 같이 본다.
+    7순위 **#4 #7** — #4 는 지속층(테이프 스트링) + 리디안 으뜸(#11)이 겹쳐
+      "떠 있는" 곡이다. 찬송가축보다 **앰비언트 쪽 이탈**을 본다.
+      #7 은 bVI-bVII-I 상행 종지가 록 쪽 리프트로 들리는지 본다.
+    ▸ 전 곡 공통 = **밀도**. 단어/보컬초 >= 2.0 을 못 넘기면 가사가 아니라
+      곡 길이가 원인이다 — 그때는 테이크 폐기가 아니라 그 곡만 재생성한다.
+  ▸ 20트랙 중 2트랙까지는 버려도 유니크 분량 하한(50분) 안이다. 3트랙부터 재생성.
+
+--------------------------------------------------------------------------
+  곡 1   세트를 여는 곡 · 이 길에 들어서면 발걸음이 저절로 가볍다 (밝음 · 보사)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  my steps come easy
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+The moment I turn onto this street
+My steps start coming easy on their own
+There is nothing I am hurrying toward
+Nothing I am running from at all
+
+[Pre-Chorus]
+I let my arms swing any way they like
+My feet tap out a beat that is my own
+I am walking like the air is on my side
+
+[Chorus]
+My steps come easy
+Like the ground is glad to have me here
+Like I could go on walking all day long
+My steps come easy
+
+[Post-Chorus]
+Heel and toe, and nothing on me
+Heel and toe, and I am light
+
+[Verse 2]
+Why did I ever walk so fast?
+I used to push through every block in a rush
+Now I notice every little turn
+Every corner and every patch of sun
+
+[Pre-Chorus]
+The breeze is catching at my hair
+I let it steer me any way it wants
+My whole body seems to hum along
+
+[Chorus]
+My steps come easy
+Like the ground is glad to have me here
+I hardly feel the road beneath my feet
+My steps come easy
+
+[Verse 3]
+Somebody waves from the other side
+I wave right back and never break my pace
+The whole street is moving at my speed
+
+[Bridge]
+I could walk this way for miles and never feel a thing but glad
+The street is open and the sky is too
+I am here
+
+[Outro]
+My steps come easy
+I walk right in with nothing in my hands
+
+【STYLE】 ★828자
+Bossa nova for a cafe, E flat major, 96 BPM. Female low alto, half voice, near speech,
+as if humming to herself. Narrow melody in a fourth, one phrase returning; the chorus
+keeps those notes and lifts because the band opens, not because she pushes; lines end
+early. Rounded consonants, almost no vibrato. Full band, dense and soft: electric piano
+in short chords; nylon guitar off-beat comping only; one harmony voice, last chorus, no
+choir; bass in short eighths; brushes, hats, shaker every bar, never dropping out. No
+upright bass, no jazz trio. Harmony Ebmaj9 - Cm9 - Abmaj9 - F6/9 to Ebmaj9, the major
+two stepping down home, no dominant chords. Vocals behind the band, blended in, not
+upfront. Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two
+and a half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+my steps come easy
+
+--------------------------------------------------------------------------
+  곡 2   들고 온 것을 내려놓는다 (여운 DARK)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  i set it down
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I set it down the moment I come in
+Whatever I was holding all this while
+It rests beside me and I let it be
+I do not need to pick it up again
+
+[Pre-Chorus]
+The quiet here has room for it
+It takes the weight without a word
+My arms have nothing more to do
+
+[Chorus]
+I set it down
+The quiet takes the whole weight of it
+Nobody asks me to hold it here
+I set it down
+
+[Post-Chorus]
+One thing, then another one
+Each of them resting where they are
+
+[Verse 2]
+What was I holding on so tight for?
+None of it was mine to hold this long
+I open up my hands and look at them
+They are open and they feel all right
+
+[Pre-Chorus]
+My chest has more space in it now
+The room around me barely moves
+Everything is quiet at my side
+
+[Chorus]
+I set it down
+The quiet takes the whole weight of it
+I am lighter than I was at the start
+I set it down
+
+[Verse 3]
+Here nobody needs me to be strong
+I can just sit and let the low hum go on
+There is time enough for everything
+
+[Bridge]
+All the things I brought in with me are resting in a row beside my feet
+Not one of them is calling out to me
+It can wait
+
+[Outro]
+I set it down
+I sit back with my hands wide open
+
+【STYLE】 ★829자
+Soul pop for a cafe, C sharp minor to E major, 89 BPM. Female low alto, half voice, near
+speech, as if humming to herself, behind the beat. Narrow melody in a fourth, one phrase
+returning; the chorus keeps those notes and lifts because the band opens, not because
+she pushes; lines end early. Rounded consonants, almost no vibrato. Full band, dense and
+soft: dark tine piano, low, two-note motif, struck short; muted guitar, single-note
+plucks; one harmony voice, last chorus, no choir; tape bass in short pairs; brushes, low
+tom, dark hats every bar, never dropping out. Harmony C#m9 - Dmaj9 - C#m9 - Amaj9 - B6,
+a half step up and back, ending on Emaj9. Vocals behind the band, blended in, not
+upfront. Dark warm tone, highs rolled off, lo-fi. Ends on a plucked chord, about two and
+a half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+i set it down
+
+--------------------------------------------------------------------------
+  곡 3   발이 가볍다, 너도 봤으면 (밝음)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  light on my feet
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+You should see the way I walk in here
+Like somebody took the weight out of my bones
+I am almost bouncing off the ground
+I did not even have to try
+
+[Pre-Chorus]
+My head is up and my hands are free
+I catch myself humming out of tune
+You would laugh if you could see me now
+
+[Chorus]
+Light on my feet
+Every step has a little skip in it
+Like a kid who got the whole day off
+Light on my feet
+
+[Post-Chorus]
+Up and away, easy does it
+Up and away, here I go
+
+[Verse 2]
+Is this what it feels like to be light?
+I never knew my body could be this quick
+Every little move comes out of me
+Like it was waiting for the chance to go
+
+[Pre-Chorus]
+My heels hardly touch the floor
+I turn around just for the fun of it
+You would think that I was made of air
+
+[Chorus]
+Light on my feet
+Every step has a little skip in it
+I could dance from here to the other side
+Light on my feet
+
+[Verse 3]
+I wish that I could send you how this feels
+Fold it up and put it in your hand
+You would want to come and walk with me
+
+[Bridge]
+If I jumped right now I think I would hang up there and wave
+Nothing here is holding me in place
+I am light
+
+[Outro]
+Light on my feet
+I skip inside without a sound
+
+【STYLE】 ★819자
+Warm soul pop for a cafe, F major, 102 BPM. Female low alto, half voice, near speech, as
+if humming to herself. Narrow melody in a fourth, one phrase returning; the chorus keeps
+those notes and lifts because the band opens, not because she pushes; lines end early.
+Rounded consonants, almost no vibrato. Full band, dense and soft: bright Wurlitzer,
+four-note motif, struck short; clean guitar chopping off-beats; one harmony voice, last
+chorus, no choir; round-wound bass in pushing eighths; soft kick, snare, tambourine
+every bar, never dropping out. Harmony Bbmaj9 - C9 - Am9 - Dm9 to Fmaj9, starting on the
+four, the three before the six. Vocals behind the band, blended in, not upfront. Warm
+tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two and a half
+minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+light on my feet
+
+--------------------------------------------------------------------------
+  곡 4   여기선 떠오를 것 같다 (밝음)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  i could float here
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I sit a while and all of me starts rising
+Not my voice and not my hands, just me
+Like a feather waiting out there on the air
+I think I could float here if I let myself
+
+[Pre-Chorus]
+The light is lying wide across the floor
+It holds me up the way the water would
+I barely even feel the place I sit
+
+[Chorus]
+I could float here
+Just an inch above the ground I know
+With nothing tying me to anything
+I could float here
+
+[Post-Chorus]
+Higher than I thought I would
+Quiet as a thought I had
+
+[Verse 2]
+When did I get this light inside?
+I cannot find the edge of any weight
+My thoughts go drifting upward one by one
+Not a single one pulls me along
+
+[Pre-Chorus]
+The whole place hums a steady note
+My body answers it without a word
+I am not holding anything at all
+
+[Chorus]
+I could float here
+Just an inch above the ground I know
+If I shut my eyes I am up already
+I could float here
+
+[Verse 3]
+Somebody laughs a room away
+It rises up and hangs there in the light
+And I go rising right along with it
+
+[Bridge]
+No string on me and no hand to pull me back to where I started
+The air is doing all the work for me
+I rise
+
+[Outro]
+I could float here
+I drift across the room like air
+
+【STYLE】 ★811자
+Warm soul pop for a cafe, F sharp major, 94 BPM. Female low alto, half voice, near
+speech, as if humming to herself. Narrow melody in a fourth, one phrase returning; the
+chorus keeps those notes and lifts because the band opens, not because she pushes; lines
+end early. Rounded consonants, almost no vibrato. Full band, dense and soft: stage
+Rhodes, three-note motif, struck short; low tape strings, far back; one harmony voice,
+last chorus, no choir; flatwound bass in short dotted notes; soft kick, cross-stick,
+shaker every bar, never dropping out. Harmony F#maj7#11 - D#m9 - Bmaj9 - C#6 to
+F#maj7#11, home with a raised eleventh. Vocals behind the band, blended in, not upfront.
+Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two and a
+half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+i could float here
+
+--------------------------------------------------------------------------
+  곡 5   고요가 대신 들어 준다 (여운 DARK)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  the quiet holds it for me
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I bring in everything I think about
+And the quiet opens up and takes it all
+It takes the pieces I could never hold
+So I just sit and let it do the work
+
+[Pre-Chorus]
+My hands are resting in my lap
+My thoughts are settling one by one
+I do not have to hold the whole of it
+
+[Chorus]
+The quiet holds it for me
+Every little weight I brought in here
+It does not mind the size of it
+The quiet holds it for me
+
+[Post-Chorus]
+Low and still and all around
+Wide enough for all of it
+
+[Verse 2]
+Who else would hold it like this?
+Without a question and without a sound
+I watch it settle quietly nearby
+I do not need to go and check on it
+
+[Pre-Chorus]
+The dark in here is kind to me
+The corners here are dim and wide
+There is so much room for what I bring
+
+[Chorus]
+The quiet holds it for me
+Every little weight I brought in here
+I have never been this light inside
+The quiet holds it for me
+
+[Verse 3]
+I could sit like this for good
+My shoulders open wide as they can go
+Nothing asks me to be anywhere
+
+[Bridge]
+Whenever it starts adding up again I know exactly where to bring it now
+The quiet always makes the room
+It holds
+
+[Outro]
+The quiet holds it for me
+I stretch my arms out where I sit
+
+【STYLE】 ★828자
+Soul pop for a cafe, C major, 86 BPM. Female low alto, half voice, near speech, as if
+humming to herself, behind the beat. Narrow melody in a fourth, one phrase returning;
+the chorus keeps those notes and lifts because the band opens, not because she pushes;
+lines end early. Rounded consonants, almost no vibrato. Full band, dense and soft: felt
+upright, low, two-note motif, struck short; Wurlitzer, short off-beat chords; one
+harmony voice, last chorus, no choir; dark bass, short on each beat; mallets on a floor
+tom, rim click, dark hats every bar, never dropping out. Harmony Cmaj9 - Fmaj9 - G9 -
+Abmaj9 to Cmaj9, the five slipping to the flat six. Vocals behind the band, blended in,
+not upfront. Dark warm tone, highs rolled off, lo-fi. Ends on a plucked chord, about two
+and a half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+the quiet holds it for me
+
+--------------------------------------------------------------------------
+  곡 6   애써 버티고 있을 게 없다 (여운 · 보사)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  nothing to hold up
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I stop and there is nothing to hold up
+No face to wear and no answer I should give
+My arms can hang the way they want to hang
+And I can be exactly what I am
+
+[Pre-Chorus]
+The breeze moves in and then out again
+It asks for nothing, so I give it nothing
+We are easy with each other here
+
+[Chorus]
+Nothing to hold up
+Not a single thing I need to prove
+Just the open air and me in it
+Nothing to hold up
+
+[Post-Chorus]
+Easy in and easy out
+Easy is the way it goes
+
+[Verse 2]
+Why was I standing up so straight?
+There is no one here to measure me
+I let my voice come out the size it is
+A little quiet and a little low
+
+[Pre-Chorus]
+The light goes wide across the room
+I watch it go and I do not move
+It is enough for me to just be here
+
+[Chorus]
+Nothing to hold up
+Not a single thing I need to prove
+I could let my eyes go halfway shut
+Nothing to hold up
+
+[Verse 3]
+Somebody hums a tune nearby
+I hum it with them underneath my breath
+Our voices meet and neither one is trying
+
+[Bridge]
+Out on the open side the breeze is taking its time with everything it touches
+It moves the same way around me
+I am fine
+
+[Outro]
+Nothing to hold up
+I sway a little where I sit
+
+【STYLE】 ★826자
+Bossa nova for a cafe, B major, 91 BPM. Female low alto, half voice, near speech, as if
+humming to herself. Narrow melody in a fourth, one phrase returning; the chorus keeps
+those notes and lifts because the band opens, not because she pushes; lines end early.
+Rounded consonants, almost no vibrato. Full band, dense and soft: electric piano in
+short chords; nylon guitar off-beat comping only; one harmony voice, last chorus, no
+choir; bass in short dotted notes; brushes, hats, shaker every bar, never dropping out.
+No upright bass, no jazz trio. Harmony Bmaj9 - G#m9 - Amaj7 - Emaj9 to Bmaj9, the flat
+seven through the four, no dominant chords. Vocals behind the band, blended in, not
+upfront. Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two
+and a half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+nothing to hold up
+
+--------------------------------------------------------------------------
+  곡 7   발끝으로 올라선다 (밝음)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  up on my toes
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I get up on my toes for no good reason
+Just to see how light I really am
+The whole of me goes up a little higher
+Like a balloon that wants to see the view
+
+[Pre-Chorus]
+I stretch my arms up toward the sky
+The sun is right up there and waiting on me
+My heels do not want to touch the ground
+
+[Chorus]
+Up on my toes
+Rising with the music in the air
+Nothing in me wants to stand still
+Up on my toes
+
+[Post-Chorus]
+Higher than the top of me
+Higher, and I laugh out loud
+
+[Verse 2]
+How high can a happy feeling go?
+Higher than the roofline, I would bet
+My chest is full of something bright and quick
+And every part of me is looking up
+
+[Pre-Chorus]
+I bounce a little right where I stand
+The rhythm lifts me right along
+I am taller than I was before
+
+[Chorus]
+Up on my toes
+Rising with the music in the air
+I could touch the very top of the blue
+Up on my toes
+
+[Verse 3]
+I think the sky is smiling back
+I think it likes me standing up this way
+So I rise a little more for it
+
+[Bridge]
+Every time I think I cannot go higher there is one more step
+The whole wide open is above my head
+Up I go
+
+[Outro]
+Up on my toes
+I rise into the open light
+
+【STYLE】 ★827자
+Warm soul pop for a cafe, B flat major, 99 BPM. Female low alto, half voice, near
+speech, as if humming to herself. Narrow melody in a fourth, one phrase returning; the
+chorus keeps those notes and lifts because the band opens, not because she pushes; lines
+end early. Rounded consonants, almost no vibrato. Full band, dense and soft: tape
+electric piano, four-note motif, struck short; a second piano in short answers; one
+harmony voice, last chorus, no choir; thumb-muted bass in short eighths; soft kit,
+brushed snare, cabasa every bar, never dropping out. Harmony Bbmaj9 - Gm9 - Ebmaj9 -
+Gbmaj7 - Abmaj7 to Bbmaj9, rising home from the flat six. Vocals behind the band,
+blended in, not upfront. Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked
+chord, about two and a half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+up on my toes
+
+--------------------------------------------------------------------------
+  곡 8   둘이 가볍게 걷는다 (밝음 · 남성)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  light as we go
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+You and I go walking side by side
+Neither one of us is holding much
+Our hands are free and our steps are in time
+Like there is nowhere that we need to be
+
+[Pre-Chorus]
+You tell me something and I laugh
+It comes out easy, easy as the air
+I do not think I ever felt this light
+
+[Chorus]
+Light as we go
+Nothing on us but the open sky
+Two of us and all the room we need
+Light as we go
+
+[Post-Chorus]
+You and me and all this air
+Nothing in the way of us
+
+[Verse 2]
+Do you feel it in your shoulders too?
+Like somebody took a load away
+You nod and bump me lightly with your arm
+And both of us are grinning at the road
+
+[Pre-Chorus]
+The road ahead is wide and bright
+We take it nice and slow because we can
+There is nothing here to hurry for
+
+[Chorus]
+Light as we go
+Nothing on us but the open sky
+I would walk with you like this for miles
+Light as we go
+
+[Verse 3]
+Your laugh goes bouncing up ahead
+I lengthen out my stride to catch it
+Now the two of us are almost skipping
+
+[Bridge]
+If anybody asked what the two of us brought along I would say only this
+A little tune that both of us can hum
+Just this
+
+[Outro]
+Light as we go
+We walk right in together, easy
+
+【STYLE】 ★828자
+Warm soul pop for a cafe, A major, 96 BPM. Male low baritone, half voice, near speech,
+as if humming to himself, no female vocals. Narrow melody in a fourth, one phrase
+returning; the chorus keeps those notes and lifts because the band opens, not because he
+pushes; lines end early. Rounded consonants, almost no vibrato. Full band, dense and
+soft: soft grand, three-note motif, struck short; chorused guitar in off-beat double
+stops; one harmony voice, last chorus, no choir; fingered bass, short, syncopated; soft
+kick, rim shot, hats every bar, never dropping out. Harmony Amaj9 - F#m9 - Dmaj9 -
+G#m7b5 to Amaj9, the seventh chord half-diminished. Vocals behind the band, blended in,
+not upfront. Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about
+two and a half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+light as we go
+
+--------------------------------------------------------------------------
+  곡 9   그냥 거기 두자 (여운 DARK)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  let it sit where it is
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+Whatever I came in with, let it sit
+Right there where it landed on the way
+I do not have to move it anymore
+I do not have to look at it again
+
+[Pre-Chorus]
+The low light settles on it
+The hum of this place covers it
+I am lighter just for letting be
+
+[Chorus]
+Let it sit where it is
+It can wait there as long as it wants
+I have somewhere better I can be
+Let it sit where it is
+
+[Post-Chorus]
+Low and easy, all around
+Easy, and the room goes slow
+
+[Verse 2]
+Does it need me looking after it?
+No, it does fine all by itself
+I let my eyes go slowly half the way
+And listen to the low hum of the room
+
+[Pre-Chorus]
+My chest grows wider as I sit
+There is room in me I did not know
+I tip my head back in the dark
+
+[Chorus]
+Let it sit where it is
+It can wait there as long as it wants
+I am lighter than I have been in weeks
+Let it sit where it is
+
+[Verse 3]
+I will get around to it or I will not
+Either way the hum goes on and on
+Either way I am all right in here
+
+[Bridge]
+It took me a long time to learn not every weight is mine to hold
+The quiet here has shown me that
+I am free
+
+[Outro]
+Let it sit where it is
+I let my head go back and hum
+
+【STYLE】 ★827자
+Soul pop for a cafe, A flat major, 88 BPM. Female low alto, half voice, near speech, as
+if humming to herself, behind the beat. Narrow melody in a fourth, one phrase returning;
+the chorus keeps those notes and lifts because the band opens, not because she pushes;
+lines end early. Rounded consonants, almost no vibrato. Full band, dense and soft: dark
+suitcase Rhodes, three-note motif, struck short; tape piano, short off-beat chords; one
+harmony voice, last chorus, no choir; deep bass, short; side stick, felt kick, dark hats
+every bar, never dropping out. Harmony Abmaj9 - Eb/G - Fm9 - Eb6 - Dbmaj9 to Abmaj9, the
+bass walking down a step at a time. Vocals behind the band, blended in, not upfront.
+Dark warm tone, highs rolled off, lo-fi. Ends on a plucked chord, about two and a half
+minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+let it sit where it is
+
+--------------------------------------------------------------------------
+  곡 10  세트를 닫고 곧장 되감는 곡 · 들어올 때보다 가볍다 (밝음)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  lighter than i came in
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I came in with a lot on my mind
+And somewhere in the middle it got small
+Now I am tapping my foot without a thought
+Lighter than I was a while ago
+
+[Pre-Chorus]
+I cannot say just when it changed
+I only know I feel the difference now
+My whole body says it out loud
+
+[Chorus]
+Lighter than I came in
+Lighter in my step and in my chest
+Like I set the whole of it aside
+Lighter than I came in
+
+[Post-Chorus]
+Easy, easy, here I am
+Humming like I always do
+
+[Verse 2]
+Was it this place or was it me?
+Maybe both of us had a hand in it
+Either way, I will take it gladly
+I will let it ride along with me
+
+[Pre-Chorus]
+The music turns and so do I
+I spin a little on my heel
+Nobody minds and nobody looks
+
+[Chorus]
+Lighter than I came in
+Lighter in my step and in my chest
+I could run and never lose my breath
+Lighter than I came in
+
+[Verse 3]
+I know that I am grinning way too wide
+I do not mind and I will not stop
+It is the best I have felt in a while
+
+[Bridge]
+Every time I walk in with a weight it slips out the open side without me
+Nobody asks it to and still it goes
+I let it
+
+[Outro]
+Lighter than I came in
+My feet are tapping on their own
+
+【STYLE】 ★819자
+Warm soul pop for a cafe, D major, 100 BPM. Female low alto, half voice, near speech, as
+if humming to herself. Narrow melody in a fourth, one phrase returning; the chorus keeps
+those notes and lifts because the band opens, not because she pushes; lines end early.
+Rounded consonants, almost no vibrato. Full band, dense and soft: bright baby grand,
+high, three-note motif, struck short; a warm mellotron bed, far back; one harmony voice,
+last chorus, no choir; picked bass in short eighths; soft kit, snare, shaker and hats
+every bar, never dropping out. Harmony Dmaj9 - Bm9 - Gm6 - Gmaj9 - A9 to Dmaj9, the
+minor four brightening to major. Vocals behind the band, blended in, not upfront. Warm
+tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two and a half
+minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+lighter than i came in

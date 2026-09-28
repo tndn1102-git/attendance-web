@@ -1,0 +1,30 @@
+[1/6] r05_light on my feet.mp3
+[2/6] r06_light on my feet.mp3
+[3/6] r09_the quiet holds it for me.mp3
+[4/6] r10_the quiet holds it for me.mp3
+[5/6] r13_up on my toes.mp3
+[6/6] r14_up on my toes.mp3
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+파일                                    길이 유성구간 최대(초2초+ 유성 비율유성구간 p90( 멜리스마/유성초alpha 고역비F0 중앙(Hz)보컬−반주(dB)   중간층 점유    드럼 점유   베이스 점유   단어/보컬초
+--------------------------------------------------------------------------------------------------------------------------------------------
+r05_light on my feet.mp3             208     1.36O    0.00O    0.72O    1.42O  -11.23O  262.42O   -7.18O    0.20O    0.31O    0.33X    4.00O
+r06_light on my feet.mp3             188     1.47O    0.00O    0.65O    1.46O  -11.90O  293.99!   -6.48O    0.21O    0.27O    0.32X    4.28O
+r09_the quiet holds it for me.mp3    212     1.58O    0.00O    0.76O    1.85O  -11.64O  271.06O   -6.31O    0.12O    0.32O    0.37X    3.70O
+r10_the quiet holds it for me.mp3    204     1.56O    0.00O    0.73O    1.57O  -11.29O  268.98O   -8.00O    0.24O    0.27O    0.34X    4.15O
+r13_up on my toes.mp3                198     1.56O    0.00O    0.77O    1.42O  -12.04O  292.94!   -4.30O    0.19O    0.25!    0.28X    3.57O
+r14_up on my toes.mp3                206     2.03O    0.01O    0.90O    1.32O  -13.10O  285.85O   -5.60O    0.23O    0.21X    0.33X    3.77O
+--------------------------------------------------------------------------------------------------------------------------------------------
+6트랙 · 탈락 6 · 경고 0 · 통과 0
+O 통과 / ! 경고(구간 청취) / X 탈락(재생성)
+원자료: plum/ep16/_vocal_regen.json

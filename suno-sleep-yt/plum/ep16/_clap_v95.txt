@@ -1,0 +1,25 @@
+CLAP 게이트 · 거리 p90=0.084 (cherry 내부 평균 0.057) · 찬송가축 ❌≥0.00 ⚠️≥-0.05
+
+△  0.102 ( 95%)  ✅      -0.183  01_my steps come easy.mp3
+❌  0.121 ( 96%)  ✅      -0.184  02_my steps come easy.mp3
+✅  0.068 ( 76%)  ✅      -0.242  03_i set it down.mp3
+✅  0.073 ( 81%)  ✅      -0.186  04_i set it down.mp3
+❌  0.124 ( 96%)  ✅      -0.196  05_light on my feet.mp3
+△  0.105 ( 95%)  ✅      -0.206  06_light on my feet.mp3
+✅  0.065 ( 72%)  ✅      -0.148  07_i could float here.mp3
+△  0.116 ( 96%)  ✅      -0.211  08_i could float here.mp3
+✅  0.067 ( 74%)  ✅      -0.211  09_the quiet holds it for me.mp3
+❌  0.168 ( 97%)  ✅      -0.200  10_the quiet holds it for me.mp3
+△  0.100 ( 94%)  ✅      -0.184  11_nothing to hold up.mp3
+△  0.109 ( 95%)  ✅      -0.193  12_nothing to hold up.mp3
+△  0.100 ( 94%)  ✅      -0.163  13_up on my toes.mp3
+△  0.088 ( 90%)  ✅      -0.168  14_up on my toes.mp3
+✅  0.069 ( 77%)  ✅      -0.192  15_light as we go.mp3
+△  0.086 ( 90%)  ✅      -0.223  16_light as we go.mp3
+△  0.088 ( 90%)  ✅      -0.222  17_let it sit where it is.mp3
+△  0.092 ( 92%)  ✅      -0.214  18_let it sit where it is.mp3
+✅  0.080 ( 88%)  ✅      -0.216  19_lighter than i came in.mp3
+△  0.100 ( 94%)  ✅      -0.178  20_lighter than i came in.mp3
+
+거리축 통과: 6/20 (✅=p90 이내, △=경계, ❌=분포 밖)
+✅ 찬송가축 탈락 0곡

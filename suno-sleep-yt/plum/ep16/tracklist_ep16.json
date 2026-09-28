@@ -1,0 +1,367 @@
+{
+ "loops": 3,
+ "seed": 20261002080,
+ "total_sec": 12434.0,
+ "tracks": [
+  {
+   "i": 1,
+   "at": 0.0,
+   "ts": "0:00",
+   "title": "nothing to hold up"
+  },
+  {
+   "i": 2,
+   "at": 203.52,
+   "ts": "3:23",
+   "title": "the quiet holds it for me"
+  },
+  {
+   "i": 3,
+   "at": 416.25,
+   "ts": "6:56",
+   "title": "up on my toes"
+  },
+  {
+   "i": 4,
+   "at": 614.96,
+   "ts": "10:14",
+   "title": "my steps come easy"
+  },
+  {
+   "i": 5,
+   "at": 841.83,
+   "ts": "14:01",
+   "title": "i could float here"
+  },
+  {
+   "i": 6,
+   "at": 1029.08,
+   "ts": "17:09",
+   "title": "i set it down"
+  },
+  {
+   "i": 7,
+   "at": 1215.02,
+   "ts": "20:15",
+   "title": "let it sit where it is"
+  },
+  {
+   "i": 8,
+   "at": 1434.25,
+   "ts": "23:54",
+   "title": "light on my feet"
+  },
+  {
+   "i": 9,
+   "at": 1642.97,
+   "ts": "27:22",
+   "title": "lighter than i came in"
+  },
+  {
+   "i": 10,
+   "at": 1840.23,
+   "ts": "30:40",
+   "title": "light as we go"
+  },
+  {
+   "i": 11,
+   "at": 2053.37,
+   "ts": "34:13",
+   "title": "nothing to hold up"
+  },
+  {
+   "i": 12,
+   "at": 2247.07,
+   "ts": "37:27",
+   "title": "light on my feet"
+  },
+  {
+   "i": 13,
+   "at": 2436.03,
+   "ts": "40:36",
+   "title": "light as we go"
+  },
+  {
+   "i": 14,
+   "at": 2651.01,
+   "ts": "44:11",
+   "title": "up on my toes"
+  },
+  {
+   "i": 15,
+   "at": 2866.69,
+   "ts": "47:46",
+   "title": "the quiet holds it for me"
+  },
+  {
+   "i": 16,
+   "at": 3072.07,
+   "ts": "51:12",
+   "title": "i could float here"
+  },
+  {
+   "i": 17,
+   "at": 3311.58,
+   "ts": "55:11",
+   "title": "lighter than i came in"
+  },
+  {
+   "i": 18,
+   "at": 3523.67,
+   "ts": "58:43",
+   "title": "let it sit where it is"
+  },
+  {
+   "i": 19,
+   "at": 3720.93,
+   "ts": "1:02:00",
+   "title": "i set it down"
+  },
+  {
+   "i": 20,
+   "at": 3933.5,
+   "ts": "1:05:33",
+   "title": "my steps come easy"
+  },
+  {
+   "i": 21,
+   "at": 4144.71,
+   "ts": "1:09:04",
+   "title": "light on my feet"
+  },
+  {
+   "i": 22,
+   "at": 4353.76,
+   "ts": "1:12:33",
+   "title": "i could float here"
+  },
+  {
+   "i": 23,
+   "at": 4541.63,
+   "ts": "1:15:41",
+   "title": "up on my toes"
+  },
+  {
+   "i": 24,
+   "at": 4739.82,
+   "ts": "1:18:59",
+   "title": "lighter than i came in"
+  },
+  {
+   "i": 25,
+   "at": 4937.49,
+   "ts": "1:22:17",
+   "title": "i set it down"
+  },
+  {
+   "i": 26,
+   "at": 5123.02,
+   "ts": "1:25:23",
+   "title": "nothing to hold up"
+  },
+  {
+   "i": 27,
+   "at": 5326.29,
+   "ts": "1:28:46",
+   "title": "let it sit where it is"
+  },
+  {
+   "i": 28,
+   "at": 5545.84,
+   "ts": "1:32:25",
+   "title": "the quiet holds it for me"
+  },
+  {
+   "i": 29,
+   "at": 5758.62,
+   "ts": "1:35:58",
+   "title": "light as we go"
+  },
+  {
+   "i": 30,
+   "at": 5971.88,
+   "ts": "1:39:31",
+   "title": "my steps come easy"
+  },
+  {
+   "i": 31,
+   "at": 6198.72,
+   "ts": "1:43:18",
+   "title": "my steps come easy"
+  },
+  {
+   "i": 32,
+   "at": 6410.38,
+   "ts": "1:46:50",
+   "title": "nothing to hold up"
+  },
+  {
+   "i": 33,
+   "at": 6604.41,
+   "ts": "1:50:04",
+   "title": "i set it down"
+  },
+  {
+   "i": 34,
+   "at": 6817.46,
+   "ts": "1:53:37",
+   "title": "light on my feet"
+  },
+  {
+   "i": 35,
+   "at": 7006.51,
+   "ts": "1:56:46",
+   "title": "the quiet holds it for me"
+  },
+  {
+   "i": 36,
+   "at": 7211.51,
+   "ts": "2:00:11",
+   "title": "light as we go"
+  },
+  {
+   "i": 37,
+   "at": 7426.75,
+   "ts": "2:03:46",
+   "title": "i could float here"
+  },
+  {
+   "i": 38,
+   "at": 7666.23,
+   "ts": "2:07:46",
+   "title": "lighter than i came in"
+  },
+  {
+   "i": 39,
+   "at": 7877.53,
+   "ts": "2:11:17",
+   "title": "up on my toes"
+  },
+  {
+   "i": 40,
+   "at": 8093.16,
+   "ts": "2:14:53",
+   "title": "let it sit where it is"
+  },
+  {
+   "i": 41,
+   "at": 8290.0,
+   "ts": "2:18:09",
+   "title": "up on my toes"
+  },
+  {
+   "i": 42,
+   "at": 8488.92,
+   "ts": "2:21:28",
+   "title": "nothing to hold up"
+  },
+  {
+   "i": 43,
+   "at": 8691.9,
+   "ts": "2:24:51",
+   "title": "light as we go"
+  },
+  {
+   "i": 44,
+   "at": 8905.28,
+   "ts": "2:28:25",
+   "title": "i set it down"
+  },
+  {
+   "i": 45,
+   "at": 9091.29,
+   "ts": "2:31:31",
+   "title": "my steps come easy"
+  },
+  {
+   "i": 46,
+   "at": 9318.63,
+   "ts": "2:35:18",
+   "title": "light on my feet"
+  },
+  {
+   "i": 47,
+   "at": 9527.7,
+   "ts": "2:38:47",
+   "title": "let it sit where it is"
+  },
+  {
+   "i": 48,
+   "at": 9746.59,
+   "ts": "2:42:26",
+   "title": "i could float here"
+  },
+  {
+   "i": 49,
+   "at": 9933.86,
+   "ts": "2:45:33",
+   "title": "the quiet holds it for me"
+  },
+  {
+   "i": 50,
+   "at": 10146.8,
+   "ts": "2:49:06",
+   "title": "lighter than i came in"
+  },
+  {
+   "i": 51,
+   "at": 10344.02,
+   "ts": "2:52:24",
+   "title": "light as we go"
+  },
+  {
+   "i": 52,
+   "at": 10559.63,
+   "ts": "2:55:59",
+   "title": "nothing to hold up"
+  },
+  {
+   "i": 53,
+   "at": 10753.0,
+   "ts": "2:59:12",
+   "title": "light on my feet"
+  },
+  {
+   "i": 54,
+   "at": 10942.08,
+   "ts": "3:02:22",
+   "title": "i could float here"
+  },
+  {
+   "i": 55,
+   "at": 11181.34,
+   "ts": "3:06:21",
+   "title": "let it sit where it is"
+  },
+  {
+   "i": 56,
+   "at": 11378.53,
+   "ts": "3:09:38",
+   "title": "my steps come easy"
+  },
+  {
+   "i": 57,
+   "at": 11590.11,
+   "ts": "3:13:10",
+   "title": "i set it down"
+  },
+  {
+   "i": 58,
+   "at": 11802.65,
+   "ts": "3:16:42",
+   "title": "up on my toes"
+  },
+  {
+   "i": 59,
+   "at": 12018.12,
+   "ts": "3:20:18",
+   "title": "the quiet holds it for me"
+  },
+  {
+   "i": 60,
+   "at": 12223.06,
+   "ts": "3:23:43",
+   "title": "lighter than i came in"
+  }
+ ]
+}

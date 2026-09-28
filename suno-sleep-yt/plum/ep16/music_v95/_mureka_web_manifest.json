@@ -1,0 +1,202 @@
+[
+ {
+  "index": 1,
+  "title": "my steps come easy",
+  "take": 1,
+  "dur_sec": 226.3,
+  "song_id": 163383728930817,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383725260804_FtBuGHJPGqVNFJiBiZrF1i_kaamnt.mp3",
+  "file": "plum/ep16/music_v95\\01_my steps come easy.mp3"
+ },
+ {
+  "index": 2,
+  "title": "my steps come easy",
+  "take": 2,
+  "dur_sec": 210.6,
+  "song_id": 163383729192961,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383725260804_FtBuGHJPGqVNFJiBiZrF1i_xcfefq.mp3",
+  "file": "plum/ep16/music_v95\\02_my steps come easy.mp3"
+ },
+ {
+  "index": 3,
+  "title": "i set it down",
+  "take": 1,
+  "dur_sec": 185.2,
+  "song_id": 163383754096642,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383750426629_MyTpp9zr1hdNjwpqejsz1x_ufyyvt.mp3",
+  "file": "plum/ep16/music_v95\\03_i set it down.mp3"
+ },
+ {
+  "index": 4,
+  "title": "i set it down",
+  "take": 2,
+  "dur_sec": 212.0,
+  "song_id": 163383754227715,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383750426629_MyTpp9zr1hdNjwpqejsz1x_fknkri.mp3",
+  "file": "plum/ep16/music_v95\\04_i set it down.mp3"
+ },
+ {
+  "index": 5,
+  "title": "light on my feet",
+  "take": 1,
+  "dur_sec": 204.1,
+  "song_id": 163383775068163,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383773495299_12rzK3koEua4D74idVwV95_msvjwm.mp3",
+  "file": "plum/ep16/music_v95\\05_light on my feet.mp3"
+ },
+ {
+  "index": 6,
+  "title": "light on my feet",
+  "take": 2,
+  "dur_sec": 211.7,
+  "song_id": 163383775199233,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383773495299_12rzK3koEua4D74idVwV95_xglfhj.mp3",
+  "file": "plum/ep16/music_v95\\06_light on my feet.mp3"
+ },
+ {
+  "index": 7,
+  "title": "i could float here",
+  "take": 1,
+  "dur_sec": 186.8,
+  "song_id": 163383802331137,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383798267905_74YL4LxzS7w179xWMusVAZ_wcopvc.mp3",
+  "file": "plum/ep16/music_v95\\07_i could float here.mp3"
+ },
+ {
+  "index": 8,
+  "title": "i could float here",
+  "take": 2,
+  "dur_sec": 238.8,
+  "song_id": 163383802396673,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383798267905_74YL4LxzS7w179xWMusVAZ_dxjylw.mp3",
+  "file": "plum/ep16/music_v95\\08_i could float here.mp3"
+ },
+ {
+  "index": 9,
+  "title": "the quiet holds it for me",
+  "take": 1,
+  "dur_sec": 204.4,
+  "song_id": 163383827628033,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383823368193_3bKMknwtLqyEw4cEiNYPmt_wvunuh.mp3",
+  "file": "plum/ep16/music_v95\\09_the quiet holds it for me.mp3"
+ },
+ {
+  "index": 10,
+  "title": "the quiet holds it for me",
+  "take": 2,
+  "dur_sec": 192.8,
+  "song_id": 163383827693569,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383823368193_3bKMknwtLqyEw4cEiNYPmt_rokqri.mp3",
+  "file": "plum/ep16/music_v95\\10_the quiet holds it for me.mp3"
+ },
+ {
+  "index": 11,
+  "title": "nothing to hold up",
+  "take": 1,
+  "dur_sec": 202.5,
+  "song_id": 163383850696705,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383846830083_QNQKvUimRCYNp9VR4KnXC6_rwsaok.mp3",
+  "file": "plum/ep16/music_v95\\11_nothing to hold up.mp3"
+ },
+ {
+  "index": 12,
+  "title": "nothing to hold up",
+  "take": 2,
+  "dur_sec": 192.9,
+  "song_id": 163383850696706,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383846830083_QNQKvUimRCYNp9VR4KnXC6_xkqjoh.mp3",
+  "file": "plum/ep16/music_v95\\12_nothing to hold up.mp3"
+ },
+ {
+  "index": 13,
+  "title": "up on my toes",
+  "take": 1,
+  "dur_sec": 210.8,
+  "song_id": 163383873765377,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383869898754_WxGvoKyhun7wjpqF9bCULn_cyrhrl.mp3",
+  "file": "plum/ep16/music_v95\\13_up on my toes.mp3"
+ },
+ {
+  "index": 14,
+  "title": "up on my toes",
+  "take": 2,
+  "dur_sec": 214.7,
+  "song_id": 163383873830913,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383869898754_WxGvoKyhun7wjpqF9bCULn_gbbtyg.mp3",
+  "file": "plum/ep16/music_v95\\14_up on my toes.mp3"
+ },
+ {
+  "index": 15,
+  "title": "light as we go",
+  "take": 1,
+  "dur_sec": 212.3,
+  "song_id": 163383898931201,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383895064577_JMuK6keS7EsiJePn1AXvsG_coexjc.mp3",
+  "file": "plum/ep16/music_v95\\15_light as we go.mp3"
+ },
+ {
+  "index": 16,
+  "title": "light as we go",
+  "take": 2,
+  "dur_sec": 214.5,
+  "song_id": 163383898931202,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383895064577_JMuK6keS7EsiJePn1AXvsG_wvgtgg.mp3",
+  "file": "plum/ep16/music_v95\\16_light as we go.mp3"
+ },
+ {
+  "index": 17,
+  "title": "let it sit where it is",
+  "take": 1,
+  "dur_sec": 218.4,
+  "song_id": 163383921999873,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383919837185_Y7kVRiFq2LnV2ZQbB9mUMU_kpcofr.mp3",
+  "file": "plum/ep16/music_v95\\17_let it sit where it is.mp3"
+ },
+ {
+  "index": 18,
+  "title": "let it sit where it is",
+  "take": 2,
+  "dur_sec": 196.1,
+  "song_id": 163383924228097,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383919837185_Y7kVRiFq2LnV2ZQbB9mUMU_nqfmun.mp3",
+  "file": "plum/ep16/music_v95\\18_let it sit where it is.mp3"
+ },
+ {
+  "index": 19,
+  "title": "lighter than i came in",
+  "take": 1,
+  "dur_sec": 196.8,
+  "song_id": 163383947100163,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383945396225_SYCjJLnSN3DAUTkepx4cV7_fdybsr.mp3",
+  "file": "plum/ep16/music_v95\\19_lighter than i came in.mp3"
+ },
+ {
+  "index": 20,
+  "title": "lighter than i came in",
+  "take": 2,
+  "dur_sec": 211.0,
+  "song_id": 163383947100164,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260928/music_163383945396225_SYCjJLnSN3DAUTkepx4cV7_xxchhp.mp3",
+  "file": "plum/ep16/music_v95\\20_lighter than i came in.mp3"
+ }
+]

@@ -1,0 +1,86 @@
+[1/20] 01_my steps come easy.mp3
+[2/20] 02_my steps come easy.mp3
+[3/20] 03_i set it down.mp3
+[4/20] 04_i set it down.mp3
+[5/20] 05_light on my feet.mp3
+[6/20] 06_light on my feet.mp3
+[7/20] 07_i could float here.mp3
+[8/20] 08_i could float here.mp3
+[9/20] 09_the quiet holds it for me.mp3
+[10/20] 10_the quiet holds it for me.mp3
+[11/20] 11_nothing to hold up.mp3
+[12/20] 12_nothing to hold up.mp3
+[13/20] 13_up on my toes.mp3
+[14/20] 14_up on my toes.mp3
+[15/20] 15_light as we go.mp3
+[16/20] 16_light as we go.mp3
+[17/20] 17_let it sit where it is.mp3
+[18/20] 18_let it sit where it is.mp3
+[19/20] 19_lighter than i came in.mp3
+[20/20] 20_lighter than i came in.mp3
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+파일                                    길이 유성구간 최대(초2초+ 유성 비율유성구간 p90( 멜리스마/유성초alpha 고역비F0 중앙(Hz)보컬−반주(dB)   중간층 점유    드럼 점유   베이스 점유   단어/보컬초
+--------------------------------------------------------------------------------------------------------------------------------------------
+01_my steps come easy.mp3            226     2.43O    0.03O    0.94O    1.40O  -13.88O  266.81O   -4.73O    0.29O    0.08X    0.36X    3.39O
+02_my steps come easy.mp3            211     1.68O    0.00O    0.83O    1.37O  -12.66O  264.81O   -6.12O    0.30O    0.19X    0.31X    3.61O
+03_i set it down.mp3                 185     1.56O    0.00O    0.55O    1.36O  -11.31O  278.80O   -6.40O    0.16O    0.35O    0.30X    4.28O
+04_i set it down.mp3                 212     1.44O    0.00O    0.68O    1.40O  -11.44O  276.76O   -7.09O    0.11O    0.37O    0.34X    4.36O
+05_light on my feet.mp3              204     1.37O    0.00O    0.69O    1.36O  -11.70O  264.68O   -8.13O    0.25O    0.30O    0.31X    4.40O
+06_light on my feet.mp3              212     1.26O    0.00O    0.77O    1.54O  -10.98O  265.09O   -6.28O    0.20O    0.25!    0.35X    4.15O
+07_i could float here.mp3            187     1.33O    0.00O    0.89O    1.05O  -11.70O  293.85!   -5.77O    0.27O    0.28O    0.23X    3.63O
+08_i could float here.mp3            239     1.20O    0.00O    0.92O    1.51O  -11.65O  275.20O   -6.51O    0.18O    0.39O    0.24X    3.85O
+09_the quiet holds it for me.mp3     204     1.67O    0.00O    0.68O    1.90O  -12.20O  290.92O   -5.78O    0.23O    0.25!    0.31X    3.44O
+10_the quiet holds it for me.mp3     193     1.44O    0.00O    0.66O    1.78O  -12.76O  276.72O   -6.42O    0.19O    0.25!    0.37X    4.18O
+11_nothing to hold up.mp3            202     2.45O    0.01O    0.93O    1.06O  -12.73O  288.90O   -4.34O    0.31O    0.13X    0.28X    3.61O
+12_nothing to hold up.mp3            193     1.59O    0.00O    0.91O    1.05O  -13.78O  293.13!   -4.99O    0.32O    0.14X    0.29X    3.31O
+13_up on my toes.mp3                 211     1.75O    0.00O    0.70O    1.26O  -14.27O  264.57O   -5.30O    0.20O    0.27O    0.29X    3.72O
+14_up on my toes.mp3                 215     1.82O    0.00O    0.83O    1.58O  -11.51O  288.82O   -5.95O    0.17O    0.30O    0.31X    3.63O
+15_light as we go.mp3                212     1.87O    0.00O    0.94O    1.44O  -13.74O  219.07O   -5.38O    0.13O    0.30O    0.34X    3.25O
+16_light as we go.mp3                214     2.34O    0.01O    0.97O    1.49O  -13.65O  207.38O   -4.70O    0.11O    0.31O    0.33X    3.36O
+17_let it sit where it is.mp3        218     1.51O    0.00O    0.82O    1.70O  -13.02O  263.98O   -7.61O    0.19O    0.39O    0.27X    4.07O
+18_let it sit where it is.mp3        196     1.54O    0.00O    0.85O    1.97O  -11.66O  266.29O   -7.98O    0.17O    0.31O    0.37X    4.04O
+19_lighter than i came in.mp3        197     1.74O    0.00O    0.80O    1.03O  -11.46O  295.34!   -6.13O    0.16O    0.25!    0.38X    3.40O
+20_lighter than i came in.mp3        211     2.50O    0.01O    0.82O    1.40O  -11.77O  293.73!   -5.35O    0.17O    0.28O    0.31X    3.70O
+--------------------------------------------------------------------------------------------------------------------------------------------
+20트랙 · 탈락 20 · 경고 0 · 통과 0
+O 통과 / ! 경고(구간 청취) / X 탈락(재생성)
+원자료: plum/ep16/_vocal_v95.json
