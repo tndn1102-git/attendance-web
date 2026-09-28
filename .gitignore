@@ -28,3 +28,7 @@ suno-sleep-yt/**/*.mp3
 suno-sleep-yt/**/*.wav
 suno-sleep-yt/**/*.mp4
 suno-sleep-yt/.pw-profile*/
+
+# 4채널 예약 현황판 — 부팅마다 yt_schedule_board.py 가 다시 만드는 산출물
+suno-sleep-yt/업로드일정.html
+suno-sleep-yt/tools/_schedule_board.log
