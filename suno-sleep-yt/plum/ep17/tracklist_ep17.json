@@ -1,0 +1,367 @@
+{
+ "loops": 3,
+ "seed": 20261002017,
+ "total_sec": 13025.9,
+ "tracks": [
+  {
+   "i": 1,
+   "at": 0.0,
+   "ts": "0:00",
+   "title": "taste this with me"
+  },
+  {
+   "i": 2,
+   "at": 202.59,
+   "ts": "3:22",
+   "title": "one sip at a time"
+  },
+  {
+   "i": 3,
+   "at": 420.69,
+   "ts": "7:00",
+   "title": "let it sit on my tongue"
+  },
+  {
+   "i": 4,
+   "at": 643.49,
+   "ts": "10:43",
+   "title": "a little bitter, and i like it"
+  },
+  {
+   "i": 5,
+   "at": 846.92,
+   "ts": "14:06",
+   "title": "something in me unclenched"
+  },
+  {
+   "i": 6,
+   "at": 1075.34,
+   "ts": "17:55",
+   "title": "i follow it in"
+  },
+  {
+   "i": 7,
+   "at": 1280.14,
+   "ts": "21:20",
+   "title": "i will be back before i mean to"
+  },
+  {
+   "i": 8,
+   "at": 1503.81,
+   "ts": "25:03",
+   "title": "no need to swallow fast"
+  },
+  {
+   "i": 9,
+   "at": 1728.9,
+   "ts": "28:48",
+   "title": "one thought at a time"
+  },
+  {
+   "i": 10,
+   "at": 1962.26,
+   "ts": "32:42",
+   "title": "i take it slow"
+  },
+  {
+   "i": 11,
+   "at": 2172.21,
+   "ts": "36:12",
+   "title": "no need to swallow fast"
+  },
+  {
+   "i": 12,
+   "at": 2401.02,
+   "ts": "40:01",
+   "title": "a little bitter, and i like it"
+  },
+  {
+   "i": 13,
+   "at": 2613.92,
+   "ts": "43:33",
+   "title": "something in me unclenched"
+  },
+  {
+   "i": 14,
+   "at": 2829.84,
+   "ts": "47:09",
+   "title": "one sip at a time"
+  },
+  {
+   "i": 15,
+   "at": 3043.58,
+   "ts": "50:43",
+   "title": "i take it slow"
+  },
+  {
+   "i": 16,
+   "at": 3249.32,
+   "ts": "54:09",
+   "title": "i follow it in"
+  },
+  {
+   "i": 17,
+   "at": 3456.79,
+   "ts": "57:36",
+   "title": "taste this with me"
+  },
+  {
+   "i": 18,
+   "at": 3664.07,
+   "ts": "1:01:04",
+   "title": "one thought at a time"
+  },
+  {
+   "i": 19,
+   "at": 3884.73,
+   "ts": "1:04:44",
+   "title": "let it sit on my tongue"
+  },
+  {
+   "i": 20,
+   "at": 4091.56,
+   "ts": "1:08:11",
+   "title": "i will be back before i mean to"
+  },
+  {
+   "i": 21,
+   "at": 4342.37,
+   "ts": "1:12:22",
+   "title": "i take it slow"
+  },
+  {
+   "i": 22,
+   "at": 4551.55,
+   "ts": "1:15:51",
+   "title": "a little bitter, and i like it"
+  },
+  {
+   "i": 23,
+   "at": 4755.03,
+   "ts": "1:19:15",
+   "title": "no need to swallow fast"
+  },
+  {
+   "i": 24,
+   "at": 4979.3,
+   "ts": "1:22:59",
+   "title": "i follow it in"
+  },
+  {
+   "i": 25,
+   "at": 5184.08,
+   "ts": "1:26:24",
+   "title": "i will be back before i mean to"
+  },
+  {
+   "i": 26,
+   "at": 5408.1,
+   "ts": "1:30:08",
+   "title": "something in me unclenched"
+  },
+  {
+   "i": 27,
+   "at": 5636.28,
+   "ts": "1:33:56",
+   "title": "taste this with me"
+  },
+  {
+   "i": 28,
+   "at": 5839.61,
+   "ts": "1:37:19",
+   "title": "one thought at a time"
+  },
+  {
+   "i": 29,
+   "at": 6072.92,
+   "ts": "1:41:12",
+   "title": "one sip at a time"
+  },
+  {
+   "i": 30,
+   "at": 6290.51,
+   "ts": "1:44:50",
+   "title": "let it sit on my tongue"
+  },
+  {
+   "i": 31,
+   "at": 6513.73,
+   "ts": "1:48:33",
+   "title": "taste this with me"
+  },
+  {
+   "i": 32,
+   "at": 6721.28,
+   "ts": "1:52:01",
+   "title": "i take it slow"
+  },
+  {
+   "i": 33,
+   "at": 6926.29,
+   "ts": "1:55:26",
+   "title": "i will be back before i mean to"
+  },
+  {
+   "i": 34,
+   "at": 7177.16,
+   "ts": "1:59:37",
+   "title": "i follow it in"
+  },
+  {
+   "i": 35,
+   "at": 7384.84,
+   "ts": "2:03:04",
+   "title": "let it sit on my tongue"
+  },
+  {
+   "i": 36,
+   "at": 7592.19,
+   "ts": "2:06:32",
+   "title": "a little bitter, and i like it"
+  },
+  {
+   "i": 37,
+   "at": 7805.1,
+   "ts": "2:10:05",
+   "title": "something in me unclenched"
+  },
+  {
+   "i": 38,
+   "at": 8020.84,
+   "ts": "2:13:40",
+   "title": "one sip at a time"
+  },
+  {
+   "i": 39,
+   "at": 8234.35,
+   "ts": "2:17:14",
+   "title": "one thought at a time"
+  },
+  {
+   "i": 40,
+   "at": 8455.12,
+   "ts": "2:20:55",
+   "title": "no need to swallow fast"
+  },
+  {
+   "i": 41,
+   "at": 8684.14,
+   "ts": "2:24:44",
+   "title": "one sip at a time"
+  },
+  {
+   "i": 42,
+   "at": 8901.37,
+   "ts": "2:28:21",
+   "title": "one thought at a time"
+  },
+  {
+   "i": 43,
+   "at": 9134.85,
+   "ts": "2:32:14",
+   "title": "i will be back before i mean to"
+  },
+  {
+   "i": 44,
+   "at": 9358.8,
+   "ts": "2:35:58",
+   "title": "i follow it in"
+  },
+  {
+   "i": 45,
+   "at": 9563.55,
+   "ts": "2:39:23",
+   "title": "i take it slow"
+  },
+  {
+   "i": 46,
+   "at": 9773.49,
+   "ts": "2:42:53",
+   "title": "let it sit on my tongue"
+  },
+  {
+   "i": 47,
+   "at": 9996.32,
+   "ts": "2:46:36",
+   "title": "a little bitter, and i like it"
+  },
+  {
+   "i": 48,
+   "at": 10199.89,
+   "ts": "2:49:59",
+   "title": "something in me unclenched"
+  },
+  {
+   "i": 49,
+   "at": 10428.28,
+   "ts": "2:53:48",
+   "title": "taste this with me"
+  },
+  {
+   "i": 50,
+   "at": 10631.01,
+   "ts": "2:57:11",
+   "title": "no need to swallow fast"
+  },
+  {
+   "i": 51,
+   "at": 10855.91,
+   "ts": "3:00:55",
+   "title": "i take it slow"
+  },
+  {
+   "i": 52,
+   "at": 11061.54,
+   "ts": "3:04:21",
+   "title": "a little bitter, and i like it"
+  },
+  {
+   "i": 53,
+   "at": 11274.73,
+   "ts": "3:07:54",
+   "title": "let it sit on my tongue"
+  },
+  {
+   "i": 54,
+   "at": 11481.42,
+   "ts": "3:11:21",
+   "title": "i follow it in"
+  },
+  {
+   "i": 55,
+   "at": 11689.3,
+   "ts": "3:14:49",
+   "title": "taste this with me"
+  },
+  {
+   "i": 56,
+   "at": 11897.01,
+   "ts": "3:18:17",
+   "title": "one thought at a time"
+  },
+  {
+   "i": 57,
+   "at": 12117.62,
+   "ts": "3:21:57",
+   "title": "something in me unclenched"
+  },
+  {
+   "i": 58,
+   "at": 12333.75,
+   "ts": "3:25:33",
+   "title": "i will be back before i mean to"
+  },
+  {
+   "i": 59,
+   "at": 12584.58,
+   "ts": "3:29:44",
+   "title": "one sip at a time"
+  },
+  {
+   "i": 60,
+   "at": 12798.07,
+   "ts": "3:33:18",
+   "title": "no need to swallow fast"
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+CLAP 게이트 · 거리 p90=0.084 (cherry 내부 평균 0.057) · 찬송가축 ❌≥0.00 ⚠️≥-0.05
+
+✅  0.083 ( 89%)  ✅      -0.226  01_one sip at a time.mp3
+✅  0.061 ( 66%)  ✅      -0.211  02_one sip at a time.mp3
+✅  0.076 ( 84%)  ✅      -0.152  03_i take it slow.mp3
+✅  0.081 ( 88%)  ✅      -0.155  04_i take it slow.mp3
+△  0.086 ( 90%)  ✅      -0.226  05_let it sit on my tongue.mp3
+✅  0.070 ( 78%)  ✅      -0.215  06_let it sit on my tongue.mp3
+△  0.106 ( 95%)  ✅      -0.186  07_no need to swallow fast.mp3
+△  0.106 ( 95%)  ✅      -0.164  08_no need to swallow fast.mp3
+✅  0.057 ( 63%)  ✅      -0.233  09_taste this with me.mp3
+△  0.090 ( 91%)  ✅      -0.196  10_taste this with me.mp3
+✅  0.059 ( 65%)  ✅      -0.231  11_a little bitter, and i like it.mp3
+✅  0.045 ( 46%)  ✅      -0.231  12_a little bitter, and i like it.mp3
+
+거리축 통과: 8/12 (✅=p90 이내, △=경계, ❌=분포 밖)
+✅ 찬송가축 탈락 0곡

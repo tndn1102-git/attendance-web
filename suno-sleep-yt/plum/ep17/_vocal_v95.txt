@@ -1,0 +1,54 @@
+[1/12] 01_one sip at a time.mp3
+[2/12] 02_one sip at a time.mp3
+[3/12] 03_i take it slow.mp3
+[4/12] 04_i take it slow.mp3
+[5/12] 05_let it sit on my tongue.mp3
+[6/12] 06_let it sit on my tongue.mp3
+[7/12] 07_no need to swallow fast.mp3
+[8/12] 08_no need to swallow fast.mp3
+[9/12] 09_taste this with me.mp3
+[10/12] 10_taste this with me.mp3
+[11/12] 11_a little bitter, and i like it.mp3
+[12/12] 12_a little bitter, and i like it.mp3
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+파일                                    길이 유성구간 최대(초2초+ 유성 비율유성구간 p90( 멜리스마/유성초alpha 고역비F0 중앙(Hz)보컬−반주(dB)   중간층 점유    드럼 점유   베이스 점유   단어/보컬초
+--------------------------------------------------------------------------------------------------------------------------------------------
+01_one sip at a time.mp3             217     1.58O    0.00O    0.76O    1.30O  -12.16O  293.05!   -4.99O    0.14O    0.28O    0.33X    3.75O
+02_one sip at a time.mp3             213     1.60O    0.00O    0.75O    1.75O  -10.30O  303.23!   -7.47O    0.20O    0.29O    0.35X    3.65O
+03_i take it slow.mp3                209     1.94O    0.00O    0.74O    1.23O  -11.07O  311.04!   -4.77O    0.16O    0.29O    0.29X    3.39O
+04_i take it slow.mp3                205     2.28O    0.01O    0.77O    1.48O  -10.97O  290.13O   -5.43O    0.19O    0.28O    0.29X    3.65O
+05_let it sit on my tongue.mp3       222     1.87O    0.00O    0.82O    1.80O  -11.60O  284.37O   -6.97O    0.22O    0.29O    0.31X    3.92O
+06_let it sit on my tongue.mp3       206     1.66O    0.00O    0.78O    1.27O  -12.12O  268.75O   -5.30O    0.19O    0.27O    0.31X    3.79O
+07_no need to swallow fast.mp3       224     3.33O    0.03O    0.82O    1.40O  -12.04O  280.62O   -5.15O    0.27O    0.20X    0.28X    3.23O
+08_no need to swallow fast.mp3       228     2.05O    0.01O    0.95O    1.27O  -12.61O  279.36O   -4.89O    0.27O    0.19X    0.28X    3.62O
+09_taste this with me.mp3            202     1.66O    0.00O    0.80O    1.37O  -13.63O  221.73O   -5.07O    0.12O    0.29O    0.34X    3.36O
+10_taste this with me.mp3            207     1.80O    0.00O    0.87O    1.67O  -13.53O  184.03O   -5.34O    0.14O    0.37O    0.26X    3.13O
+11_a little bitter, and i like it.   203     1.31O    0.00O    0.66O    1.97O  -11.81O  273.39O   -6.33O    0.13O    0.29O    0.38X    3.52O
+12_a little bitter, and i like it.   212     1.15O    0.00O    0.73O    1.48O  -11.47O  276.17O   -6.32O    0.12O    0.34O    0.34X    3.63O
+--------------------------------------------------------------------------------------------------------------------------------------------
+12트랙 · 탈락 12 · 경고 0 · 통과 0
+O 통과 / ! 경고(구간 청취) / X 탈락(재생성)
+원자료: plum/ep17/_vocal_v95.json

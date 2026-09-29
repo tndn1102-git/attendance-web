@@ -1,0 +1,122 @@
+[
+ {
+  "index": 1,
+  "title": "one sip at a time",
+  "take": 1,
+  "dur_sec": 216.9,
+  "song_id": 163541397078017,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260929/music_163541393276932_KVGxryBuY2gvJLsqw8wJr5_dbyrzo.mp3",
+  "file": "plum/ep17/music_v95\\01_one sip at a time.mp3"
+ },
+ {
+  "index": 2,
+  "title": "one sip at a time",
+  "take": 2,
+  "dur_sec": 213.1,
+  "song_id": 163541397274625,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260929/music_163541393276932_KVGxryBuY2gvJLsqw8wJr5_pexrng.mp3",
+  "file": "plum/ep17/music_v95\\02_one sip at a time.mp3"
+ },
+ {
+  "index": 3,
+  "title": "i take it slow",
+  "take": 1,
+  "dur_sec": 208.8,
+  "song_id": 163541422374914,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260929/music_163541418442757_BQPScefJABfC8S8C2Q1mh7_djwnfd.mp3",
+  "file": "plum/ep17/music_v95\\03_i take it slow.mp3"
+ },
+ {
+  "index": 4,
+  "title": "i take it slow",
+  "take": 2,
+  "dur_sec": 204.6,
+  "song_id": 163541422374915,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260929/music_163541418442757_BQPScefJABfC8S8C2Q1mh7_dahyut.mp3",
+  "file": "plum/ep17/music_v95\\04_i take it slow.mp3"
+ },
+ {
+  "index": 5,
+  "title": "let it sit on my tongue",
+  "take": 1,
+  "dur_sec": 222.3,
+  "song_id": 163541447475201,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260929/music_163541441118210_SMTB5wdHwyJqTWRfdkX4cn_sfdslr.mp3",
+  "file": "plum/ep17/music_v95\\05_let it sit on my tongue.mp3"
+ },
+ {
+  "index": 6,
+  "title": "let it sit on my tongue",
+  "take": 2,
+  "dur_sec": 206.2,
+  "song_id": 163541447540737,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260929/music_163541441118210_SMTB5wdHwyJqTWRfdkX4cn_ynxnjo.mp3",
+  "file": "plum/ep17/music_v95\\06_let it sit on my tongue.mp3"
+ },
+ {
+  "index": 7,
+  "title": "no need to swallow fast",
+  "take": 1,
+  "dur_sec": 223.9,
+  "song_id": 163541468315650,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260929/music_163541466742788_QDtp4PKoynfZVyAiXX8EiS_tiwbyg.mp3",
+  "file": "plum/ep17/music_v95\\07_no need to swallow fast.mp3"
+ },
+ {
+  "index": 8,
+  "title": "no need to swallow fast",
+  "take": 2,
+  "dur_sec": 227.9,
+  "song_id": 163541468381186,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260929/music_163541466742788_QDtp4PKoynfZVyAiXX8EiS_ftemhj.mp3",
+  "file": "plum/ep17/music_v95\\08_no need to swallow fast.mp3"
+ },
+ {
+  "index": 9,
+  "title": "taste this with me",
+  "take": 1,
+  "dur_sec": 202.2,
+  "song_id": 163541493547010,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260929/music_163541491908609_VRozF7w7kGwZgPJkhD7EmV_cmhzur.mp3",
+  "file": "plum/ep17/music_v95\\09_taste this with me.mp3"
+ },
+ {
+  "index": 10,
+  "title": "taste this with me",
+  "take": 2,
+  "dur_sec": 206.6,
+  "song_id": 163541493678081,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260929/music_163541491908609_VRozF7w7kGwZgPJkhD7EmV_fqoacp.mp3",
+  "file": "plum/ep17/music_v95\\10_taste this with me.mp3"
+ },
+ {
+  "index": 11,
+  "title": "a little bitter, and i like it",
+  "take": 1,
+  "dur_sec": 202.8,
+  "song_id": 163541516615681,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260929/music_163541514911748_A5bksS9Xc7twwvM2ofsNYm_dhyvpo.mp3",
+  "file": "plum/ep17/music_v95\\11_a little bitter, and i like it.mp3"
+ },
+ {
+  "index": 12,
+  "title": "a little bitter, and i like it",
+  "take": 2,
+  "dur_sec": 212.5,
+  "song_id": 163541516746754,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20260929/music_163541514911748_A5bksS9Xc7twwvM2ofsNYm_tlvlyh.mp3",
+  "file": "plum/ep17/music_v95\\12_a little bitter, and i like it.mp3"
+ }
+]

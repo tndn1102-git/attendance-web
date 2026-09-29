@@ -1,0 +1,1161 @@
+==========================================================================
+ plum music EP17 — "여기선 커피도 한 모금씩 천천히 마시게 돼요" 편 (가을 5편째)   ★붙여넣기 전용본
+ 각 곡은 위에서부터 가사 -> 스타일 -> 배제어 -> 제목 네 블록 순서다.
+==========================================================================
+
+ [플랫폼]     Mureka 아홉 번째 편. 곡당 V9.5 만 1생성(= 2테이크).
+              변환 = py -3 tools\suno_to_mureka.py plum\ep17\suno-prompts-plum-ep17.txt ^
+                       --tail-file plum\_assets\mureka_tail_plum.txt --ack-loss
+              (EXCLUDE 블록 제거 + 꼬리 169자 인라인 · 본문 상한 830 · 병합 상한 1,000)
+ [받는 폴더]  D:\test3\suno-sleep-yt\plum\ep17\music
+ [발행]       2026-10-02 (금) 08:00 KST
+ [기준 문서]  컨셉-ep17.md · CLAUDE.md §🎤🔴🔴(2026-09-07 보컬 상시규칙) ·
+              §🎼🔴🔴(찬송가 축) · §🎼 az6(스무스재즈는 막지 않는다) ·
+              ep10\_찬송가-처방.md · ep16\컨셉-ep16.md(보사 게이트 결과)
+ [상위 필터]  CLAUDE.md §🏝️ 럭셔리·깔끔·심플·리조트. 비·슬픔·추억·끝나감 0줄.
+              + 컨셉 §ⓐ 🍂 가을 우울 함정 금지 — 끝나감·짧아지는 해·시듦 0줄.
+                쓴맛은 "커피가 원래 그렇다"는 밝은 디테일까지만(#6). 상실 은유 0.
+
+ 🔴 이 편도 **보컬 축·믹스 축·꼬리·EXCLUDE 를 EP11~EP16 과 글자 단위로 같게 둔다.**
+    바뀐 것은 테마(가벼움 → 맛·속도)·씬·문형과, 매 편 새로 쓰는 조성·BPM·편성·화성·
+    가사 — 그리고 **보사 2곡의 편성·화성 처방(아래 별도 상자)** 이다.
+    EP15 가 코(향)였고 EP16 이 몸의 무게였다면 EP17 은 **혀와 속도**다 —
+    맛보고, 굴려 보고, 삼키지 않고 기다린다.
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 곡별 한 줄 표                                                        │
+ └──────────────────────────────────────────────────────────────────────┘
+
+ | #  | 정서 결                                   | 성별 | 장르     | BPM | 2인칭 |
+ |----|-------------------------------------------|------|----------|-----|-------|
+ | 1  | 밝음 — 한 모금씩, 서두르지 않는다          | 여성 | 소울팝   |  95 | ·     |
+ | 2  | 밝음 — 천천히 먹으니 맛이 계속 풀린다      | 여성 | 소울팝   | 101 | ·     |
+ | 3  | 여운 DARK — 혀 위에 올려 두고 기다린다     | 여성 | 소울팝   |  87 | ·     |
+ | 4  | 밝음 — 급하게 삼킬 필요 없다               | 여성 | 보사노바 |  97 | ·     |
+ | 5  | 밝음 — 둘이 한 접시를 나눠 천천히          | 남성 | 소울팝   |  93 | ●     |
+ | 6  | 여운 DARK — 조금 쓴 첫맛이 좋다            | 여성 | 소울팝   |  88 | ·     |
+ | 7  | 밝음 — 천천히 마시니 맛이 겹겹이 있다      | 여성 | 소울팝   |  99 | ·     |
+ | 8  | 밝음 — 너도 천천히 맛봐                    | 여성 | 소울팝   | 102 | ●     |
+ | 9  | 여운 — 단맛은 제 속도로 온다               | 여성 | 보사노바 |  94 | ·     |
+ | 10 | 여운 DARK — 여기선 1분이 더 길게 맛난다    | 여성 | 소울팝   |  90 | ·     |
+
+ · 밝음 6 (#1 #2 #4 #5 #7 #8) / 여운 4 (#3 #6 #9 #10) · 이별·상실 0곡
+ · 배열 B B Q B B Q B B Q Q (컨셉 §ⓓ 그대로) — 같은 결 연속 최대 2곡
+   (#1 #2 · #4 #5 · #7 #8 · #9 #10). 루프 이음매 #10(Q) → #1(B) → #2(B) → #3(Q)
+   = 밝음 2연속에서 끊긴다. 여운 자리 {3,6,9,10} = 열두 편과 겹치지 않는 신규 조합.
+ · DARK 3곡 (#3 #6 #10) — 전부 소울팝. 보사(#4 #9)에 DARK 를 겹치지 않았다.
+   #9 는 여운이되 warm tone 이다(여운 네 칸 중 non-DARK 는 한 칸뿐 → 그 칸이 보사).
+ · 보사 = **#4(밝음) · #9(여운 non-DARK)** · 간격 앞으로 5곡 / 되감기 쪽 5곡 = 등간격.
+   보사 #4 는 EP14 에 한 번(여운 보사) 앉았던 자리, #9 는 plum 처음이다.
+   #9 → #10 은 여운 2연속이지만 장르(보사 → 소울팝)·톤(warm → dark)이 동시에 바뀐다.
+ · 여성 9 / 남성 1(**#5**) / 듀엣 0 — 컨셉 권장 자리 그대로. EP11·EP12 #5 이후
+   다섯 편 만에 #5 로 돌아왔다(EP13 #6 · EP14 #7 · EP15 #4 · EP16 #8).
+   #4(여성 보사 97) → #5(남성 소울팝 93) 는 밝음 2연속이지만 성별·장르가 동시에 바뀐다.
+   #1 → #2 는 둘 다 여성 소울팝이라 **BPM(95 → 101) · 리드 건반(수트케이스 로즈 →
+   브라이트 업라이트) · 지속층(0 → 1) · 화성 장치(지연 해결 → 장3도 III)** 를 갈랐다.
+   #7 → #8 도 둘 다 여성 소울팝이라 **2인칭(· → ●) · 지속층(1 → 0) · BPM(99 → 102) ·
+   리드(일렉트릭 그랜드 → 펠트 업라이트)** 를 갈랐다.
+ · 2인칭 2곡(#5 #8) — 세트 you 비율 **실측 1.19%** (you·your 29 / 본문 2,433단어).
+   #5 는 둘이 한 접시를 나누는 장면, #8 은 "너도 천천히 맛봐" 권유라 2인칭이 장면
+   자체인 자리에만 넣었다. 나머지 8곡 you 0회.
+ · BPM 중앙 94.5 · 범위 87~102 · 100 이상 2곡(#2 #8) · 최저 87(#3)
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 🔴 이번 편에서 바뀐 것 / 안 바뀐 것 (결과 귀속용 — 반드시 읽을 것)      │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ ⛔ 안 바꾼 것 (EP16 과 글자 단위로 같은 축 — 이번 판정의 대조축)        │
+ │   · 꼬리 169자 · STYLE 본문 상한 830자 (실측 809~829)                 │
+ │   · 보컬 필수 4문구 — half voice, near speech, as if humming to        │
+ │     herself(#5 = himself) · lines end early · almost no vibrato ·     │
+ │     lifts because the band opens, not because she(#5 = he) pushes     │
+ │   · 보컬 금지 — easy and open · little vibrato ·                       │
+ │     세미콜론 뒤 단독 lift from the band (전 곡 0회)                    │
+ │   · 가사 235~249단어 · 10섹션 · 32행 · 유니크 27행 (10곡 전부)          │
+ │   · 찬송가 처방 B-1~B-5 10곡 전량 · never dropping out 10곡 ·          │
+ │     ends on a plucked chord 10곡 · 페이드 지시 0                       │
+ │   · Vocals behind the band, blended in, not upfront (cherry 핵심)     │
+ │   · 믹스 문구 — 밝음 `Warm tone, softened top, tape warmth, lo-fi` /   │
+ │     DARK `Dark warm tone, highs rolled off, lo-fi` — EP11~16 그대로    │
+ │   · 길이 지시 about two and a half minutes + the lyric filling all     │
+ │     of it                                                             │
+ │   · 소울팝 8 + 보사 2 · 여성 9 + 남성 1 · 20트랙 · 정지 배경           │
+ │   · 관악기·현악 독주 0곡 · 저지속 얇은 악기 0곡 · 지속 요소 곡 2개     │
+ │   · EXCLUDE 블록 28항목 — EP16 과 한 글자도 다르지 않다                │
+ │     (변환기 손실 회계가 EP12~EP16 과 같은 표를 내야 정상이다)          │
+ │                                                                      │
+ │ ✅ 바꾼 것                                                             │
+ │   ① 테마 = 가벼움(EP16) → **맛·속도(음미)**. 주어 "나", 시제 현재.     │
+ │      후각·숨(EP15)·몸의 무게(EP16) 대신 **혀와 입술의 동작** — 한 모금  │
+ │      씩 · 혀 위에 올려 둔다 · 굴린다 · 삼키지 않고 기다린다.            │
+ │   ② 씬 = 사용자 선택 C 와이너리 창가 자리(실내 · 1인칭 착석 시점)      │
+ │   ③ 제목 문형 = 몸 변화 체감형 → **속도 체감형**(17번째) · 이모지 🍂   │
+ │   ④ 조성 10개·BPM·편성·화성 장치 = 전부 새 값(매 편 하는 일)           │
+ │   ⑤ 보사 #1 #6 → **#4 #9** · 남성 #8 → **#5** (여운 자리가 바뀌어서)   │
+ │   ⑥ 🔴 **보사 처방 개정** — 사용자 지시(09-29 "보사 레시피를 개선할   │
+ │      것"). 아래 🔴 보사 상자. **보사 2곡의 편성·화성만** 바뀌었고 보컬 │
+ │      줄·믹스 줄·끝맺음·퍼커션 유지 문구는 그대로다.                    │
+ │                                                                      │
+ │ ⚠️ 음미·느림을 **믹스 문구로 표현하지 않았다** — `slow`·`lingering`·  │
+ │    `sustained` 같은 말은 ① BPM 을 끌어내리고(EP05 실측: 지시가 템포를  │
+ │    누른 전례) ② 지속화음·긴 꼬리를 불러 찬송가 처방 B-1 과 정면 충돌   │
+ │    한다. → 느림은 **가사(동작어)와 화성(해결을 늦추는 장치)** 이 맡는다.│
+ │    ⛔ 이번 편 결과를 곡 축의 개별 문구 탓으로 돌리지 말 것 — 안 바꿨다.│
+ │    바뀐 축은 보사 처방 하나이고, 그 결과는 **#4 #9 에만** 귀속된다.    │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 🔴 곡 길이 — EP14~EP16 결론을 그대로 적용한다 (새 실측 없음)           │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ 단어수 ↔ 길이 r = −0.09 · BPM ↔ 길이 r = −0.13 · 음절수 ↔ 길이 r = −0.07 │
+ │ (EP11~EP13 채택 24곡) → 곡 길이는 Mureka 쪽 성질이고, 가사량은 길이   │
+ │ 레버가 아니라 **밀도(단어/보컬초) 레버**다. 그래서 구조는 32행 그대로, │
+ │ 후렴 3회 반복 없음, 단어만 예산 안에 뒀다: 235~249 (세트 2,433단어).   │
+ │ ⚠️ 예상 유니크 = 약 70분 안팎(EP16 실측 68.8분). 컨셉의 50~62분 목표와 │
+ │    의 차이는 가사로 못 줄인다 — EP15·EP16 과 같은 판단으로 두었다.     │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 설계 의도 — 컨셉("한 모금씩 천천히 음미하게 된다")을 곡으로             │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ 10곡 전부 음미를 **상태가 아니라 동작**으로 쓴다 — 들어 올린다 · 혀   │
+ │ 위에 둔다 · 굴린다 · 세어 본다(count to four) · 나눠 먹는다 · 기다린다. │
+ │                                                                      │
+ │ ⛔ 구체 소품 명사 **곡당 최대 1개**(컨셉 §ⓐ) —                        │
+ │    #1 coffee · #2 spoonful · #3 roast · #4 peach · #5 plate ·         │
+ │    #6 sugar · #7 0개 · #8 cake · #9 honey · #10 cup.                  │
+ │    잔·창·의자·테이블·책 0회. 공간은 room · floor · walls · place 로만. │
+ │    몸은 tongue · lips · mouth · cheek · eyes · shoulders · hands.     │
+ │ ⛔ 가사 계절어 0 — autumn · fall · leaves · leaf · maple · harvest ·   │
+ │    September · October · sweater · scarf · chill · cold · 포도(grape) │
+ │    · wine 10곡 0회(스크립트 대조).                                     │
+ │ ⛔ 우울·끝남 연상 0 — end · over · gone · last · past · left · leave · │
+ │    fade · sink · drop 10곡 0회. 쓴맛(#6)은 "그 아래 단맛까지 가는 문"  │
+ │    으로만 썼다(bitter → sweet underneath). 상실 은유 0.                │
+ │ ⛔ EP15 향·숨 어휘 0 — smell · scent · aroma · breathe · breath 0회.   │
+ │    arrive · reach · carry · first 0회(EP15 "gets there first" 계열).   │
+ │ ⛔ EP13·EP16 어휘 0 — warm · soft · gentle · melt · heavy · lean ·     │
+ │    float · lighter · stay 가사 0회. (STYLE 의 Warm·soft 는 곡 축 문구) │
+ │                                                                      │
+ │ 인접 편 재료 차단 (컨셉 §ⓐ) — 전부 문자열로 대조했다.                  │
+ │ ① EP16 재료 0줄: my steps come easy · i set it down · light on my     │
+ │    feet · i could float here · nothing to hold up · up on my toes ·   │
+ │    lighter than i came in · let it sit where it is                    │
+ │    (#3 제목 let it sit on my tongue 은 컨셉 §ⓐ 예시 문구다. EP16 #9    │
+ │     let it sit where it is 와 앞 세 단어가 같다 — 알고 둔 겹침이다.)   │
+ │ ② EP15 재료 0줄: it stays on my hands · you carry it in with you ·    │
+ │    it fills me by degrees · breathe it in · runs out                  │
+ │ ③ EP14 재료 0줄: the far things look close · so still i can hear it · │
+ │    my head feels rinsed                                               │
+ │ ④ EP13 재료 0줄: warm feels good again · unclenched · the longer i    │
+ │    stay · ⑤ EP12·EP11: come back · keeping 0회                        │
+ │ ⑥ EP01~EP16 전 곡 가사와 **글자까지 같은 행 0개**(3단어 이상 행 대조). │
+ │ ⑦ 세트 안 곡끼리 같은 행 0개 · ⑧ 제목 중복 = verify_prompts 로 대조.  │
+ │ ⑨ 컨셉어 도배 방지 = **10곡 전부에 등장하는 내용어 0개.**             │
+ │    최다 = taste · slow · let 9곡 · whole · wait · tongue · time ·     │
+ │    single 8곡. (초안에서 taste·slow·let·whole 이 10곡이라 네 곡을 고쳤다)│
+ │                                                                      │
+ │ ⓐ 한 모금·한 입을 늦춘다 — #1 (커피) · #4 (보사 · 복숭아) · #2        │
+ │ ⓑ 혀 위에 두고 기다린다 — #3 (DARK) · #9 (보사 여운)                  │
+ │ ⓒ 쓴맛·겹 맛을 찾아간다 — #6 (DARK) · #7                              │
+ │ ⓓ 둘이 나누고 권한다 — #5 (남성 · 2인칭) · #8 (2인칭)                  │
+ │ ⓔ 시간이 늘어난다 — #10 (세트를 닫고 #1 의 첫 모금으로 되감긴다)       │
+ │                                                                      │
+ │ ⛔ 이별·상실 0곡. ⛔ 후렴 세 번째 반복 0. [Intro]·[Instrumental]·       │
+ │    [Interlude]·[Solo] 0개. [Outro] 는 10곡 전부 가사 2행.              │
+ │ · ⚠️ **EP16 의 네 문형을 10곡 전부에서 버렸다**(두 편 연속 같은 문형   │
+ │   = 두 편이 한 편처럼 들린다, EP12 원칙 계승):                          │
+ │   ① 질문 자리 = Verse 2 첫 행(EP16) → **첫 Pre-Chorus 셋째 행**(10곡). │
+ │     EP14(둘째 프리코러스 첫 행) · EP15(Verse 3 첫 행)와도 다른 자리.    │
+ │     세트 10/320행 = 3.1% (cherry 물음표 3.2%).                         │
+ │   ② 브리지 = 세 문장이 점점 짧아짐(EP16) → **거꾸로 점점 길어진다**    │
+ │     (2단어 → 7~10단어 → 16~22단어: "Not yet" · "One more" · "Right    │
+ │     here" · "So good" · "No rush" · "Not sugar" · "Wait, then" ·       │
+ │     "See now" · "So kind" · "Go slow"). 한 입이 입안에서 퍼지는 모양. │
+ │   ③ 아웃트로 둘째 행 = 몸의 동작(EP16) → **작은 양 하나**(One small    │
+ │     sip · Half a spoonful · Just a little · One more little bite ·     │
+ │     Half for you · One slow sip · One more tiny sip · Half a bite     │
+ │     each · One golden sip · Half a cup). 곡 끝마다 "조금만"을 찍는다.  │
+ │   ④ 문두 And = **0/320행** (EP16 2.2% · cherry 2.9%). 전환은 Maybe ·   │
+ │     Even · Every 문두로.                                               │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 편성 — 소울팝 8곡의 밑판을 곡마다 갈랐다 (EP08~EP16 방침 계승)         │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │  #  리드(지속 건반)            보조 색                  퍼커션                  베이스     │
+ │  1  수트케이스 로즈(3음)        클린 기타 뮤트 업스트로크    소프트 킥+크로스스틱+햇       라운드 일렉 베이스 짧은 8분 │
+ │  2  브라이트 업라이트(고역·4음)  솔리나 스트링(멀리) ★지속    소프트 킷+림샷+탬버린        핑거 베이스 미는 8분 │
+ │  3  로우 월리처(2음)           트레몰로 기타 짧은 화음       브러시+펠트 킥+다크햇         다크 플랫와운드 박마다 짧게 │
+ │  5  웜 타인 피아노(3음)         뮤트 기타 스크래치 오프비트    소프트 킥+스네어+셰이커       소프트 신스 베이스 싱코페 │
+ │  6  뮤트 그랜드(저역·2음)       뮤트 기타 짧은 더블스톱       사이드스틱+로우탐+다크햇      딥 베이스 짧은 두 음 │
+ │  7  브라이트 일렉 그랜드(4음)    아날로그 신스 베드(슬로 어택·멀리) ★지속 소프트 킥+스네어+16분 햇 픽 베이스 점8분 │
+ │  8  소프트 펠트 업라이트(3음)    로즈 오프비트 짧은 화음       소프트 킷+브러시 스네어+카바사 라운드와운드 짧게 튀는 │
+ │ 10  다크 트레몰로 로즈(3음)      뮤트 피아노 오프비트 짧은 화음 림클릭+소프트 킥+다크 셰이커  로우 테이프 베이스 짧게 │
+ │                                                                      │
+ │ · 리드 8종 · 보조 8종 · 퍼커션 8종 · 베이스 8종 전부 다르다.           │
+ │   EP16 과 **같은 자리끼리 겹치는 칸 0**(EP16 #9 수트케이스 로즈 →     │
+ │   EP17 #1, EP16 #7 카바사 → EP17 #8 처럼 자리를 옮긴 재료는 있다).     │
+ │ · 🔴 **지속 요소는 곡당 최대 1개**(B-2-4). 가진 곡은 #2(솔리나 스트링) │
+ │   · #7(아날로그 신스 베드, `slow attack` = B-3 가 허용한 어택 있는     │
+ │   패드) **둘뿐**, 둘 다 밝음이고 리듬 요소 3개 이상과 같이 간다.       │
+ │   DARK 3곡의 지속 요소 = **0개**(EP16 과 같은 처리). #10 의 트레몰로   │
+ │   로즈는 리드 건반이고 `struck short` 로 끊었다.                       │
+ │ · 🔴 전 곡에 `every bar` 로 도는 하이햇·셰이커·탬버린·카바사가 있고,   │
+ │   `never dropping out` 10곡 · `ends on a plucked chord` 10곡 ·        │
+ │   페이드 지시 0.                                                      │
+ │ · 오르간 0곡 · 핑거 스냅 0곡 · 콩가·클라베 0 · 관악기 0 · 현악 독주 0. │
+ │ · ⛔ 저지속·얇은 악기(칼림바·마림바·글로켄슈필·첼레스타·비브라폰·      │
+ │   핸드팬) 0곡. 기타는 어느 소울팝 곡에서도 리드가 아니고 베이스 라인도 │
+ │   맡지 않는다.                                                         │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 🔴 보사 2곡(#4 #9) 처방 개정 — B-4 "딸림 없음" 판을 거둬들인다         │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ ▸ 왜 바꾸나 — 보사 게이트(임계 0.068) 실측 이력                        │
+ │   | 편      | 보사 처방                         | 보사 게이트          |
+ │   |---------|-----------------------------------|----------------------|
+ │   | EP08    | 승격 레시피(아래 ①~④ 전부 있음)    | **0.045 / 0.046 / 0.029 ✅** |
+ │   | EP09 #8 | 같은 레시피 · G13 딸림 있음          | **0.065 ✅** / 0.082 △ |
+ │   | EP11~14 | B-4 (딸림 없음 · 기타 강등)          | 통과 기록 0 — EP12 6클립 0.120~0.167 · EP13 0.132 · EP14 ❌3 |
+ │   | EP15    | B-4 (딸림 없음 · 기타 강등)          | 0.093~0.137 · 통과 0 |
+ │   | EP16    | B-4 그대로                          | 0.100~0.111 · 통과 0 |
+ │   → **B-4 판(EP11~EP16) 동안 보사 통과가 한 번도 없었다.** 통과가 나온  │
+ │     건 전부 그 전 레시피였다. B-4 가 찬송가를 막으려고 뺀 것들 —       │
+ │     나일론 바치다(batida) · 둥근 싱코페이션 베이스 · ii–V 딸림 — 이     │
+ │     바로 cherry 보사 39트랙이 CLAP 에서 "보사"로 읽히는 문법이었다고   │
+ │     본다. ⚠️ **가설이다**(n 이 작고, 편마다 조성·가사도 달랐다).        │
+ │                                                                      │
+ │ ▸ 되돌린 것 (EP08·EP09 통과 레시피에서)                                │
+ │   ① 머리 `Bossa nova soul pop for a cafe` (EP16 = `Bossa nova for a   │
+ │      cafe`) — 통과한 편은 전부 이 머리였다.                            │
+ │   ② `nylon guitar in bossa comping to the last bar` — 기타를 "오프비트 │
+ │      콤핑만"으로 묶지 않고 바치다 패턴 자체를 돌린다. 리드 선율은 여전히 │
+ │      보컬, 기타는 선율 리드가 아니다. `to the last bar` = 아웃트로 유지. │
+ │   ③ `round syncopated bass` — 통과 편의 베이스(EP16 = short eighths).  │
+ │   ④ **ii–V 딸림 복원** — #4 `Bbm9 - Eb13` · #9 `Am9 - D9` (+ `B7b9`).  │
+ │      근거 = CLAUDE.md §🎼 az6(2026-08-25): cherry 스무스재즈↔소울팝     │
+ │      거리 0.0218, 앵커곡 Turned the Fan Off 가 스무스재즈 라벨 →       │
+ │      **막는 건 saxophone · sultry · smoky jazz bar · dim lounge 뿐**.   │
+ │      이 넷은 EXCLUDE·꼬리에 그대로 있다.                                │
+ │                                                                      │
+ │ ▸ 유지한 것 (찬송가 처방 B-4 의 핵심 — 이건 버리지 않는다)             │
+ │   · `leading and sustaining` 0 — 일렉 피아노는 `short chords`.        │
+ │     (EP09 곡2b 찬송가 +0.047 의 원인 조합이었다. 통과 레시피의 그 줄만 │
+ │      되살리지 않았다.) → 보사 2곡 **지속 요소 0개**.                   │
+ │   · 셰이커 전 마디 · `never dropping out` · `ends on a plucked chord`  │
+ │   · `No upright bass, no jazz trio.` 를 STYLE 본문에                  │
+ │   · 🔑 **딸림 복원이 오히려 찬송가 반대 방향이다** — B-4 가 경고한     │
+ │     "딸림 없음 + 정적 루프 = 화성 정지"를 원천에서 없앤다. 두 곡 다     │
+ │     마지막 두 화음이 ii–V 로 **완전4도 하행 운동**을 갖고 으뜸에 든다. │
+ │                                                                      │
+ │ ▸ 두 곡을 일부러 조금 다르게 뒀다 (다음 편을 위한 정보)                │
+ │   · #4 (밝음 97) = 가장 단순한 형태 `I - vi - ii - V13`.              │
+ │   · #9 (여운 94) = 딸림을 13 없이 `D9` 로, 대신 앞에 vi 로 가는 단조    │
+ │     ii–V(`F#m7b5 - B7b9`)를 한 번 더 — 딸림 두 개.                     │
+ │   → 둘 다 통과하면 레시피 확정, 한쪽만 통과하면 그 차이가 단서다.       │
+ │ ⚠️ 위험 = 딸림 13·b9 가 **스무스재즈 쪽 CLAP 라벨**을 부를 수 있다.   │
+ │    그건 az6 기준으로 기각 사유가 아니지만(스무스재즈 = cherry 분포 안), │
+ │    ⚠️ Mureka 본에선 EXCLUDE 가 사라진다(손실 회계: dim lounge · sultry │
+ │    · torch ballad 소실). 라운지 쪽은 꼬리의 `no smoky bar or lounge` · │
+ │    `no saxophone` 두 항목만 막는다 — 생성 후 라벨로 확인할 것.          │
+ │    생성 후 보사 게이트와 함께 CLAP 1위 라벨을 같이 볼 것.              │
+ │ ⚠️ 보사 한쪽-❌ 는 여전히 재생성 대상이 아니다(컨셉 §ⓔ).              │
+ └──────────────────────────────────────────────────────────────────────┘
+
+ [조성 · 화성 배분표]  ※ 설계 순서. 실제 믹스는 셔플(EP15 실측: 첫 트랙 = 설계 #10)
+
+ | #  | 조성                          | BPM | 장르     | 보컬 | 결        |
+ |----|-------------------------------|-----|----------|------|-----------|
+ | 1  | F major                       |  95 | 소울팝   | 여성 | 밝음      |
+ | 2  | B major                       | 101 | 소울팝   | 여성 | 밝음      |
+ | 3  | C major                       |  87 | 소울팝   | 여성 | 여운 DARK |
+ | 4  | A flat major                  |  97 | 보사노바 | 여성 | 밝음      |
+ | 5  | A major                       |  93 | 소울팝   | 남성 | 밝음      |
+ | 6  | E flat major                  |  88 | 소울팝   | 여성 | 여운 DARK |
+ | 7  | D major                       |  99 | 소울팝   | 여성 | 밝음      |
+ | 8  | D flat major                  | 102 | 소울팝   | 여성 | 밝음      |
+ | 9  | G major                       |  94 | 보사노바 | 여성 | 여운      |
+ | 10 | E flat minor -> G flat major  |  90 | 소울팝   | 여성 | 여운 DARK |
+
+ · 조성 10개 전부 다름. EP11~EP16 **여섯 편과 같은 자리에 같은 조성 0**(편 간 슬롯 대조).
+ · 🔑 5도권 인접 거리 — 여섯 편 슬롯 회피를 걸면 **"전부 5칸 이상" 배열은 0개**였다
+   (스크립트 전수 탐색. EP16 은 다섯 편 회피로 딱 1개가 남았었다). 최소 4칸으로 풀면
+   326개 → 4칸짜리가 **1곳뿐인 해 2개** 중 이 해를 골랐다:
+   F→B 6 · B→C 5 · **C→Ab 4** · Ab→A 5 · A→Eb 6 · Eb→D 5 · D→Db 5 · Db→G 6 ·
+   G→F# 5 · F#→F 5 (되감기 지점 5칸). 4칸 한 곳(#3 → #4)은 DARK 소울팝 → 밝음 보사라
+   장르·결·BPM(87 → 97)이 동시에 바뀌는 자리다.
+   · 다른 해(A Ab D Eb E F B C F# Bb)를 버린 이유 = 그 해의 DARK 자리 조성(D·F·Bb)은
+     나란한 단조 짝(Bm·Dm·Gm)이 전부 이미 쓰였다. 이 해는 #10 F# 의 나란한 단조
+     **E flat(D sharp) minor 가 plum 처음**이다.
+ · 샤프 4 · 플랫 5 · C 1. ⚠️ 추정이다. Mureka 가 조성 이름만으로 음색을 바꾼다는 근거는 없다.
+ · 단조 시작 곡 = **#10 하나**(E flat minor → G flat major). "음미" 편이라 단조를 하나로
+   묶었다. DARK 장조 2곡(#3 #6)의 어둠은 조성이 아니라 믹스(Dark warm tone · highs
+   rolled off) · behind the beat · 저역 리드 · 화성 장치가 만든다(EP07~EP16 과 같은 처리).
+ · dark warm tone, highs rolled off = #3 #6 #10 (3곡) · behind the beat = 같은 3곡
+ · one harmony voice, last chorus, no choir = 10곡 전부 · lo-fi = 10곡 전부
+ · 화성 감정 장치 10개 (EP11~EP16 목록과 대조 · 계열 겹침은 숨기지 않고 적는다):
+   ① 딸림이 sus4 로 **한 마디를 통째로 버틴 뒤에야** 풀린다(C9sus4 → C9) — 해결을
+      늦춰 맛보는 모양 (#1) · EP12 ⑥ 은 끝내 안 풀리는 sus 였다. 이번엔 풀린다.
+   ② III 을 장3화음으로(D#) — 딸림7 없이 **밝은 색만** 한 번 비치고 IV 로 간다 (#2)
+      · EP14 ⑦ 은 III7 로 vi 를 끌어왔다(기능). 이번엔 7음 없는 색채 화음이다.
+   ③ 딸림 대신 **IV 를 V 베이스 위에**(F/G) — 끌어당기지 않는 부드러운 딸림 (#3)
+   ④ 보사에 **평범한 ii–V13 을 되돌린다** (#4 보사) — 위 보사 상자 참조
+   ⑤ IV 와 V 사이를 **#iv 반감7(D#m7b5)** 이 반음으로 이어, 베이스가 D-D#-E 로
+      한 칸씩 올라선다 (#5 남성) · EP15 ⑦ 은 I–ii 사이 경과 감7이었다. 자리가 다르다.
+   ⑥ iii 에서 **감7(Gbdim7)을 거쳐 ii 로 반음씩 미끄러져 내려온다** (#6)
+      · EP15 ⑦ 의 경과 감7은 올라갔다. 이번엔 내려간다.
+   ⑦ **종지 6/4** — 으뜸이 V 베이스 위에서 먼저 들리고(D/A) 그다음에 V → I (#7)
+      · "삼키기 전에 먼저 맛이 온다"의 화성판.
+   ⑧ IV 로 가는 **작은 ii–V**(Abm9 - Db9 → Gbmaj9) — 버금딸림 쪽에 잠깐 머문다 (#8)
+      · EP13 ③ 은 I7 → IV 였다. 이번엔 그 앞에 v9 를 둬 ii–V 로 만들었다(계열 겹침).
+   ⑨ 단조 ii–V 로 vi 에 **한 번 들렀다가** 장조 ii–V 로 집에 든다 (#9 보사)
+   ⑩ 단조 ii–V(Fm7b5 - Bb7b9) 로 i 에 돌아오고 **마지막에만 나란한 장조**로 열린다 (#10)
+      · EP14 ⑨ 의 "단조의 V 만 장조" 와 V7 부분이 같은 계열이다. 반감7 ii 와 b9 는 새것.
+   · ① ⑦ 이 테마의 화성판("해결을 늦춘다" · "먼저 맛이 온다"), ③ ⑥ ⑩ 이 DARK 의 장치.
+   · ⚠️ ① ⑥ ⑦ 은 Mureka 가 그대로 따를 확률이 낮은 지시다(한 마디 sus 체류 · 감7 경과 ·
+     6/4). 안 따라도 곡이 무너지지 않는 방향 표시로 뒀다(EP13~EP16 과 같은 처리).
+   · ⚠️ ③ IV/V 는 **가스펠 색**이다 — 찬송가축에 가장 가까운 화음. #3 은 세트 최저
+     BPM(87)이기도 해서 지속 요소 0 · 트레몰로 기타 짧은 화음 · 브러시+펠트 킥+다크햇 ·
+     박마다 짧은 베이스로 어택을 채웠다.
+
+
+  ★ plum 전곡 공통 배제어 꼬리 (169자) — Mureka 변환기가 자동으로 붙인다
+  ----------------------------------------------------------------------
+  One note per syllable, the band carrying every lift. No melisma, no sustained high
+  notes, no head voice, no saxophone, no smoky bar or lounge, no autotune, no pop gloss.
+  ----------------------------------------------------------------------
+  붙이는 법 = STYLE 본문 + 공백 1칸 + 꼬리. 최대 829 + 1 + 169 = 999 <= 1,000.
+  ⛔ 이 파일의 배제어 블록을 손으로 지우지 말 것 — 변환기가 이 블록과
+     꼬리를 대조해 **사라지는 항목을 세는 손실 회계**를 돌린다(2026-09-07 신설).
+
+
+  ★ 생성 직후 반드시 돌릴 것 (세 게이트는 서로 다른 축이다)
+  ----------------------------------------------------------------------
+  py -3 plum\_assets\clap_gate.py       plum\ep17\music     (장르 · 임계 0.084)
+  py -3 plum\_assets\clap_gate_bossa.py plum\ep17\music     (보사 #4 #9 · 0.068)
+  py -3 plum\_assets\hymn_scan.py       plum\ep17\music     (찬송가 · <= -0.05)
+  py -3 plum\_assets\vocal_gate.py      plum\ep17\music --words 244
+  ----------------------------------------------------------------------
+  · 모델 = **V9.5 만 생성한다**(컨셉 §ⓔ). 10곡 미달 시 그 곡만 V9.5 로 재생성.
+  · 💳 생성 상한 **13회**(10 + 재생성 3) — 걸리면 그 곡을 빼고 9곡 편성.
+    보사 한쪽-❌ 는 재생성 대상에서 제외(컨셉 §ⓔ).
+  · 파일명·매니페스트에 `_v95` 접미어를 반드시 남긴다.
+  · ⏰ 발행까지 3일 — 재생성 판단은 **첫 배치 게이트 결과 한 번으로** 끝낸다.
+
+  ▸ 리스크 순위 — 생성 후 이 순서로 먼저 잰다
+    1순위 **#9 · #4 보사** — 처방을 바꾼 유일한 축이다. B-4 판 여섯 편 동안 통과 0.
+      #9 를 먼저 본다(여운 · 94 BPM · 딸림 둘). 보사 게이트 + CLAP 1위 라벨 + 찬송가
+      마진을 **같이** 본다 — 딸림을 되돌렸으니 찬송가는 내려가고, 스무스재즈 라벨은
+      올라갈 수 있다. 라벨이 스무스재즈여도 보사 게이트 거리가 임계 안이면 채택이다.
+      ⚠️ 둘 다 ❌ 이면 "레시피 복원도 안 통했다"가 정보다 — 다음 편에서 보사 비중을
+      건드릴지는 이 파일 범위 밖(곡 축 동결).
+    2순위 **#3** — DARK + 세트 최저 BPM(87) + IV/V 가스펠 딸림. 찬송가축에 가장 가까운
+      조합이 세트에서 여기 하나다. 아웃트로 퍼커션 유지와 끝 15초 어택밀도를 먼저 본다.
+    3순위 **#10** — 유일한 단조 시작 + Bb7b9 + 트레몰로 로즈. 라운지 쪽으로 열리면
+      Mureka 본에선 EXCLUDE 가 빠져 꼬리의 `no smoky bar or lounge` 하나만 막는다.
+    4순위 **#6** — DARK 88 + 감7 경과화음. 감7은 옛 재즈 색이라 CLAP 라벨을 본다.
+    5순위 **#5(남성)** — 유일한 남성곡, 대명사를 바꾼 유일한 곡. 성별 누출부터 확인.
+    6순위 **#2 #8** — 101·102 BPM. Mureka 의 K-pop 광택이 열린다면 여기가 첫 자리.
+      #2 는 지속층(솔리나 스트링) + 장3도 III 이 겹쳐 가장 "화사한" 곡이다.
+    7순위 **#1 #7** — #1 은 sus4 한 마디 체류가 정지로 들리는지, #7 은 신스 베드
+      (지속층) + 6/4 가 아웃트로에서 화음만 남기는지 본다.
+    ▸ 전 곡 공통 = **밀도**. 단어/보컬초 >= 2.0 을 못 넘기면 가사가 아니라 곡 길이가
+      원인이다 — 그때는 테이크 폐기가 아니라 그 곡만 재생성한다.
+  ▸ 20트랙 중 2트랙까지는 버려도 유니크 분량 하한(50분) 안이다. 3트랙부터 재생성.
+
+--------------------------------------------------------------------------
+  곡 1   세트를 여는 곡 · 한 모금씩, 서두르지 않는다 (밝음)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  one sip at a time
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I lift the coffee and I do not rush it
+This sip rolls slowly all across my tongue
+My mouth has nowhere else it needs to be
+So I hold it there until it opens
+
+[Pre-Chorus]
+Round and round, it turns to gold
+It tells me more each moment that I wait
+Why did I ever gulp it down so fast?
+
+[Chorus]
+One sip at a time
+I let each little part of it come through
+Nothing in me wants to hurry now
+One sip at a time
+
+[Post-Chorus]
+Slow on my lips and slow on my tongue
+Slow is the flavor I came in for
+
+[Verse 2]
+Even the hum around me moves unhurried
+The room moves at the speed I drink
+I close my eyes and taste it again
+A little nutty and a little bright
+
+[Pre-Chorus]
+It settles in the middle of my chest
+My shoulders ease an inch without a word
+I have all of this and nowhere to go
+
+[Chorus]
+One sip at a time
+I let each little part of it come through
+Every one is better than the one before
+One sip at a time
+
+[Verse 3]
+Maybe I will stretch it out all day
+Nobody is counting how slow I drink
+I tip it back a little, then I wait
+
+[Bridge]
+Not yet
+Let it open up a little more
+There is a world in a single sip if I give it all the time it asks for
+
+[Outro]
+One sip at a time
+One small sip is plenty for a while
+
+【STYLE】 ★825자
+Warm soul pop for a cafe, F major, 95 BPM. Female low alto, half voice, near speech, as
+if humming to herself. Narrow melody in a fourth, one phrase returning; the chorus keeps
+those notes and lifts because the band opens, not because she pushes; lines end early.
+Rounded consonants, almost no vibrato. Full band, dense and soft: suitcase Rhodes,
+three-note motif, struck short; clean guitar in short muted upstrokes; one harmony
+voice, last chorus, no choir; round electric bass in short eighths; soft kick,
+cross-stick, hats every bar, never dropping out. Harmony Fmaj9 - Dm9 - Bbmaj9 - C9sus4 -
+C9 to Fmaj9, the sus held a bar before resolving. Vocals behind the band, blended in,
+not upfront. Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about
+two and a half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+one sip at a time
+
+--------------------------------------------------------------------------
+  곡 2   천천히 먹으면 맛이 계속 풀린다 (밝음)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  i take it slow
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I take it slow and I take it all in
+Every little spoonful gets its turn with me
+My tongue goes looking for the sweetest part
+I find it hiding right there in the middle
+
+[Pre-Chorus]
+I hum a little tune between the bites
+Nobody here is waiting on me
+Who said the good part has to go so quick?
+
+[Chorus]
+I take it slow
+Savor every single bit of it I can
+The flavor keeps unfolding as I go
+I take it slow
+
+[Post-Chorus]
+Little by little and bite by bite
+Little by little, I am smiling inside
+
+[Verse 2]
+There is a brightness sitting right behind the sweet
+A little tart that tickles at my cheek
+I laugh out loud at nothing and nobody minds
+The place seems to grin along with me
+
+[Pre-Chorus]
+I tap my fingers lightly to the tune
+I let the music set the pace for me
+My whole body wants to linger here a while
+
+[Chorus]
+I take it slow
+Savor every single bit of it I can
+Even the tiniest taste is worth the wait
+I take it slow
+
+[Verse 3]
+I could have rushed it like I used to
+Now I would rather let the whole thing bloom
+Every mouthful tells me something new
+
+[Bridge]
+One more
+Let the flavor open all the way for me
+I never knew how much was waiting in one bite until I slowed down enough to find it
+
+[Outro]
+I take it slow
+Half a spoonful and a happy sigh
+
+【STYLE】 ★809자
+Warm soul pop for a cafe, B major, 101 BPM. Female low alto, half voice, near speech, as
+if humming to herself. Narrow melody in a fourth, one phrase returning; the chorus keeps
+those notes and lifts because the band opens, not because she pushes; lines end early.
+Rounded consonants, almost no vibrato. Full band, dense and soft: bright upright piano,
+high, four-note motif, struck short; soft Solina strings, far back; one harmony voice,
+last chorus, no choir; fingered bass in pushing eighths; soft kit, rim shot, tambourine
+every bar, never dropping out. Harmony Bmaj9 - D# - Emaj9 - F#9 to Bmaj9, the three
+chord turned major. Vocals behind the band, blended in, not upfront. Warm tone, softened
+top, tape warmth, lo-fi. Ends on a plucked chord, about two and a half minutes, the
+lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+i take it slow
+
+--------------------------------------------------------------------------
+  곡 3   혀 위에 올려 두고 어둠 속에서 맛본다 (여운 DARK)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  let it sit on my tongue
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I let it sit on my tongue here in the dim
+Low light and the hush of the room around me
+Nothing tells me I should hurry on
+The taste comes slowly up out of the dark
+
+[Pre-Chorus]
+Deeper than it was a moment ago
+It turns and it changes while I wait
+What else is hiding in this quiet taste?
+
+[Chorus]
+Let it sit on my tongue
+Deep and slow and turning in the dark
+I am in no hurry here at all
+Let it sit on my tongue
+
+[Post-Chorus]
+Low and round, low and round
+Quiet as the room is all around
+
+[Verse 2]
+The music moves behind me, low and slow
+I barely notice anything but this
+My eyes are halfway closed in the low light
+Every note is soaking in along with it
+
+[Pre-Chorus]
+Dark and rich and running long
+It lingers where the words would usually go
+It rests there a little while more
+
+[Chorus]
+Let it sit on my tongue
+Deep and slow and turning in the dark
+Every second opens something new
+Let it sit on my tongue
+
+[Verse 3]
+Maybe this is what they mean by slow
+Not the waiting but the savoring of it
+A single taste as wide as the room
+
+[Bridge]
+Right here
+Let the dark roast do the talking for me now
+I have nowhere I would rather be than here with this one taste resting on my tongue
+
+[Outro]
+Let it sit on my tongue
+Just a little, just a little more
+
+【STYLE】 ★828자
+Soul pop for a cafe, C major, 87 BPM. Female low alto, half voice, near speech, as if
+humming to herself, behind the beat. Narrow melody in a fourth, one phrase returning;
+the chorus keeps those notes and lifts because the band opens, not because she pushes;
+lines end early. Rounded consonants, almost no vibrato. Full band, dense and soft: low
+Wurlitzer, two-note motif, struck short; tremolo guitar, soft short chords; one harmony
+voice, last chorus, no choir; dark flatwound bass, short on each beat; brushes, felt
+kick, dark hats every bar, never dropping out. Harmony Cmaj9 - Am9 - Fmaj9 - F/G to
+Cmaj9, the five softened to the four over its bass. Vocals behind the band, blended in,
+not upfront. Dark warm tone, highs rolled off, lo-fi. Ends on a plucked chord, about two
+and a half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+let it sit on my tongue
+
+--------------------------------------------------------------------------
+  곡 4   복숭아 한 입, 급하게 삼킬 필요 없다 (밝음 · 보사)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  no need to swallow fast
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I bite into a peach and close my eyes
+The juice runs sweet and easy across my lips
+No need to swallow fast, I tell myself out loud
+There is nobody in here I have to race
+
+[Pre-Chorus]
+The rhythm sways me gently side to side
+My feet keep time along the wooden floor
+Where was this flavor hiding all my life?
+
+[Chorus]
+No need to swallow fast
+Let it linger and let it dance a while
+Every bite is sweeter when I wait
+No need to swallow fast
+
+[Post-Chorus]
+Easy now, easy now
+Every bite a little song
+
+[Verse 2]
+I roll the flavor round and round my mouth
+A little bright and then a little sweet
+I laugh because it tastes the way the sun feels
+The whole of me is smiling right now
+
+[Pre-Chorus]
+The music bounces lightly off the walls
+My shoulders sway along with every beat
+I am taking every single moment slow
+
+[Chorus]
+No need to swallow fast
+Let it linger and let it dance a while
+I could make a single bite into a song
+No need to swallow fast
+
+[Verse 3]
+Even the very center is a thing to savor
+The sweetness rests upon my tongue
+Maybe I will have another one soon
+
+[Bridge]
+So good
+Taking it slow is half of all the fun
+Nobody told me that the sweetest part only comes when I stop and give the taste some room
+
+[Outro]
+No need to swallow fast
+One more little bite, then one more
+
+【STYLE】 ★829자
+Bossa nova soul pop for a cafe, A flat major, 97 BPM. Female low alto, half voice, near
+speech, as if humming to herself. Narrow melody in a fourth, one phrase returning; the
+chorus keeps those notes and lifts because the band opens, not because she pushes; lines
+end early. Rounded consonants, almost no vibrato. Full band, dense and soft: nylon
+guitar in bossa comping to the last bar; electric piano, short chords; one harmony
+voice, last chorus, no choir; round syncopated bass; brushes, side stick, shaker every
+bar, never dropping out. No upright bass, no jazz trio. Harmony Abmaj9 - Fm9 - Bbm9 -
+Eb13 to Abmaj9, a two-five turnaround each loop. Vocals behind the band, blended in, not
+upfront. Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two
+and a half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+no need to swallow fast
+
+--------------------------------------------------------------------------
+  곡 5   둘이 한 접시를 나눠 천천히 맛본다 (밝음 · 남성)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  taste this with me
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+You slide the plate across and grin at me
+Go on, you say, but do not rush it through
+We break it slowly into little pieces
+One for you and one for me to try
+
+[Pre-Chorus]
+I watch your eyes go wide with the opening bite
+You nod along and tap out the tune
+Can you believe how good an unhurried bite is?
+
+[Chorus]
+Taste this with me
+Take your time, we have the whole day here
+Every flavor is better when we share
+Taste this with me
+
+[Post-Chorus]
+Bit by bit and side by side
+Nothing here to hurry for
+
+[Verse 2]
+You close your eyes and hum a little line
+I hum it back to you between the bites
+We talk about nothing much at all
+Just how it tastes and how it makes us feel
+
+[Pre-Chorus]
+The laughter rolls around the room
+Neither one of us is looking at the time
+We are savoring the in-between
+
+[Chorus]
+Taste this with me
+Take your time, we have the whole day here
+I could sit with you like this for hours
+Taste this with me
+
+[Verse 3]
+Even the smallest piece is worth the wait
+You save the best one just for me
+I smile and make it linger for a while
+
+[Bridge]
+No rush
+Let us make this moment stretch out long
+If anyone should ask me what I love about this place I would say the pace of sharing it with you
+
+[Outro]
+Taste this with me
+Half for you and half for me again
+
+【STYLE】 ★825자
+Warm soul pop for a cafe, A major, 93 BPM. Male low baritone, half voice, near speech,
+as if humming to himself, no female vocals. Narrow melody in a fourth, one phrase
+returning; the chorus keeps those notes and lifts because the band opens, not because he
+pushes; lines end early. Rounded consonants, almost no vibrato. Full band, dense and
+soft: warm tine piano, three-note motif, struck short; scratchy muted guitar off-beats;
+one harmony voice, last chorus, no choir; soft synth bass, syncopated; soft kick, snare,
+shaker every bar, never dropping out. Harmony Amaj9 - Dmaj9 - D#m7b5 - E13 to Amaj9, the
+bass climbing a half step to the five. Vocals behind the band, blended in, not upfront.
+Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two and a
+half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+taste this with me
+
+--------------------------------------------------------------------------
+  곡 6   조금 쓴 첫맛이 좋다 — 그 아래 단맛까지 (여운 DARK)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  a little bitter, and i like it
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+The opening taste is bitter and I like it
+Dark and deep and honest on my tongue
+I do not sweeten it or cover it up
+I let it be exactly what it is
+
+[Pre-Chorus]
+Under the dark there is a quiet sweet
+It only shows if I am patient here
+Who knew the bitter held so much inside?
+
+[Chorus]
+A little bitter, and I like it
+Rich and low and slow across my tongue
+Every sip goes deeper than before
+A little bitter, and I like it
+
+[Post-Chorus]
+Dark and slow, dark and slow
+Deep as the low hum all around
+
+[Verse 2]
+The room is dim and the music hums down low
+I settle in the corner of the room
+My hands are wrapped around it, taking time
+There is no hurry anywhere in the dark
+
+[Pre-Chorus]
+Every note is velvet in the dim
+Every sip is something to explore
+The flavor rolls in waves along my tongue
+
+[Chorus]
+A little bitter, and I like it
+Rich and low and slow across my tongue
+I would not change a single thing about it
+A little bitter, and I like it
+
+[Verse 3]
+Maybe that is why I come in here
+To taste the whole of it, the dark and bright
+To find the sweet that waits beneath
+
+[Bridge]
+Not sugar
+Just the real taste of it coming through
+I have learned to love the bitter start because it brings the sweetness up from underneath
+
+[Outro]
+A little bitter, and I like it
+One slow sip and then another
+
+【STYLE】 ★828자
+Soul pop for a cafe, E flat major, 88 BPM. Female low alto, half voice, near speech, as
+if humming to herself, behind the beat. Narrow melody in a fourth, one phrase returning;
+the chorus keeps those notes and lifts because the band opens, not because she pushes;
+lines end early. Rounded consonants, almost no vibrato. Full band, dense and soft: muted
+grand, low, two-note motif, struck short; muted guitar in short double stops; one
+harmony voice, last chorus, no choir; deep bass in short pairs; side stick, low tom,
+dark hats every bar, never dropping out. Harmony Ebmaj9 - Gm7 - Gbdim7 - Fm9 - Bb9 to
+Ebmaj9, sliding down through a diminished chord. Vocals behind the band, blended in, not
+upfront. Dark warm tone, highs rolled off, lo-fi. Ends on a plucked chord, about two and
+a half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+a little bitter, and i like it
+
+--------------------------------------------------------------------------
+  곡 7   천천히 마시니 맛이 겹겹이 더 있다 (밝음)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  more in it than i knew
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I thought I knew this flavor through and through
+Then one slow sip showed me something new
+A little spice hiding under the easy sweet
+A brightness waiting at the very edge
+
+[Pre-Chorus]
+I go back in to look for it again
+The more I wait, the more it gives to me
+How did I miss all of this before?
+
+[Chorus]
+More in it than I knew
+Every time I slow down there is more
+Something new behind the something new
+More in it than I knew
+
+[Post-Chorus]
+Layer on layer and sip by sip
+Every one a little gift
+
+[Verse 2]
+There is a note of something like the sun
+Then something rounder coming up behind
+I laugh because it opens more and more
+Like a song with one more verse to sing
+
+[Pre-Chorus]
+I hold it there and count to four
+It opens wider every single time
+My whole face is glowing now
+
+[Chorus]
+More in it than I knew
+Every time I slow down there is more
+Even the smallest taste has a story
+More in it than I knew
+
+[Verse 3]
+I used to swallow long before I listened
+Now I let my tongue go wandering slowly
+Every flavor has a little voice of its own
+
+[Bridge]
+Wait, then
+Let it tell me everything it knows
+I could spend a lifetime in a single sip and still be finding something I had never tasted
+
+[Outro]
+More in it than I knew
+One more tiny sip to find it out
+
+【STYLE】 ★823자
+Warm soul pop for a cafe, D major, 99 BPM. Female low alto, half voice, near speech, as
+if humming to herself. Narrow melody in a fourth, one phrase returning; the chorus keeps
+those notes and lifts because the band opens, not because she pushes; lines end early.
+Rounded consonants, almost no vibrato. Full band, dense and soft: bright electric grand,
+four-note motif, struck short; an analog synth bed, slow attack, far back; one harmony
+voice, last chorus, no choir; picked bass in dotted eighths; soft kick, snare, sixteenth
+hats every bar, never dropping out. Harmony Dmaj9 - Bm9 - Gmaj9 - D/A - A9 to Dmaj9,
+home heard over the five first. Vocals behind the band, blended in, not upfront. Warm
+tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two and a half
+minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+more in it than i knew
+
+--------------------------------------------------------------------------
+  곡 8   너도 천천히 맛봐 — 케이크 한 조각 (밝음)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  slow down and taste it
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+You always eat like there is somewhere else to be
+Here, sit down with me and try a slower way
+Take a little piece of cake and wait a while
+Hold it for a moment on your tongue
+
+[Pre-Chorus]
+See the way it opens up for you
+Sweet and bright and bigger than you thought
+Can you taste the difference now?
+
+[Chorus]
+Slow down and taste it
+There is so much more than you would guess
+Nothing here is going anywhere
+Slow down and taste it
+
+[Post-Chorus]
+Easy, easy, one more bite
+Slower, slower, that is right
+
+[Verse 2]
+I watch you grin with a mouthful and a hum
+You nod to me like you have found a secret
+The music plays a little bit behind us
+Neither one of us is in a rush
+
+[Pre-Chorus]
+The whole room seems to smile along
+You close your eyes and take your time
+Now you know the thing I know
+
+[Chorus]
+Slow down and taste it
+There is so much more than you would guess
+Every little bite has something new
+Slow down and taste it
+
+[Verse 3]
+Maybe we could do this every single day
+A little slower than we used to go
+Two of us just savoring the sweet
+
+[Bridge]
+See now
+Every flavor comes when it is ready
+The best things never come to people in a hurry so we sit here and wait for them to come to us
+
+[Outro]
+Slow down and taste it
+Half a bite each, and a grin
+
+【STYLE】 ★828자
+Warm soul pop for a cafe, D flat major, 102 BPM. Female low alto, half voice, near
+speech, as if humming to herself. Narrow melody in a fourth, one phrase returning; the
+chorus keeps those notes and lifts because the band opens, not because she pushes; lines
+end early. Rounded consonants, almost no vibrato. Full band, dense and soft: soft felt
+upright, three-note motif, struck short; Rhodes in short off-beat chords; one harmony
+voice, last chorus, no choir; round-wound bass, short and bouncing; soft kit, brushed
+snare, cabasa every bar, never dropping out. Harmony Dbmaj9 - Bbm9 - Abm9 - Db9 - Gbmaj9
+- Ab13 to Dbmaj9, a two-five into the four. Vocals behind the band, blended in, not
+upfront. Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two
+and a half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+slow down and taste it
+
+--------------------------------------------------------------------------
+  곡 9   단맛은 제 속도로 온다 (여운 · 보사)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  the sweetness takes its time
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+The sweetness takes its time with me today
+A little honey slowly finding its own way
+I let it wander anywhere it wants to go
+Across my tongue and back around again
+
+[Pre-Chorus]
+I do not chase it, I just wait
+It comes to me the way it likes to come
+Is there anything as kind as slow?
+
+[Chorus]
+The sweetness takes its time
+Coming in the way a tide comes in
+I am right here for every bit of it
+The sweetness takes its time
+
+[Post-Chorus]
+Slow and golden, slow and round
+Here and quiet, here and found
+
+[Verse 2]
+The music sways a little underneath
+My busy thoughts go quiet one by one
+Nothing else is asking for my time
+Just this sweet unhurried thing
+
+[Pre-Chorus]
+My eyes half close and I just smile
+I sit back a little deeper where I am
+The whole world narrows down to this one
+
+[Chorus]
+The sweetness takes its time
+Coming in the way a tide comes in
+Every moment sweeter than it was
+The sweetness takes its time
+
+[Verse 3]
+Maybe that is all I needed here
+A little patience and a little sweet
+A quiet place to let it come to me
+
+[Bridge]
+So kind
+Nothing sweet was ever made to hurry
+I have learned to open up my hands and wait for all the good things coming slowly on their own
+
+[Outro]
+The sweetness takes its time
+One golden sip is all I need
+
+【STYLE】 ★828자
+Bossa nova soul pop for a cafe, G major, 94 BPM. Female low alto, half voice, near
+speech, as if humming to herself. Narrow melody in a fourth, one phrase returning; the
+chorus keeps those notes and lifts because the band opens, not because she pushes; lines
+end early. Rounded consonants, almost no vibrato. Full band, dense and soft: nylon
+guitar in bossa comping to the last bar; electric piano, short chords; one harmony
+voice, last chorus, no choir; round syncopated bass, low; brushes, hats, shaker every
+bar, never dropping out. No upright bass, no jazz trio. Harmony F#m7b5 - B7b9 - Em9 -
+Am9 - D9 to Gmaj9, one two-five to the six, one home. Vocals behind the band, blended
+in, not upfront. Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord,
+about two and a half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+the sweetness takes its time
+
+--------------------------------------------------------------------------
+  곡 10  세트를 닫고 곧장 되감는 곡 · 여기선 1분이 더 길게 맛난다 (여운 DARK)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  a minute tastes longer here
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+A minute tastes longer here than anywhere
+The cup comes up and time begins to stretch
+The low light slows the room right down around me
+Every little sip goes on and on
+
+[Pre-Chorus]
+The music drifts behind the dark
+I hear my heart beat slow and low
+Where did all my hurry go?
+
+[Chorus]
+A minute tastes longer here
+Long and deep and rich in every sip
+Nothing pulls me out of it at all
+A minute tastes longer here
+
+[Post-Chorus]
+Slower, deeper, dark and round
+Every second rounding out
+
+[Verse 2]
+I let each moment open wide and slow
+There is so much room inside of one
+My thoughts go quiet one at a time in the dim
+The taste is all I need to know
+
+[Pre-Chorus]
+Deeper than the one that came before
+Richer than I thought it was
+The space between the seconds opens up
+
+[Chorus]
+A minute tastes longer here
+Long and deep and rich in every sip
+I could live a whole day in this one
+A minute tastes longer here
+
+[Verse 3]
+Maybe time is slower when I taste it
+Maybe that is why this place feels wide
+Every sip a little room of its own
+
+[Bridge]
+Go slow
+Let a minute stretch out as it likes
+There is a whole long hour folded up inside a single sip when I give it room to open
+
+[Outro]
+A minute tastes longer here
+Half a cup, and all the time I need
+
+【STYLE】 ★817자
+Soul pop for a cafe, E flat minor to G flat major, 90 BPM. Female low alto, half voice,
+near speech, as if humming to herself, behind the beat. Narrow melody in a fourth, one
+phrase returning; the chorus keeps those notes and lifts because the band opens, not
+because she pushes; lines end early. Rounded consonants, almost no vibrato. Full band,
+dense and soft: dark tremolo Rhodes, three-note motif, struck short; muted piano, short
+off-beat chords; one harmony voice, last chorus, no choir; low tape bass, short; rim
+click, soft kick, dark shaker every bar, never dropping out. Harmony Ebm9 - Abm9 - Fm7b5
+- Bb7b9 to Ebm9, ending on Gbmaj9. Vocals behind the band, blended in, not upfront. Dark
+warm tone, highs rolled off, lo-fi. Ends on a plucked chord, about two and a half
+minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+a minute tastes longer here
