@@ -1,0 +1,367 @@
+{
+ "loops": 3,
+ "seed": 20261005018,
+ "total_sec": 12787.0,
+ "tracks": [
+  {
+   "i": 1,
+   "at": 0.0,
+   "ts": "0:00",
+   "title": "the hour is wide open"
+  },
+  {
+   "i": 2,
+   "at": 223.09,
+   "ts": "3:43",
+   "title": "my thoughts spread out"
+  },
+  {
+   "i": 3,
+   "at": 466.07,
+   "ts": "7:46",
+   "title": "plenty of room"
+  },
+  {
+   "i": 4,
+   "at": 692.17,
+   "ts": "11:32",
+   "title": "the quiet holds it for me"
+  },
+  {
+   "i": 5,
+   "at": 905.05,
+   "ts": "15:05",
+   "title": "open on every side"
+  },
+  {
+   "i": 6,
+   "at": 1107.38,
+   "ts": "18:27",
+   "title": "sit anywhere you like"
+  },
+  {
+   "i": 7,
+   "at": 1310.97,
+   "ts": "21:50",
+   "title": "no edges in here"
+  },
+  {
+   "i": 8,
+   "at": 1515.21,
+   "ts": "25:15",
+   "title": "arms out wide"
+  },
+  {
+   "i": 9,
+   "at": 1722.32,
+   "ts": "28:42",
+   "title": "the space between the notes"
+  },
+  {
+   "i": 10,
+   "at": 1922.28,
+   "ts": "32:02",
+   "title": "nothing i have to fill"
+  },
+  {
+   "i": 11,
+   "at": 2143.63,
+   "ts": "35:43",
+   "title": "there is room in me"
+  },
+  {
+   "i": 12,
+   "at": 2366.96,
+   "ts": "39:26",
+   "title": "my thoughts spread out"
+  },
+  {
+   "i": 13,
+   "at": 2575.6,
+   "ts": "42:55",
+   "title": "plenty of room"
+  },
+  {
+   "i": 14,
+   "at": 2803.54,
+   "ts": "46:43",
+   "title": "there is room in me"
+  },
+  {
+   "i": 15,
+   "at": 3028.07,
+   "ts": "50:28",
+   "title": "the space between the notes"
+  },
+  {
+   "i": 16,
+   "at": 3216.07,
+   "ts": "53:36",
+   "title": "the hour is wide open"
+  },
+  {
+   "i": 17,
+   "at": 3412.63,
+   "ts": "56:52",
+   "title": "nothing i have to fill"
+  },
+  {
+   "i": 18,
+   "at": 3645.22,
+   "ts": "1:00:45",
+   "title": "sit anywhere you like"
+  },
+  {
+   "i": 19,
+   "at": 3852.36,
+   "ts": "1:04:12",
+   "title": "open on every side"
+  },
+  {
+   "i": 20,
+   "at": 4055.3,
+   "ts": "1:07:35",
+   "title": "the quiet holds it for me"
+  },
+  {
+   "i": 21,
+   "at": 4260.83,
+   "ts": "1:11:00",
+   "title": "plenty of room"
+  },
+  {
+   "i": 22,
+   "at": 4487.09,
+   "ts": "1:14:47",
+   "title": "the quiet holds it for me"
+  },
+  {
+   "i": 23,
+   "at": 4699.91,
+   "ts": "1:18:19",
+   "title": "open on every side"
+  },
+  {
+   "i": 24,
+   "at": 4902.94,
+   "ts": "1:21:42",
+   "title": "my thoughts spread out"
+  },
+  {
+   "i": 25,
+   "at": 5146.12,
+   "ts": "1:25:46",
+   "title": "the space between the notes"
+  },
+  {
+   "i": 26,
+   "at": 5346.42,
+   "ts": "1:29:06",
+   "title": "arms out wide"
+  },
+  {
+   "i": 27,
+   "at": 5553.55,
+   "ts": "1:32:33",
+   "title": "sit anywhere you like"
+  },
+  {
+   "i": 28,
+   "at": 5757.43,
+   "ts": "1:35:57",
+   "title": "the hour is wide open"
+  },
+  {
+   "i": 29,
+   "at": 5981.23,
+   "ts": "1:39:41",
+   "title": "no edges in here"
+  },
+  {
+   "i": 30,
+   "at": 6186.01,
+   "ts": "1:43:06",
+   "title": "nothing i have to fill"
+  },
+  {
+   "i": 31,
+   "at": 6407.41,
+   "ts": "1:46:47",
+   "title": "there is room in me"
+  },
+  {
+   "i": 32,
+   "at": 6631.01,
+   "ts": "1:50:31",
+   "title": "sit anywhere you like"
+  },
+  {
+   "i": 33,
+   "at": 6838.89,
+   "ts": "1:53:58",
+   "title": "there is room in me"
+  },
+  {
+   "i": 34,
+   "at": 7062.99,
+   "ts": "1:57:42",
+   "title": "plenty of room"
+  },
+  {
+   "i": 35,
+   "at": 7290.79,
+   "ts": "2:01:30",
+   "title": "open on every side"
+  },
+  {
+   "i": 36,
+   "at": 7494.13,
+   "ts": "2:04:54",
+   "title": "my thoughts spread out"
+  },
+  {
+   "i": 37,
+   "at": 7702.53,
+   "ts": "2:08:22",
+   "title": "the hour is wide open"
+  },
+  {
+   "i": 38,
+   "at": 7899.11,
+   "ts": "2:11:39",
+   "title": "the space between the notes"
+  },
+  {
+   "i": 39,
+   "at": 8087.09,
+   "ts": "2:14:47",
+   "title": "nothing i have to fill"
+  },
+  {
+   "i": 40,
+   "at": 8319.81,
+   "ts": "2:18:39",
+   "title": "the quiet holds it for me"
+  },
+  {
+   "i": 41,
+   "at": 8525.02,
+   "ts": "2:22:05",
+   "title": "there is room in me"
+  },
+  {
+   "i": 42,
+   "at": 8748.28,
+   "ts": "2:25:48",
+   "title": "sit anywhere you like"
+  },
+  {
+   "i": 43,
+   "at": 8952.44,
+   "ts": "2:29:12",
+   "title": "the quiet holds it for me"
+  },
+  {
+   "i": 44,
+   "at": 9165.07,
+   "ts": "2:32:45",
+   "title": "no edges in here"
+  },
+  {
+   "i": 45,
+   "at": 9369.74,
+   "ts": "2:36:09",
+   "title": "arms out wide"
+  },
+  {
+   "i": 46,
+   "at": 9576.41,
+   "ts": "2:39:36",
+   "title": "the space between the notes"
+  },
+  {
+   "i": 47,
+   "at": 9777.13,
+   "ts": "2:42:57",
+   "title": "nothing i have to fill"
+  },
+  {
+   "i": 48,
+   "at": 9998.55,
+   "ts": "2:46:38",
+   "title": "open on every side"
+  },
+  {
+   "i": 49,
+   "at": 10201.45,
+   "ts": "2:50:01",
+   "title": "the hour is wide open"
+  },
+  {
+   "i": 50,
+   "at": 10425.02,
+   "ts": "2:53:45",
+   "title": "my thoughts spread out"
+  },
+  {
+   "i": 51,
+   "at": 10668.09,
+   "ts": "2:57:48",
+   "title": "plenty of room"
+  },
+  {
+   "i": 52,
+   "at": 10894.02,
+   "ts": "3:01:34",
+   "title": "sit anywhere you like"
+  },
+  {
+   "i": 53,
+   "at": 11101.34,
+   "ts": "3:05:01",
+   "title": "nothing i have to fill"
+  },
+  {
+   "i": 54,
+   "at": 11334.12,
+   "ts": "3:08:54",
+   "title": "plenty of room"
+  },
+  {
+   "i": 55,
+   "at": 11561.52,
+   "ts": "3:12:41",
+   "title": "the hour is wide open"
+  },
+  {
+   "i": 56,
+   "at": 11757.38,
+   "ts": "3:15:57",
+   "title": "the space between the notes"
+  },
+  {
+   "i": 57,
+   "at": 11946.14,
+   "ts": "3:19:06",
+   "title": "open on every side"
+  },
+  {
+   "i": 58,
+   "at": 12149.44,
+   "ts": "3:22:29",
+   "title": "there is room in me"
+  },
+  {
+   "i": 59,
+   "at": 12373.94,
+   "ts": "3:26:13",
+   "title": "my thoughts spread out"
+  },
+  {
+   "i": 60,
+   "at": 12582.61,
+   "ts": "3:29:42",
+   "title": "the quiet holds it for me"
+  }
+ ]
+}

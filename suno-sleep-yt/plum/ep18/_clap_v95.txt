@@ -1,0 +1,25 @@
+CLAP 게이트 · 거리 p90=0.084 (cherry 내부 평균 0.057) · 찬송가축 ❌≥0.00 ⚠️≥-0.05
+
+✅  0.067 ( 75%)  ✅      -0.165  01_there is room in me.mp3
+△  0.087 ( 90%)  ✅      -0.187  02_there is room in me.mp3
+✅  0.078 ( 86%)  ✅      -0.199  03_nothing i have to fill.mp3
+△  0.097 ( 94%)  ✅      -0.165  04_nothing i have to fill.mp3
+△  0.101 ( 94%)  ✅      -0.168  05_my thoughts spread out.mp3
+✅  0.082 ( 88%)  ✅      -0.190  06_my thoughts spread out.mp3
+✅  0.054 ( 60%)  ✅      -0.202  07_the space between the notes.mp3
+✅  0.066 ( 73%)  ✅      -0.194  08_the space between the notes.mp3
+✅  0.069 ( 76%)  ✅      -0.204  09_open on every side.mp3
+✅  0.066 ( 73%)  ✅      -0.235  10_open on every side.mp3
+✅  0.079 ( 87%)  ✅      -0.148  11_arms out wide.mp3
+✅  0.079 ( 87%)  ✅      -0.195  12_arms out wide.mp3
+✅  0.051 ( 57%)  ✅      -0.214  13_no edges in here.mp3
+✅  0.067 ( 75%)  ✅      -0.162  14_no edges in here.mp3
+△  0.101 ( 94%)  ✅      -0.179  15_plenty of room.mp3
+✅  0.069 ( 78%)  ✅      -0.158  16_plenty of room.mp3
+❌  0.125 ( 96%)  ✅      -0.204  17_sit anywhere you like.mp3
+❌  0.118 ( 96%)  ✅      -0.229  18_sit anywhere you like.mp3
+✅  0.071 ( 79%)  ✅      -0.196  19_the hour is wide open.mp3
+✅  0.070 ( 78%)  ✅      -0.140  20_the hour is wide open.mp3
+
+거리축 통과: 14/20 (✅=p90 이내, △=경계, ❌=분포 밖)
+✅ 찬송가축 탈락 0곡

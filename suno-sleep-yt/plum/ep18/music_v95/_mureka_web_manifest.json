@@ -1,0 +1,202 @@
+[
+ {
+  "index": 1,
+  "title": "there is room in me",
+  "take": 1,
+  "dur_sec": 222.5,
+  "song_id": 164214490529793,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214488563714_8GmN1hQCjzN8rTMn9ToQ6t_fglmji.mp3",
+  "file": "plum/ep18/music_v95\\01_there is room in me.mp3"
+ },
+ {
+  "index": 2,
+  "title": "there is room in me",
+  "take": 2,
+  "dur_sec": 223.6,
+  "song_id": 164214490726401,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214488563714_8GmN1hQCjzN8rTMn9ToQ6t_iygxiu.mp3",
+  "file": "plum/ep18/music_v95\\02_there is room in me.mp3"
+ },
+ {
+  "index": 3,
+  "title": "nothing i have to fill",
+  "take": 1,
+  "dur_sec": 221.0,
+  "song_id": 164214513664002,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214509928452_G42KyH2FigNSW5rQTNtZPP_aaugip.mp3",
+  "file": "plum/ep18/music_v95\\03_nothing i have to fill.mp3"
+ },
+ {
+  "index": 4,
+  "title": "nothing i have to fill",
+  "take": 2,
+  "dur_sec": 231.9,
+  "song_id": 164214513860609,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214509928452_G42KyH2FigNSW5rQTNtZPP_vplkft.mp3",
+  "file": "plum/ep18/music_v95\\04_nothing i have to fill.mp3"
+ },
+ {
+  "index": 5,
+  "title": "my thoughts spread out",
+  "take": 1,
+  "dur_sec": 242.5,
+  "song_id": 164214534569986,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214532538369_14qMoW7WqKcW6srbdX8m3a_jmqeiy.mp3",
+  "file": "plum/ep18/music_v95\\05_my thoughts spread out.mp3"
+ },
+ {
+  "index": 6,
+  "title": "my thoughts spread out",
+  "take": 2,
+  "dur_sec": 208.0,
+  "song_id": 164214534701057,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214532538369_14qMoW7WqKcW6srbdX8m3a_xbpwhn.mp3",
+  "file": "plum/ep18/music_v95\\06_my thoughts spread out.mp3"
+ },
+ {
+  "index": 7,
+  "title": "the space between the notes",
+  "take": 1,
+  "dur_sec": 199.6,
+  "song_id": 164214557638657,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214553509891_541BTyNaa6DU4T6jYPMRZU_hnylve.mp3",
+  "file": "plum/ep18/music_v95\\07_the space between the notes.mp3"
+ },
+ {
+  "index": 8,
+  "title": "the space between the notes",
+  "take": 2,
+  "dur_sec": 187.6,
+  "song_id": 164214557835265,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214553509891_541BTyNaa6DU4T6jYPMRZU_urofhh.mp3",
+  "file": "plum/ep18/music_v95\\08_the space between the notes.mp3"
+ },
+ {
+  "index": 9,
+  "title": "open on every side",
+  "take": 1,
+  "dur_sec": 202.0,
+  "song_id": 164214580707329,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214576971777_8ZTdCVPTcgJe4A9k8z7Z7p_kyoayd.mp3",
+  "file": "plum/ep18/music_v95\\09_open on every side.mp3"
+ },
+ {
+  "index": 10,
+  "title": "open on every side",
+  "take": 2,
+  "dur_sec": 202.3,
+  "song_id": 164214580969473,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214576971777_8ZTdCVPTcgJe4A9k8z7Z7p_attvdn.mp3",
+  "file": "plum/ep18/music_v95\\10_open on every side.mp3"
+ },
+ {
+  "index": 11,
+  "title": "arms out wide",
+  "take": 1,
+  "dur_sec": 204.3,
+  "song_id": 164214599647234,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214598008838_Q4EmqZ5ZkRURMne9tMmLNN_vendzu.mp3",
+  "file": "plum/ep18/music_v95\\11_arms out wide.mp3"
+ },
+ {
+  "index": 12,
+  "title": "arms out wide",
+  "take": 2,
+  "dur_sec": 206.2,
+  "song_id": 164214599843842,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214598008838_Q4EmqZ5ZkRURMne9tMmLNN_hpvnyf.mp3",
+  "file": "plum/ep18/music_v95\\12_arms out wide.mp3"
+ },
+ {
+  "index": 13,
+  "title": "no edges in here",
+  "take": 1,
+  "dur_sec": 203.7,
+  "song_id": 164214622781441,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214620618754_MczmcZYeittUyVM3ZDE52D_edaskf.mp3",
+  "file": "plum/ep18/music_v95\\13_no edges in here.mp3"
+ },
+ {
+  "index": 14,
+  "title": "no edges in here",
+  "take": 2,
+  "dur_sec": 233.2,
+  "song_id": 164214622781442,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214620618754_MczmcZYeittUyVM3ZDE52D_trjteq.mp3",
+  "file": "plum/ep18/music_v95\\14_no edges in here.mp3"
+ },
+ {
+  "index": 15,
+  "title": "plenty of room",
+  "take": 1,
+  "dur_sec": 225.1,
+  "song_id": 164214645850113,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214641590275_QmzEXdn8edAYMxUhsEEJFJ_yyujrr.mp3",
+  "file": "plum/ep18/music_v95\\15_plenty of room.mp3"
+ },
+ {
+  "index": 16,
+  "title": "plenty of room",
+  "take": 2,
+  "dur_sec": 226.9,
+  "song_id": 164214645981185,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214641590275_QmzEXdn8edAYMxUhsEEJFJ_mkawav.mp3",
+  "file": "plum/ep18/music_v95\\16_plenty of room.mp3"
+ },
+ {
+  "index": 17,
+  "title": "sit anywhere you like",
+  "take": 1,
+  "dur_sec": 203.1,
+  "song_id": 164214668984322,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214664724482_Vb4DRDk44y39aiuUZNU71A_amghko.mp3",
+  "file": "plum/ep18/music_v95\\17_sit anywhere you like.mp3"
+ },
+ {
+  "index": 18,
+  "title": "sit anywhere you like",
+  "take": 2,
+  "dur_sec": 206.7,
+  "song_id": 164214669049858,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214664724482_Vb4DRDk44y39aiuUZNU71A_jktkih.mp3",
+  "file": "plum/ep18/music_v95\\18_sit anywhere you like.mp3"
+ },
+ {
+  "index": 19,
+  "title": "the hour is wide open",
+  "take": 1,
+  "dur_sec": 222.8,
+  "song_id": 164214687727617,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214686089218_73Leutd8rTE1pbJQGjBiss_reertz.mp3",
+  "file": "plum/ep18/music_v95\\19_the hour is wide open.mp3"
+ },
+ {
+  "index": 20,
+  "title": "the hour is wide open",
+  "take": 2,
+  "dur_sec": 195.4,
+  "song_id": 164214687924225,
+  "model": "V9.5",
+  "mp3_url": "cos-prod/song/audio/20261002/music_164214686089218_73Leutd8rTE1pbJQGjBiss_hqgtpy.mp3",
+  "file": "plum/ep18/music_v95\\20_the hour is wide open.mp3"
+ }
+]

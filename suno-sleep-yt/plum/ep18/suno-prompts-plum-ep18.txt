@@ -1,0 +1,1185 @@
+==========================================================================
+ plum music EP18 — "탁 트인 곳에 앉으니 마음에도 여백이 생겨요" 편 (가을 6편째)   ★붙여넣기 전용본
+ 각 곡은 위에서부터 가사 -> 스타일 -> 배제어 -> 제목 네 블록 순서다.
+==========================================================================
+
+ [플랫폼]     Mureka 열 번째 편. 곡당 V9.5 만 1생성(= 2테이크). 다시 뽑기 없음.
+              변환 = py -3 tools\suno_to_mureka.py plum\ep18\suno-prompts-plum-ep18.txt ^
+                       --tail-file plum\_assets\mureka_tail_plum.txt --ack-loss
+              (EXCLUDE 블록 제거 + 꼬리 169자 인라인 · 본문 상한 830 · 병합 상한 1,000)
+ [받는 폴더]  D:\test3\suno-sleep-yt\plum\ep18\music
+ [발행]       2026-10-05 (월) 08:00 KST
+ [기준 문서]  컨셉-ep18.md · CLAUDE.md §🎤🔴🔴(2026-09-07 보컬 상시규칙) ·
+              §🎼🔴🔴(찬송가 축) · §🎼 az6(스무스재즈는 막지 않는다) ·
+              ep10\_찬송가-처방.md · ep10\suno-prompts-plum-ep10.txt(보사 첫 통과 레시피) ·
+              ep17\컨셉-ep17.md · ep16\컨셉-ep16.md(보사 게이트 결과)
+ [상위 필터]  CLAUDE.md §🏝️ 럭셔리·깔끔·심플·리조트. 비·슬픔·추억·끝나감 0줄.
+              + 컨셉 §ⓐ 🍂 가을 우울 함정 금지 — "빈"은 외로움이 아니라 여유다.
+                empty · alone · lonely 0회. 빈자리는 room · space · open · wide 로만 썼다.
+
+ 🔴 이 편도 **보컬 축·믹스 축·꼬리·EXCLUDE 를 EP11~EP17 과 글자 단위로 같게 둔다.**
+    바뀐 것은 테마(맛·속도 → 넓이·여백)·씬·문형과, 매 편 새로 쓰는 조성·BPM·편성·
+    화성·가사 — 그리고 **보사 2곡의 편성·화성 처방(아래 별도 상자)** 이다.
+    EP14 가 "멀리까지 또렷이 보인다"(눈)였다면 EP18 은 **"안에 자리가 생긴다"(마음의
+    공간)** 다 — 앉고, 펼치고, 팔을 벌리고, 채우지 않고 둔다.
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 곡별 한 줄 표                                                        │
+ └──────────────────────────────────────────────────────────────────────┘
+
+ | #  | 정서 결                                     | 성별 | 장르     | BPM | 2인칭 | 제목                       |
+ |----|---------------------------------------------|------|----------|-----|-------|----------------------------|
+ | 1  | 밝음 — 앉으니 머릿속에 자리가 생긴다         | 여성 | 소울팝   |  96 | ·     | there is room in me        |
+ | 2  | 밝음 — 채울 일이 하나도 없는 오후            | 여성 | 소울팝   | 100 | ·     | nothing i have to fill     |
+ | 3  | 여운 — 생각이 넓게 펼쳐진다                  | 여성 | 보사노바 |  93 | ·     | my thoughts spread out     |
+ | 4  | 여운 DARK — 음과 음 사이의 넓은 자리         | 여성 | 소울팝   |  87 | ·     | the space between the notes|
+ | 5  | 밝음 — 사방이 트인 곳에선 나도 트인다        | 여성 | 소울팝   |  98 | ·     | open on every side         |
+ | 6  | 밝음 — 팔을 활짝 벌려도 아무것도 안 걸린다   | 여성 | 소울팝   | 102 | ·     | arms out wide              |
+ | 7  | 여운 DARK — 어둑한 곳, 끝이 안 잡혀서 편하다 | 여성 | 소울팝   |  89 | ·     | no edges in here           |
+ | 8  | 밝음 — 어디에나 자리가 넉넉하다              | 여성 | 보사노바 |  97 | ·     | plenty of room             |
+ | 9  | 밝음 — 아무 데나 앉아, 둘이 써도 남는다      | 남성 | 소울팝   |  94 | ●     | sit anywhere you like      |
+ | 10 | 여운 DARK — 아무것도 안 적힌 한 시간         | 여성 | 소울팝   |  90 | ·     | the hour is wide open      |
+
+ · 밝음 6 (#1 #2 #5 #6 #8 #9) / 여운 4 (#3 #4 #7 #10) · 이별·상실 0곡
+ · 배열 B B Q Q B B Q B B Q (컨셉 §ⓓ 그대로) — 같은 결 연속 최대 2곡
+   (#1 #2 · #3 #4 · #5 #6 · #8 #9). 루프 이음매 #10(Q) → #1(B) → #2(B) → #3(Q)
+   = 밝음 2연속에서 끊긴다. 여운 자리 {3,4,7,10} = 열세 편과 겹치지 않는 조합.
+ · DARK 3곡 (#4 #7 #10) — 전부 소울팝. **보사(#3 #8)에 DARK 를 겹치지 않았다.**
+   #3 은 여운이되 warm tone 이다(여운 네 칸 중 non-DARK 한 칸 = 보사, EP17 과 같은 처리).
+ · 보사 = **#3(여운 non-DARK) · #8(밝음)** · 간격 앞으로 5곡 / 되감기 쪽 5곡 = 등간격.
+   #3 → #4 는 여운 2연속이지만 장르(보사 → 소울팝)·톤(warm → dark)·BPM(93 → 87)이 동시에 바뀐다.
+ · 여성 9 / 남성 1(**#9**) / 듀엣 0 — 컨셉 권장 자리 그대로. 최근 남성 자리
+   (EP13 #6 · EP14 #7 · EP15 #4 · EP16 #8 · EP17 #5)와 겹치지 않는다.
+   #8(여성 보사 97) → #9(남성 소울팝 94) 는 밝음 2연속이지만 성별·장르가 동시에 바뀐다.
+   #1 → #2 는 둘 다 여성 소울팝이라 **BPM(96 → 100) · 리드(웜 월리처 → CP-70 일렉 그랜드) ·
+   지속층(0 → 1) · 화성 장치(6/9 넓은 보이싱 → 4도 쌓기)** 를 갈랐다.
+   #5 → #6 도 둘 다 여성 소울팝이라 **BPM(98 → 102) · 지속층(0 → 1) · 리드(로즈 Mk I →
+   브라이트 그랜드) · 베이스(라운드와운드 싱코페 → 신스 베이스 플럭)** 를 갈랐다.
+ · 2인칭 1곡(#9) — 세트 you 비율 **실측 1.02%** (you·your 25 / 본문 2,445단어).
+   "아무 데나 앉아" 권유라 2인칭이 장면 자체인 자리에만 넣었다. 나머지 9곡 you 0회.
+ · BPM 중앙 95 · 범위 87~102 · 100 이상 2곡(#2 #6) · 최저 87(#4)
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 🔴 이번 편에서 바뀐 것 / 안 바뀐 것 (결과 귀속용 — 반드시 읽을 것)      │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ ⛔ 안 바꾼 것 (EP17 과 글자 단위로 같은 축 — 이번 판정의 대조축)        │
+ │   · 꼬리 169자 · STYLE 본문 상한 830자 (실측 820~829)                 │
+ │   · 보컬 필수 4문구 — half voice, near speech, as if humming to        │
+ │     herself(#9 = himself) · lines end early · almost no vibrato ·     │
+ │     lifts because the band opens, not because she(#9 = he) pushes     │
+ │   · 보컬 금지 — easy and open · little vibrato ·                       │
+ │     세미콜론 뒤 단독 lift from the band (전 곡 0회)                    │
+ │   · 가사 238~250단어 · 10섹션 · 32행 · 유니크 27행 (10곡 전부)          │
+ │   · 찬송가 처방 B-1~B-5 10곡 전량 · never dropping out 10곡 ·          │
+ │     ends on a plucked chord 10곡 · 페이드 지시 0                       │
+ │   · Vocals behind the band, blended in, not upfront (cherry 핵심)     │
+ │   · 믹스 문구 — 밝음 `Warm tone, softened top, tape warmth, lo-fi` /   │
+ │     DARK `Dark warm tone, highs rolled off, lo-fi` — EP11~17 그대로    │
+ │   · 길이 지시 about two and a half minutes + the lyric filling all     │
+ │     of it                                                             │
+ │   · 소울팝 8 + 보사 2 · 여성 9 + 남성 1 · 20트랙 · 정지 배경           │
+ │   · 관악기·현악 독주 0곡 · 저지속 얇은 악기 0곡 · 지속 요소 곡 2개     │
+ │   · EXCLUDE 블록 28항목 — EP17 과 한 글자도 다르지 않다(스크립트 대조) │
+ │     (변환기 손실 회계가 EP12~EP17 과 같은 표를 내야 정상이다)          │
+ │                                                                      │
+ │ ✅ 바꾼 것                                                             │
+ │   ① 테마 = 맛·속도(EP17) → **넓이·여백**. 주어 "나", 시제 현재.        │
+ │      혀·입(EP17) 대신 **몸과 자리의 동작** — 앉는다 · 펼친다 · 팔을    │
+ │      벌린다 · 사이를 듣는다 · 채우지 않고 둔다.                         │
+ │   ② 씬 = 사용자 선택 대기(bg/index.html 외관 3 + 실내 1). 곡은 씬과     │
+ │      무관하게 성립하도록 썼다 — 구체 장소 명사 0.                       │
+ │   ③ 제목 문형 = 속도 체감형 → **공간 체감형**(18번째) · 이모지 🍂      │
+ │   ④ 조성 10개·BPM·편성·화성 장치 = 전부 새 값(매 편 하는 일)           │
+ │   ⑤ 보사 #4 #9 → **#3 #8** · 남성 #5 → **#9** (여운 자리가 바뀌어서)   │
+ │   ⑥ 🔴 **보사 처방 = EP10 첫 통과 레시피로 되돌림.** 아래 🔴 보사 상자. │
+ │      **보사 2곡의 편성·화성만** 바뀌었고 보컬 줄·믹스 줄·끝맺음·       │
+ │      퍼커션 유지 문구는 그대로다.                                      │
+ │                                                                      │
+ │ ⚠️ 여백·넓음을 **믹스 문구로 표현하지 않았다** — `spacious`·`sparse`·  │
+ │    `airy`·`lots of space` 같은 말은 ① 편성을 얇게 만들어 R2 소편성     │
+ │    기각을 되살리고 ② 지속화음·긴 꼬리를 불러 찬송가 처방 B-1 과 정면   │
+ │    충돌한다. → 넓음은 **가사(동작어)와 화성(보이싱·베이스 도약)** 이   │
+ │    맡는다. 편성은 10곡 전부 `Full band, dense and soft` 그대로다.       │
+ │    ⛔ 이번 편 결과를 곡 축의 개별 문구 탓으로 돌리지 말 것 — 안 바꿨다.│
+ │    바뀐 축은 보사 처방 하나이고, 그 결과는 **#3 #8 에만** 귀속된다.    │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 🔴 곡 길이 — EP14~EP17 결론을 그대로 적용한다 (새 실측 없음)           │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ 단어수 ↔ 길이 r = −0.09 · BPM ↔ 길이 r = −0.13 · 음절수 ↔ 길이 r = −0.07 │
+ │ (EP11~EP13 채택 24곡) → 곡 길이는 Mureka 쪽 성질이고, 가사량은 길이   │
+ │ 레버가 아니라 **밀도(단어/보컬초) 레버**다. 그래서 구조는 32행 그대로, │
+ │ 후렴 3회 반복 없음, 단어만 예산 안에 뒀다: 238~250 (세트 2,445단어).   │
+ │ ⚠️ 예상 유니크 = 약 70분 안팎(EP17 실측 72.1분). 컨셉의 50~62분 목표와 │
+ │    의 차이는 가사로 못 줄인다 — EP15~EP17 과 같은 판단으로 두었다.     │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 설계 의도 — 컨셉("탁 트인 곳에 앉으니 마음에도 여백이 생긴다")을 곡으로 │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ 10곡 전부 여백을 **상태가 아니라 동작**으로 쓴다 — 앉는다 · 펼친다 ·   │
+ │ 팔을 벌린다 · 다리를 뻗는다 · 사이를 듣는다 · 끝을 더듬는다 · 앉으라고 │
+ │ 권한다. "비어 있다"는 말 대신 "자리가 있다"로만 쓴다.                   │
+ │                                                                      │
+ │ ⛔ 구체 소품 명사 **곡당 최대 1개**(컨셉 §ⓐ) —                        │
+ │    #1 0개 · #2 calendar · #3 windows · #4 0개 · #5 doors ·            │
+ │    #6 seat · #7 0개 · #8 doors · #9 chair · #10 lamps.                │
+ │    공간은 room · floor · walls · ceiling · corner · place 로만.        │
+ │    몸은 head · mind · shoulders · hands · arms · elbows · eyes.       │
+ │ ⛔ 가사 계절어 0 — autumn · fall · leaves · leaf · maple · harvest ·   │
+ │    September · October · sweater · scarf · chill · cold 10곡 0회      │
+ │    (스크립트 대조. winter·summer·spring·season 도 0회).                │
+ │ ⛔ 우울·끝남·외로움 연상 0 — empty · alone · lonely · end · over ·     │
+ │    gone · last · past · left · leave · fade · sink · drop · lost ·    │
+ │    miss 10곡 0회. 빈자리는 전부 room · space · open · roomy 로 썼다.   │
+ │ ⛔ EP14 "멀리·또렷" 어휘 0 — far · further · clear 0회.               │
+ │    (#5 "see straight through" 는 건물을 관통하는 개방이지 원경이 아니다.)│
+ │ ⛔ EP16 "내려놓음·가벼움" 어휘 0 — light · lighter · float · hold ·    │
+ │    set it down · let go 0회.                                          │
+ │ ⛔ EP15 향·숨 어휘 0 — breathe · breath · carry 0회.                  │
+ │ ⛔ EP17 맛 어휘 0 — taste · sip · tongue · swallow · let it sit 0회.  │
+ │ ⛔ EP13 어휘 0 — warm · soft · gentle · melt · heavy · lean · stay 가사 │
+ │    0회. (STYLE 의 Warm·soft 는 곡 축 문구)                            │
+ │                                                                      │
+ │ 인접 편 재료 차단 (컨셉 §ⓐ) — 전부 문자열로 대조했다.                  │
+ │ ① EP17 재료 0줄: one sip at a time · i take it slow · let it sit on   │
+ │    my tongue · no need to swallow fast                                │
+ │ ② EP16 재료 0줄: my steps come easy · i set it down · light on my     │
+ │    feet · i could float here · nothing to hold up · up on my toes ·   │
+ │    lighter than i came in                                             │
+ │ ③ EP15 재료 0줄: it stays on my hands · you carry it in with you ·    │
+ │    it fills me by degrees · breathe it in                             │
+ │ ④ EP14 재료 0줄: the far things look close · so still i can hear it · │
+ │    my head feels rinsed                                               │
+ │ ⑤ EP13 재료 0줄: warm feels good again · unclenched · the longer i    │
+ │    stay · ⑥ EP12·EP11: come back · keeping 0회                        │
+ │ ⑦ EP01~EP17 전 곡 가사와 **글자까지 같은 행 0개**(3단어 이상 행 대조). │
+ │ ⑧ 세트 안 곡끼리 같은 행 0개 · ⑨ 제목 중복 = verify_prompts 로 대조.  │
+ │ ⑩ 컨셉어 도배 방지 = **10곡 전부에 등장하는 내용어 0개.**             │
+ │    최다 = wide 9곡 · roomy · room · space · sit · little · music 8곡.  │
+ │    (room 은 #2 #5 에, wide 는 #8 에 일부러 안 넣었다)                  │
+ │ · #1 #2 #3 제목은 컨셉 §ⓐ 예시 문구(there's room in me · nothing i   │
+ │   have to fill · my thoughts spread out)를 그대로 받았다.              │
+ │                                                                      │
+ │ ⓐ 안에 자리가 생긴다 — #1 (세트를 연다) · #3 (보사 · 생각이 펼쳐짐)   │
+ │ ⓑ 채우지 않아도 된다 — #2 (빈 오후) · #10 (빈 한 시간 · DARK)         │
+ │ ⓒ 몸으로 넓음을 쓴다 — #6 (팔을 벌림) · #5 (사방이 트인 건물)         │
+ │ ⓓ 어둠 속의 넓이 — #4 (음 사이의 자리) · #7 (끝이 안 잡히는 방)       │
+ │ ⓔ 자리를 나눈다 — #8 (보사 · 넉넉함) · #9 (남성 · 2인칭 · 앉으라는 권유)│
+ │ · #10 아웃트로 "Room in me, and room to spare" 가 #1 제목으로 되감긴다. │
+ │                                                                      │
+ │ ⛔ 이별·상실 0곡. ⛔ 후렴 세 번째 반복 0. [Intro]·[Instrumental]·       │
+ │    [Interlude]·[Solo] 0개. [Outro] 는 10곡 전부 가사 2행.              │
+ │ · ⚠️ **EP17 의 네 문형을 10곡 전부에서 버렸다**(두 편 연속 같은 문형   │
+ │   = 두 편이 한 편처럼 들린다, EP12 원칙 계승):                          │
+ │   ① 질문 자리 = 첫 Pre-Chorus 셋째 행(EP17) → **Verse 1 넷째 행**(10곡).│
+ │     EP13(브리지) · EP14(Pre1 첫 행) · EP15(Verse 3 첫 행) ·             │
+ │     EP16(Verse 2 첫 행)과도 다른 자리. 세트 10/320행 = 3.1%            │
+ │     (cherry 물음표 3.2%). 첫 절이 물음으로 열리고 프리코러스가 답한다.   │
+ │   ② 브리지 = 점점 길어짐(EP17)·점점 짧아짐(EP16) → **가운데만 넓다**    │
+ │     (2단어 → 19~23단어 → 2~3단어: "Look around" · "All mine" ·          │
+ │     "Just look" · "Hush now" · "All around" · "Go on" · "Go deeper" ·  │
+ │     "Sit down" · "Here, sit" · "Right now"). 짧은 두 마디 사이에 넓은   │
+ │     한 문장 — 여백의 모양. EP17 브리지 첫 단어 10종과 겹침 0.           │
+ │   ③ 아웃트로 둘째 행 = 작은 양(EP17) → **동사 없는 공간 명사구**        │
+ │     (A whole wide sky behind my eyes · A whole bright afternoon,       │
+ │     unwritten · Every one of them at home · One deep, roomy pause      │
+ │     between two sounds · Sky and shade and air all through me ·        │
+ │     Fingertips to fingertips, all mine · A deep wide dark with me      │
+ │     inside · Sun and sway and space to spare · Room enough for two,    │
+ │     and then some · Room in me, and room to spare). 곡 끝마다 넓이를   │
+ │     한 장면으로 찍는다.                                                │
+ │   ④ Verse 3 첫 행 Maybe(EP17 10곡) → **Now / So** 로 연다(5/5).        │
+ │     문두 And = 12/320행(3.8%, EP17 0 · cherry 2.9%) — 전부 Post-Chorus │
+ │     둘째 행과 #4 Pre-Chorus · #9 Verse 3 에 있다.                      │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 편성 — 소울팝 8곡의 밑판을 곡마다 갈랐다 (EP08~EP17 방침 계승)         │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │  #  리드(지속 건반)          보조 색                       퍼커션                       베이스     │
+ │  1  웜 월리처(3음)           클린 기타 짧은 슬라이드 6도     소프트 킥+림클릭+클로즈드햇    라운드 일렉 베이스 짧고 선율적 │
+ │  2  CP-70 일렉 그랜드(고역·4음) 멜로트론 스트링(멀리) ★지속 소프트 킷+2·4 스네어+셰이커  피크 베이스 짧고 밝게 │
+ │  4  로우 펠트 피아노(2음)    뮤트 기타 2·4 스탭              말렛 킥+사이드스틱+다크햇      플랫와운드 1·3 짧게 │
+ │  5  로즈 Mk I(3음)           클린 기타 치킨피킹 오프비트     소프트 킥+스네어+탬버린        라운드와운드 짧은 싱코페 │
+ │  6  브라이트 그랜드(고역·4음) 주노 패드(슬로 어택·멀리) ★지속 소프트 킥+림샷+16분 셰이커 신스 베이스 짧은 플럭 │
+ │  7  다크 피아넷(저역·2음)    기타 짧은 분산화음               브러시+킥+다크 카바사          뮤트 베이스 짧은 점음표 │
+ │  9  업라이트 피아노(3음)     월리처 짧은 오프비트 화음        소프트 킥+브러시 스네어+햇     핑거 베이스 짧은 8분 │
+ │ 10  로우 페이저 로즈(3음)    뮤트 일렉 기타 오프비트 촙        크로스스틱+로우탐+다크 셰이커 딥 라운드 베이스 짧게 │
+ │                                                                      │
+ │ · 리드 8종 · 보조 8종 · 퍼커션 8종 · 베이스 8종 전부 다르다.           │
+ │   EP17 과 **같은 자리끼리 겹치는 칸 0**(EP17 #10 다크 트레몰로 로즈 →  │
+ │   EP18 #10 로우 페이저 로즈는 계열이 같아 숨기지 않고 적는다).          │
+ │ · 🔴 **지속 요소는 곡당 최대 1개**(B-2-4). 가진 곡은 #2(멜로트론 스트링)│
+ │   · #6(주노 패드, `slow attack` = B-3 가 허용한 어택 있는 패드) **둘뿐**,│
+ │   둘 다 밝음이고 리듬 요소 3개 이상과 같이 간다.                       │
+ │   DARK 3곡의 지속 요소 = **0개**(EP16·EP17 과 같은 처리). 리드 건반은   │
+ │   전 곡 `struck short` 로 끊었다.                                      │
+ │ · 🔴 전 곡에 `every bar` 로 도는 하이햇·셰이커·탬버린·카바사가 있고,   │
+ │   `never dropping out` 10곡 · `ends on a plucked chord` 10곡 ·        │
+ │   페이드 지시 0.                                                      │
+ │ · 오르간 0곡 · 핑거 스냅 0곡 · 콩가·클라베 0 · 관악기 0 · 현악 독주 0. │
+ │ · ⛔ 저지속·얇은 악기(칼림바·마림바·글로켄슈필·첼레스타·비브라폰·      │
+ │   핸드팬) 0곡. 기타는 어느 소울팝 곡에서도 리드가 아니고 베이스 라인도 │
+ │   맡지 않는다.                                                         │
+ │ · ⚠️ 피아넷(#7)은 plum 처음 쓰는 악기다. Mureka 가 이름을 모르면 로즈나 │
+ │   월리처로 대체될 수 있다 — 대체돼도 DARK 저역 건반이면 의도 안이다.    │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 🔴 보사 2곡(#3 #8) 처방 — EP10 첫 통과 레시피로 되돌린다               │
+ ├──────────────────────────────────────────────────────────────────────┤
+ │ ▸ 왜 되돌리나 — 보사 게이트(임계 0.068) 실측 이력                      │
+ │   | 편      | 보사 처방                              | 결과                 |
+ │   |---------|----------------------------------------|----------------------|
+ │   | EP10    | **웜 EP 리드 · 나일론 오프비트 강등 ·   | **plum 보사 첫 통과**  |
+ │   |         | round syncopated bass · no dominant ·   | (#3 #7 · 전체 CLAP    |
+ │   |         | "No upright bass, not a jazz trio."**   |  0.054~0.069)         |
+ │   | EP11~16 | B-4 (머리 `Bossa nova for a cafe` ·     | 통과 0               |
+ │   |         | EP 는 short chords · 리드 아님)          | (EP16 0.100~0.111)   |
+ │   | EP17    | 딸림 복원 + 나일론 바치다 리드           | #4 0.091 / 0.099 ❌  |
+ │   |         |                                        | (#9 는 잔량 부족 미생성)|
+ │   → EP17 이 세운 "딸림·바치다가 cherry 보사 문법" 가설은 **두 테이크   │
+ │     모두 미달로 지지되지 않았다**(n=2). 통과 기록이 있는 처방은 EP10    │
+ │     하나뿐이다. 이번 편은 다시 뽑기가 없으므로 **기록 있는 쪽**으로 간다.│
+ │                                                                      │
+ │ ▸ EP10 에서 가져온 것 (원문 문구 그대로)                              │
+ │   ① 머리 `Bossa nova soul pop for a cafe` (EP11~16 = `Bossa nova for a │
+ │      cafe`)                                                           │
+ │   ② **리드 = 웜 일렉 피아노** — #3 `warm tine electric piano leading`  │
+ │      (EP10 #7 원문) · #8 `warm electric piano leading` (EP10 #3 원문). │
+ │      B-4 판은 EP 를 `in short chords` 로 반주에 묶었다 — 리드 자리가    │
+ │      빈 것이 EP10 과의 가장 큰 차이였다.                               │
+ │   ③ **나일론 강등** — `nylon(-string) guitar only in ... off-beat      │
+ │      comping` (EP10 원문). EP17 의 바치다 리드는 되돌렸다.             │
+ │   ④ `round syncopated bass` · `soft kit` · `brushes` · `shaker`        │
+ │   ⑤ **`no dominant chord anywhere`** (EP10 원문)                       │
+ │   ⑥ **`No upright bass, not a jazz trio.`** (EP10 원문 — EP11~17 은     │
+ │      `no jazz trio` 였다. EP10 문장을 글자 그대로 되살렸다.)            │
+ │                                                                      │
+ │ ▸ EP10 에서 가져오지 **않은** 것 (찬송가 처방이 금지한 것)             │
+ │   · `leading and sustaining` (EP10 #3) → `leading` 만. EP09 곡2b 찬송가 │
+ │     +0.047 의 원인 조합이었다(§🎼🔴🔴 ⑤).                             │
+ │   · `one note held on top through all four` (EP10 #3) — 지속음. 삭제.  │
+ │   · `low backing harmony in the chorus` → 고정 축 `one harmony voice,   │
+ │     last chorus, no choir`. · `little vibrato` → `almost no vibrato`.  │
+ │   · `soft chorus`(EP10 #7 의 EP 이펙트) · `clearly there`(킷 수식) ·   │
+ │     `electric`(베이스 수식) — 830자 상한 때문에 뺐다. 레시피 핵심 6항은 │
+ │     전부 남겼다.                                                       │
+ │                                                                      │
+ │ ▸ 🔑 찬송가 B-4 보완 — "no dominant + 정적 루프 = 화성 정지"를 막는다   │
+ │   · #3 = `the chorus in reverse` — EP10 #7(`the chorus running them in │
+ │     the other order`)과 같은 장치를 줄인 말. 후렴에서 진행 방향이      │
+ │     뒤집혀 같은 네 화음이 같은 자리에 머물지 않는다.                    │
+ │   · #8 = `home from the four` — B-4 가 허용한 딸림 없는 종지(IVmaj9 →  │
+ │     I). 매 바퀴 끝에 종지 운동이 한 번 있다.                           │
+ │   · 셰이커 전 마디 · `never dropping out` · `ends on a plucked chord`  │
+ │     · 보사 2곡 **지속 요소 0개**.                                      │
+ │   → 두 곡을 일부러 다르게 둔 이유 = 다음 편 정보. 둘 다 통과하면 EP10   │
+ │     레시피 확정, 한쪽만 통과하면 "역순 vs IV→I" 가 단서다.             │
+ │ ⚠️ 위험 = #8 의 IV→I 는 **딸림 없는 종지 중 가장 찬송가에 가까운 화성**│
+ │    이다(아멘 종지). 보사 게이트와 함께 찬송가 마진을 먼저 볼 것.        │
+ │ ⚠️ EP10 의 통과는 V7.6/V9.5 혼합 생성·재생성 포함 결과였다. V9.5 단독  │
+ │    재현은 검증된 적이 없다 — 이번이 첫 확인이다.                       │
+ │ ⚠️ 보사 한쪽-❌ 는 재생성 대상이 아니다(10생성 상한 · 컨셉 §ⓔ). 탈락    │
+ │    자리는 쇼츠 미사용 예전 곡으로 채운다.                              │
+ └──────────────────────────────────────────────────────────────────────┘
+
+ [조성 · 화성 배분표]  ※ 설계 순서. 실제 믹스는 셔플(EP15 실측: 첫 트랙 = 설계 #10)
+
+ | #  | 조성                          | BPM | 장르     | 보컬 | 결        |
+ |----|-------------------------------|-----|----------|------|-----------|
+ | 1  | A major                       |  96 | 소울팝   | 여성 | 밝음      |
+ | 2  | A flat major                  | 100 | 소울팝   | 여성 | 밝음      |
+ | 3  | G major                       |  93 | 보사노바 | 여성 | 여운      |
+ | 4  | E flat major                  |  87 | 소울팝   | 여성 | 여운 DARK |
+ | 5  | E major                       |  98 | 소울팝   | 여성 | 밝음      |
+ | 6  | F major                       | 102 | 소울팝   | 여성 | 밝음      |
+ | 7  | G sharp minor -> B major      |  89 | 소울팝   | 여성 | 여운 DARK |
+ | 8  | C major                       |  97 | 보사노바 | 여성 | 밝음      |
+ | 9  | F sharp major                 |  94 | 소울팝   | 남성 | 밝음      |
+ | 10 | B flat major                  |  90 | 소울팝   | 여성 | 여운 DARK |
+
+ · 조성 10개 전부 다름. EP11~EP17 **일곱 편과 같은 자리에 같은 조성 0**(편 간 슬롯 대조,
+   단조 시작 곡은 나란한 장조로 셈).
+ · 🔑 5도권 인접 거리 — 일곱 편 슬롯 회피를 걸면 **"전부 5칸 이상" 배열은 0개**
+   (스크립트 전수 탐색, EP17 과 같은 결과). 최소 4칸으로 풀면 56개 → 4칸짜리가
+   **2곳뿐인 해 2개** 중 이 해를 골랐다:
+   A→Ab 5 · Ab→G 5 · **G→Eb 4** · Eb→E 5 · E→F 5 · F→B 6 · B→C 5 · C→F# 6 ·
+   **F#→Bb 4** · Bb→A 5 (되감기 지점 5칸).
+   4칸 두 곳 = #3 → #4(보사 warm → DARK 소울팝) · #9 → #10(남성 밝음 → 여성 DARK) —
+   **둘 다 장르·결·성별 중 둘 이상이 동시에 바뀌는 자리**다.
+   · 다른 해(A Db D Eb E F B C F# Bb)를 버린 이유 = 4칸 자리가 #1 → #2 로,
+     둘 다 여성 밝음 소울팝이라 조성 튐을 가려줄 다른 변화가 없다.
+ · 샤프 5(A E B F# G) · 플랫 4 · C 1. ⚠️ 추정이다. Mureka 가 조성 이름만으로 음색을
+   바꾼다는 근거는 없다.
+ · 단조 시작 곡 = **#7 하나**(G sharp minor → B major). **G#m 은 plum 처음 쓰는
+   단조**다(EP11~17 단조 시작 = Gm·Cm·Fm·Bm·Dm·Am·F#m·Bbm·C#m·Ebm — 남은 둘은 Em·G#m).
+   DARK 장조 2곡(#4 #10)의 어둠은 조성이 아니라 믹스(Dark warm tone · highs rolled off) ·
+   behind the beat · 저역 리드 · 화성 장치가 만든다(EP07~EP17 과 같은 처리).
+ · dark warm tone, highs rolled off = #4 #7 #10 (3곡) · behind the beat = 같은 3곡
+ · one harmony voice, last chorus, no choir = 10곡 전부 · lo-fi = 10곡 전부
+ · 화성 감정 장치 10개 (EP11~EP17 목록과 대조 · 계열 겹침은 숨기지 않고 적는다):
+   ① **세븐스를 빼고 6/9 로만**(A6/9 · D6/9 · E6/9), 넓게 펼쳐 쌓는다 — 위가 꽉 찬
+      7화음 대신 5음 음계로 열린 화음. 테마의 화성판 "채우지 않은 자리" (#1)
+      · EP11 ⑨(한 화음만 6/9)·EP15 ⑨·EP16 ①의 6/9 와 계열 겹침. 이번엔 전 화음이다.
+   ② **4도 쌓기 보이싱**(open fourths) — 3도 쌓기의 촘촘함 대신 간격이 넓은 울림 (#2)
+   ③ 보사에 딸림 없이 **후렴만 진행 역순** (#3 보사) — EP10 #7 장치를 그대로 되살렸다
+   ④ **iii 이 V 자리를 대신한다**(Gm9 → Ebmaj9) — 이끎음 없이 집에 드는 어두운 종지 (#4)
+   ⑤ **ii 화음을 으뜸 베이스 위에 띄운다**(F#m9/E) — 바닥은 집에 둔 채 위만 떠오른다 (#5)
+      · EP11 ③ "한 화음 아래 베이스 셋" 과 반대 방향(베이스 하나 위에 다른 화음)
+   ⑥ **베이스가 화음마다 넓게 도약** — 팔을 벌리는 곡의 저음판 (#6)
+   ⑦ **VII 을 i 베이스 위에**(F#/G#) — 단조 위에 장조 지붕이 열린다, 끝은 B 장조 (#7)
+   ⑧ 보사에 **IV → I 딸림 없는 종지** (#8 보사) — B-4 처방 문구 그대로
+   ⑨ **iii 에서 IV 로 한 칸 올라선다**(A#m9 → Bmaj9) — 단조 색에서 장조 넓이로 (#9 남성)
+   ⑩ **으뜸이 한 마디만 단조로 바뀐다**(Bbmaj9 → Bbm9) 그리고 IV 로 열린다 (#10)
+      · EP13 ③ "으뜸이 딸림7로 바뀜" · EP15 ③ "IV 가 단조로" 와 계열 겹침. 자리(I→i)는 새것.
+   · ① ② ⑥ 이 테마의 화성판(빈 위 · 넓은 간격 · 넓은 도약), ④ ⑦ ⑩ 이 DARK 의 장치.
+   · ⚠️ ② ⑤ ⑥ 은 Mureka 가 그대로 따를 확률이 낮은 지시다(보이싱·슬래시·베이스 도약).
+     안 따라도 곡이 무너지지 않는 방향 표시로 뒀다(EP13~EP17 과 같은 처리).
+   · ⚠️ ④ iii→I 은 **딸림 없는 종지**라 찬송가축 쪽 화음이다. #4 는 세트 최저 BPM(87)이기도
+     해서 지속 요소 0 · 뮤트 기타 2·4 스탭 · 말렛 킥+사이드스틱+다크햇 · 1·3 짧은 베이스로
+     어택을 채웠다.
+
+
+  ★ plum 전곡 공통 배제어 꼬리 (169자) — Mureka 변환기가 자동으로 붙인다
+  ----------------------------------------------------------------------
+  One note per syllable, the band carrying every lift. No melisma, no sustained high
+  notes, no head voice, no saxophone, no smoky bar or lounge, no autotune, no pop gloss.
+  ----------------------------------------------------------------------
+  붙이는 법 = STYLE 본문 + 공백 1칸 + 꼬리. 최대 829 + 1 + 169 = 999 <= 1,000.
+  ⛔ 이 파일의 배제어 블록을 손으로 지우지 말 것 — 변환기가 이 블록과
+     꼬리를 대조해 **사라지는 항목을 세는 손실 회계**를 돌린다(2026-09-07 신설).
+
+
+  ★ 생성 직후 반드시 돌릴 것 (세 게이트는 서로 다른 축이다)
+  ----------------------------------------------------------------------
+  py -3 plum\_assets\clap_gate.py       plum\ep18\music     (장르 · 임계 0.084)
+  py -3 plum\_assets\clap_gate_bossa.py plum\ep18\music     (보사 #3 #8 · 0.068)
+  py -3 plum\_assets\hymn_scan.py       plum\ep18\music     (찬송가 · <= -0.05)
+  py -3 plum\_assets\vocal_gate.py      plum\ep18\music --words 245
+  ----------------------------------------------------------------------
+  · 모델 = **V9.5 만 생성한다**(컨셉 §ⓔ).
+  · 💳 생성 상한 **10회 · 다시 뽑기 없음**(09-30 사용자 확정). 게이트 탈락 자리는
+    **쇼츠에 안 쓴 예전 곡**으로 채운다(EP17 방식). 착수 전 `node tools/_mureka_gold.js`
+    로 잔량 확인(EP17 은 잔량 20 Gold 에서 #7~#10 이 조용히 실패했다).
+  · 파일명·매니페스트에 `_v95` 접미어를 반드시 남긴다.
+
+  ▸ 리스크 순위 — 생성 후 이 순서로 먼저 잰다
+    1순위 **#3 · #8 보사** — 처방을 바꾼 유일한 축이고, EP11~EP17 일곱 편 동안 보사
+      게이트 통과 0. #8 을 먼저 본다(IV→I = 딸림 없는 종지 중 찬송가에 가장 가깝다).
+      보사 게이트 + CLAP 1위 라벨 + 찬송가 마진을 **같이** 본다.
+      ⚠️ 둘 다 ❌ 이면 "EP10 레시피도 V9.5 단독에선 재현 안 됐다"가 정보다 — 보사 비중
+      조정은 이 파일 범위 밖(곡 축 동결). 탈락 자리는 예전 곡으로 채운다.
+    2순위 **#4** — DARK + 세트 최저 BPM(87) + iii→I 딸림 없는 종지. 찬송가축에 가장 가까운
+      소울팝 조합이다. 아웃트로 퍼커션 유지와 끝 15초 어택밀도를 먼저 본다.
+    3순위 **#7** — 유일한 단조 시작(plum 첫 G#m) + 처음 쓰는 피아넷 + F#/G# 슬래시.
+      악기 대체 여부와 CLAP 라벨을 본다.
+    4순위 **#10** — DARK 90 + I→i + 페이저 로즈. 페이저가 라운지 쪽으로 열리면
+      Mureka 본에선 EXCLUDE 가 빠져 꼬리의 `no smoky bar or lounge` 하나만 막는다.
+    5순위 **#9(남성)** — 유일한 남성곡, 대명사를 바꾼 유일한 곡. 성별 누출부터 확인.
+    6순위 **#6 #2** — 102·100 BPM + 지속층(주노 패드 / 멜로트론). Mureka 의 K-pop 광택이
+      열린다면 여기가 첫 자리다. #6 은 베이스 도약까지 겹쳐 가장 "화사한" 곡이다.
+    7순위 **#1 #5** — #1 은 6/9 만으로 된 진행이 밋밋하게 들리는지(세븐스 없음 = 긴장 없음),
+      #5 는 슬래시 화음이 정지로 들리는지 본다.
+    ▸ 전 곡 공통 = **밀도**. 단어/보컬초 >= 2.0 을 못 넘기면 가사가 아니라 곡 길이가
+      원인이다 — 이번 편은 재생성이 없으므로 그 곡은 채택 보류 후 예전 곡으로 대체한다.
+  ▸ 20트랙 중 2트랙까지는 버려도 유니크 분량 하한(50분) 안이다.
+
+
+--------------------------------------------------------------------------
+  곡 1   세트를 여는 곡 · 앉으니 머릿속에 자리가 생긴다 (밝음)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  there is room in me
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I sit down and something in my head unpacks
+The crowded corners of my mind give way
+Every thought finds a little patch of floor
+When did I get this much space inside?
+
+[Pre-Chorus]
+Nobody here is asking me to fill it
+The hours spread out wider than I planned
+I put my hands down easy on my knees
+
+[Chorus]
+There is room in me
+More than I have felt in quite a while
+I don't need to put a single thing in it
+There is room in me
+
+[Post-Chorus]
+Whole hours to wander
+And every one of them mine to walk through
+
+[Verse 2]
+The ceiling sits up high above my head
+The floor goes on in each direction
+My shoulders take up all the width they want
+My mind walks out and doesn't hurry home
+
+[Pre-Chorus]
+I count the roomy corners one by one
+Not one of them has anything it must do
+I smile at all the places I could be
+
+[Chorus]
+There is room in me
+More than I have felt in quite a while
+Every corner of me opens wide
+There is room in me
+
+[Verse 3]
+Now my thoughts can settle where they land
+I give each one its own wide place to rest
+None of them is bumping into another
+
+[Bridge]
+Look around
+I walked in here with such a crowded mind and now every corner of it has space to spare
+Big enough
+
+[Outro]
+There is room in me
+A whole wide sky behind my eyes
+
+【STYLE】 ★820자
+Warm soul pop for a cafe, A major, 96 BPM. Female low alto, half voice, near speech, as if
+humming to herself. Narrow melody in a fourth, one phrase returning; the chorus keeps
+those notes and lifts because the band opens, not because she pushes; lines end early.
+Rounded consonants, almost no vibrato. Full band, dense and soft: warm Wurlitzer,
+three-note motif, struck short; clean guitar in short sliding sixths; one harmony voice,
+last chorus, no choir; round electric bass, short and melodic; soft kick, rim click,
+closed hats every bar, never dropping out. Harmony A6/9 - Bm11 - D6/9 - E6/9 to A6/9,
+six-nines, no sevenths, voiced wide. Vocals behind the band, blended in, not upfront. Warm
+tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two and a half
+minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+there is room in me
+
+--------------------------------------------------------------------------
+  곡 2   채울 일이 하나도 없는 오후 (밝음)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  nothing i have to fill
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I've got a whole free afternoon in front of me
+Not one little square of it is spoken for
+I look at all that open time and grin
+Who knew an unplanned day could feel this good?
+
+[Pre-Chorus]
+I don't reach for anything to do
+I let the hours run as wide as they like
+My hands sit easy, open in my lap
+
+[Chorus]
+Nothing I have to fill
+No list to finish and nowhere I need to be
+The day is spread out wide and it's all mine
+Nothing I have to fill
+
+[Post-Chorus]
+Not a single plan
+And plenty of afternoon to go around
+
+[Verse 2]
+The music wanders in and out at its own speed
+Somebody laughs somewhere across the place
+I don't check the time, there's nothing to check it for
+I'm grinning at the roomy middle of the day
+
+[Pre-Chorus]
+I could start something, but I don't
+I'd rather watch the hours unfold on their own
+Every one of them is roomy and unhurried
+
+[Chorus]
+Nothing I have to fill
+No list to finish and nowhere I need to be
+Every hour swings open wide for me
+Nothing I have to fill
+
+[Verse 3]
+So I sit right in the middle of it all
+The afternoon stretches its arms out wide
+I have never been this un-busy in my life
+
+[Bridge]
+All mine
+There's a kind of freedom in an afternoon with nothing on it that no full calendar could ever give me
+Wide open
+
+[Outro]
+Nothing I have to fill
+A whole bright afternoon, unwritten
+
+【STYLE】 ★822자
+Warm soul pop for a cafe, A flat major, 100 BPM. Female low alto, half voice, near speech,
+as if humming to herself. Narrow melody in a fourth, one phrase returning; the chorus
+keeps those notes and lifts because the band opens, not because she pushes; lines end
+early. Rounded consonants, almost no vibrato. Full band, dense and soft: CP-70 electric
+grand, high, four-note motif, struck short; soft Mellotron strings, far back; one harmony
+voice, last chorus, no choir; picked bass, short and bright; soft kit, snare on two and
+four, shaker every bar, never dropping out. Harmony Abmaj9 - Fm11 - Dbmaj9 - Eb9 to
+Abmaj9, voiced in open fourths. Vocals behind the band, blended in, not upfront. Warm
+tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two and a half
+minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+nothing i have to fill
+
+--------------------------------------------------------------------------
+  곡 3   생각이 넓게 펼쳐진다 (여운 · 보사)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  my thoughts spread out
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+My thoughts spread out the minute I sit down
+Like they have been waiting for a bigger place
+Each one wanders off to find a corner
+How did they all fit in such a tiny space?
+
+[Pre-Chorus]
+I watch them settle, one and then the next
+Nobody crowds the thought beside it now
+There is a little air in between them all
+
+[Chorus]
+My thoughts spread out
+Every one of them has room to turn around
+I never knew how wide my mind could go
+My thoughts spread out
+
+[Post-Chorus]
+Side by side, at ease
+And none of them in a hurry to be thought
+
+[Verse 2]
+The music sways along beneath it all
+I follow one idea all the way across the floor
+It rests beside a quiet little wish
+They lie there doing nothing, and that's fine
+
+[Pre-Chorus]
+A smaller thought has found a sunny spot
+A bigger one is stretching out its legs
+I didn't know my head had all these rooms
+
+[Chorus]
+My thoughts spread out
+Every one of them has room to turn around
+They take up all the space I give them now
+My thoughts spread out
+
+[Verse 3]
+So this is what it feels like to unpack
+To give each thought inside me its own place
+To see them all at once and not feel crowded
+
+[Bridge]
+Just look
+My mind is a wide room with the windows thrown back and every thought I have has found a place to sit
+So roomy
+
+[Outro]
+My thoughts spread out
+Every one of them at home
+
+【STYLE】 ★828자
+Bossa nova soul pop for a cafe, G major, 93 BPM. Female low alto, half voice, near speech,
+as if humming to herself. Narrow melody in a fourth, one phrase returning; the chorus
+keeps those notes and lifts because the band opens, not because she pushes; lines end
+early. Rounded consonants, almost no vibrato. Full band, dense and soft: warm tine
+electric piano leading; nylon guitar only in off-beat comping; one harmony voice, last
+chorus, no choir; round syncopated bass; soft kit, brushes, shaker every bar, never
+dropping out. No upright bass, not a jazz trio. Harmony Gmaj9 - Em9 - Am9 - Cmaj9, no
+dominant chord anywhere, the chorus in reverse. Vocals behind the band, blended in, not
+upfront. Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two
+and a half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+my thoughts spread out
+
+--------------------------------------------------------------------------
+  곡 4   음과 음 사이의 넓은 자리 (여운 DARK)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  the space between the notes
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+In the low dim hush I listen for the gaps
+The space between the notes is where I rest
+Each little pause is wider than it looks
+Have I ever heard a quiet this deep?
+
+[Pre-Chorus]
+The bass hums low and then it pauses
+And in that pause the whole room opens up
+I settle down inside the open beat
+
+[Chorus]
+The space between the notes
+Dark and wide and roomy all around
+I could wander in it for an hour
+The space between the notes
+
+[Post-Chorus]
+Deep and roomy
+And nothing in it asking me for more
+
+[Verse 2]
+The room is dim and every sound is round
+I hear the drum and then the space behind it
+The rest between the beats is mine to keep
+My eyes half close and let the quiet widen
+
+[Pre-Chorus]
+I am not in any hurry to be filled
+The silence here is deep enough to wade in
+I wade in slowly, up to my shoulders
+
+[Chorus]
+The space between the notes
+Dark and wide and roomy all around
+Every pause a little bigger than the one before
+The space between the notes
+
+[Verse 3]
+Now I know the quiet has a shape
+It is wide and low and lovely in the dark
+I could live inside a single bar of rest
+
+[Bridge]
+Hush now
+The music isn't only in the sounds it makes, it's in the roomy dark it gives me in between them
+Mine too
+
+[Outro]
+The space between the notes
+One deep, roomy pause between two sounds
+
+【STYLE】 ★829자
+Soul pop for a cafe, E flat major, 87 BPM. Female low alto, half voice, near speech, as if
+humming to herself, behind the beat. Narrow melody in a fourth, one phrase returning; the
+chorus keeps those notes and lifts because the band opens, not because she pushes; lines
+end early. Rounded consonants, almost no vibrato. Full band, dense and soft: low felt
+piano, two-note motif, struck short; muted guitar stabs on two and four; one harmony
+voice, last chorus, no choir; flatwound bass, short on one and three; mallet kick, side
+stick, dark hats every bar, never dropping out. Harmony Ebmaj9 - Cm9 - Abmaj9 - Gm9 to
+Ebmaj9, the three in place of the five. Vocals behind the band, blended in, not upfront.
+Dark warm tone, highs rolled off, lo-fi. Ends on a plucked chord, about two and a half
+minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+the space between the notes
+
+--------------------------------------------------------------------------
+  곡 5   사방이 트인 곳에선 나도 트인다 (밝음)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  open on every side
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+The walls are folded back on every side
+The whole front of the place is standing wide
+There is sky above me and an open floor
+Is there anywhere I'd rather sit than here?
+
+[Pre-Chorus]
+The music walks right out into the street
+A breeze comes in and sits down next to me
+I open up a little more myself
+
+[Chorus]
+Open on every side
+Nothing here between me and the day
+I feel as roomy as this place is wide
+Open on every side
+
+[Post-Chorus]
+No corners in sight
+And the whole bright day walking right on in
+
+[Verse 2]
+I can see straight through to the green out back
+The trees are swaying on the other side
+Everything is open, nothing shut away
+My shoulders fold back the way the doors did
+
+[Pre-Chorus]
+I've got the sun on one side of my face
+The other side is resting in the shade
+I've got the air on all sides of me
+
+[Chorus]
+Open on every side
+Nothing here between me and the day
+Every part of me is swinging open too
+Open on every side
+
+[Verse 3]
+So this is how a place can feel like a hug
+Not by closing in but opening out
+I could sit right here with nothing on my mind
+
+[Bridge]
+All around
+They built this place with no walls in the way and somehow it built the same kind of opening inside of me
+Come in
+
+[Outro]
+Open on every side
+Sky and shade and air all through me
+
+【STYLE】 ★828자
+Warm soul pop for a cafe, E major, 98 BPM. Female low alto, half voice, near speech, as if
+humming to herself. Narrow melody in a fourth, one phrase returning; the chorus keeps
+those notes and lifts because the band opens, not because she pushes; lines end early.
+Rounded consonants, almost no vibrato. Full band, dense and soft: Rhodes Mark I,
+three-note motif, struck short; clean guitar, short chicken-picked off-beats; one harmony
+voice, last chorus, no choir; round-wound bass, short syncopation; soft kick, snare,
+tambourine every bar, never dropping out. Harmony Emaj9 - F#m9/E - Amaj9 - B9 to Emaj9,
+the two chord floating over the home bass. Vocals behind the band, blended in, not
+upfront. Warm tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two
+and a half minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+open on every side
+
+--------------------------------------------------------------------------
+  곡 6   팔을 활짝 벌려도 아무것도 안 걸린다 (밝음)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  arms out wide
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+I stretch my arms out wide and nothing's in the way
+My elbows don't bump into anyone at all
+I kick my feet out every way they go
+Have I ever had this much elbow room?
+
+[Pre-Chorus]
+I take up all the space I want to take
+Nobody here is squeezing in beside me
+I laugh because I've got so much of it
+
+[Chorus]
+Arms out wide
+I've got all the room in the world to spread across
+I'm taking up a little more today
+Arms out wide
+
+[Post-Chorus]
+Elbows out, feet out
+And not a single soul who minds at all
+
+[Verse 2]
+I tip my head back and look straight up
+The ceiling's high and painted like a sky
+I roll my shoulders and they keep on going
+I swear this seat has grown a couple sizes
+
+[Pre-Chorus]
+I'm humming bigger than I ever do
+The music grins and hums along with me
+I've never been this big in all my life
+
+[Chorus]
+Arms out wide
+I've got all the room in the world to spread across
+Every stretch I make has room to spare
+Arms out wide
+
+[Verse 3]
+Now I could do a cartwheel if I wanted
+I won't, but it is nice to know I could
+There's that much floor in every way I turn
+
+[Bridge]
+Go on
+Somewhere along the way I learned to make myself small and here I finally get to be the full size I am
+Arms out
+
+[Outro]
+Arms out wide
+Fingertips to fingertips, all mine
+
+【STYLE】 ★821자
+Warm soul pop for a cafe, F major, 102 BPM. Female low alto, half voice, near speech, as
+if humming to herself. Narrow melody in a fourth, one phrase returning; the chorus keeps
+those notes and lifts because the band opens, not because she pushes; lines end early.
+Rounded consonants, almost no vibrato. Full band, dense and soft: bright grand piano,
+high, four-note motif, struck short; a Juno pad, slow attack, far back; one harmony voice,
+last chorus, no choir; synth bass in short plucks; soft kick, rim shot, sixteenth shaker
+every bar, never dropping out. Harmony Fmaj9 - Dm9 - Bb6/9 - C9 to Fmaj9, the bass leaping
+wide on every change. Vocals behind the band, blended in, not upfront. Warm tone, softened
+top, tape warmth, lo-fi. Ends on a plucked chord, about two and a half minutes, the lyric
+filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+arms out wide
+
+--------------------------------------------------------------------------
+  곡 7   어둑한 곳에서 벽 끝이 안 잡힌다 — 그게 편하다 (여운 DARK)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  no edges in here
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+The room goes dim and I can't find the edges
+The dark just opens out in every way
+Somewhere the walls are resting out of sight
+Where does a quiet like this one stop?
+
+[Pre-Chorus]
+I reach a hand out into easy air
+The music rolls in low from somewhere deep
+It fills the dark but never crowds it
+
+[Chorus]
+No edges in here
+Only deep wide quiet, all the way around
+I don't know where it stops and I don't mind
+No edges in here
+
+[Post-Chorus]
+Wide as a sea
+And I am easy at the very center
+
+[Verse 2]
+The low notes stretch the shadows out like silk
+I close my eyes and the room gets even bigger
+My thoughts go wandering and never hit a wall
+There's nothing here to bump against at all
+
+[Pre-Chorus]
+The dark is deep but it is kind to me
+It gives me space instead of closing in
+I settle into all its roomy arms
+
+[Chorus]
+No edges in here
+Only deep wide quiet, all the way around
+I could wander here for hours and find no wall
+No edges in here
+
+[Verse 3]
+So I sit back into the roomy dark
+The shadows here are wide and very calm
+They have room enough for me and every thought
+
+[Bridge]
+Go deeper
+I always thought I needed walls around me to feel safe but in here the open dark is all the comfort I need
+Just this
+
+[Outro]
+No edges in here
+A deep wide dark with me inside
+
+【STYLE】 ★828자
+Soul pop for a cafe, G sharp minor to B major, 89 BPM. Female low alto, half voice, near
+speech, as if humming to herself, behind the beat. Narrow melody in a fourth, one phrase
+returning; the chorus keeps those notes and lifts because the band opens, not because she
+pushes; lines end early. Rounded consonants, almost no vibrato. Full band, dense and soft:
+dark Pianet, low, two-note motif, struck short; guitar in short broken chords; one harmony
+voice, last chorus, no choir; muted bass, short dotted notes; brushes, kick, dark cabasa
+every bar, never dropping out. Harmony G#m9 - F#/G# - Emaj9 to G#m9, the seven over the
+home bass, ending on Bmaj9. Vocals behind the band, blended in, not upfront. Dark warm
+tone, highs rolled off, lo-fi. Ends on a plucked chord, about two and a half minutes, the
+lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+no edges in here
+
+--------------------------------------------------------------------------
+  곡 8   어디에나 자리가 넉넉하다 (밝음 · 보사)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  plenty of room
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+There's plenty of room in every corner here
+Plenty of sky and plenty of open floor
+I pick a spot and nobody's in a rush
+Why does a place this open feel so kind?
+
+[Pre-Chorus]
+The guitar sways and the morning sways along
+I tap my foot and nod along to it
+The whole place hums a little easy song
+
+[Chorus]
+Plenty of room
+Room for my thoughts and room for the sun to come in
+Room for the whole of me to settle down
+Plenty of room
+
+[Post-Chorus]
+Bright and roomy
+And the music swaying through it all
+
+[Verse 2]
+There's room between the voices and the beat
+Room between one smile and the next
+Room for a whole unhurried day of it
+I'm grinning at how easy it all is
+
+[Pre-Chorus]
+A little breeze goes dancing through the doors
+My shoulders find the rhythm on their own
+I didn't know I needed all this space
+
+[Chorus]
+Plenty of room
+Room for my thoughts and room for the sun to come in
+Room for the whole of me and then some more
+Plenty of room
+
+[Verse 3]
+So here I am with all the room I want
+Nothing pressing in on me at all
+A happy little island in the open
+
+[Bridge]
+Sit down
+There is always room for one more smile in a place like this and somehow there is always room for me
+Plenty more
+
+[Outro]
+Plenty of room
+Sun and sway and space to spare
+
+【STYLE】 ★829자
+Bossa nova soul pop for a cafe, C major, 97 BPM. Female low alto, half voice, near speech,
+as if humming to herself. Narrow melody in a fourth, one phrase returning; the chorus
+keeps those notes and lifts because the band opens, not because she pushes; lines end
+early. Rounded consonants, almost no vibrato. Full band, dense and soft: warm electric
+piano leading; nylon guitar only in off-beat comping; one harmony voice, last chorus, no
+choir; round syncopated bass; soft kit, brushes, shaker every bar, never dropping out. No
+upright bass, not a jazz trio. Harmony Cmaj9 - Am9 - Dm9 - Fmaj9 to Cmaj9, no dominant
+chord anywhere, home from the four. Vocals behind the band, blended in, not upfront. Warm
+tone, softened top, tape warmth, lo-fi. Ends on a plucked chord, about two and a half
+minutes, the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+plenty of room
+
+--------------------------------------------------------------------------
+  곡 9   아무 데나 앉아, 자리는 둘이 써도 남는다 (밝음 · 남성)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  sit anywhere you like
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+Come on in, there's room enough for two
+Sit anywhere you like, the place is wide
+You don't have to squeeze in at the side
+Can you feel how open everything is?
+
+[Pre-Chorus]
+Pull a chair up anywhere you want
+Stretch your legs out, put your feet up too
+There's no one here to tell you where to sit
+
+[Chorus]
+Sit anywhere you like
+There's room for you and all you bring along
+Spread out and make yourself at home
+Sit anywhere you like
+
+[Post-Chorus]
+Wide open place
+And all the time in the world to use it
+
+[Verse 2]
+I see your shoulders settle as you sit
+You look around and grin at all the space
+We sit with easy room between us two
+Nobody crowding nobody at all
+
+[Pre-Chorus]
+You tell me that you haven't felt this free
+I tell you that's the point of a place like this
+You laugh and stretch way up toward the sky
+
+[Chorus]
+Sit anywhere you like
+There's room for you and all you bring along
+Take as much of this as you can use
+Sit anywhere you like
+
+[Verse 3]
+Now we've got the whole wide day ahead
+And nothing that we need to fill it with
+Just two of us and lots of open air
+
+[Bridge]
+Here, sit
+You don't need to save a spot in a place like this because every corner has room enough for both of us
+Go ahead
+
+[Outro]
+Sit anywhere you like
+Room enough for two, and then some
+
+【STYLE】 ★825자
+Warm soul pop for a cafe, F sharp major, 94 BPM. Male low baritone, half voice, near
+speech, as if humming to himself, no female vocals. Narrow melody in a fourth, one phrase
+returning; the chorus keeps those notes and lifts because the band opens, not because he
+pushes; lines end early. Rounded consonants, almost no vibrato. Full band, dense and soft:
+upright piano, three-note motif, struck short; Wurlitzer, short off-beat chords; one
+harmony voice, last chorus, no choir; finger bass in short eighths; soft kick, brushed
+snare, hats every bar, never dropping out. Harmony F#maj9 - A#m9 - Bmaj9 - C#9 to F#maj9,
+the three stepping up to four. Vocals behind the band, blended in, not upfront. Warm tone,
+softened top, tape warmth, lo-fi. Ends on a plucked chord, about two and a half minutes,
+the lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+sit anywhere you like
+
+--------------------------------------------------------------------------
+  곡 10  세트를 닫고 #1 로 되감는 곡 · 아무것도 안 적힌 한 시간 (여운 DARK)
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+  the hour is wide open
+--------------------------------------------------------------------------
+
+【LYRICS】
+[Verse 1]
+The hour is wide open in the dim
+Nothing is written anywhere inside it
+I sit down low and let it spread around me
+How long can one hour be this wide?
+
+[Pre-Chorus]
+The music moves in shadows, low and round
+The minutes take their time to come around
+There's nowhere that I have to be from here
+
+[Chorus]
+The hour is wide open
+Deep and roomy, nothing pressing in
+I spread out in the middle of it all
+The hour is wide open
+
+[Post-Chorus]
+Dim and deep
+And all of it unplanned and mine
+
+[Verse 2]
+The low lamps glow and shadows stretch their legs
+The beat rolls on beneath me, low and kind
+I hear the space around each little sound
+My mind sits wide awake and calm in here
+
+[Pre-Chorus]
+No one is waiting for me anywhere
+The hour doesn't ask me what it's for
+I let it be as roomy as it is
+
+[Chorus]
+The hour is wide open
+Deep and roomy, nothing pressing in
+Every minute has room inside for more
+The hour is wide open
+
+[Verse 3]
+So this is what I came in looking for
+A wide dark hour with nothing in its way
+A place inside me roomy as this room
+
+[Bridge]
+Right now
+Every hour I ever rushed was just this wide, I never sat down long enough to feel the room in it
+Here it is
+
+[Outro]
+The hour is wide open
+Room in me, and room to spare
+
+【STYLE】 ★823자
+Soul pop for a cafe, B flat major, 90 BPM. Female low alto, half voice, near speech, as if
+humming to herself, behind the beat. Narrow melody in a fourth, one phrase returning; the
+chorus keeps those notes and lifts because the band opens, not because she pushes; lines
+end early. Rounded consonants, almost no vibrato. Full band, dense and soft: low phased
+Rhodes, three-note motif, struck short; muted electric guitar chopping off-beats; one
+harmony voice, last chorus, no choir; deep round bass, short; cross-stick, low tom, dark
+shaker every bar, never dropping out. Harmony Bbmaj9 - Bbm9 - Ebmaj9 - F9 to Bbmaj9, home
+turning minor for one bar. Vocals behind the band, blended in, not upfront. Dark warm
+tone, highs rolled off, lo-fi. Ends on a plucked chord, about two and a half minutes, the
+lyric filling all of it.
+
+【EXCLUDE】
+wide vocal leaps, octave jumps, vocal runs, melisma, sustained high notes, belting, powerful anthemic vocals, soprano, falsetto, head voice, harsh sibilance, crash cymbal, ride cymbal wash, booming sub bass, saxophone, smoky jazz bar, dim lounge, torch ballad, sultry, sensual, heavy swing, half-time ballad, dragging tempo, rain sounds, cafe ambience, strummed acoustic guitar, folk strumming, acoustic singer-songwriter
+
+【TITLE】
+the hour is wide open

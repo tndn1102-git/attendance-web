@@ -25,6 +25,18 @@
 
 ---
 
+# 🍂 2026-10-03 — EP18 제작·예약 완료 · 가을 6편째 (사용자 "배경만 내가 정할게, 예약업로드까지")
+```
+본편   youtu.be/LJI8DI1d30o   10-05(월) 08:00  3:33:07 · 910MB · 「Cafe Playlist ☕ 탁 트인 곳에 앉으니 마음에도 여백이 생겨요 🍂 Chill Cafe Music」
+쇼츠㊾ youtu.be/bRcV4r1Pjo0   10-26(월) 19:00  nothing i have to fill (와이드)
+쇼츠㊿ youtu.be/mRC6zxKFZCc   10-27(화) 19:00  no edges in here (테라스 클로즈업)
+쇼츠51 youtu.be/m2mlJogIfrE   10-28(수) 19:00  sit anywhere you like (코스모스 길 · 남성)
+```
+- 컨셉 = 넓음/여백 · 씬 = **사용자 선택 A 코스모스 언덕 카페 정면**(외관 복귀) · 문형 = 공간 체감형(18번째) → `plum/ep18/컨셉-ep18.md`
+- 곡: 10생성(10월 새 상한 첫 적용) · 보컬축 탈락 2테이크 자리 = EP16 재활용 1곡 · 쇼츠 큐 끝 = **10-28**
+- 🐞 alimiter `level=disabled` 필수 · Studio AI 표시 문구 변경 대응 · 다른 세션 크롬 안 죽이게 kill 필터 수정 · 백그라운드 렌더는 timeout 2h 로 걸 것(기본 30분에 잘림)
+- 다음 = **EP19 = 10-09(금) 08:00** — 착수 전 `node tools/_mureka_gold.js`
+
 # 🍂 2026-09-28 — EP16 제작·**당일 공개** · 가을 4편째 (사용자 "배경만 내가 선택, 나머지 진행" + "오늘 못 올렸으니 바로 업로드")
 ```
 본편   youtu.be/gRH9Z2IgkAw   09-28(월) 22:00  3:27:14 · 857MB · 「Cafe Playlist ☕ 여기만 오면 발걸음이 가벼워져요 🍂 Chill Cafe Music」

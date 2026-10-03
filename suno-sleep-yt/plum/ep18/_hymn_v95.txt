@@ -1,0 +1,47 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/447 [00:00<?, ?it/s]Loading weights: 100%|##########| 447/447 [00:00<00:00, 8733.33it/s]
+  ...01_there is room in me.mp3  max=-0.1646 @2:30  med=-0.2616
+  ...02_there is room in me.mp3  max=-0.1865 @2:30  med=-0.2668
+  ...03_nothing i have to fill.mp3  max=-0.1995 @2:40  med=-0.2587
+  ...04_nothing i have to fill.mp3  max=-0.1654 @2:50  med=-0.2187
+  ...05_my thoughts spread out.mp3  max=-0.1683 @0:40  med=-0.2172
+  ...06_my thoughts spread out.mp3  max=-0.1897 @1:40  med=-0.2224
+  ...07_the space between the notes.mp3  max=-0.2023 @1:40  med=-0.2661
+  ...08_the space between the notes.mp3  max=-0.1940 @2:00  med=-0.2679
+  ...09_open on every side.mp3  max=-0.2038 @1:40  med=-0.2624
+  ...10_open on every side.mp3  max=-0.2354 @2:20  med=-0.2768
+  ...11_arms out wide.mp3  max=-0.1479 @2:40  med=-0.2415
+  ...12_arms out wide.mp3  max=-0.1946 @2:50  med=-0.2383
+  ...13_no edges in here.mp3  max=-0.2138 @2:30  med=-0.2808
+  ...14_no edges in here.mp3  max=-0.1616 @3:00  med=-0.2701
+  ...15_plenty of room.mp3  max=-0.1786 @0:30  med=-0.2280
+  ...16_plenty of room.mp3  max=-0.1584 @2:50  med=-0.2238
+  ...17_sit anywhere you like.mp3  max=-0.2038 @2:40  med=-0.2618
+  ...18_sit anywhere you like.mp3  max=-0.2286 @0:40  med=-0.2758
+  ...19_the hour is wide open.mp3  max=-0.1965 @2:40  med=-0.2798
+  ...20_the hour is wide open.mp3  max=-0.1398 @2:20  med=-0.2591
+
+===== 찬송가 마진 순위 (높을수록 교회음악 쪽) =====
+마진      중앙값    최고구간   곡
+-0.1398  -0.2591   2:20    20_the hour is wide open.mp3
+-0.1479  -0.2415   2:40    11_arms out wide.mp3
+-0.1584  -0.2238   2:50    16_plenty of room.mp3
+-0.1616  -0.2701   3:00    14_no edges in here.mp3
+-0.1646  -0.2616   2:30    01_there is room in me.mp3
+-0.1654  -0.2187   2:50    04_nothing i have to fill.mp3
+-0.1683  -0.2172   0:40    05_my thoughts spread out.mp3
+-0.1786  -0.2280   0:30    15_plenty of room.mp3
+-0.1865  -0.2668   2:30    02_there is room in me.mp3
+-0.1897  -0.2224   1:40    06_my thoughts spread out.mp3
+-0.1940  -0.2679   2:00    08_the space between the notes.mp3
+-0.1946  -0.2383   2:50    12_arms out wide.mp3
+-0.1965  -0.2798   2:40    19_the hour is wide open.mp3
+-0.1995  -0.2587   2:40    03_nothing i have to fill.mp3
+-0.2023  -0.2661   1:40    07_the space between the notes.mp3
+-0.2038  -0.2624   1:40    09_open on every side.mp3
+-0.2038  -0.2618   2:40    17_sit anywhere you like.mp3
+-0.2138  -0.2808   2:30    13_no edges in here.mp3
+-0.2286  -0.2758   0:40    18_sit anywhere you like.mp3
+-0.2354  -0.2768   2:20    10_open on every side.mp3
+
+저장 -> _hymn_scan.json

@@ -1,0 +1,86 @@
+[1/20] 01_there is room in me.mp3
+[2/20] 02_there is room in me.mp3
+[3/20] 03_nothing i have to fill.mp3
+[4/20] 04_nothing i have to fill.mp3
+[5/20] 05_my thoughts spread out.mp3
+[6/20] 06_my thoughts spread out.mp3
+[7/20] 07_the space between the notes.mp3
+[8/20] 08_the space between the notes.mp3
+[9/20] 09_open on every side.mp3
+[10/20] 10_open on every side.mp3
+[11/20] 11_arms out wide.mp3
+[12/20] 12_arms out wide.mp3
+[13/20] 13_no edges in here.mp3
+[14/20] 14_no edges in here.mp3
+[15/20] 15_plenty of room.mp3
+[16/20] 16_plenty of room.mp3
+[17/20] 17_sit anywhere you like.mp3
+[18/20] 18_sit anywhere you like.mp3
+[19/20] 19_the hour is wide open.mp3
+[20/20] 20_the hour is wide open.mp3
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+[demucs device] cuda
+파일                                    길이 유성구간 최대(초2초+ 유성 비율유성구간 p90( 멜리스마/유성초alpha 고역비F0 중앙(Hz)보컬−반주(dB)   중간층 점유    드럼 점유   베이스 점유   단어/보컬초
+--------------------------------------------------------------------------------------------------------------------------------------------
+01_there is room in me.mp3           222     1.22O    0.00O    0.72O    1.48O  -11.93O  248.03O   -6.24O    0.16O    0.32O    0.32X    3.93O
+02_there is room in me.mp3           224     1.14O    0.00O    0.71O    1.60O  -10.81O  271.32O   -6.64O    0.21O    0.31O    0.29X    3.77O
+03_nothing i have to fill.mp3        221     1.61O    0.00O    0.82O    1.16O  -11.83O  293.98!   -4.62O    0.14O    0.30O    0.30X    3.29O
+04_nothing i have to fill.mp3        232     1.35O    0.00O    0.77O    1.38O  -11.60O  293.83!   -5.57O    0.16O    0.34O    0.27X    3.81O
+05_my thoughts spread out.mp3        242     1.87O    0.00O    0.89O    1.06O  -12.39O  262.69O   -4.06O    0.24O    0.17X    0.29X    3.93O
+06_my thoughts spread out.mp3        208     1.91O    0.00O    0.85O    0.86O  -12.06O  261.66O   -4.82O    0.29O    0.16X    0.29X    3.50O
+07_the space between the notes.mp3   200     2.16O    0.02O    0.68O    1.28O  -11.97O  261.98O   -6.65O    0.14O    0.33O    0.35X    4.13O
+08_the space between the notes.mp3   188     2.03O    0.01O    0.65O    1.45O  -11.57O  292.56O   -6.07O    0.16O    0.31O    0.32X    4.02O
+09_open on every side.mp3            202     1.61O    0.00O    0.70O    1.00O  -10.93O  306.63!   -5.50O    0.19O    0.32O    0.26X    3.62O
+10_open on every side.mp3            202     1.34O    0.00O    0.75O    1.40O  -11.37O  248.51O   -6.33O    0.16O    0.32O    0.33X    3.64O
+11_arms out wide.mp3                 204     1.99O    0.00O    0.75O    1.17O  -11.27O  339.24X   -4.72O    0.22O    0.35O    0.16!    3.71O
+12_arms out wide.mp3                 206     1.55O    0.00O    0.73O    1.34O  -12.44O  263.01O   -5.01O    0.19O    0.32O    0.24X    3.64O
+13_no edges in here.mp3              204     1.69O    0.00O    0.63O    1.79O  -11.63O  275.58O   -6.51O    0.12O    0.25!    0.44X    4.14O
+14_no edges in here.mp3              233     1.50O    0.00O    0.71O    2.39X  -12.18O  262.08O   -6.78O    0.14O    0.33O    0.36X    3.82O
+15_plenty of room.mp3                225     2.18O    0.01O    0.83O    1.48O  -11.48O  284.16O   -5.41O    0.29O    0.21X    0.26X    3.68O
+16_plenty of room.mp3                227     2.20O    0.01O    0.90O    1.40O  -13.44O  264.10O   -5.43O    0.25O    0.17X    0.35X    3.52O
+17_sit anywhere you like.mp3         203     2.41O    0.01O    1.10O    1.22O  -15.16O  166.06O   -4.23O    0.15O    0.31O    0.26X    3.44O
+18_sit anywhere you like.mp3         207     1.57O    0.00O    1.06O    1.63O  -15.38O  155.68O   -4.77O    0.12O    0.26O    0.36X    3.80O
+19_the hour is wide open.mp3         223     1.60O    0.00O    0.76O    1.86O  -11.61O  273.55O   -6.52O    0.14O    0.34O    0.33X    3.96O
+20_the hour is wide open.mp3         195     2.12O    0.01O    0.79O    1.50O   -9.90O  269.16O   -5.70O    0.14O    0.28O    0.35X    3.55O
+--------------------------------------------------------------------------------------------------------------------------------------------
+20트랙 · 탈락 20 · 경고 0 · 통과 0
+O 통과 / ! 경고(구간 청취) / X 탈락(재생성)
+원자료: plum/ep18/_vocal_v95.json
