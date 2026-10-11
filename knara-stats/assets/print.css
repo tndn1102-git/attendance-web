@@ -1,0 +1,23 @@
+/* 인쇄(A4) — 보고서 시트만 종이에 나오게. 한지색 → 흰색, 종이 결 제거, 완주·성공 계열 막대는 빗금(흑백 구분). 한 sheet = 정확히 한 장 */
+:root { --c-bg: #fff; --c-surface: #fff; --c-surface-dash: #fff; --c-bg-2: #e9e9e9; }
+body.paper::before { display: none !important; }
+@page { size: A4 portrait; margin: 0; }
+html, body { background: #fff !important; }
+.topbar, .controls, .tabs, .foot, .report-tools, .no-print, #gate { display: none !important; }
+.content { padding: 0 !important; max-width: none !important; }
+.sheet { box-shadow: none !important; margin: 0 !important; width: 210mm; height: 296mm; min-height: 0; overflow: hidden; padding: 13mm 15mm 12mm; font-size: 10.5pt; font-family: var(--f-ui); color: #111; page-break-after: always; break-after: page; }
+.sheet:last-child { page-break-after: auto; break-after: auto; }
+.sheet h1, .sheet h2, .sheet .rkpi .v { font-family: var(--f-disp); }
+.sheet h2 { margin-top: 5mm; }
+.sheet table.t { font-size: 9pt; } .sheet table.t th, .sheet table.t td { padding: 1.1mm 1.8mm; }
+/* 3쪽(놀이 63종 2단 + 오류): 행 높이를 줄여 바닥글과 겹치지 않게 */
+.sheet table.t.tiny { font-size: 7.5pt; line-height: 1.25; } .sheet table.t.tiny th, .sheet table.t.tiny td { padding: 0.45mm 1.2mm; }
+.sheet .rfoot { background: #fff; }
+table.t th { border-bottom: 1px solid #000; }
+.sheet .rfoot { left: 15mm; right: 15mm; bottom: 7mm; }
+/* 완주·성공·강조 계열만 빗금 — 방문(단색)과 구분 */
+.bar > span.ink, .bar > span.good, .bar > span.gold { background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.45) 0 2px, transparent 2px 5px); }
+/* "배경 그래픽" 을 끄고 인쇄해도 막대·도장·배지가 나오게 */
+.seal, .seal.jeok, .bar, .bar > span, .badge, .rkpi, .saekdong i, .pdot { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.panel, table, .frow, .rkpis { page-break-inside: avoid; break-inside: avoid; }
+a { color: inherit; text-decoration: none; }

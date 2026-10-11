@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>K의 나라 운영 통계 — 개요 v2 목업</title>
+<link rel="stylesheet" href="../../../assets/theme.css" />
+<style>
+/* ── 목업 전용 레이아웃(dash.css 의 배치 규칙 중 필요한 것만 재현). 토큰·컴포넌트는 theme.css ── */
+body { font-family: var(--f-ui); font-size: 13px; line-height: 1.5; }
+.topbar { display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 24px; background: rgba(255,255,255,.35); border-bottom: 1px solid var(--c-line-strong); }
+.brand { display: flex; align-items: center; } .brand .seal { margin-right: 12px; }
+.brand-title { font-family: var(--f-disp); font-size: 18px; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; }
+.brand-sub { font-size: 11.5px; color: var(--c-ink-mute); margin-top: 1px; }
+.topbar-right { display: flex; align-items: center; } .topbar-right > * { margin-left: 10px; }
+.topbar-right .last { font-size: 11.5px; color: var(--c-ink-mute); } .topbar-right .last b { font-family: var(--f-num); color: var(--c-ink-2); }
+.controls { display: flex; align-items: center; flex-wrap: wrap; padding: 8px 24px 0; } .controls > * { margin-right: 14px; margin-bottom: 6px; }
+.period { display: flex; align-items: center; }
+.toggle-custom { border: 0; background: transparent; color: var(--c-ink-mute); font-size: 12.5px; cursor: pointer; padding: 0 8px; min-height: 32px; text-decoration: underline; }
+.range-label { font-family: var(--f-num); font-weight: 700; font-size: 13.5px; } .range-label small { font-family: var(--f-ui); font-weight: 500; color: var(--c-ink-mute); margin-left: 4px; }
+.tabs { padding: 0 24px; }
+.content { padding: 14px 24px 28px; max-width: 1400px; margin: 0 auto; }
+
+/* 12칸 격자 */
+.g12 { display: grid; grid-template-columns: repeat(12, 1fr); grid-gap: 12px; margin-bottom: 12px; }
+.g12 > * { min-width: 0; }
+.c3 { grid-column: span 3; } .c4 { grid-column: span 4; } .c8 { grid-column: span 8; }
+.panel { padding: 12px 16px 12px; }
+.panel-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.panel-head h2 { margin: 0; }
+.panel-head .legend { margin: 0; }
+.legend i { width: 10px; height: 10px; }
+.legend i.line { height: 3px; border-radius: 2px; vertical-align: 2px; }
+
+/* KPI 타일 v2: 숫자 + 델타 + 스파크라인 / 미터 */
+.kpi { display: flex; justify-content: space-between; align-items: stretch; padding: 12px 16px 10px; }
+.kpi .lbl { font-size: var(--d-cap); color: var(--c-ink-2); font-weight: 500; }
+.kpi .v { font-family: var(--f-num); font-weight: 700; font-size: var(--d-kpi); line-height: 1.15; margin: 2px 0 1px; letter-spacing: -.01em; }
+.kpi .v small { font-family: var(--f-ui); font-size: 13px; font-weight: 500; color: var(--c-ink-mute); margin-left: 3px; }
+.kpi .s { font-size: var(--d-cap); color: var(--c-ink-mute); }
+.kpi .s .delta { font-weight: 700; font-family: var(--f-num); margin-right: 4px; }
+.kpi .s .delta.up { color: var(--c-ok); } .kpi .s .delta.down { color: var(--c-bad); }
+.kpi .spark { align-self: flex-end; margin-bottom: 2px; }
+.kpi.hero { box-shadow: var(--inset-line), inset 4px 0 0 var(--c-gold), var(--shadow-card); }
+.meter { height: 10px; background: var(--c-bg-2); border-radius: 5px; overflow: hidden; margin: 6px 0 4px; width: 100%; }
+.meter > span { display: block; height: 100%; background: var(--chart-gold); border-radius: 5px; }
+.kpi .col { display: flex; flex-direction: column; justify-content: space-between; min-width: 0; flex: 1; }
+
+/* 차트 공용 */
+.chart text { font-size: 10.5px; fill: var(--c-ink-mute); font-family: var(--f-ui); }
+.chart text.val { fill: var(--c-ink); font-family: var(--f-num); font-size: 11px; font-weight: 700; }
+.chart text.end { fill: var(--c-ink); font-family: var(--f-ui); font-size: 11px; font-weight: 700; }
+.chart .grid { stroke: var(--chart-grid); stroke-width: 1; }
+.chart .base { stroke: var(--c-line-strong); stroke-width: 1; }
+
+/* 도넛 + 범례 */
+.donut-wrap { display: flex; align-items: center; }
+.donut-wrap svg { flex-shrink: 0; margin-right: 14px; }
+.dleg { flex: 1; min-width: 0; }
+.dleg .row { display: flex; align-items: center; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid var(--c-line-hair); font-size: var(--d-table); }
+.dleg .row:last-child { border-bottom: 0; }
+.dleg .row .nm { display: flex; align-items: center; min-width: 0; }
+.dleg .row .nm i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 7px; flex-shrink: 0; }
+.dleg .row .pv { font-family: var(--f-num); font-weight: 700; font-size: 13.5px; }
+.dleg .row .pv small { font-family: var(--f-ui); font-weight: 400; color: var(--c-ink-mute); font-size: 11.5px; margin-left: 4px; }
+.dcenter { font-family: var(--f-num); font-weight: 700; font-size: 20px; fill: var(--c-ink); }
+.dcap { font-family: var(--f-ui); font-size: 10.5px; fill: var(--c-ink-mute); }
+
+/* 순위 가로막대 */
+.klist .krow { margin-bottom: 5px; }
+.klist .ktop { display: flex; justify-content: space-between; font-size: var(--d-table); margin-bottom: 2px; }
+.klist .ktop .kv b { font-size: 13.5px; }
+.bar { height: 8px; }
+.bar > span { background: var(--chart-1); }
+
+/* 토큰 추가분(theme.css 에 넣을 것) */
+:root { --chart-1: #2F5FA8; --chart-gold: #B38C33; --chart-2: #B38C33; --chart-3: #C33A2E; --chart-neutral: var(--hanji-3);
+        --ramp-1: #8FA5CB; --ramp-2: #6683B8; --ramp-3: #4566A5; --ramp-4: #1F4A8C; }
+.foot { display: flex; justify-content: flex-end; padding: 10px 24px 20px; font-size: 11.5px; color: var(--c-ink-mute); border-top: 1px solid var(--c-line); }
+</style>
+</head>
+<body class="paper dash">
+
+<header class="topbar">
+  <div class="brand">
+    <span class="seal" aria-hidden="true">K</span>
+    <div>
+      <div class="brand-title">K의 나라 운영 통계</div>
+      <div class="brand-sub">청와대 사랑채 국민화합 체험형 문화 프로그램</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <span class="last">마지막 수집 <b>10/11 15:30</b></span>
+    <button class="btn ghost" type="button">새로고침</button>
+    <button class="btn ghost" type="button">잠금</button>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="period">
+    <button type="button">오늘</button><button type="button" class="active">7일</button><button type="button">30일</button><button type="button">전시기간</button>
+    <button type="button" class="toggle-custom">기간 직접 지정 ▾</button>
+  </div>
+  <span class="range-label">2026-10-05 ~ 2026-10-11<small>7일</small></span>
+</div>
+
+<nav class="tabs">
+  <button type="button" class="active">개요</button><button type="button">놀이별</button><button type="button">내보내기 / 인쇄</button><button type="button" class="tab-minor">자세히</button>
+</nav>
+
+<main class="content">
+
+  <!-- 1행: 헤드라인 3 — 숫자+델타+스파크 / 비율 미터 / 숫자 -->
+  <div class="g12">
+    <div class="kpi c4">
+      <div class="col">
+        <div class="lbl">총 방문자</div>
+        <div class="v">301</div>
+        <div class="s"><span class="delta up">▲ 10%</span>지난 7일 274명 대비</div>
+      </div>
+      <svg class="spark" width="150" height="44" viewBox="0 0 150 44" aria-hidden="true">
+        <!-- 7일: 44 40 28 36 45 47 61 → max 61 -->
+        <path d="M6 14.8 L29 17.7 L52 26.3 L75 20.5 L98 14 L121 12.6 L144 2.5" fill="none" stroke="var(--chart-1)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="144" cy="2.5" r="4" fill="var(--chart-1)" stroke="#FFFDF8" stroke-width="2"/>
+      </svg>
+    </div>
+    <div class="kpi hero c4">
+      <div class="col">
+        <div class="lbl">완주율</div>
+        <div class="v">23%</div>
+        <div class="meter" role="img" aria-label="완주율 23%"><span style="width:23%"></span></div>
+        <div class="s"><span class="delta up">▲ 2%p</span>완주자 68명 · 지난 7일 21%</div>
+      </div>
+    </div>
+    <div class="kpi c4">
+      <div class="col">
+        <div class="lbl">오늘 방문자</div>
+        <div class="v">61</div>
+        <div class="s">완주 12명 · 15:30 기준</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2행: 일별 시계열(8) + 나이대 세로막대(4) -->
+  <div class="g12">
+    <section class="panel c8">
+      <div class="panel-head"><h2>일별 방문·완주</h2>
+        <div class="legend"><i class="line" style="background:var(--chart-1)"></i>방문 <i class="line" style="background:var(--chart-gold)"></i>완주</div></div>
+      <svg class="chart" width="842" height="196" viewBox="0 0 842 196" role="img" aria-label="일별 방문·완주 추이">
+        <!-- plot: x 36..760, y 14..166 (0..70) -->
+        <line class="grid" x1="36" x2="760" y1="14" y2="14"/><text x="30" y="17.5" text-anchor="end">70</text>
+        <line class="grid" x1="36" x2="760" y1="90" y2="90"/><text x="30" y="93.5" text-anchor="end">35</text>
+        <line class="base" x1="36" x2="760" y1="166" y2="166"/><text x="30" y="169.5" text-anchor="end">0</text>
+        <!-- 방문 면 워시 + 선. x: 36 + i*120.67 -->
+        <path d="M36 70.5 L156.7 79.2 L277.3 105.2 L398 87.8 L518.7 68.3 L639.3 63.9 L760 33.5 L760 166 L36 166 Z" fill="var(--chart-1)" opacity=".10"/>
+        <path d="M36 70.5 L156.7 79.2 L277.3 105.2 L398 87.8 L518.7 68.3 L639.3 63.9 L760 33.5" fill="none" stroke="var(--chart-1)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <!-- 완주 선 (10 9 8 10 6 13 12) -->
+        <path d="M36 144.3 L156.7 146.5 L277.3 148.6 L398 144.3 L518.7 153 L639.3 137.8 L760 140" fill="none" stroke="var(--chart-gold)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <g fill="var(--chart-1)" stroke="#FFFDF8" stroke-width="2">
+          <circle cx="36" cy="70.5" r="4"/><circle cx="156.7" cy="79.2" r="4"/><circle cx="277.3" cy="105.2" r="4"/><circle cx="398" cy="87.8" r="4"/><circle cx="518.7" cy="68.3" r="4"/><circle cx="639.3" cy="63.9" r="4"/><circle cx="760" cy="33.5" r="4"/>
+        </g>
+        <g fill="var(--chart-gold)" stroke="#FFFDF8" stroke-width="2">
+          <circle cx="36" cy="144.3" r="4"/><circle cx="156.7" cy="146.5" r="4"/><circle cx="277.3" cy="148.6" r="4"/><circle cx="398" cy="144.3" r="4"/><circle cx="518.7" cy="153" r="4"/><circle cx="639.3" cy="137.8" r="4"/><circle cx="760" cy="140" r="4"/>
+        </g>
+        <!-- 끝점 직접 라벨 (선택적 라벨: 끝값만) -->
+        <text class="end" x="770" y="37">방문 61</text>
+        <text class="end" x="770" y="144">완주 12</text>
+        <!-- x 축 -->
+        <g text-anchor="middle">
+          <text x="36" y="186">10/5</text><text x="156.7" y="186">10/6</text><text x="277.3" y="186">10/7</text><text x="398" y="186">10/8</text><text x="518.7" y="186">10/9</text><text x="639.3" y="186">10/10</text><text x="760" y="186">10/11</text>
+        </g>
+      </svg>
+    </section>
+
+    <section class="panel c4">
+      <div class="panel-head"><h2>나이대</h2><span class="legend">응답자 236명 기준</span></div>
+      <svg class="chart" width="399" height="196" viewBox="0 0 399 196" role="img" aria-label="나이대 분포">
+        <!-- 6칸, 칸 폭 66.5, 막대 폭 24, 기준선 y=166, 최대 32% = 높이 130 -->
+        <line class="base" x1="0" x2="399" y1="166" y2="166"/>
+        <g fill="var(--chart-1)">
+          <path d="M21.25 121.3 a4 4 0 0 1 4 -4 h16 a4 4 0 0 1 4 4 v44.7 h-24 z"/>          <!-- 10대 11% -->
+          <path d="M87.75 40 a4 4 0 0 1 4 -4 h16 a4 4 0 0 1 4 4 v126 h-24 z"/>               <!-- 20대 32% -->
+          <path d="M154.25 72.5 a4 4 0 0 1 4 -4 h16 a4 4 0 0 1 4 4 v93.5 h-24 z"/>           <!-- 30대 24% -->
+          <path d="M220.75 113.1 a4 4 0 0 1 4 -4 h16 a4 4 0 0 1 4 4 v52.9 h-24 z"/>          <!-- 40대 14% -->
+          <path d="M287.25 121.3 a4 4 0 0 1 4 -4 h16 a4 4 0 0 1 4 4 v44.7 h-24 z"/>          <!-- 50대 12% -->
+          <path d="M353.75 141.6 a4 4 0 0 1 4 -4 h16 a4 4 0 0 1 4 4 v24.4 h-24 z"/>          <!-- 60대+ 7% -->
+        </g>
+        <g class="val" text-anchor="middle">
+          <text class="val" x="33.25" y="112">11%</text><text class="val" x="99.75" y="30">32%</text><text class="val" x="166.25" y="62.5">24%</text>
+          <text class="val" x="232.75" y="103">14%</text><text class="val" x="299.25" y="111">12%</text><text class="val" x="365.75" y="131.5">7%</text>
+        </g>
+        <g text-anchor="middle">
+          <text x="33.25" y="184">10대</text><text x="99.75" y="184">20대</text><text x="166.25" y="184">30대</text><text x="232.75" y="184">40대</text><text x="299.25" y="184">50대</text><text x="365.75" y="184">60대 이상</text>
+        </g>
+      </svg>
+    </section>
+  </div>
+
+  <!-- 3행: 성별 도넛 · 접속 기기 도넛 · 언어 가로막대 · 브라우저 가로막대 -->
+  <div class="g12">
+    <section class="panel c3">
+      <div class="panel-head"><h2>성별</h2></div>
+      <div class="donut-wrap">
+        <!-- r=46, 둘레 289. 여 53% 153.2 / 남 33% 95.4 / 응답 안 함 14% 40.5. 2px 표면 간격은 stroke 흰 선으로 -->
+        <svg width="112" height="112" viewBox="0 0 112 112" role="img" aria-label="성별 구성: 여성 53%, 남성 33%, 응답 안 함 14%">
+          <g transform="rotate(-90 56 56)" fill="none" stroke-width="14">
+            <circle cx="56" cy="56" r="46" stroke="var(--chart-neutral)"/>
+            <circle cx="56" cy="56" r="46" stroke="var(--chart-1)" stroke-dasharray="153.2 289" />
+            <circle cx="56" cy="56" r="46" stroke="var(--chart-gold)" stroke-dasharray="95.4 289" stroke-dashoffset="-153.2"/>
+          </g>
+          <!-- 2px 간격: 조각 경계 3곳 -->
+          <g stroke="#FFFDF8" stroke-width="2" transform="translate(56 56)">
+            <line x1="0" y1="-39" x2="0" y2="-53" transform="rotate(0)"/>
+            <line x1="0" y1="-39" x2="0" y2="-53" transform="rotate(190.8)"/>
+            <line x1="0" y1="-39" x2="0" y2="-53" transform="rotate(309.6)"/>
+          </g>
+          <text class="dcenter" x="56" y="55" text-anchor="middle">53%</text>
+          <text class="dcap" x="56" y="69" text-anchor="middle">여성</text>
+        </svg>
+        <div class="dleg">
+          <div class="row"><span class="nm"><i style="background:var(--chart-1)"></i>여성</span><span class="pv">53%<small>143</small></span></div>
+          <div class="row"><span class="nm"><i style="background:var(--chart-gold)"></i>남성</span><span class="pv">33%<small>88</small></span></div>
+          <div class="row"><span class="nm"><i style="background:var(--chart-neutral)"></i>응답 안 함</span><span class="pv">14%<small>39</small></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel c3">
+      <div class="panel-head"><h2>접속 기기</h2></div>
+      <div class="donut-wrap">
+        <!-- iOS 51% 147.4 / Android 47% 135.8 / 기타 2% 5.8 -->
+        <svg width="112" height="112" viewBox="0 0 112 112" role="img" aria-label="접속 기기: iOS 51%, Android 47%, 기타 2%">
+          <g transform="rotate(-90 56 56)" fill="none" stroke-width="14">
+            <circle cx="56" cy="56" r="46" stroke="var(--chart-neutral)"/>
+            <circle cx="56" cy="56" r="46" stroke="var(--chart-1)" stroke-dasharray="147.4 289"/>
+            <circle cx="56" cy="56" r="46" stroke="var(--chart-gold)" stroke-dasharray="135.8 289" stroke-dashoffset="-147.4"/>
+          </g>
+          <g stroke="#FFFDF8" stroke-width="2" transform="translate(56 56)">
+            <line x1="0" y1="-39" x2="0" y2="-53" transform="rotate(0)"/>
+            <line x1="0" y1="-39" x2="0" y2="-53" transform="rotate(183.6)"/>
+            <line x1="0" y1="-39" x2="0" y2="-53" transform="rotate(352.8)"/>
+          </g>
+          <text class="dcenter" x="56" y="55" text-anchor="middle">51%</text>
+          <text class="dcap" x="56" y="69" text-anchor="middle">iOS</text>
+        </svg>
+        <div class="dleg">
+          <div class="row"><span class="nm"><i style="background:var(--chart-1)"></i>iOS</span><span class="pv">51%<small>154</small></span></div>
+          <div class="row"><span class="nm"><i style="background:var(--chart-gold)"></i>Android</span><span class="pv">47%<small>140</small></span></div>
+          <div class="row"><span class="nm"><i style="background:var(--chart-neutral)"></i>기타(PC 등)</span><span class="pv">2%<small>7</small></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel c3">
+      <div class="panel-head"><h2>언어</h2><span class="legend">전체 301명</span></div>
+      <div class="klist">
+        <div class="krow"><div class="ktop"><span class="kn">한국어</span><span class="kv"><b>76%</b> · 210</span></div><div class="bar"><span style="width:100%"></span></div></div>
+        <div class="krow"><div class="ktop"><span class="kn">영어</span><span class="kv"><b>10%</b> · 28</span></div><div class="bar"><span style="width:13%"></span></div></div>
+        <div class="krow"><div class="ktop"><span class="kn">일본어</span><span class="kv"><b>5%</b> · 15</span></div><div class="bar"><span style="width:7%"></span></div></div>
+        <div class="krow"><div class="ktop"><span class="kn">중국어</span><span class="kv"><b>5%</b> · 15</span></div><div class="bar"><span style="width:7%"></span></div></div>
+        <div class="krow"><div class="ktop"><span class="kn">스페인어</span><span class="kv"><b>3%</b> · 7</span></div><div class="bar"><span style="width:3%"></span></div></div>
+      </div>
+    </section>
+
+    <section class="panel c3">
+      <div class="panel-head"><h2>브라우저</h2><span class="legend">상위 4 + 기타</span></div>
+      <div class="klist">
+        <div class="krow"><div class="ktop"><span class="kn">Safari</span><span class="kv"><b>40%</b> · 120</span></div><div class="bar"><span style="width:100%"></span></div></div>
+        <div class="krow"><div class="ktop"><span class="kn">Chrome</span><span class="kv"><b>32%</b> · 96</span></div><div class="bar"><span style="width:80%"></span></div></div>
+        <div class="krow"><div class="ktop"><span class="kn">카카오톡 <span class="badge warn" style="margin-left:4px">인앱</span></span><span class="kv"><b>11%</b> · 34</span></div><div class="bar"><span style="width:28%"></span></div></div>
+        <div class="krow"><div class="ktop"><span class="kn">삼성인터넷</span><span class="kv"><b>10%</b> · 31</span></div><div class="bar"><span style="width:26%"></span></div></div>
+        <div class="krow"><div class="ktop"><span class="kn">기타 (네이버앱·Edge)</span><span class="kv"><b>7%</b> · 20</span></div><div class="bar"><span style="width:17%;background:var(--chart-neutral)"></span></div></div>
+      </div>
+    </section>
+  </div>
+
+</main>
+<footer class="foot">생성 10/11 15:30 · SQLite(검증용) · 한국 표준시</footer>
+</body>
+</html>

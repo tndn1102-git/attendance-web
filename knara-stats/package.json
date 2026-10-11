@@ -1,0 +1,23 @@
+{
+  "name": "knara-stats",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "K의 나라 운영 통계 — 수집 스니펫 + 수집/집계 API + 발주처용 대시보드 (Cloudflare Workers + D1)",
+  "engines": { "node": ">=22.5" },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "seed": "node scripts/seed.js",
+    "verify": "node scripts/verify.js",
+    "screenshots": "node scripts/screenshots.js",
+    "purge": "node scripts/purge.js",
+    "check-db": "node scripts/smoke-db.js",
+    "deploy": "wrangler deploy",
+    "edit-entry": "node scripts/entry-editor.js",
+    "check": "node --check server.js && node --check track.js && node --check assets/dash.js && node scripts/lint.js"
+  },
+  "dependencies": {
+    "pg": "^8.13.0"
+  }
+}

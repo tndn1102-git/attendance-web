@@ -1,0 +1,8 @@
+/*
+  X-Robots-Tag: noindex, nofollow
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+
+/track.js
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=300

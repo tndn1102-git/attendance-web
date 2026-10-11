@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "knara",
+  "main": "worker.js",
+  "compatibility_date": "2026-06-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "observability": { "enabled": true },
+  // 정적 파일: 프로젝트 루트를 그대로 올리되 .assetsignore 로 lib·docs·data 등은 제외. _headers 로 noindex·CORS.
+  "assets": { "directory": "./", "binding": "ASSETS", "not_found_handling": "none" },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "knara-stats", "database_id": "fe4a6176-4a6d-409b-abe6-ef7381b633f2" }
+  ],
+  // 비밀(STATS_KEY, 선택 TRACK_TOKEN)은 `wrangler secret put` 으로. 아래는 공개돼도 되는 값만.
+  "vars": { "EXHIBIT_START": "2026-11-02" }
+}

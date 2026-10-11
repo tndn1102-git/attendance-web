@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>K의 나라 — 입장 (목업)</title>
+<link rel="stylesheet" href="../../../assets/theme.css" />
+<style>
+  /* 입장 페이지 전용 레이아웃. 토큰·컴포넌트는 theme.css 에서 온다. */
+  body { padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom); word-break: keep-all; overflow-wrap: break-word; }
+  .wrap { max-width: 520px; margin: 0 auto; padding: 14px 16px 28px; }
+
+  /* 머리: 왼쪽 알약+소개글, 오른쪽 세로 타이틀. 높이 200 안에서 끝낸다 */
+  .head { display: flex; align-items: stretch; justify-content: space-between; padding: 2px 0 0; }
+  .head .lead { flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding-right: 12px; }
+  .head .lead .intro { font-family: var(--f-story); font-weight: 700; font-size: 16.5px; line-height: 1.6; margin: 12px 0 0; color: var(--c-ink); max-width: 250px; }
+  .head .lead .org { font-size: 12.5px; color: var(--c-ink-mute); margin-top: 10px; line-height: 1.45; }
+  .head .titles { display: flex; align-items: flex-start; }
+  .head .vsub { margin-right: 8px; padding-top: 6px; }
+  /* 세로 쓰기에서 공백 글자는 한 칸을 통째로 차지하므로 "K의 나라" 의 띄어쓰기는 .gap 으로 좁게 표현 */
+  .vtitle { font-size: 42px; letter-spacing: .04em; }
+  .vtitle .gap { display: inline-block; width: 0; height: .3em; }
+  .saekdong { margin: 12px 0 12px; }
+
+  /* 언어 알약: 머리 왼쪽 열 바닥 (게임은 지도 아래 가운데 "🌐 한국어") */
+  .langrow { margin-top: 14px; }
+
+  .card + .card { margin-top: 10px; }
+  /* 안내 카드: 라벨 열 + 본문 열 */
+  .info dl { margin: 0; display: grid; grid-template-columns: 74px 1fr; grid-row-gap: 7px; grid-column-gap: 8px; align-items: baseline; }
+  .info dt { font-family: var(--f-ui); font-size: 13px; font-weight: 700; color: var(--c-ink-2); white-space: nowrap; }
+  .info dd { margin: 0; font-family: var(--f-story); font-weight: 700; font-size: 15px; line-height: 1.5; }
+  .info dd.no { color: var(--c-bad); }
+  .info dd.keep { font-size: 14px; font-weight: 400; color: var(--c-ink-2); }
+
+  /* 선택 카드: 소제목 두 개 */
+  .pick h2 { display: flex; align-items: baseline; margin-bottom: 6px; }
+  .pick h2 + .chips { margin-bottom: 14px; }
+  .pick h2 .opt { font-family: var(--f-ui); font-size: 13px; font-weight: 500; color: var(--c-ink-mute); margin-left: 8px; }
+  .pick .chips:last-child { margin-bottom: 0; }
+
+  /* 동의·시작 */
+  .go { margin-top: 10px; }
+  .go .consent { font-family: var(--f-story); font-size: 15.5px; font-weight: 700; line-height: 1.5; align-items: flex-start; }
+  .go .consent input { margin-top: 2px; flex-shrink: 0; }
+  .go .btn { margin-top: 14px; }
+  .go .skip { display: block; text-align: center; margin-top: 10px; font-size: 14.5px; color: var(--c-ink-2); text-decoration: underline; min-height: 44px; line-height: 44px; }
+  .foot { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; font-size: 13px; color: var(--c-ink-mute); line-height: 1.5; }
+  .foot b { color: var(--c-ink); font-weight: 700; }
+</style>
+</head>
+<body class="paper entry">
+<div class="wrap">
+
+  <header class="head">
+    <div class="lead">
+      <div>
+        <span class="pill cheong">지역을 플레이, K를 발견</span>
+        <p class="intro">노리개 하나를 고르고 여덟 도의 놀이를 돌며 여덟 가지 색을 모으는 폰 체험.</p>
+        <div class="org">청와대 사랑채<br>국민화합 체험형 문화 프로그램</div>
+      </div>
+      <div class="langrow">
+        <label class="pill-select">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg>
+          <select aria-label="언어">
+            <option selected>한국어</option><option>English</option><option>日本語</option><option>中文</option><option>Español</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="titles">
+      <span class="vsub">팔색 노리개</span>
+      <h1 class="vtitle" style="margin:0" aria-label="K의 나라">K의<span class="gap"></span>나라</h1>
+    </div>
+  </header>
+
+  <div class="saekdong" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <section class="card info">
+    <h2>이런 정보를 활용합니다</h2>
+    <dl>
+      <dt>수집</dt><dd>나이대·성별(구간값) · 언어와 노리개 · 놀이 진행과 걸린 시간 · 기기·브라우저·화면 크기 · 오류 기록</dd>
+      <dt>수집 안 함</dt><dd class="no">이름·연락처·계정 · IP·위치 · 사진·음성·카메라 영상</dd>
+      <dt>목적</dt><dd>전시 운영 개선 · 놀이 난이도 조정 · 운영 보고</dd>
+      <dt>보관</dt><dd class="keep">진행 기록 400일, 오류 기록 180일 뒤 삭제. 개인을 알아볼 수 있는 정보와 결합하지 않습니다.</dd>
+    </dl>
+  </section>
+
+  <section class="card pick">
+    <h2>나이대 <span class="opt">선택 사항</span></h2>
+    <div class="chips" role="group">
+      <button class="chip" type="button" aria-pressed="false">10대</button>
+      <button class="chip" type="button" aria-pressed="true">20대</button>
+      <button class="chip" type="button" aria-pressed="false">30대</button>
+      <button class="chip" type="button" aria-pressed="false">40대</button>
+      <button class="chip" type="button" aria-pressed="false">50대</button>
+      <button class="chip" type="button" aria-pressed="false">60대 이상</button>
+    </div>
+    <h2>성별 <span class="opt">선택 사항</span></h2>
+    <div class="chips" role="group">
+      <button class="chip" type="button" aria-pressed="true">여성</button>
+      <button class="chip" type="button" aria-pressed="false">남성</button>
+      <button class="chip" type="button" aria-pressed="false">기타</button>
+      <button class="chip" type="button" aria-pressed="false">답하지 않음</button>
+    </div>
+  </section>
+
+  <section class="card go">
+    <label class="chk consent"><input type="checkbox" checked /> <span>위 내용을 확인했고 통계 활용에 동의합니다.</span></label>
+    <button class="btn block" type="button">시작하기</button>
+    <a class="skip" role="button" tabindex="0">동의 없이 시작</a>
+  </section>
+
+  <footer class="foot">
+    <span><b>청와대 사랑채 · 문화체육관광부</b><br>문의: 현장 운영 데스크</span>
+    <span class="seal" aria-hidden="true">K</span>
+  </footer>
+</div>
+</body>
+</html>

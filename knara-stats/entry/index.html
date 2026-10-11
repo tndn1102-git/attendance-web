@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#F5EFE4" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="referrer" content="no-referrer" />
+<title>K의 나라 — 입장</title>
+<link rel="stylesheet" href="../assets/theme.css" />
+<style>
+  /* 입장 페이지 전용 레이아웃(docs/design-ref/mockups/entry.html 과 동일). 토큰·컴포넌트는 theme.css */
+  body { padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom); word-break: keep-all; overflow-wrap: break-word; }
+  .wrap { max-width: 520px; margin: 0 auto; padding: 14px 16px 28px; }
+  .head { display: flex; align-items: stretch; justify-content: space-between; padding: 2px 0 0; }
+  .head .lead { flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding-right: 12px; min-width: 0; }
+  .head .lead .intro { font-family: var(--f-story); font-weight: 700; font-size: 16.5px; line-height: 1.6; margin: 12px 0 0; color: var(--c-ink); max-width: 250px; }
+  .head .lead .org { font-size: 12.5px; color: var(--c-ink-mute); margin-top: 10px; line-height: 1.45; }
+  .head .titles { display: flex; align-items: flex-start; flex-shrink: 0; }
+  .head .vsub { margin-right: 8px; padding-top: 6px; }
+  .vtitle { font-size: 42px; letter-spacing: .04em; margin: 0; }
+  .vtitle .gap { display: inline-block; width: 0; height: .3em; }
+  .vtitle.long { font-size: 34px; }          /* 글자 8자 이상(El País K 등) */
+  .vtitle.latin, .vsub.latin { text-orientation: mixed; }   /* 라틴 문자는 책등처럼 옆으로 눕힘(upright 로 세우면 글자당 1칸씩 길어짐) */
+  .vtitle.latin { letter-spacing: .02em; }
+  .vsub.latin { letter-spacing: .14em; }
+  html[lang=ja] body, html[lang=zh] body { word-break: normal; }   /* 띄어쓰기 없는 언어는 keep-all 이면 카드 밖으로 넘침 */
+  html[lang=en] .info dl, html[lang=es] .info dl { grid-template-columns: 92px 1fr; }
+  html[lang=en] .info dt, html[lang=es] .info dt { white-space: normal; }
+  .vtitle.horiz, .vsub.horiz { writing-mode: horizontal-tb; text-orientation: mixed; }  /* 세로가 너무 길면 가로 폴백(12자 이상) */
+  .titles.horiz { flex-direction: column; align-items: flex-end; text-align: right; }
+  .titles.horiz .vsub { margin: 0 0 4px; padding: 0; letter-spacing: .2em; }
+  .titles.horiz .vtitle { font-size: 30px; letter-spacing: 0; }
+  .saekdong { margin: 12px 0 12px; }
+  .card + .card { margin-top: 10px; }
+  /* 언어 다시 고르기 링크(바닥, 작게) */
+  .langlink { display: inline-flex; align-items: center; margin-top: 14px; min-height: 36px; padding: 0 10px 0 8px; border-radius: var(--r-pill);
+    background: rgba(255,255,255,.55); box-shadow: var(--inset-line); font-size: 13px; font-weight: 700; color: var(--c-ink-2); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .langlink svg { width: 16px; height: 16px; margin-right: 6px; }
+  /* 접속 직후 언어 선택 팝업: 먹색 반투명 덮개 + 한지 상자 + 다섯 네모칸(각 언어 자기 표기) */
+  #langPop { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 50;   /* id 선택자 = theme.css 의 body.paper > * { position: relative } 보다 우선 */ display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(33,30,26,.56); }
+  #langPop[hidden] { display: none; }
+  .langpop-box { background: var(--c-bg); border-radius: var(--r-card); box-shadow: var(--inset-line), 0 14px 40px rgba(0,0,0,.35); padding: 12px; max-width: 320px; }
+  .langpop-grid { display: flex; flex-wrap: wrap; justify-content: center; }
+  .langbox { flex: 0 0 auto; width: 88px; min-height: 56px; margin: 4px; padding: 6px 4px; border: 0; border-radius: var(--r-chip); background: rgba(255,255,255,.6); box-shadow: var(--inset-line);
+    color: var(--c-ink); font-family: var(--f-ui); font-size: 15px; font-weight: 700; cursor: pointer; -webkit-tap-highlight-color: transparent; white-space: nowrap; }
+  .langbox:active, .langbox[aria-pressed="true"] { background: var(--meok); color: var(--hanji); box-shadow: none; }
+  .langbox:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+  .info dl { margin: 0; display: grid; grid-template-columns: 74px 1fr; grid-row-gap: 7px; grid-column-gap: 8px; align-items: baseline; }
+  .info dt { font-family: var(--f-ui); font-size: 13px; font-weight: 700; color: var(--c-ink-2); white-space: nowrap; }
+  .info dt.wide { white-space: normal; }
+  .info dd { margin: 0; font-family: var(--f-story); font-weight: 700; font-size: 15px; line-height: 1.5; }
+  .info dd.no { color: var(--c-bad); }
+  .info dd.keep { font-size: 14px; font-weight: 400; color: var(--c-ink-2); }
+  .pick h2 { display: flex; align-items: baseline; margin-bottom: 6px; }
+  .pick h2 + .chips { margin-bottom: 14px; }
+  .pick h2 .opt { font-family: var(--f-ui); font-size: 13px; font-weight: 500; color: var(--c-ink-mute); margin-left: 8px; }
+  .pick .chips:last-child { margin-bottom: 0; }
+  /* 나이대 6칸은 폰 폭(390px)에서도 한 줄: 6열 격자, 칸 안쪽 여백 최소, 긴 글("60대 이상")은 칸 안에서 두 줄로 */
+  #ageChips { display: grid; grid-template-columns: repeat(6, 1fr); grid-column-gap: 5px; margin: 0; }
+  #ageChips .chip { margin: 0; padding: 2px 3px; min-width: 0; font-size: 13.5px; line-height: 1.2; text-align: center; white-space: normal; word-break: normal; overflow-wrap: anywhere; }
+  .go { margin-top: 10px; }
+  .go .consent { font-family: var(--f-story); font-size: 15.5px; font-weight: 700; line-height: 1.5; align-items: flex-start; }
+  .go .consent input { margin-top: 2px; flex-shrink: 0; }
+  .go .btn { margin-top: 14px; }
+  .go .skip { display: block; text-align: center; margin-top: 10px; font-size: 14.5px; color: var(--c-ink-2); text-decoration: underline; min-height: 44px; line-height: 44px; cursor: pointer; }
+  .go .err { color: var(--c-bad); font-size: 14px; margin-top: 8px; min-height: 18px; font-weight: 700; text-align: center; }
+  .foot { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; font-size: 13px; color: var(--c-ink-mute); line-height: 1.5; }
+  .foot b { color: var(--c-ink); font-weight: 700; }
+</style>
+</head>
+<body class="paper entry">
+<div class="wrap">
+
+  <header class="head">
+    <div class="lead">
+      <div>
+        <span class="pill cheong" id="t_tag">지역을 플레이, K를 발견</span>
+        <p class="intro" id="t_intro">노리개 하나를 고르고 여덟 도의 놀이를 돌며 여덟 가지 색을 모으는 폰 체험.</p>
+        <div class="org" id="t_sub">청와대 사랑채<br>국민화합 체험형 문화 프로그램</div>
+      </div>
+    </div>
+    <div class="titles" id="titles">
+      <span class="vsub" id="t_vsub">팔색 노리개</span>
+      <h1 class="vtitle" id="t_title" aria-label="K의 나라">K의<span class="gap"></span>나라</h1>
+    </div>
+  </header>
+
+  <div class="saekdong" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <section class="card info" aria-labelledby="t_info">
+    <h2 id="t_info">이런 정보를 활용합니다</h2>
+    <dl id="infoBody"></dl>
+  </section>
+
+  <section class="card pick">
+    <h2 id="t_age">나이대 <span class="opt">선택 사항</span></h2>
+    <div class="chips" id="ageChips" role="group"></div>
+    <h2 id="t_gender">성별 <span class="opt">선택 사항</span></h2>
+    <div class="chips" id="genderChips" role="group"></div>
+  </section>
+
+  <section class="card go">
+    <label class="chk consent"><input type="checkbox" id="agree" /> <span id="t_consent">위 내용을 확인했고 통계 활용에 동의합니다.</span></label>
+    <button class="btn block" id="btnStart" type="button" disabled>시작하기</button>
+    <div class="err" id="err"></div>
+    <a class="skip" id="btnSkip" role="button" tabindex="0">동의 없이 시작</a>
+  </section>
+
+  <footer class="foot">
+    <span><b id="t_org"></b><br><span id="t_contact"></span></span>
+    <span class="seal" aria-hidden="true">K</span>
+  </footer>
+  <!-- 언어 다시 고르기(팝업 재열기). 언어 이름은 그 언어로 고정 표기라 번역 대상이 아님 -->
+  <a class="langlink" id="langOpen" role="button" tabindex="0" aria-label="언어 / Language">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg><span id="langOpenName">한국어</span>
+  </a>
+</div>
+
+<!-- 접속 직후 언어 선택 팝업: 다섯 언어를 각각 그 언어로 표기한 네모칸. ?hl= 로 언어가 정해져 오면 안 뜬다 -->
+<div class="langpop" id="langPop" role="dialog" aria-modal="true" aria-label="언어 / Language" hidden>
+  <div class="langpop-box">
+    <div class="langpop-grid" id="langGrid"></div>
+  </div>
+</div>
+
+<!-- 수집 스니펫: 이 페이지와 통계 서버가 같은 origin 이면 상대경로. 아니면 https://knara.tndn1102.workers.dev/track.js 절대경로로 바꾼다. -->
+<script>window.KSTAT = { endpoint: "/api/track", staff: /(^|[?&#])staff/.test(location.search + location.hash), app_ver: "entry-1.0" };</script>
+<script src="../track.js"></script>
+
+<!-- ───────── 화면 문구 (5개 언어 + 공통). 여기만 고치면 된다.
+     브라우저에서 직접 고치려면: 프로젝트 폴더에서 `npm run edit-entry` → http://localhost:5178/entry/ → 글자 클릭해 수정 → 저장(Ctrl+S) → 배포.
+     ko 가 원문. en/ja/zh/es 는 초벌 번역 — ⚠️ 발주처·전문 번역 검수 필요.
+     keep 에 {E}/{L} 가 있으면 보존기간(일, 아래 CONFIG.RETENTION)으로 바뀌고, 숫자를 직접 써도 된다. 줄바꿈은 어느 문구든 <br> (편집기에서 Enter). ───────── -->
+<script type="application/json" id="entry-text">
+{
+  "common": {
+    "ORG": "청와대 사랑채 · 문화체육관광부",
+    "CONTACT": "문의: 현장 운영 데스크"
+  },
+  "T": {
+    "ko": {
+      "title": "K의 나라",
+      "vsub": "팔색 노리개",
+      "tag": "지역을 플레이, K를 발견",
+      "sub": "청와대 사랑채<br>국민화합 체험형 문화 프로그램",
+      "intro": "K-크리에이터로서<br><br>여덟 도의 지역을 탐험하여<br>여덟 가지 체험을 진행할 수 있는<br>체험형 프로그램입니다.",
+      "langLabel": "언어",
+      "info": "이런 정보를 활용합니다",
+      "age": "나이대",
+      "gender": "성별",
+      "optional": "선택 사항",
+      "ages": ["10대","20대","30대","40대","50대","60대+"],
+      "genders": ["여성","남성","답하지 않음"],
+      "consent": "위 내용을 확인했고 통계 활용에 동의합니다.",
+      "start": "시작하기",
+      "skip": "동의 없이 시작",
+      "needAgree": "동의에 체크하면 시작할 수 있습니다.",
+      "h_collect": "수집",
+      "collect": ["나이대","성별","플레이 시간","기기 종류","접속 시간대"],
+      "h_no": "수집 안 함",
+      "no": ["이름·연락처·계정","IP·위치","사진·음성·카메라 영상"],
+      "h_why": "목적",
+      "why": ["전시 운영 개선","난이도 조정","오류 개선"],
+      "h_keep": "보관",
+      "keep": "진행 기록 120일, 오류 기록 120일 뒤 삭제. <br>개인을 알아볼 수 있는 정보는 결합하지 않습니다."
+    },
+    "en": {
+      "title": "K-Land",
+      "vsub": "Eight Colors",
+      "tag": "Play regions, find K",
+      "sub": "Cheongwadae Sarangchae<br>Cultural Experience Program for National Harmony",
+      "intro": "As a K-creator,<br><br>explore the eight provinces<br>and take part in eight experiences<br>in this hands-on program.",
+      "langLabel": "Language",
+      "info": "Information we use",
+      "age": "Age group",
+      "gender": "Gender",
+      "optional": "optional",
+      "ages": ["Teens","20s","30s","40s","50s","60+"],
+      "genders": ["Female","Male","Prefer not to say"],
+      "consent": "I have read the above and agree to the use of this information for statistics.",
+      "start": "Start",
+      "skip": "Start without consent",
+      "needAgree": "Check the consent box to start.",
+      "h_collect": "We collect",
+      "collect": ["Age group","Gender","Play time","Device type","Time of visit"],
+      "h_no": "Not collected",
+      "no": ["Name, contact, account","IP address, location","Photos, voice, camera video"],
+      "h_why": "Purpose",
+      "why": ["Improving the exhibition","Adjusting difficulty","Fixing errors"],
+      "h_keep": "Retention",
+      "keep": "Play records and error logs are deleted after 120 days. <br>Not linked to information that could identify you."
+    },
+    "ja": {
+      "title": "Kの国",
+      "vsub": "八色ノリゲ",
+      "tag": "地域をプレイ、Kを発見",
+      "sub": "青瓦台サランチェ<br>国民融和 体験型文化プログラム",
+      "intro": "K-クリエイターとして<br><br>八道の各地域を探検し<br>八つの体験に参加できる<br>体験型プログラムです。",
+      "langLabel": "言語",
+      "info": "利用する情報",
+      "age": "年代",
+      "gender": "性別",
+      "optional": "任意",
+      "ages": ["10代","20代","30代","40代","50代","60代+"],
+      "genders": ["女性","男性","回答しない"],
+      "consent": "上記を確認し、統計への利用に同意します。",
+      "start": "はじめる",
+      "skip": "同意せずに始める",
+      "needAgree": "同意にチェックすると始められます。",
+      "h_collect": "収集",
+      "collect": ["年代","性別","プレイ時間","端末の種類","アクセス時間帯"],
+      "h_no": "収集しない",
+      "no": ["氏名・連絡先・アカウント","IP・位置情報","写真・音声・カメラ映像"],
+      "h_why": "目的",
+      "why": ["展示運営の改善","難易度調整","不具合の改善"],
+      "h_keep": "保管",
+      "keep": "進行記録は120日、エラー記録は120日後に削除。<br>個人を特定できる情報とは結び付けません。"
+    },
+    "zh": {
+      "title": "K之国",
+      "vsub": "八色佩饰",
+      "tag": "畅游各道，发现K",
+      "sub": "青瓦台舍廊房<br>国民和谐 体验型文化项目",
+      "intro": "作为K创作者，<br><br>探索八道的各个地区、<br>参与八种体验的<br>体验型项目。",
+      "langLabel": "语言",
+      "info": "我们使用的信息",
+      "age": "年龄段",
+      "gender": "性别",
+      "optional": "可选",
+      "ages": ["10多岁","20多岁","30多岁","40多岁","50多岁","60岁+"],
+      "genders": ["女","男","不回答"],
+      "consent": "我已阅读以上内容，同意将其用于统计。",
+      "start": "开始",
+      "skip": "不同意并开始",
+      "needAgree": "勾选同意后即可开始。",
+      "h_collect": "收集",
+      "collect": ["年龄段","性别","游戏时长","设备类型","访问时间段"],
+      "h_no": "不收集",
+      "no": ["姓名、联系方式、账号","IP、位置","照片、语音、摄像头影像"],
+      "h_why": "目的",
+      "why": ["改进展览运营","调整难度","修复错误"],
+      "h_keep": "保存",
+      "keep": "游戏记录120天、错误记录120天后删除。<br>不与可识别个人的信息关联。"
+    },
+    "es": {
+      "title": "El País K",
+      "vsub": "Ocho colores",
+      "tag": "Juegue por las regiones, descubra K",
+      "sub": "Cheongwadae Sarangchae<br>Programa cultural vivencial de armonía nacional",
+      "intro": "Como K-creador,<br><br>explore las ocho provincias<br>y participe en ocho experiencias<br>en este programa vivencial.",
+      "langLabel": "Idioma",
+      "info": "Qué información usamos",
+      "age": "Grupo de edad",
+      "gender": "Género",
+      "optional": "opcional",
+      "ages": ["10-19","20-29","30-39","40-49","50-59","60+"],
+      "genders": ["Mujer","Hombre","Prefiero no decirlo"],
+      "consent": "He leído lo anterior y acepto el uso estadístico de esta información.",
+      "start": "Empezar",
+      "skip": "Empezar sin consentimiento",
+      "needAgree": "Marque la casilla de consentimiento para empezar.",
+      "h_collect": "Recogemos",
+      "collect": ["Grupo de edad","Género","Tiempo de juego","Tipo de dispositivo","Franja horaria de acceso"],
+      "h_no": "No recogemos",
+      "no": ["Nombre, contacto, cuenta","IP, ubicación","Fotos, voz, imágenes de cámara"],
+      "h_why": "Finalidad",
+      "why": ["Mejorar la exposición","Ajustar la dificultad","Corregir errores"],
+      "h_keep": "Conservación",
+      "keep": "Los registros de juego y de errores se borran a los 120 días. <br>No se vinculan a datos que permitan su identificación."
+    }
+  }
+}
+</script>
+
+<script>
+(function () {
+  /* ───────── 설정 (발주처·운영사가 바꾸는 값). 화면 문구는 위 entry-text JSON 에 있다 ───────── */
+  var CONFIG = {
+    GAME_URL: "https://desirenvy1.duckdns.org/knara/",   // 게임 주소
+    CONSENT_VERSION: "v1",                                 // 동의 문구를 바꾸면 v2, v3 … 로 올린다(이벤트에 실림)
+    REQUIRE_CONSENT: false,                                // true = 동의 없이는 입장 불가("동의 없이 시작" 링크 숨김)
+    PASS_LANG_QUERY: true,                                 // 게임 주소에 ?lang= 를 붙여 넘김(게임 쪽 지원 여부는 소스 확인)
+    HANDOFF_SESSION: true,                                 // 게임이 다른 origin 이면 ?sid=&s0=(&kstat=off) 를 붙여 세션을 잇는다
+    RETENTION: { events: 400, logs: 180 }                  // 보존기간(일) — docs/데이터명세.md 와 같아야 한다
+  };
+
+  function $(id) { return document.getElementById(id); }
+  var DATA = JSON.parse($("entry-text").textContent);
+  var T = DATA.T, COMMON = DATA.common;
+  var LANGS = [["ko", "한국어"], ["en", "English"], ["ja", "日本語"], ["zh", "中文"], ["es", "Español"]];
+  var AGE_IDS = ["10s", "20s", "30s", "40s", "50s", "60s+"], GENDER_IDS = ["f", "m", "skip"];
+  var state = { lang: "ko", age: "skip", gender: "skip" };
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function hb(s) { return esc(s).replace(/&lt;br\s*\/?&gt;/gi, "<br>"); }   // 문구 안의 <br> 만 줄바꿈으로 허용(나머지 태그는 글자 그대로)
+  function chips(elId, items, cur, onPick, keyPrefix) {
+    var el = $(elId); el.innerHTML = "";
+    items.forEach(function (it, i) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "chip"; b.innerHTML = hb(it[1]);
+      b.setAttribute("aria-pressed", it[0] === cur ? "true" : "false");
+      b.setAttribute("data-k", keyPrefix + "." + i);
+      b.addEventListener("click", function () { onPick(it[0]); });
+      el.appendChild(b);
+    });
+  }
+  /* data-k = 편집기(scripts/entry-editor.js)가 문구를 JSON 키로 되돌릴 때 쓰는 표식. 동작에는 영향 없음 */
+  function render() {
+    var t = T[state.lang] || T.ko;
+    document.documentElement.lang = state.lang;
+    // 세로 타이틀: 띄어쓰기는 .gap 으로, 8자 이상이면 작게(.long), 12자 이상이면 가로 폴백(.horiz)
+    var len = t.title.length, titles = $("titles"), h1 = $("t_title"), vs = $("t_vsub");
+    h1.innerHTML = esc(t.title).replace(/ /g, '<span class="gap"></span>');
+    h1.setAttribute("aria-label", t.title);
+    h1.setAttribute("data-k", "title");
+    var cjk = /[ㄱ-힝぀-ヿ一-鿿]/;
+    var latin = (!cjk.test(t.title) && /[A-Za-z]/.test(t.title)) ? " latin" : "";   /* 한글·한자·가나가 섞인 제목(K의 나라)은 전부 세움 — 게임 타이틀과 동일 */
+    h1.className = "vtitle" + latin + (len >= 12 ? " horiz" : len >= 8 ? " long" : "");
+    vs.className = "vsub" + ((!cjk.test(t.vsub) && /[A-Za-z]/.test(t.vsub)) ? " latin" : "") + (len >= 12 ? " horiz" : "");
+    titles.className = "titles" + (len >= 12 ? " horiz" : "");
+    vs.innerHTML = hb(t.vsub); vs.setAttribute("data-k", "vsub");
+    $("t_tag").innerHTML = hb(t.tag); $("t_tag").setAttribute("data-k", "tag");
+    $("t_intro").innerHTML = hb(t.intro); $("t_intro").setAttribute("data-k", "intro");
+    $("t_sub").innerHTML = hb(t.sub); $("t_sub").setAttribute("data-k", "sub");
+    $("t_info").innerHTML = hb(t.info); $("t_info").setAttribute("data-k", "info");
+    $("t_age").innerHTML = '<span data-k="age">' + hb(t.age) + '</span> <span class="opt" data-k="optional">' + hb(t.optional) + "</span>";
+    $("t_gender").innerHTML = '<span data-k="gender">' + hb(t.gender) + '</span> <span class="opt" data-k="optional">' + hb(t.optional) + "</span>";
+    $("t_consent").innerHTML = hb(t.consent); $("t_consent").setAttribute("data-k", "consent");
+    $("btnStart").innerHTML = hb(t.start); $("btnStart").setAttribute("data-k", "start");
+    $("btnSkip").innerHTML = hb(t.skip); $("btnSkip").setAttribute("data-k", "skip");
+    $("btnSkip").style.display = CONFIG.REQUIRE_CONSENT ? "none" : "";
+    $("t_org").innerHTML = hb(COMMON.ORG); $("t_org").setAttribute("data-k", "common.ORG");
+    $("t_contact").innerHTML = hb(COMMON.CONTACT); $("t_contact").setAttribute("data-k", "common.CONTACT");
+    var dt = function (s, k) { return '<dt class="' + (s.length > 6 ? "wide" : "") + '" data-k="' + k + '">' + hb(s) + "</dt>"; };
+    $("infoBody").innerHTML = dt(t.h_collect, "h_collect") + '<dd data-k="collect">' + hb(t.collect.join(" · ")) + "</dd>"
+      + dt(t.h_no, "h_no") + '<dd class="no" data-k="no">' + hb(t.no.join(" · ")) + "</dd>"
+      + dt(t.h_why, "h_why") + '<dd data-k="why">' + hb(t.why.join(" · ")) + "</dd>"
+      + dt(t.h_keep, "h_keep") + '<dd class="keep" data-k="keep">' + hb(t.keep.replace("{E}", CONFIG.RETENTION.events).replace("{L}", CONFIG.RETENTION.logs)) + "</dd>";
+    $("langOpenName").textContent = (LANGS.filter(function (l) { return l[0] === state.lang; })[0] || LANGS[0])[1];
+    $("langOpen").setAttribute("aria-label", t.langLabel);
+    $("langPop").setAttribute("aria-label", t.langLabel);
+    var grid = $("langGrid"); grid.innerHTML = "";
+    LANGS.forEach(function (l) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "langbox"; b.textContent = l[1]; b.lang = l[0];
+      b.setAttribute("aria-pressed", l[0] === state.lang ? "true" : "false");
+      b.addEventListener("click", function () { state.lang = l[0]; render(); closeLangPop(); });
+      grid.appendChild(b);
+    });
+    chips("ageChips", AGE_IDS.map(function (id, i) { return [id, t.ages[i]]; }), state.age, function (v) { state.age = state.age === v ? "skip" : v; render(); }, "ages");
+    chips("genderChips", GENDER_IDS.map(function (id, i) { return [id, t.genders[i]]; }), state.gender, function (v) { state.gender = v; render(); }, "genders");
+    $("btnStart").disabled = !$("agree").checked;
+    $("err").textContent = "";
+    if (window.__onEntryRender) { try { window.__onEntryRender(); } catch (_) {} }   // 편집기 훅(운영 중엔 없음)
+  }
+
+  function gameUrl() {
+    var url = CONFIG.GAME_URL;
+    var extra = {};
+    if (CONFIG.PASS_LANG_QUERY) extra.lang = state.lang;
+    if (window.KStat && CONFIG.HANDOFF_SESSION) return KStat.handoffUrl(url, extra); // ?sid=&s0=(&kstat=off)&lang=
+    var q = Object.keys(extra).map(function (k) { return k + "=" + encodeURIComponent(extra[k]); }).join("&");
+    return q ? url + (url.indexOf("?") < 0 ? "?" : "&") + q : url;
+  }
+  function go(agreed) {
+    try {
+      if (window.KStat) {
+        if (agreed) {
+          KStat.lang(state.lang);
+          KStat.demo({ age: state.age, gender: state.gender });
+          KStat.consent({ agreed: true, version: CONFIG.CONSENT_VERSION });
+        } else {
+          KStat.consent({ agreed: false, version: CONFIG.CONSENT_VERSION }); // 기록 1건만 남기고 이후 수집 중단
+        }
+        KStat.flush();
+      }
+    } catch (_) {}
+    var target = gameUrl();
+    setTimeout(function () { location.href = target; }, 250); // 전송(sendBeacon/큐)에 잠깐 여유
+  }
+
+  function openLangPop() { $("langPop").hidden = false; var on = $("langGrid").querySelector('[aria-pressed="true"]'); if (on) { try { on.focus({ preventScroll: true }); } catch (_) { on.focus(); } } }
+  function closeLangPop() { $("langPop").hidden = true; }
+  $("langOpen").addEventListener("click", openLangPop);
+  $("langOpen").addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLangPop(); } });
+  $("agree").addEventListener("change", function () { $("btnStart").disabled = !$("agree").checked; $("err").textContent = ""; });
+  $("btnStart").addEventListener("click", function () {
+    if (!$("agree").checked) { $("err").textContent = (T[state.lang] || T.ko).needAgree; return; }
+    $("btnStart").disabled = true; go(true);
+  });
+  function skip() { if (CONFIG.REQUIRE_CONSENT) return; go(false); }
+  $("btnSkip").addEventListener("click", skip);
+  $("btnSkip").addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); skip(); } });
+
+  // 브라우저 언어로 초기 언어 추정(한국어 기본)
+  var nav = (navigator.language || "ko").slice(0, 2);
+  if (T[nav]) state.lang = nav;
+  var hl = (location.search.match(/[?&]hl=([a-z]{2})/) || [])[1]; // ?hl=en 으로 초기 언어 지정(QR 별 안내판용)
+  if (hl && T[hl]) state.lang = hl;
+  window.__entry = { data: DATA, config: CONFIG, state: state, render: render };   // 편집기가 쓰는 손잡이(운영에는 영향 없음)
+  render();
+  // ?hl= 로 언어가 정해져 오지 않았으면(일반 QR) 접속 직후 언어 선택 팝업을 띄운다. 손님이 자기 언어를 고르면 닫힘
+  if (!hl && !/[?&]__auto=/.test(location.search)) openLangPop();
+
+  // 자동 시험 훅(검증 스크립트 전용): ?__auto=agree|skip 이면 20대·여성을 고르고 시작/건너뛰기를 누른 뒤 게임 대신 ?__done=1 로 이동
+  var auto = (location.search.match(/[?&]__auto=(agree|skip)/) || [])[1];
+  if (auto) {
+    CONFIG.GAME_URL = location.pathname + "?__done=1";
+    setTimeout(function () {
+      state.age = "20s"; state.gender = "f"; render();
+      if (auto === "agree") { $("agree").checked = true; $("btnStart").disabled = false; $("btnStart").click(); } else skip();
+    }, 300);
+  }
+})();
+</script>
+</body>
+</html>

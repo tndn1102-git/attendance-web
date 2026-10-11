@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>K의 나라 운영 통계 — 개요 (목업)</title>
+<link rel="stylesheet" href="../../../assets/theme.css" />
+<style>
+  /* 대시보드 전용 레이아웃. 토큰·컴포넌트는 theme.css. 1366×768 에서 개요가 한 화면에 들어오는 밀도 */
+  .topbar { display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 24px; border-bottom: 1px solid var(--c-line-strong); background: rgba(255,255,255,.35); }
+  .brand { display: flex; align-items: center; }
+  .brand .seal { margin-right: 12px; }
+  .brand-title { font-family: var(--f-disp); font-weight: 700; font-size: var(--d-title); line-height: 1.2; letter-spacing: -.01em; }
+  .brand-sub { font-size: var(--d-cap); color: var(--c-ink-mute); margin-top: 1px; }
+  .topbar-right { display: flex; align-items: center; }
+  .topbar-right > * { margin-left: 10px; }
+  .topbar-right .last { font-size: var(--d-cap); color: var(--c-ink-mute); }
+  .topbar-right .last b { font-family: var(--f-num); color: var(--c-ink-2); font-weight: 700; }
+
+  .controls { display: flex; align-items: center; flex-wrap: wrap; padding: 8px 24px 0; }
+  .controls > * { margin-right: 14px; margin-bottom: 6px; }
+  .period { display: flex; align-items: center; }
+  .period .custom { display: inline-flex; align-items: center; margin-left: 8px; }
+  .period .custom input { width: 138px; }
+  .period .custom .tilde { color: var(--c-ink-mute); margin: 0 6px; }
+  .period .custom .btn { margin-left: 6px; }
+  .chk { color: var(--c-ink-2); }
+  .range-label { font-family: var(--f-num); font-weight: 700; font-size: 13.5px; }
+  .range-label small { font-family: var(--f-ui); font-weight: 500; color: var(--c-ink-mute); margin-left: 4px; }
+
+  .tabs { padding: 0 24px; }
+  .content { padding: 14px 24px 28px; max-width: 1400px; margin: 0 auto; }
+  .kpis { display: grid; grid-template-columns: repeat(5, 1fr); grid-gap: 12px; margin-bottom: 12px; }
+  .grid { display: grid; grid-gap: 12px; margin-bottom: 12px; }
+  .grid.c3 { grid-template-columns: 1fr 1fr 1fr; }
+  .grid > * { min-width: 0; }
+  .panel-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .panel-head .more { font-size: var(--d-cap); }
+  .chart { height: 168px; }
+  .foot { display: flex; justify-content: space-between; padding: 10px 24px 20px; font-size: var(--d-cap); color: var(--c-ink-mute); border-top: 1px solid var(--c-line); }
+  .legend .sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: -1px; margin: 0 4px 0 10px; }
+  /* 도별 표(접힌 아래 영역) */
+  table.t td.pname { white-space: nowrap; }
+</style>
+</head>
+<body class="paper dash">
+
+<header class="topbar">
+  <div class="brand">
+    <span class="seal" aria-hidden="true">K</span>
+    <div>
+      <div class="brand-title">K의 나라 운영 통계</div>
+      <div class="brand-sub">청와대 사랑채 국민화합 체험형 문화 프로그램</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <span class="last">마지막 수집 <b>10/11 13:49</b></span>
+    <button class="btn ghost" type="button">새로고침</button>
+    <button class="btn ghost" type="button">잠금</button>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="period" role="group" aria-label="기간">
+    <button type="button">오늘</button>
+    <button type="button">7일</button>
+    <button type="button">30일</button>
+    <button type="button" class="active">전시기간</button>
+    <span class="custom">
+      <input type="date" value="2026-10-02" aria-label="시작일" /><span class="tilde">~</span><input type="date" value="2026-10-11" aria-label="종료일" />
+      <button type="button" class="btn ghost small">적용</button>
+    </span>
+  </div>
+  <label class="chk"><input type="checkbox" /> 스태프 포함</label>
+  <span class="range-label">2026-10-02 ~ 2026-10-11<small>10일</small></span>
+</div>
+
+<nav class="tabs" role="tablist">
+  <button type="button" class="active">개요</button>
+  <button type="button">기기</button>
+  <button type="button">놀이별</button>
+  <button type="button">내보내기 / 인쇄</button>
+  <button type="button" class="tab-minor">자세히</button>
+</nav>
+
+<main class="content">
+  <div class="kpis">
+    <div class="kpi"><div class="l">총 방문자</div><div class="v">421</div><div class="s">세션 · 2026-10-02 ~ 10-11</div></div>
+    <div class="kpi"><div class="l">완주자</div><div class="v">103</div><div class="s">8색 완주</div></div>
+    <div class="kpi hero"><div class="l">완주율</div><div class="v">24.5<small>%</small></div><div class="s">완주자 / 방문자</div></div>
+    <div class="kpi"><div class="l">오늘 방문자</div><div class="v">60</div><div class="s">완주 13 · 2026-10-11</div></div>
+    <div class="kpi"><div class="l">동의율</div><div class="v">91.9<small>%</small></div><div class="s">동의 387 · 미동의 34</div></div>
+  </div>
+
+  <div class="grid c3">
+    <section class="panel"><h2>나이대</h2><div class="klist" data-list="10대:35:9|20대:107:28|30대:73:19|40대:58:15|50대:35:9|60대 이상:21:5|응답 안 함:58:15"></div></section>
+    <section class="panel"><h2>성별</h2><div class="klist" data-list="여성:195:50|남성:126:33|기타:8:2|응답 안 함:58:15"></div></section>
+    <section class="panel"><h2>언어 선택</h2><div class="klist" data-list="한국어:298:77|영어:47:12|일본어:16:4|중국어:19:5|스페인어:7:2"></div></section>
+  </div>
+
+  <div class="grid c3">
+    <section class="panel"><h2>노리개(직업) 선택</h2><div class="klist" data-list="아이돌:123:35|셰프:132:37|크리에이터:101:28"></div></section>
+    <section class="panel"><h2>접속 기기</h2><div class="klist" data-list="iOS:207:49|Android:208:49|기타(PC 등):6:1"></div>
+      <div class="subh">브라우저</div><div class="klist" data-list="Safari:163:39|Chrome:143:34|삼성인터넷:44:10"></div>
+      <div class="subh">인앱 브라우저</div><div class="klist" data-list="카카오톡:44:10|네이버앱:21:5" data-cls="warn"></div></section>
+    <section class="panel"><h2>시간대별 방문</h2><div id="hourly"></div></section>
+  </div>
+
+  <section class="panel"><div class="panel-head"><h2>일별 방문·완주</h2><span class="legend"><span class="sw" style="background:var(--chart-1)"></span>방문 <span class="sw hatch" style="background:var(--chart-2)"></span>완주</span></div><div id="daily"></div></section>
+
+  <!-- 아래는 768 아래로 내려가는 영역: 도 8색 차트 색 확인용 (자세히 탭의 도(방)별 표와 같은 규칙) -->
+  <section class="panel"><h2>도(방)별 완료율</h2>
+    <table class="t">
+      <thead><tr><th>도</th><th>방</th><th class="n">진입</th><th class="n">완료</th><th class="n" style="width:36%">완료율</th><th class="n">성공률</th><th class="n">소요 중앙값</th></tr></thead>
+      <tbody id="rooms"></tbody>
+    </table>
+  </section>
+</main>
+
+<footer class="foot"><span>생성 10/11 13:50 · SQLite(검증용) · 한국 표준시</span><span>「K의 나라」 운영 통계</span></footer>
+
+<script>
+(function () {
+  // 분포 목록 (가짜 숫자)
+  document.querySelectorAll('.klist[data-list]').forEach(function (el) {
+    var cls = el.getAttribute('data-cls') || '';
+    el.innerHTML = el.getAttribute('data-list').split('|').map(function (s) {
+      var p = s.split(':');
+      return '<div class="krow"><div class="ktop"><span class="kn">' + p[0] + '</span><span class="kv"><b>' + p[1] + '</b> · ' + p[2] + '%</span></div><div class="bar thin"><span class="' + cls + '" style="width:' + p[2] + '%"></span></div></div>';
+    }).join('');
+  });
+  // 시간대별
+  var hv = [0,0,0,0,0,0,0,0,0,0,32,64,46,53,74,51,54,16,31,0,0,0,0,0], W = 420, H = 150, padL = 4, max = 80, cw = (W - padL) / 24;
+  var s = '<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none" role="img" aria-label="시간대별 방문">';
+  s += '<line class="ax" x1="0" x2="' + W + '" y1="' + (H - 18) + '" y2="' + (H - 18) + '"/>';
+  hv.forEach(function (v, i) { var x = padL + i * cw, bh = v / max * (H - 36), y = H - 18 - bh;
+    if (v) s += '<rect x="' + (x + 2) + '" y="' + y + '" width="' + (cw - 4) + '" height="' + bh + '" rx="2" fill="var(--chart-1)"/><text class="val" x="' + (x + cw / 2) + '" y="' + (y - 3) + '" text-anchor="middle">' + v + '</text>';
+    if (i % 2 === 0) s += '<text x="' + (x + cw / 2) + '" y="' + (H - 5) + '" text-anchor="middle">' + i + '시</text>'; });
+  document.getElementById('hourly').innerHTML = s + '</svg>';
+  // 일별
+  var dv = [[12,2],[52,9],[57,19],[41,7],[37,7],[28,8],[41,10],[43,10],[47,13],[60,14]], days = ['10/2','10/3','10/4','10/5','10/6','10/7','10/8','10/9','10/10','10/11'];
+  var W2 = 1200, H2 = 150, pl = 30, mx = 60, cw2 = (W2 - pl) / dv.length;
+  var t = '<svg class="chart" viewBox="0 0 ' + W2 + ' ' + H2 + '" preserveAspectRatio="none" role="img" aria-label="일별 방문·완주">';
+  [0, .5, 1].forEach(function (g) { var yy = H2 - 18 - g * (H2 - 36); t += '<line class="ax" x1="' + pl + '" x2="' + W2 + '" y1="' + yy + '" y2="' + yy + '"/><text x="' + (pl - 6) + '" y="' + (yy + 3.5) + '" text-anchor="end">' + Math.round(mx * g) + '</text>'; });
+  t += '<defs><pattern id="hatch" patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(45)"><rect width="5" height="5" fill="var(--chart-2)"/><line x1="0" y1="0" x2="0" y2="5" stroke="rgba(255,255,255,.4)" stroke-width="2"/></pattern></defs>';
+  dv.forEach(function (d, i) { var x = pl + i * cw2, bh = d[0] / mx * (H2 - 36), y = H2 - 18 - bh, bh2 = d[1] / mx * (H2 - 36);
+    t += '<rect x="' + (x + 10) + '" y="' + y + '" width="' + (cw2 - 20) + '" height="' + bh + '" rx="3" fill="var(--chart-1)"/>';
+    t += '<rect x="' + (x + 10) + '" y="' + (H2 - 18 - bh2) + '" width="' + (cw2 - 20) + '" height="' + bh2 + '" rx="3" fill="url(#hatch)"/>';
+    t += '<text class="val" x="' + (x + cw2 / 2) + '" y="' + (y - 3) + '" text-anchor="middle">' + d[0] + '</text><text x="' + (x + cw2 / 2) + '" y="' + (H2 - 5) + '" text-anchor="middle">' + days[i] + '</text>'; });
+  document.getElementById('daily').innerHTML = t + '</svg>';
+  // 도(방)별
+  var rooms = [['story','서울·경기','이야기의 방',221,204,92,73,'1분 18초'],['life','충북·충남','삶의 방',208,195,94,75,'1분 13초'],['field','전북','들의 방',191,177,93,75,'1분 18초'],['land','전남','땅의 방',241,228,95,72,'1분 18초'],['speech','경북','말의 방',235,222,95,75,'1분 13초'],['sea','경남','바다의 방',217,197,91,65,'1분 23초'],['mountain','강원','산의 방',213,192,90,70,'1분 23초'],['island','제주','섬의 방',192,176,92,64,'1분 33초']];
+  document.getElementById('rooms').innerHTML = rooms.map(function (r) { return '<tr><td class="pname"><span class="pdot p-' + r[0] + '"></span><b>' + r[1] + '</b></td><td>' + r[2] + '</td><td class="n">' + r[3] + '</td><td class="n">' + r[4] + '</td><td class="n"><span class="bar" style="width:70%"><span class="p-' + r[0] + '" style="width:' + r[5] + '%"></span></span><b>' + r[5] + '%</b></td><td class="n">' + r[6] + '%</td><td class="n">' + r[7] + '</td></tr>'; }).join('');
+})();
+</script>
+</body>
+</html>
