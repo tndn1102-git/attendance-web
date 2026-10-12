@@ -19,7 +19,8 @@
     "edit-entry": "node scripts/entry-editor.js",
     "check": "node --check server.js && node --check track.js && node --check assets/dash.js && node scripts/lint.js",
     "edit-sample": "node docs/sample-puzzle/edit.mjs",
-    "shoot-sample": "node docs/sample-puzzle/shoot.mjs"
+    "shoot-sample": "node docs/sample-puzzle/shoot.mjs",
+    "edit-report": "node docs/client-report/edit.mjs"
   },
   "dependencies": {
     "pg": "^8.13.0"

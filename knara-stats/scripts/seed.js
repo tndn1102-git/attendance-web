@@ -5,7 +5,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { GAMES, ROOMS } from "../lib/catalog.js";
+import { GAMES, ROOMS, CONCEPTS, TYPES } from "../lib/catalog.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const arg = (k, d) => { const i = process.argv.indexOf("--" + k); return i > 0 ? process.argv[i + 1] : d; };
@@ -49,8 +49,11 @@ const BASE = {};
 for (const g of GAMES) BASE[g.type] = U(0.55, 0.9);
 Object.assign(BASE, { cairn: 0.3, tangerines: 0.38, gnJump: 0.4, dgVlog: 0.42, jjPano: 0.44, sjJikji: 0.97, jjHarubang: 0.96, slBell: 0.95, paengi: 0.93, gonggi: 0.72 });
 
-const byRoomKind = {};
-for (const g of GAMES) ((byRoomKind[g.room] ||= {})[g.kind] ||= []).push(g);
+const byRoom = {};
+for (const g of GAMES) (byRoom[g.room] ||= []).push(g);
+const CKEYS = Object.keys(CONCEPTS);
+// 컨셉별 인기(DM 수락 확률) — 대시보드에 차이가 보이도록
+const likes = { beauty: 0.7, mukbang: 0.88, food: 0.62, sight: 0.8, travel: 0.74, trad: 0.55 };
 
 const TODAY = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
 const dayList = Array.from({ length: N_DAYS }, (_, i) => { const d = new Date(TODAY + "T00:00:00Z"); d.setUTCDate(d.getUTCDate() - (N_DAYS - 1 - i)); return d.toISOString().slice(0, 10); });
@@ -128,44 +131,39 @@ function makeSession(idx, staff) {
     push("room_enter", { room }); const roomT0 = t; t += U(4e3, 9e3);
     if (T) { roomT(room).enters++; if (!enteredRoom) { truth.funnel.room_enter++; enteredRoom = true; } }
     if (qd && doneRooms === 0 && !usedFallback && rnd() < 0.9) { push("quality_down", { kind: "low", value: String(Math.round(U(18, 27))), room }); if (T) truth.qd_sessions++; qd = "sent"; }
-    const kinds = ["common", roleId, "common"];
-    const usedCommon = new Set();
-    let roomClears = 0;
+    // 노리개 편: 방마다 DM 이 오고(수락/넘김), 수락하면 놀이 → 별점(0~3). 3개 성공하면 방 완료 + 노리개 선물
+    const pool0 = byRoom[room].slice().sort(() => rnd() - 0.5);
+    let roomClears = 0, lastConcept = null;
     for (let slot = 1; slot <= 3 && !quit; slot++) {
-      const kind = kinds[slot - 1];
-      let pool = byRoomKind[room][kind].filter((g) => !usedCommon.has(g.type));
-      if (!pool.length) pool = byRoomKind[room][kind]; // 공용 놀이가 4종뿐인 방(경남)에서 교체가 겹치면 재사용
-      let game = pick(pool); usedCommon.add(game.type);
-      let attempts = 0, cleared = false, forceWin = false;
+      let game = pool0.shift() || pick(byRoom[room]);
+      while (pool0.length && rnd() > likes[game.kind]) { push("dm_skip", { room, game: game.type, kind: game.kind }); t += U(1e3, 3e3); game = pool0.shift(); }
+      push("dm_ok", { room, game: game.type, kind: game.kind }); t += U(1e3, 3e3);
+      const kind = game.kind; lastConcept = kind;
+      let attempts = 0, cleared = false;
       while (!cleared && !quit) {
         attempts++;
         push("play_start", { room, slot, game: game.type, kind, role: roleId, target: game.target, limit_s: game.limit_s });
         if (T) { gameT(game.type).starts++; gameT(game.type).players.add(sid); roomT(room).plays++; truth.plays++; if (!played) { truth.funnel.play_start++; played = true; } }
-        if (game.sensor && motion === "denied") { t += 800; push("fallback_input", { kind: rnd() < 0.7 ? "drag" : "tap", room, game: game.type }); if (T && !usedFallback) { truth.fallback_sessions++; } usedFallback = true; }
-        let p = BASE[game.type]; if (game.sensor && motion === "denied") p *= 0.8; if (lowEnd) p *= 0.92; if (attempts > 1) p = Math.min(0.98, p + 0.05); if (forceWin) p = 1;
+        let p = BASE[game.type]; if (lowEnd) p *= 0.92; if (attempts > 1) p = Math.min(0.98, p + 0.1); if (attempts >= 3) p = 1;
+        const limit = game.limit_s || 20;
         if (rnd() < p) {
-          const dur = Math.round(game.limit_s * (BASE[game.type] >= 0.93 ? U(0.2, 0.55) : U(0.35, 0.98)) * 1000); t += dur;
-          push("play_clear", { room, slot, game: game.type, kind, role: roleId, dur_ms: dur, hits: game.target || 1, target: game.target, limit_s: game.limit_s });
+          const dur = Math.round(limit * U(0.35, 0.95) * 1000); t += dur;
+          push("play_clear", { room, slot, game: game.type, kind, role: roleId, dur_ms: dur, hits: 1, target: game.target, limit_s: limit });
           if (T) { gameT(game.type).clears++; gameT(game.type).clear_secs.push(dur / 1000); roomT(room).clears++; truth.clears++; }
+          push("star", { room, game: game.type, kind, hits: rnd() < p ? 3 : rnd() < 0.6 ? 2 : 1 });
           cleared = true; roomClears++;
         } else {
-          const timeout = rnd() < 0.75;
-          const dur = timeout ? game.limit_s * 1000 : Math.round(game.limit_s * U(0.3, 0.9) * 1000); t += dur;
-          const hits = Math.floor((game.target || 1) * U(0.1, 0.8));
-          push("play_fail", { room, slot, game: game.type, kind, role: roleId, dur_ms: dur, hits, target: game.target, limit_s: game.limit_s, value: timeout ? "timeout" : "miss" });
-          if (T) { gameT(game.type).fails++; if (timeout) gameT(game.type).timeouts++; roomT(room).fails++; truth.fails++; }
+          const dur = limit * 1000; t += dur;
+          push("play_fail", { room, slot, game: game.type, kind, role: roleId, dur_ms: dur, hits: 0, target: game.target, limit_s: limit, value: "timeout" });
+          if (T) { gameT(game.type).fails++; gameT(game.type).timeouts++; roomT(room).fails++; truth.fails++; }
+          push("star", { room, game: game.type, kind, hits: 0 });
           t += U(1500, 3500);
-          if (rnd() < 0.07 || attempts >= 3) { quit = attempts >= 3 ? false : true; if (quit) break; }
-          pool = byRoomKind[room][kind].filter((g) => g.type !== game.type && !usedCommon.has(g.type));
-          const next = pool.length ? pick(pool) : game;
-          push("play_swap", { room, slot, game: game.type, kind, role: roleId, value: next.type });
-          if (T) { gameT(game.type).swaps_out++; roomT(room).swaps++; truth.swaps++; }
-          game = next; usedCommon.add(game.type);
-          if (attempts >= 3) forceWin = true; // 3번 연속 실패 뒤엔 넘어가게(앱이 쉬운 놀이로 돌린다고 가정) — 난이도 표(BASE)는 건드리지 않음
+          if (rnd() < 0.05) { quit = true; break; }
         }
         t += U(5e3, 11e3);
       }
     }
+    if (!quit && roomClears === 3) push("gift", { room, kind: lastConcept });
     if (quit) break;
     if (roomClears === 3) {
       doneRooms++;
@@ -181,7 +179,9 @@ function makeSession(idx, staff) {
     push("all_done", { dur_ms: t - s0, role: roleId });
     if (T) { truth.funnel.all_done++; truth.total_secs.push((t - s0) / 1000); }
     t += U(3e3, 8e3);
-    if (rnd() < 0.96) { push("result", { dur_ms: t - s0, role: roleId }); if (T) truth.funnel.result++; }
+    if (rnd() < 0.96) { push("result", { dur_ms: t - s0, role: roleId }); if (T) truth.funnel.result++;
+      const tk = weighted(Object.keys(TYPES).map((k) => [k, k.split("-").reduce((a, c) => a * (likes[c] || 0.5), 1)]));
+      push("type_result", { kind: tk, room: pick(ROOMS).id, hits: 20 + Math.floor(U(0, 5)) }); }
   }
   return finish();
 

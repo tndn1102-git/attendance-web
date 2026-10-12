@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>K의 나라 입장 페이지 · 운영 통계 제작 보고</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" />
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --ink: #211E1A; --sub: #6B6257; --line: #DED2BE; --paper: #F5EFE4; --card: #FBF8F2; --blue: #2E5EAA; --gold: #B8892F; }
+  body { font-family: "Noto Sans KR", sans-serif; color: var(--ink); background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; height: 297mm; padding: 16mm 15mm 12mm; background: var(--paper); position: relative; overflow: hidden; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .stripe { position: absolute; left: 0; right: 0; top: 0; height: 2.2mm; background: linear-gradient(90deg,#8E7CC3 0 12.5%,#C9605A 12.5% 25%,#D58A45 25% 37.5%,#CDA843 37.5% 50%,#3F64A6 50% 62.5%,#6EA0C6 62.5% 75%,#7BA463 75% 87.5%,#5BAEA2 87.5%); }
+  .kicker { font-size: 9pt; font-weight: 700; color: var(--blue); letter-spacing: .02em; }
+  h1 { font-family: "Hahmlet", serif; font-weight: 900; font-size: 25pt; line-height: 1.2; margin-top: 2mm; }
+  h1 small { font-size: 13pt; font-weight: 700; color: var(--sub); margin-left: 2mm; }
+  .lead { font-size: 10.5pt; line-height: 1.65; color: #3A342D; margin-top: 3mm; max-width: 165mm; }
+  .flow { display: flex; align-items: center; gap: 2mm; margin: 6mm 0 5mm; }
+  .flow span { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 1.6mm 4mm; font-size: 9.5pt; font-weight: 700; white-space: nowrap; }
+  .flow span.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .flow i { font-style: normal; color: var(--gold); font-weight: 700; }
+  .shots { display: flex; gap: 5mm; align-items: flex-start; }
+  .phone { background: #fff; border: 1.6mm solid #1F1C19; border-radius: 6mm; overflow: hidden; box-shadow: 0 2mm 5mm rgba(0,0,0,.12); }
+  .phone img { display: block; width: 100%; }
+  .cap { font-size: 8.5pt; color: var(--sub); margin-top: 2mm; text-align: center; }
+  .col { display: flex; flex-direction: column; }
+  .points { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 6mm; margin-top: 6mm; }
+  .pt { border-top: 1.4px solid var(--ink); padding-top: 2.2mm; }
+  .pt b { display: block; font-family: "Hahmlet", serif; font-size: 11.5pt; margin-bottom: 1mm; }
+  .pt p { font-size: 9pt; line-height: 1.6; color: #3A342D; }
+  .foot { position: absolute; left: 15mm; right: 15mm; bottom: 8mm; display: flex; justify-content: space-between; font-size: 8pt; color: var(--sub); border-top: 1px solid var(--line); padding-top: 2mm; }
+  .screen { background: #fff; border: 1px solid var(--line); border-radius: 3mm; overflow: hidden; box-shadow: 0 2mm 5mm rgba(0,0,0,.08); }
+  .screen .bar { height: 5mm; background: #E9E1D3; display: flex; align-items: center; gap: 1.2mm; padding-left: 2.5mm; }
+  .screen .bar u { width: 1.8mm; height: 1.8mm; border-radius: 50%; background: #C9BCA6; display: block; }
+  .screen img { display: block; width: 100%; }
+  .crop { height: 50mm; overflow: hidden; } .crop img { width: 160% !important; max-width: none; }
+  .note { font-size: 8pt; color: var(--sub); margin-top: 1.5mm; }
+</style>
+</head>
+<body>
+<div class="doc">
+
+<!-- 1장: 입장(동의) 페이지 -->
+<section class="page">
+  <div class="stripe"></div>
+  <div class="kicker">청와대 사랑채 「K의 나라」 · 제작 보고 1/2</div>
+  <h1>입장 페이지<small>QR 하나로 게임까지</small></h1>
+  <p class="lead">관람객이 전시장 QR을 찍으면 가장 먼저 보는 화면입니다. 언어를 고르고 안내를 읽은 뒤 <b>시작하기</b>를 누르면 게임이 바로 열립니다. 여기서 고른 언어가 게임까지 그대로 이어져서, 게임 안에서 언어를 다시 고를 필요가 없습니다.</p>
+
+  <div class="flow"><span>QR 촬영</span><i>→</i><span>언어 선택</span><i>→</i><span>안내 확인 · 동의</span><i>→</i><span class="on">게임 시작</span></div>
+
+  <div class="shots">
+    <div class="col" style="width:52mm">
+      <div class="phone"><img src="shots/entry-lang.png" /></div>
+      <div class="cap">처음 들어오면 언어부터 고릅니다</div>
+    </div>
+    <div class="col" style="width:52mm">
+      <div class="phone" style="height:112.5mm"><img src="shots/entry-ko.png" /></div>
+      <div class="cap">수집하는 것과 수집하지 않는 것을 한눈에</div>
+    </div>
+    <div class="col" style="width:62mm; gap:3mm">
+      <div style="display:flex; gap:3mm">
+        <div class="phone" style="width:29.5mm"><img src="shots/entry-en.png" /></div>
+        <div class="phone" style="width:29.5mm"><img src="shots/entry-ja.png" /></div>
+      </div>
+      <div class="cap" style="margin-top:0">영어 · 일본어 화면 (중국어 · 스페인어도 동일)</div>
+    </div>
+  </div>
+
+  <div class="points">
+    <div class="pt"><b>5개 언어</b><p>한국어 · 영어 · 일본어 · 중국어 · 스페인어. 휴대폰 언어 설정과 상관없이 관람객이 직접 고르고, 고른 언어로 게임이 시작됩니다.</p></div>
+    <div class="pt"><b>개인정보를 받지 않습니다</b><p>이름 · 연락처 · 위치 · 사진 · 음성은 수집하지 않습니다. 나이대와 성별은 선택 사항이고, 기록은 120일 뒤 삭제됩니다.</p></div>
+    <div class="pt"><b>동의하지 않아도 체험 가능</b><p>‘동의 없이 시작’을 누르면 통계 수집 없이 게임만 진행됩니다. 관람객이 불편 없이 고를 수 있게 했습니다.</p></div>
+    <div class="pt"><b>빠른 입장</b><p>안내를 읽는 동안 게임을 미리 내려받아 두어, 시작하기를 누른 뒤 기다리는 시간을 줄였습니다. 전시의 색동 · 노리개 디자인과 같은 톤입니다.</p></div>
+  </div>
+
+  <div class="foot"><span>청와대 사랑채 「K의 나라」 입장 페이지 · 운영 통계</span><span>2026년 10월</span></div>
+</section>
+
+<!-- 2장: 운영 통계 -->
+<section class="page">
+  <div class="stripe"></div>
+  <div class="kicker">청와대 사랑채 「K의 나라」 · 제작 보고 2/2</div>
+  <h1>운영 통계 사이트<small>관람 현황을 실시간으로</small></h1>
+  <p class="lead">관람객이 입장 페이지와 게임에서 남긴 기록이 자동으로 모입니다. 몇 명이 왔고 몇 명이 끝까지 했는지, 어떤 놀이를 좋아하고 어디서 어려워하는지를 담당자가 바로 확인할 수 있습니다.</p>
+
+  <div class="screen" style="margin-top:4mm; width:168mm; margin-left:auto; margin-right:auto">
+    <div class="bar"><u></u><u></u><u></u></div>
+    <img src="shots/dash-overview.png" />
+  </div>
+  <div class="note" style="width:168mm; margin-left:auto; margin-right:auto">개요 화면 — 방문자 · 완주율 · 일별 추이 · 나이대 · 성별 · 기기 · 언어 · 컨셉별 관심과 실력 · 결산 유형 · 추천 지역</div>
+
+  <div style="display:grid; grid-template-columns: 96mm 1fr; gap:6mm; margin-top:4mm; align-items:start">
+    <div>
+      <div class="screen"><div class="bar"><u></u><u></u><u></u></div><div class="crop"><img src="shots/dash-games.png" /></div></div>
+      <div class="note">놀이별 화면 — 75종 놀이의 수락률 · 평균 별점 · 성공률</div>
+    </div>
+    <div class="points" style="grid-template-columns:1fr; margin-top:0; gap:2.4mm">
+      <div class="pt"><b>기간을 골라 보기</b><p>오늘 · 7일 · 30일 · 전시 기간 전체, 또는 날짜를 직접 지정할 수 있습니다.</p></div>
+      <div class="pt"><b>보고서로 바로</b><p>인쇄용 보고서와 엑셀(CSV) 내려받기를 지원합니다.</p></div>
+      <div class="pt"><b>접속 키로 보호</b><p>담당자만 열 수 있고, 검색에도 노출되지 않습니다.</p></div>
+    </div>
+  </div>
+
+  <div class="foot"><span>※ 화면의 숫자는 시연을 위한 예시 데이터입니다. 전시가 시작되면 실제 관람 기록으로 채워집니다.</span><span>2026년 10월</span></div>
+</section>
+
+</div>
+</body>
+</html>
