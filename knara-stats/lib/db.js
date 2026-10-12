@@ -42,6 +42,25 @@ export async function query(sql, params = []) {
   return db.query(sql, params);
 }
 
+/** SELECT 여러 개를 한 번에. D1 은 batch() 왕복 1회, 나머지는 병렬. 결과는 list 순서대로 rows 배열. */
+export async function queryMany(list) {
+  const db = await ready();
+  if (db.many) return db.many(list);
+  return Promise.all(list.map(([sql, params]) => db.query(sql, params || [])));
+}
+
+/** 집계 함수용: b.q(sql, params) 로 쌓고 b.run() 한 번에 보낸다. 요청마다 새로 만들어 요청끼리 섞이지 않는다. */
+export function batcher() {
+  const L = [];
+  return {
+    q(sql, params = []) { return new Promise((res, rej) => L.push({ sql, params, res, rej })); },
+    async run() {
+      try { const rows = await queryMany(L.map((x) => [x.sql, x.params])); L.forEach((x, i) => x.res(rows[i])); }
+      catch (e) { L.forEach((x) => x.rej(e)); }
+    },
+  };
+}
+
 export async function exec(sql) {
   const db = await ready();
   return db.exec(sql);
@@ -147,6 +166,14 @@ export function useD1(binding) {
     async exec(sql) {
       await binding.prepare(sql).run();
     },
+    // 읽기 여러 개를 batch() 한 번(왕복 1회)으로
+    async many(list) {
+      const rs = await binding.batch(list.map(([sql, params]) => binding.prepare(toQ(sql)).bind(...(params || []).map(conv))));
+      return rs.map((r) => (r && r.results) || []);
+    },
+    async execAll(sqls) {
+      await binding.batch(sqls.map((x) => binding.prepare(x)));
+    },
     async close() {},
   };
   const me = impl;
@@ -160,6 +187,7 @@ export function useD1(binding) {
    - knara_events   : 모든 흐름 이벤트(append-only). (sid, seq) UNIQUE 로 재전송 중복 제거.
    - knara_logs     : 오류·콘솔 로그. */
 async function ensureSchema(db) {
+  const S = [];
   const pg = db.kind === "pg";
   const ID = pg ? "BIGSERIAL PRIMARY KEY" : "INTEGER PRIMARY KEY AUTOINCREMENT";
   const TS = pg ? "TIMESTAMPTZ" : "TEXT";
@@ -167,7 +195,7 @@ async function ensureSchema(db) {
   const BOOL = pg ? "BOOLEAN" : "INTEGER";
   const F = pg ? "false" : "0";
 
-  await db.exec(`
+  S.push(`
     CREATE TABLE IF NOT EXISTS knara_sessions (
       sid         TEXT PRIMARY KEY,
       started_at  ${TS} NOT NULL,
@@ -182,9 +210,9 @@ async function ensureSchema(db) {
       lang TEXT, ref TEXT, app_ver TEXT, snippet_ver TEXT,
       ua TEXT
     )`);
-  await db.exec(`CREATE INDEX IF NOT EXISTS knara_sessions_day_idx ON knara_sessions (day_kst)`);
+  S.push(`CREATE INDEX IF NOT EXISTS knara_sessions_day_idx ON knara_sessions (day_kst)`);
 
-  await db.exec(`
+  S.push(`
     CREATE TABLE IF NOT EXISTS knara_events (
       id          ${ID},
       sid         TEXT NOT NULL,
@@ -199,11 +227,11 @@ async function ensureSchema(db) {
       dur_ms INTEGER, hits INTEGER, target INTEGER, limit_s INTEGER,
       UNIQUE (sid, seq)
     )`);
-  await db.exec(`CREATE INDEX IF NOT EXISTS knara_events_day_idx ON knara_events (day_kst, event)`);
-  await db.exec(`CREATE INDEX IF NOT EXISTS knara_events_sid_idx ON knara_events (sid)`);
-  await db.exec(`CREATE INDEX IF NOT EXISTS knara_events_game_idx ON knara_events (game, event)`);
+  S.push(`CREATE INDEX IF NOT EXISTS knara_events_day_idx ON knara_events (day_kst, event)`);
+  S.push(`CREATE INDEX IF NOT EXISTS knara_events_sid_idx ON knara_events (sid)`);
+  S.push(`CREATE INDEX IF NOT EXISTS knara_events_game_idx ON knara_events (game, event)`);
 
-  await db.exec(`
+  S.push(`
     CREATE TABLE IF NOT EXISTS knara_logs (
       id          ${ID},
       sid         TEXT,
@@ -224,7 +252,10 @@ async function ensureSchema(db) {
       os TEXT, os_ver TEXT, browser TEXT, browser_ver TEXT, device TEXT, inapp TEXT,
       UNIQUE (sid, seq)
     )`);
-  await db.exec(`CREATE INDEX IF NOT EXISTS knara_logs_day_idx ON knara_logs (day_kst)`);
+  S.push(`CREATE INDEX IF NOT EXISTS knara_logs_day_idx ON knara_logs (day_kst)`);
+  // D1 은 한 번에(왕복 1회), 나머지는 순서대로
+  if (db.execAll) await db.execAll(S);
+  else for (const x of S) await db.exec(x);
 }
 
 /* ───────────── 공용 시간 유틸 (KST) ───────────── */

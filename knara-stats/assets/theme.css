@@ -3,11 +3,9 @@
    원본 = 게임 앱 인라인 CSS 실측 토큰(docs/design-ref/game-tokens.md). 원본 변수명은 그대로 둔다.
    그 위에 의미 토큰(--c-*), 타입 스케일(입장 --e-* / 관리자 --d-*), 모양·그림자·이징, 공용 컴포넌트를 정의한다.
    호환: Chromium 기반 구형 엣지(79+)에서 되는 것만 — :has()·container query·color-mix()·중첩 문법 없음.
-   글꼴: Google Fonts 1줄(@import). <link> 로 바꾸려면 아래 한 줄을 지우고 HTML <head> 에
-     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;900&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&family=Nanum+Brush+Script&display=swap">
-   을 넣는다. 오프라인·차단 환경에서는 로컬 폴백(맑은 고딕·Noto Serif KR·바탕)으로 자동 대체된다.
+   글꼴: Google Fonts 는 각 HTML <head> 의 <link media="print" onload> 로 불러온다(화면을 막지 않음).
+   @import 로 두면 CSS → 글꼴 CSS 순서로 줄줄이 받느라 첫 화면이 늦어진다. 받기 전·차단 환경은 로컬 폴백으로 보인다.
    ========================================================================== */
-@import url("https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;900&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&family=Nanum+Brush+Script&display=swap");
 
 :root {
   /* ---------- 1. 원본 토큰 (게임 CSS 그대로) ---------- */

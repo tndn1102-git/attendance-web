@@ -2,7 +2,7 @@
    원칙: 무거운 묶기(GROUP BY)는 SQL, 중앙값·판정 같은 마무리는 Node. SQL 은 Postgres/SQLite 공통 부분집합만 사용.
    기간 = 세션 시작일(day_kst, KST) 기준 from~to 포함. staff=0 이면 스태프 세션 제외(기본). */
 
-import { query, dbKind, toISO } from "./db.js";
+import { query, batcher, dbKind, toISO } from "./db.js";
 import { GAME_BY_TYPE, ROOM_BY_ID, ROOMS, ROLES, LANGS, KIND_NAMES, CONCEPTS, TYPES, catalogForClient } from "./catalog.js";
 import { toCSV } from "./csv.js";
 
@@ -97,12 +97,24 @@ export async function getStats(q) {
   const r = parseRange(q);
   const P = [r.from, r.to];
   const S = sessionFactsSQL(r);
+  const B = batcher(); // 아래 쿼리 30개 가까이를 D1 왕복 1회로
 
-  const [summaryRows, prevRows, roomsDoneRows, totalHist, daily, hourly, roomRows, roomHist, gameRows, gameHist,
-    sensorRows, fallbackRows, roleRows, langRows, devRows, qdRows, logRecent, logGrouped, logTotals, lastRows,
-    ageRows, genderRows, todayRows, finisherRows] =
-    await Promise.all([
-      query(`SELECT COUNT(*) AS visits, SUM(f_enter) AS entered, SUM(f_sensor) AS sensor, SUM(f_role) AS role_picked,
+  // ── 노리개(DM) 편: 컨셉별 관심(DM 수락·넘김)·실력(별점), 방 끝 노리개 선물, 결산 유형, 추천 지역
+  const dmP = Promise.all([ // 아래 큰 묶음과 같은 batch 로 나가도록 먼저 띄워 둔다
+    B.q(`SELECT kind,
+                  SUM(CASE WHEN event='dm_ok' THEN 1 ELSE 0 END) AS ok,
+                  SUM(CASE WHEN event='dm_skip' THEN 1 ELSE 0 END) AS skip,
+                  SUM(CASE WHEN event='star' THEN 1 ELSE 0 END) AS rated,
+                  SUM(CASE WHEN event='star' THEN hits ELSE 0 END) AS stars,
+                  SUM(CASE WHEN event='star' AND hits=3 THEN 1 ELSE 0 END) AS s3,
+                  SUM(CASE WHEN event='star' AND hits=0 THEN 1 ELSE 0 END) AS s0
+           FROM knara_events WHERE ${where(r)} AND event IN ('dm_ok','dm_skip','star') AND kind IS NOT NULL GROUP BY kind`, P),
+    B.q(`SELECT kind, COUNT(*) AS n FROM knara_events WHERE ${where(r)} AND event='gift' AND kind IS NOT NULL GROUP BY kind`, P),
+    B.q(`SELECT kind, COUNT(DISTINCT sid) AS sessions FROM knara_events WHERE ${where(r)} AND event='type_result' AND kind IS NOT NULL GROUP BY kind`, P),
+    B.q(`SELECT room, COUNT(DISTINCT sid) AS sessions FROM knara_events WHERE ${where(r)} AND event='type_result' AND room IS NOT NULL GROUP BY room`, P),
+  ]);
+  const mainP = Promise.all([
+      B.q(`SELECT COUNT(*) AS visits, SUM(f_enter) AS entered, SUM(f_sensor) AS sensor, SUM(f_role) AS role_picked,
                     SUM(f_map) AS map, SUM(f_room) AS room_entered, SUM(f_play) AS played, SUM(f_room_done) AS room_done,
                     SUM(f_all) AS finished, SUM(f_result) AS result,
                     SUM(plays) AS plays, SUM(clears) AS clears, SUM(fails) AS fails, SUM(swaps) AS swaps,
@@ -112,18 +124,18 @@ export async function getStats(q) {
       // 직전 동일 길이 기간(추세 비교)
       (() => {
         const pr = { ...r, to: addDays(r.from, -1), from: addDays(r.from, -r.days) };
-        return query(`SELECT COUNT(*) AS visits, SUM(f_all) AS finished, SUM(plays) AS plays, SUM(clears) AS clears, SUM(fails) AS fails
+        return B.q(`SELECT COUNT(*) AS visits, SUM(f_all) AS finished, SUM(plays) AS plays, SUM(clears) AS clears, SUM(fails) AS fails
                       FROM (${sessionFactsSQL(pr)}) s`, [pr.from, pr.to]);
       })(),
       // 완료 도 개수 분포 — 방에 한 번이라도 들어간 세션만(첫 화면·권한·노리개 단계 이탈은 퍼널에서 따로 보임)
-      query(`SELECT rooms_done, COUNT(*) AS sessions FROM (${S}) s WHERE f_room = 1 GROUP BY rooms_done ORDER BY rooms_done`, P),
-      query(`SELECT total_ms/10000 AS b, COUNT(*) AS n FROM (${S}) s WHERE f_all=1 AND total_ms IS NOT NULL GROUP BY total_ms/10000`, P),
-      query(`SELECT day_kst AS day, COUNT(DISTINCT sid) AS visits,
+      B.q(`SELECT rooms_done, COUNT(*) AS sessions FROM (${S}) s WHERE f_room = 1 GROUP BY rooms_done ORDER BY rooms_done`, P),
+      B.q(`SELECT total_ms/10000 AS b, COUNT(*) AS n FROM (${S}) s WHERE f_all=1 AND total_ms IS NOT NULL GROUP BY total_ms/10000`, P),
+      B.q(`SELECT day_kst AS day, COUNT(DISTINCT sid) AS visits,
                     COUNT(DISTINCT CASE WHEN event='all_done' THEN sid END) AS finished,
                     SUM(CASE WHEN event='play_start' THEN 1 ELSE 0 END) AS plays
              FROM knara_events WHERE ${where(r)} GROUP BY day_kst ORDER BY day_kst`, P),
-      query(`SELECT hour_kst AS hour, COUNT(DISTINCT sid) AS visits FROM knara_events WHERE ${where(r)} GROUP BY hour_kst ORDER BY hour_kst`, P),
-      query(`SELECT room,
+      B.q(`SELECT hour_kst AS hour, COUNT(DISTINCT sid) AS visits FROM knara_events WHERE ${where(r)} GROUP BY hour_kst ORDER BY hour_kst`, P),
+      B.q(`SELECT room,
                     COUNT(DISTINCT CASE WHEN event='room_enter' THEN sid END) AS enters,
                     COUNT(DISTINCT CASE WHEN event='room_done' THEN sid END) AS done,
                     SUM(CASE WHEN event='play_start' THEN 1 ELSE 0 END) AS plays,
@@ -132,9 +144,9 @@ export async function getStats(q) {
                     SUM(CASE WHEN event='play_swap' THEN 1 ELSE 0 END) AS swaps
              FROM knara_events WHERE ${where(r)} AND room IS NOT NULL AND event IN ('room_enter','room_done','play_start','play_clear','play_fail','play_swap')
              GROUP BY room`, P),
-      query(`SELECT room, dur_ms/5000 AS b, COUNT(*) AS n FROM knara_events
+      B.q(`SELECT room, dur_ms/5000 AS b, COUNT(*) AS n FROM knara_events
              WHERE ${where(r)} AND event='room_done' AND dur_ms IS NOT NULL GROUP BY room, dur_ms/5000`, P),
-      query(`SELECT game,
+      B.q(`SELECT game,
                     SUM(CASE WHEN event='play_start' THEN 1 ELSE 0 END) AS starts,
                     SUM(CASE WHEN event='play_clear' THEN 1 ELSE 0 END) AS clears,
                     SUM(CASE WHEN event='play_fail' THEN 1 ELSE 0 END) AS fails,
@@ -152,56 +164,47 @@ export async function getStats(q) {
              FROM knara_events WHERE ${where(r)} AND game IS NOT NULL
                AND event IN ('play_start','play_clear','play_fail','play_swap','fallback_input','dm_ok','dm_skip','star')
              GROUP BY game`, P),
-      query(`SELECT game, event, dur_ms/500 AS b, COUNT(*) AS n FROM knara_events
+      B.q(`SELECT game, event, dur_ms/500 AS b, COUNT(*) AS n FROM knara_events
              WHERE ${where(r)} AND event IN ('play_clear','play_fail') AND dur_ms IS NOT NULL
              GROUP BY game, event, dur_ms/500`, P),
-      query(`SELECT kind, value, COUNT(DISTINCT sid) AS sessions FROM knara_events
+      B.q(`SELECT kind, value, COUNT(DISTINCT sid) AS sessions FROM knara_events
              WHERE ${where(r)} AND event='sensor' GROUP BY kind, value`, P),
-      query(`SELECT kind, COUNT(DISTINCT sid) AS sessions, COUNT(*) AS n FROM knara_events
+      B.q(`SELECT kind, COUNT(DISTINCT sid) AS sessions, COUNT(*) AS n FROM knara_events
              WHERE ${where(r)} AND event='fallback_input' GROUP BY kind`, P),
-      query(`SELECT role, COUNT(DISTINCT sid) AS sessions FROM knara_events WHERE ${where(r)} AND event='role' GROUP BY role`, P),
-      query(`SELECT lang, COUNT(DISTINCT sid) AS sessions FROM knara_events WHERE ${where(r)} AND event='lang' GROUP BY lang`, P),
-      query(`SELECT os, os_ver, browser, device, inapp, viewport_w, viewport_h, dpr, is_mobile, lang, COUNT(*) AS n
+      B.q(`SELECT role, COUNT(DISTINCT sid) AS sessions FROM knara_events WHERE ${where(r)} AND event='role' GROUP BY role`, P),
+      B.q(`SELECT lang, COUNT(DISTINCT sid) AS sessions FROM knara_events WHERE ${where(r)} AND event='lang' GROUP BY lang`, P),
+      B.q(`SELECT os, os_ver, browser, device, inapp, viewport_w, viewport_h, dpr, is_mobile, lang, COUNT(*) AS n
              FROM knara_sessions WHERE ${where(r)}
              GROUP BY os, os_ver, browser, device, inapp, viewport_w, viewport_h, dpr, is_mobile, lang`, P),
-      query(`SELECT s.device AS device, s.os AS os, COUNT(DISTINCT e.sid) AS sessions
+      B.q(`SELECT s.device AS device, s.os AS os, COUNT(DISTINCT e.sid) AS sessions
              FROM knara_events e JOIN knara_sessions s ON s.sid = e.sid
              WHERE ${where(r, "e")} AND e.event='quality_down' GROUP BY s.device, s.os ORDER BY sessions DESC`, P),
-      query(`SELECT level, message, source, lineno, colno, page, room, game, browser, browser_ver, os, os_ver, device, inapp, event_at
+      B.q(`SELECT level, message, source, lineno, colno, page, room, game, browser, browser_ver, os, os_ver, device, inapp, event_at
              FROM knara_logs WHERE ${where(r)} ORDER BY event_at DESC LIMIT 100`, P),
-      query(`SELECT substr(COALESCE(message, stack, '(빈 메시지)'),1,120) AS message,
+      B.q(`SELECT substr(COALESCE(message, stack, '(빈 메시지)'),1,120) AS message,
                     COALESCE(browser,'(미상)') AS browser, COALESCE(os,'(미상)') AS os,
                     COUNT(*) AS n, COUNT(DISTINCT sid) AS sessions, MAX(event_at) AS last_at
              FROM knara_logs WHERE ${where(r)}
              GROUP BY substr(COALESCE(message, stack, '(빈 메시지)'),1,120), COALESCE(browser,'(미상)'), COALESCE(os,'(미상)')
              ORDER BY n DESC LIMIT 60`, P),
-      query(`SELECT COUNT(*) AS n, COUNT(DISTINCT sid) AS sessions, COUNT(DISTINCT day_kst) AS days FROM knara_logs WHERE ${where(r)}`, P),
-      query(`SELECT MAX(received_at) AS last_at FROM knara_events`, []),
-      query(`SELECT age, COUNT(*) AS sessions FROM (${S}) s WHERE age IS NOT NULL GROUP BY age`, P),
-      query(`SELECT gender, COUNT(*) AS sessions FROM (${S}) s WHERE gender IS NOT NULL GROUP BY gender`, P),
+      B.q(`SELECT COUNT(*) AS n, COUNT(DISTINCT sid) AS sessions, COUNT(DISTINCT day_kst) AS days FROM knara_logs WHERE ${where(r)}`, P),
+      B.q(`SELECT MAX(received_at) AS last_at FROM knara_events`, []),
+      B.q(`SELECT age, COUNT(*) AS sessions FROM (${S}) s WHERE age IS NOT NULL GROUP BY age`, P),
+      B.q(`SELECT gender, COUNT(*) AS sessions FROM (${S}) s WHERE gender IS NOT NULL GROUP BY gender`, P),
       // 오늘 방문·완주 — 선택 기간과 무관하게 오늘(KST)
       (() => { const t = kstToday(); const tr = { ...r, from: t, to: t };
-        return query(`SELECT COUNT(*) AS visits, SUM(f_all) AS finished FROM (${sessionFactsSQL(tr)}) s`, [t, t]); })(),
+        return B.q(`SELECT COUNT(*) AS visits, SUM(f_all) AS finished FROM (${sessionFactsSQL(tr)}) s`, [t, t]); })(),
       // 완주 기여 — 완주한 세션이 그 놀이를 성공한 수(놀이가 완주 경로에 얼마나 들어갔나)
-      query(`SELECT e.game AS game, COUNT(DISTINCT e.sid) AS finishers
+      B.q(`SELECT e.game AS game, COUNT(DISTINCT e.sid) AS finishers
              FROM knara_events e JOIN (SELECT sid FROM (${S}) s WHERE f_all = 1) f ON f.sid = e.sid
              WHERE ${where(r, "e")} AND e.event = 'play_clear' AND e.game IS NOT NULL GROUP BY e.game`, P), // $1,$2 를 두 번 참조 — 파라미터는 2개만
     ]);
+  B.run();
+  const [summaryRows, prevRows, roomsDoneRows, totalHist, daily, hourly, roomRows, roomHist, gameRows, gameHist,
+    sensorRows, fallbackRows, roleRows, langRows, devRows, qdRows, logRecent, logGrouped, logTotals, lastRows,
+    ageRows, genderRows, todayRows, finisherRows] = await mainP;
 
-  // ── 노리개(DM) 편: 컨셉별 관심(DM 수락·넘김)·실력(별점), 방 끝 노리개 선물, 결산 유형, 추천 지역
-  const [conceptRows, giftRows, typeRows, recRows] = await Promise.all([
-    query(`SELECT kind,
-                  SUM(CASE WHEN event='dm_ok' THEN 1 ELSE 0 END) AS ok,
-                  SUM(CASE WHEN event='dm_skip' THEN 1 ELSE 0 END) AS skip,
-                  SUM(CASE WHEN event='star' THEN 1 ELSE 0 END) AS rated,
-                  SUM(CASE WHEN event='star' THEN hits ELSE 0 END) AS stars,
-                  SUM(CASE WHEN event='star' AND hits=3 THEN 1 ELSE 0 END) AS s3,
-                  SUM(CASE WHEN event='star' AND hits=0 THEN 1 ELSE 0 END) AS s0
-           FROM knara_events WHERE ${where(r)} AND event IN ('dm_ok','dm_skip','star') AND kind IS NOT NULL GROUP BY kind`, P),
-    query(`SELECT kind, COUNT(*) AS n FROM knara_events WHERE ${where(r)} AND event='gift' AND kind IS NOT NULL GROUP BY kind`, P),
-    query(`SELECT kind, COUNT(DISTINCT sid) AS sessions FROM knara_events WHERE ${where(r)} AND event='type_result' AND kind IS NOT NULL GROUP BY kind`, P),
-    query(`SELECT room, COUNT(DISTINCT sid) AS sessions FROM knara_events WHERE ${where(r)} AND event='type_result' AND room IS NOT NULL GROUP BY room`, P),
-  ]);
+  const [conceptRows, giftRows, typeRows, recRows] = await dmP;
   const concepts = Object.keys(CONCEPTS).map((k) => {
     const x = conceptRows.find((y) => y.kind === k) || {}, g = giftRows.find((y) => y.kind === k) || {};
     const ok = n(x.ok), skip = n(x.skip), rated = n(x.rated);

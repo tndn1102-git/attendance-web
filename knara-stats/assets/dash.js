@@ -111,14 +111,25 @@
     var qs = Object.keys(params).map(function (k) { return k + "=" + encodeURIComponent(params[k]); }).join("&");
     return fetch(path + "?" + qs, { headers: { "x-stats-key": getKey() }, cache: "no-store" });
   }
+  // 새로고침·재방문 때 직전 결과를 먼저 그려 두고(같은 기간일 때만), 새 숫자가 오면 바꿔 그린다.
+  // 이 탭(sessionStorage) 안에서만 두고, 잠그면 지운다.
+  var CACHE_STORE = "knara_stats_last";
+  function cacheGet(k) { try { var c = JSON.parse(sessionStorage.getItem(CACHE_STORE) || "null"); return c && c.k === k ? c.d : null; } catch (_) { return null; } }
+  function cachePut(k, d) { try { sessionStorage.setItem(CACHE_STORE, JSON.stringify({ k: k, d: d })); } catch (_) {} }
+  var firstLoad = true;
   function load() {
     applyPreset();
-    $("content").innerHTML = '<div class="loading">불러오는 중…</div>';
+    var ck = [state.from, state.to, state.staff ? 1 : 0].join("|");
+    var cached = firstLoad && !state.data ? cacheGet(ck) : null;
+    firstLoad = false;
+    if (cached) { state.data = cached; render(); }
+    else $("content").innerHTML = '<div class="loading">불러오는 중…</div>';
     return api("/api/stats", { from: state.from, to: state.to, staff: state.staff ? 1 : 0 }).then(function (r) {
       if (r.status === 401 || r.status === 503) return r.json().then(function (j) { throw new Error(j.error || "접속 키 오류"); });
       if (!r.ok) throw new Error("서버 오류 (" + r.status + ")");
       return r.json();
     }).then(function (j) {
+      cachePut(ck, j);
       state.data = j;
       if (state.preset === "exhibit") { applyPreset(); if (j.range.from !== state.from || j.range.to !== state.to) return load(); }
       render();
@@ -545,7 +556,7 @@
     state.preset = "custom"; state.from = f; state.to = t; load().catch(showErr);
   });
   $("btnRefresh").addEventListener("click", function () { load().catch(showErr); });
-  $("btnLogout").addEventListener("click", function () { setKey(""); showGate(""); });
+  $("btnLogout").addEventListener("click", function () { setKey(""); try { sessionStorage.removeItem(CACHE_STORE); } catch (_) {} showGate(""); });
   window.addEventListener("hashchange", function () { var prev = state.view; readHash(); if (state.data && state.view !== prev) render(); });
   function showErr(e) { if (/키|STATS_KEY/.test(e.message)) return showGate(e.message); $("content").innerHTML = '<div class="notice warn">' + esc(e.message) + "</div>"; }
 
