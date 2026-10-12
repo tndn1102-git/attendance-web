@@ -6,3 +6,12 @@
 /track.js
   Access-Control-Allow-Origin: *
   Cache-Control: public, max-age=300
+
+# 게임: 본문(약 0.9MB)은 10분 캐시 — 입장 페이지가 미리 받아 둔 사본을 그대로 쓰고, 재방문도 다시 안 받는다.
+# 배포한 수정은 최대 10분 뒤 폰에 반영된다. 그림은 바뀌지 않으므로 30일.
+/game/
+  Cache-Control: public, max-age=600
+/game/index.html
+  Cache-Control: public, max-age=600
+/game/img/*
+  Cache-Control: public, max-age=2592000
