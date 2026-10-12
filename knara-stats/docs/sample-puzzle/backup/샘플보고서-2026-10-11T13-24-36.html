@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>K의 나라 — 문제 샘플 (제주 · 돌하르방 4자리 자물쇠)</title>
+<link rel="stylesheet" href="../../assets/theme.css" />
+<style>
+  @page { size: A4; margin: 10mm 12mm 8mm; }
+  html, body { background: #fff; }
+  body { font-family: var(--f-ui); color: var(--c-ink); font-size: 10.5pt; line-height: 1.45; margin: 0; word-break: keep-all; }
+  .doc { width: 186mm; margin: 0 auto; }
+  @media screen { .doc { padding: 20px 0 40px; } }
+  .head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5px solid var(--meok); padding-bottom: 3mm; margin-bottom: 4mm; }
+  .head h1 { font-family: var(--f-disp); font-weight: 900; font-size: 17pt; letter-spacing: -.02em; margin: 0; line-height: 1.3; }
+  .head h1 small { display: block; font-family: var(--f-ui); font-weight: 500; font-size: 10pt; color: var(--c-ink-2); margin-top: 1mm; }
+  .head .meta { font-size: 9pt; color: var(--c-ink-mute); white-space: nowrap; }
+  .problem { display: flex; align-items: stretch; background: var(--hanji); border-radius: 3mm; box-shadow: var(--inset-line); padding: 3mm 4mm; margin-bottom: 4mm; }
+  .problem .clue { flex: 1; font-family: var(--f-story); font-weight: 700; font-size: 11.5pt; line-height: 1.5; padding-right: 4mm; border-right: 1px solid var(--line-strong); }
+  .problem .clue small { display: block; font-family: var(--f-ui); font-weight: 700; font-size: 9pt; color: var(--c-ink-2); margin-bottom: 1mm; }
+  .problem .ans { flex: 0 0 72mm; padding-left: 4mm; font-size: 9.5pt; line-height: 1.5; }
+  .problem .ans b.n { font-family: var(--f-num); font-size: 15pt; letter-spacing: .12em; display: block; margin-bottom: .5mm; }
+  .shots { display: flex; justify-content: space-between; }
+  .shots figure { margin: 0; width: 44mm; }
+  .shots img { display: block; width: 44mm; height: auto; border: 1px solid var(--line-strong); border-radius: 3mm; }
+  .shots figcaption { font-size: 9pt; line-height: 1.4; margin-top: 1.5mm; color: var(--c-ink-2); }
+  .shots figcaption b { color: var(--c-ink); display: block; font-size: 9.5pt; }
+  .shots.small { margin-top: 2mm; }
+  .shots.small figure { width: 32mm; }
+  .shots.small img { width: 32mm; }
+  .shots.small figcaption { font-size: 8.5pt; }
+  .shots.small figcaption b { font-size: 9pt; display: inline; margin-right: 1.5mm; }
+  .lang-title { font-size: 9.5pt; font-weight: 700; color: var(--c-ink-2); margin: 3mm 0 0; }
+  .foot { margin-top: 2mm; font-size: 8pt; color: var(--c-ink-mute); display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+<div class="doc">
+<div class="head">
+    <h1>「K의 나라」 문제 샘플 <small>제주 · 돌하르방이 지키는 네 자리 — 방탈출 기본 유형(그림 속 숫자 찾기 → 4자리 번호 자물쇠)</small></h1>
+    <div class="meta">샘플·검토용 · 판타스트릭 · 2026-10-11</div>
+  </div>
+
+  <div class="problem">
+    <div class="clue">
+      <small>문제 — 비석에 새겨진 글</small>
+      "하르방 넷이 숫자를 하나씩 지킨다. 나이 많은 하르방부터 차례로 말한다.<br>돌은 바람과 비를 오래 맞을수록 작아진다."
+    </div>
+    <div class="ans">
+      <b class="n">9 4 2 7</b>
+      순서는 키가 아니라 <b>나이</b>. 오래 맞은 돌일수록 작다(이끼도 많다) → <b>작은 하르방부터</b>: 9 → 4 → 2 → 7.<br>
+      큰 순서로 읽은 <b>7249 는 함정</b> · 다이얼 4개 · 힌트 2단계 · 5개 언어
+    </div>
+  </div>
+
+  <div class="shots">
+    <figure><img src="shots/01-start-ko.png" alt="시작"><figcaption><b>① 시작</b>비석 글을 읽고 하르방 넷의 숫자와 순서를 알아내 다이얼을 맞춘다</figcaption></figure>
+    <figure><img src="shots/02-hint1-ko.png" alt="힌트"><figcaption><b>② 힌트</b>"힌트"를 누르면 노란 띠(1: 키가 아니라 나이, 2: 작은 하르방부터)</figcaption></figure>
+    <figure><img src="shots/03-wrong-ko.png" alt="오답"><figcaption><b>③ 오답</b>큰 순서로 읽은 7249(함정) → 다이얼이 흔들리고 시도 횟수 표시</figcaption></figure>
+    <figure><img src="shots/04-win-ko.png" alt="성공"><figcaption><b>④ 성공</b>9427 → 자물쇠가 열리고 도장 "제주 획득", 제주 색 획득</figcaption></figure>
+  </div>
+
+  <div class="foot">
+    <span>그림·문구·정답은 예시. 외국어는 초벌 번역(검수 전). 통계 수집은 넣지 않음.</span>
+    <span>파일 docs/sample-puzzle/puzzle.html</span>
+  </div>
+</div>
+</body>
+</html>

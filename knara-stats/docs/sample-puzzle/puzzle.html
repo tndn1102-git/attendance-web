@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#F5EFE4" />
+<meta name="robots" content="noindex, nofollow" />
+<title>K의 나라 — 샘플 문제 · 제주 돌하르방의 네 자리</title>
+<link rel="stylesheet" href="../../assets/theme.css" />
+<style>
+  /* 샘플 문제 전용 레이아웃. 토큰·버튼·카드는 theme.css(게임 실측 토큰) 그대로 */
+  body { padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom); word-break: keep-all; overflow-wrap: break-word; font-size: 16px; line-height: 1.5; }
+  html[lang=ja] body, html[lang=zh] body { word-break: normal; }
+  .wrap { max-width: 520px; margin: 0 auto; padding: 12px 14px 20px; }
+  .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .top .beads { display: flex; }
+  .top .beads i { width: 11px; height: 11px; border-radius: 50%; background: rgba(255,255,255,.6); box-shadow: var(--inset-line); margin-left: 4px; }
+  .top .beads i.on { background: var(--cheong); box-shadow: none; }
+  .scene { display: block; width: 100%; height: auto; border-radius: var(--r-card); box-shadow: var(--inset-line), var(--shadow-card); background: #CFE6F2; }
+  .clue { margin-top: 10px; padding: 10px 16px 9px; }
+  .clue h2 { font-size: 17px; margin-bottom: 2px; }
+  .clue p { margin: 0; font-family: var(--f-story); font-weight: 700; font-size: 14px; line-height: 1.48; }
+  .hint { margin-top: 6px; font-family: var(--f-ui); font-size: 13px; line-height: 1.45; color: var(--hwang-d); background: var(--hwang-bg); border-radius: 12px; padding: 6px 10px; }
+  .hint + .hint { margin-top: 5px; }
+  /* 번호 자물쇠: 다이얼 4개(▲▼ 로 숫자 돌림) + 열기 */
+  .lock { margin-top: 10px; padding: 8px 14px 8px; }
+  .dials { display: flex; justify-content: center; }
+  .dial { display: flex; flex-direction: column; align-items: center; margin: 0 6px; }
+  .dial button { border: 0; background: transparent; color: var(--c-ink-2); font-size: 13px; line-height: 1; padding: 3px 14px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .dial .num { width: 54px; height: 54px; border-radius: 12px; background: rgba(255,255,255,.78); box-shadow: var(--inset-line-strong), inset 0 -6px 0 rgba(33,30,26,.06);
+    font-family: var(--f-num); font-size: 30px; font-weight: 700; display: flex; align-items: center; justify-content: center; color: var(--c-ink); }
+  .dials.shake { animation: shake .4s var(--ease); }
+  .dials.open .num { background: var(--meok); color: var(--hanji); box-shadow: none; }
+  @keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-7px); } 75% { transform: translateX(7px); } }
+  .actions { display: flex; align-items: center; margin-top: 6px; }
+  .actions .btn { flex: 1; min-height: 52px; }
+  .actions .btn.ghost { flex: 0 0 auto; margin-right: 8px; padding: 0 16px; }
+  .status { min-height: 18px; margin-top: 6px; text-align: center; font-size: 13.5px; font-weight: 700; color: var(--c-bad); line-height: 1.3; }
+  .tries { text-align: center; font-size: 12px; color: var(--c-ink-mute); margin-top: 1px; }
+  /* 성공 시트(게임 바텀시트 모양) */
+  #win { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 40; background: rgba(33,30,26,.5); display: flex; align-items: flex-end; justify-content: center; }
+  #win[hidden] { display: none; }
+  #win .sheet { width: 100%; max-width: 520px; background: var(--c-bg); border-radius: var(--r-sheet); box-shadow: 0 -10px 40px rgba(0,0,0,.35); padding: 22px 20px 26px; text-align: center; }
+  #win .seal { display: inline-flex; align-items: center; justify-content: center; width: 74px; height: 74px; border-radius: 10px; background: var(--jeok); color: #fff;
+    font-family: var(--f-disp); font-weight: 900; font-size: 24px; letter-spacing: -.02em; transform: rotate(-6deg); box-shadow: 0 4px 0 var(--jeok-d); margin: 2px 0 12px; line-height: 1.05; }
+  #win h2 { font-family: var(--f-disp); font-size: 24px; margin: 0 0 6px; }
+  #win p { font-family: var(--f-story); font-weight: 700; font-size: 15.5px; margin: 0 0 14px; line-height: 1.55; }
+  #win .color { display: inline-flex; align-items: center; min-height: 34px; padding: 0 14px; border-radius: 999px; background: #CFE6F2; box-shadow: inset 0 0 0 2px #fff, var(--inset-line); font-weight: 700; font-size: 14px; margin-bottom: 14px; }
+  #win .color i { width: 14px; height: 14px; border-radius: 50%; background: #7DB9D6; margin-right: 8px; }
+</style>
+</head>
+<body class="paper">
+<div class="wrap">
+  <div class="top">
+    <span class="pill cheong" id="t_tag">제주 · 돌하르방의 비밀</span>
+    <span class="beads" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span>
+  </div>
+
+  <!-- 장면: 제주 풍경 + 돌하르방 넷(키가 다름). 숫자는 각자 다른 자리(모자·배·손 돌판·받침돌)에 새겨져 있다.
+       돌하르방은 symbol 하나(현무암 질감 = feTurbulence 반점 + 방사 음영)를 네 크기로 재사용 -->
+  <svg class="scene" viewBox="0 0 360 390" role="img" aria-label="돌하르방 넷이 서 있는 제주 풍경">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BBDCEE"/><stop offset=".7" stop-color="#E9F3F8"/><stop offset="1" stop-color="#F4F1E6"/></linearGradient>
+      <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8CC4DD"/><stop offset="1" stop-color="#4E8FB2"/></linearGradient>
+      <linearGradient id="far" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A9C3A3"/><stop offset="1" stop-color="#8FB08A"/></linearGradient>
+      <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9D394"/><stop offset="1" stop-color="#8FB56E"/></linearGradient>
+      <radialGradient id="basalt" cx=".38" cy=".28" r=".85"><stop offset="0" stop-color="#9A958A"/><stop offset=".45" stop-color="#6E6A62"/><stop offset="1" stop-color="#3E3B36"/></radialGradient>
+      <radialGradient id="basaltD" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#7E7A71"/><stop offset="1" stop-color="#36332E"/></radialGradient>
+      <!-- 현무암 구멍(반점) 질감: 노이즈 → 알파 → 검정. 실루엣에 clip 해서 덮는다 -->
+      <filter id="pores" x="0" y="0" width="1" height="1">
+        <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="2" seed="7" result="n"/>
+        <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.6 1.9" result="a"/>
+        <feFlood flood-color="#1E1C19" flood-opacity=".55" result="c"/>
+        <feComposite in="c" in2="a" operator="in"/>
+      </filter>
+      <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.2"/></filter>
+      <!-- 돌하르방 원형(84×180): 벙거지 모자 · 튀어나온 눈 · 뭉툭한 코 · 다문 입 · 큰 귀 · 배 위에 양손(왼손 위, 오른손 아래) -->
+      <g id="hb-shape">
+        <path d="M22 76 Q 2 120 12 172 L72 172 Q 82 120 62 76 Z"/>
+        <ellipse cx="42" cy="80" rx="27" ry="13"/>
+        <ellipse cx="42" cy="48" rx="22.5" ry="27"/>
+        <ellipse cx="20" cy="54" rx="4.5" ry="8.5"/><ellipse cx="64" cy="54" rx="4.5" ry="8.5"/>
+        <path d="M15 27 Q 42 -6 69 27 Z"/>
+        <ellipse cx="42" cy="27" rx="30" ry="7.5"/>
+        <circle cx="42" cy="9" r="3.4"/>
+      </g>
+      <clipPath id="hb-clip"><use href="#hb-shape"/></clipPath>
+      <symbol id="harubang" viewBox="0 0 84 180" overflow="visible">
+        <!-- 몸통·머리·모자 = 방사 음영 현무암 -->
+        <use href="#hb-shape" fill="url(#basalt)"/>
+        <!-- 모자는 조금 더 어둡게 -->
+        <path d="M15 27 Q 42 -6 69 27 Z" fill="url(#basaltD)"/>
+        <ellipse cx="42" cy="27" rx="30" ry="7.5" fill="#4A463F"/>
+        <ellipse cx="42" cy="26" rx="30" ry="6.5" fill="url(#basaltD)"/>
+        <circle cx="42" cy="9" r="3.4" fill="#5A564E"/>
+        <!-- 구멍 질감 -->
+        <rect x="0" y="0" width="84" height="180" clip-path="url(#hb-clip)" filter="url(#pores)"/>
+        <!-- 배 하이라이트·턱 그림자 -->
+        <ellipse cx="34" cy="118" rx="16" ry="30" fill="#fff" opacity=".07"/>
+        <path d="M22 76 Q 42 90 62 76 Q 42 84 22 76 Z" fill="#2A2824" opacity=".45"/>
+        <!-- 눈썹 능선 -->
+        <path d="M23 38 Q 32 32 41 38" stroke="#2E2B27" stroke-width="2.2" fill="none" opacity=".7"/>
+        <path d="M43 38 Q 52 32 61 38" stroke="#2E2B27" stroke-width="2.2" fill="none" opacity=".7"/>
+        <!-- 튀어나온 눈 -->
+        <ellipse cx="32" cy="45" rx="7.5" ry="6" fill="#8E897E"/><ellipse cx="32" cy="45" rx="7.5" ry="6" fill="#2A2824" opacity=".18"/>
+        <ellipse cx="31" cy="44" rx="4.6" ry="3.3" fill="#A7A296"/><ellipse cx="29.5" cy="43" rx="1.6" ry="1.1" fill="#D9D4C8"/>
+        <ellipse cx="52" cy="45" rx="7.5" ry="6" fill="#8E897E"/><ellipse cx="52" cy="45" rx="7.5" ry="6" fill="#2A2824" opacity=".18"/>
+        <ellipse cx="51" cy="44" rx="4.6" ry="3.3" fill="#A7A296"/><ellipse cx="49.5" cy="43" rx="1.6" ry="1.1" fill="#D9D4C8"/>
+        <!-- 뭉툭한 코 -->
+        <path d="M42 46 L36.5 63 Q 42 68.5 47.5 63 Z" fill="#5E5A52"/>
+        <path d="M42 46 L36.5 63 Q 39 66 42 66 Z" fill="#7B766C"/>
+        <path d="M37 63 Q 42 66.5 47 63" stroke="#2A2824" stroke-width="1.4" fill="none" opacity=".6"/>
+        <!-- 꾹 다문 입 -->
+        <path d="M33 70 Q 42 75 51 70" stroke="#2A2824" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/>
+        <path d="M34 71.5 Q 42 76.5 50 71.5" stroke="#9A958A" stroke-width="1" fill="none" opacity=".5"/>
+        <!-- 귀 구멍 -->
+        <ellipse cx="20" cy="54" rx="2" ry="4.5" fill="#2E2B27" opacity=".5"/><ellipse cx="64" cy="54" rx="2" ry="4.5" fill="#2E2B27" opacity=".5"/>
+        <!-- 손: 왼손은 가슴, 오른손은 배 -->
+        <path d="M46 98 q 16 -4 20 6 q -2 10 -14 10 q -10 0 -8 -8 Z" fill="#7A756B"/>
+        <path d="M46 98 q 16 -4 20 6 q -2 10 -14 10 q -10 0 -8 -8 Z" fill="#2A2824" opacity=".15"/>
+        <path d="M53 103 l 10 1 M53 108 l 10 1 M53 113 l 8 0" stroke="#3A3732" stroke-width="1.3" opacity=".6"/>
+        <path d="M18 122 q 6 -10 22 -6 q 10 2 8 10 q -2 8 -14 8 q -14 0 -16 -12 Z" fill="#7A756B"/>
+        <path d="M18 122 q 6 -10 22 -6 q 10 2 8 10 q -2 8 -14 8 q -14 0 -16 -12 Z" fill="#2A2824" opacity=".12"/>
+        <path d="M24 122 l 12 -1 M24 127 l 14 0 M26 132 l 12 1" stroke="#3A3732" stroke-width="1.3" opacity=".6"/>
+        <!-- 받침돌 -->
+        <path d="M8 168 L76 168 L80 180 L4 180 Z" fill="#4D4941"/>
+        <path d="M8 168 L76 168 L78 172 L6 172 Z" fill="#605B52"/>
+      </symbol>
+    </defs>
+
+    <!-- 하늘·구름 -->
+    <rect width="360" height="390" fill="url(#sky)"/>
+    <g fill="#fff" opacity=".85" filter="url(#soft)">
+      <ellipse cx="70" cy="48" rx="34" ry="11"/><ellipse cx="92" cy="40" rx="22" ry="10"/>
+      <ellipse cx="282" cy="70" rx="40" ry="12"/><ellipse cx="262" cy="62" rx="20" ry="9"/>
+    </g>
+    <!-- 한라산 -->
+    <path d="M-20 212 Q 70 120 180 136 Q 290 118 380 212 Z" fill="url(#far)"/>
+    <path d="M110 160 Q 180 128 250 160 Q 180 150 110 160 Z" fill="#7C9E77"/>
+    <path d="M-20 214 Q 60 180 140 196 Q 240 184 380 216 Z" fill="#9DB893"/>
+    <!-- 바다 -->
+    <rect x="0" y="214" width="360" height="34" fill="url(#sea)"/>
+    <g stroke="#fff" stroke-width="1.6" fill="none" opacity=".45">
+      <path d="M10 226 q 12 -4 24 0 t 24 0"/><path d="M120 236 q 12 -4 24 0 t 24 0"/><path d="M250 224 q 12 -4 24 0 t 24 0"/><path d="M300 240 q 12 -4 24 0 t 24 0"/>
+    </g>
+    <!-- 돌담 -->
+    <rect x="0" y="246" width="360" height="22" fill="#5F5B53"/>
+    <g fill="#75716A">
+      <rect x="4" y="248" width="30" height="9" rx="4"/><rect x="38" y="247" width="26" height="10" rx="4"/><rect x="68" y="249" width="34" height="8" rx="4"/><rect x="106" y="247" width="24" height="10" rx="4"/>
+      <rect x="134" y="248" width="32" height="9" rx="4"/><rect x="170" y="247" width="28" height="10" rx="4"/><rect x="202" y="249" width="30" height="8" rx="4"/><rect x="236" y="247" width="26" height="10" rx="4"/>
+      <rect x="266" y="248" width="34" height="9" rx="4"/><rect x="304" y="247" width="28" height="10" rx="4"/><rect x="336" y="249" width="22" height="8" rx="4"/>
+      <rect x="18" y="258" width="28" height="9" rx="4"/><rect x="50" y="259" width="34" height="8" rx="4"/><rect x="88" y="258" width="26" height="9" rx="4"/><rect x="118" y="259" width="30" height="8" rx="4"/>
+      <rect x="152" y="258" width="26" height="9" rx="4"/><rect x="182" y="259" width="32" height="8" rx="4"/><rect x="218" y="258" width="28" height="9" rx="4"/><rect x="250" y="259" width="30" height="8" rx="4"/>
+      <rect x="284" y="258" width="26" height="9" rx="4"/><rect x="314" y="259" width="34" height="8" rx="4"/>
+    </g>
+    <!-- 들판·유채꽃·감귤나무 -->
+    <rect x="0" y="268" width="360" height="122" fill="url(#grass)"/>
+    <path d="M0 268 q 90 -8 180 0 t 180 0 v 10 H0 Z" fill="#A6C882" opacity=".8"/>
+    <g fill="#F2D23B">
+      <circle cx="14" cy="372" r="3"/><circle cx="26" cy="366" r="2.6"/><circle cx="8" cy="360" r="2.4"/><circle cx="36" cy="376" r="2.8"/><circle cx="22" cy="380" r="2.4"/>
+      <circle cx="330" cy="374" r="3"/><circle cx="344" cy="366" r="2.6"/><circle cx="352" cy="380" r="2.4"/><circle cx="318" cy="382" r="2.6"/>
+    </g>
+    <g transform="translate(318,268)">
+      <rect x="18" y="26" width="7" height="22" fill="#6E4A2E"/>
+      <circle cx="21" cy="18" r="22" fill="#4E7F42"/><circle cx="12" cy="14" r="14" fill="#5C9150"/><circle cx="30" cy="12" r="13" fill="#5C9150"/>
+      <circle cx="10" cy="22" r="3.6" fill="#F39A2B"/><circle cx="26" cy="27" r="3.6" fill="#F39A2B"/><circle cx="34" cy="16" r="3.6" fill="#F39A2B"/><circle cx="18" cy="8" r="3.6" fill="#F39A2B"/><circle cx="22" cy="34" r="3.4" fill="#F39A2B"/>
+    </g>
+
+    <!-- 그림자 -->
+    <g fill="#2A2824" opacity=".18" filter="url(#soft)">
+      <ellipse cx="40" cy="374" rx="38" ry="6"/><ellipse cx="136" cy="376" rx="58" ry="8"/><ellipse cx="232" cy="373" rx="30" ry="5"/><ellipse cx="306" cy="375" rx="46" ry="7"/>
+    </g>
+
+    <!-- 풍화(나이) 단서: 작은 하르방일수록 이끼가 많다. 읽는 순서 = 나이 순 = 작은 순 → C 9 · A 4 · D 2 · B 7 -->
+    <!-- 돌하르방 A : 키 셋째(168) · 둘째로 오래됨. 숫자 4 = 배 -->
+    <g transform="translate(1,207) scale(0.9333)">
+      <use href="#harubang" width="84" height="180"/>
+      <g class="moss"><ellipse cx="18" cy="140" rx="7" ry="11"/><ellipse cx="62" cy="62" rx="5" ry="8"/><ellipse cx="30" cy="166" rx="9" ry="4"/></g>
+      <text class="carve" x="42" y="166" font-size="27">4</text>
+    </g>
+    <!-- 돌하르방 C : 가장 작음(132) · 가장 오래됨. 숫자 9 = 배 -->
+    <g transform="translate(201,243) scale(0.7333)">
+      <use href="#harubang" width="84" height="180"/>
+      <g class="moss"><ellipse cx="16" cy="130" rx="8" ry="14"/><ellipse cx="66" cy="110" rx="6" ry="12"/><ellipse cx="60" cy="40" rx="6" ry="9"/><ellipse cx="34" cy="166" rx="12" ry="5"/><ellipse cx="20" cy="30" rx="4" ry="6"/></g>
+      <text class="carve" x="42" y="167" font-size="30">9</text>
+    </g>
+    <!-- 돌하르방 B : 가장 큼(265) · 가장 젊음(이끼 없음). 숫자 7 = 모자 -->
+    <g transform="translate(74,110) scale(1.4722)">
+      <use href="#harubang" width="84" height="180"/>
+      <text class="carve" x="42" y="22" font-size="21">7</text>
+    </g>
+    <!-- 돌하르방 D : 둘째(212) · 셋째로 오래됨. 숫자 2 = 오른손에 든 돌판 -->
+    <g transform="translate(258,163) scale(1.1778)">
+      <use href="#harubang" width="84" height="180"/>
+      <g class="moss"><ellipse cx="18" cy="150" rx="6" ry="9"/></g>
+      <rect x="24" y="108" width="28" height="32" rx="2" fill="#D8CEB8" stroke="#6E6A62" stroke-width="1.2"/>
+      <text class="carve" x="38" y="133" font-size="24">2</text>
+    </g>
+    <style>
+      .carve { font-family: Hahmlet, "Noto Serif KR", serif; font-weight: 900; text-anchor: middle; fill: #F6EEDC; paint-order: stroke; stroke: #15130F; stroke-width: 1.6; stroke-linejoin: round; }
+      .moss ellipse { fill: #6F8F46; opacity: .72; }
+    </style>
+  </svg>
+
+  <section class="card clue">
+    <h2 id="t_title">돌하르방이 지키는 네 자리</h2>
+    <p id="t_clue">비석에 이렇게 새겨져 있다.<br>"하르방 넷이 숫자를 하나씩 지킨다. 나이 많은 하르방부터 차례로 말한다.<br>돌은 바람과 비를 오래 맞을수록 작아진다."</p>
+    <div class="hint" id="hint1" hidden></div>
+    <div class="hint" id="hint2" hidden></div>
+  </section>
+
+  <section class="card lock">
+    <div class="dials" id="dials"></div>
+    <div class="actions">
+      <button class="btn ghost" id="btnHint" type="button">힌트</button>
+      <button class="btn" id="btnOpen" type="button">열기</button>
+    </div>
+    <div class="status" id="status"></div>
+    <div class="tries" id="tries"></div>
+  </section>
+</div>
+
+<div id="win" hidden role="dialog" aria-modal="true">
+  <div class="sheet">
+    <div class="seal" id="t_seal">제주<br>획득</div>
+    <h2 id="t_win">자물쇠가 열렸다!</h2>
+    <p id="t_winSub">돌하르방이 길을 비켜 준다.<br>제주의 색을 노리개에 달았다.</p>
+    <div class="color"><i></i><span id="t_color">제주 · 하늘빛</span></div>
+    <button class="btn block" id="btnNext" type="button">다음 도로</button>
+  </div>
+</div>
+
+<script type="application/json" id="puzzle-text">
+{
+  "ko": { "tag": "제주 · 돌하르방의 비밀", "title": "돌하르방이 지키는 네 자리", "clue": "비석에 이렇게 새겨져 있다.<br>\"하르방 넷이 숫자를 하나씩 지킨다. 나이 많은 하르방부터 차례로 말한다.<br>돌은 바람과 비를 오래 맞을수록 작아진다.\"",
+    "hint1": "힌트 1 · 순서는 키가 아니라 나이입니다. 비석의 마지막 줄을 다시 읽어 보세요.", "hint2": "힌트 2 · 바람을 가장 오래 맞은 하르방이 가장 작고 이끼도 많습니다. 작은 하르방부터 읽으세요.",
+    "hint": "힌트", "open": "열기", "up": "숫자 올리기", "down": "숫자 내리기", "wrong": "자물쇠가 열리지 않는다. 다시 살펴보자.", "tries": "시도 {n}회",
+    "seal": "제주<br>획득", "win": "자물쇠가 열렸다!", "winSub": "돌하르방이 길을 비켜 준다.<br>제주의 색을 노리개에 달았다.", "color": "제주 · 하늘빛", "next": "다음 도로" },
+  "en": { "tag": "Jeju · Secret of the Dol Hareubang", "title": "Four Digits the Stone Guardians Keep", "clue": "The stone stele reads:<br>\"Four guardians each keep one digit. The eldest speaks first, then the next.<br>The longer a stone stands in wind and rain, the smaller it grows.\"",
+    "hint1": "Hint 1 · The order is by age, not by height. Read the last line of the stele again.", "hint2": "Hint 2 · The guardian that has weathered longest is the smallest and the mossiest. Start from the smallest.",
+    "hint": "Hint", "open": "Open", "up": "Digit up", "down": "Digit down", "wrong": "The lock will not open. Look again.", "tries": "Attempt {n}",
+    "seal": "Jeju<br>won", "win": "The lock is open!", "winSub": "The stone guardians step aside.<br>You add Jeju's color to your norigae.", "color": "Jeju · Sky blue", "next": "Next province" },
+  "ja": { "tag": "済州 · トルハルバンの秘密", "title": "トルハルバンが守る四つの数字", "clue": "石碑にこう刻まれている。<br>「四体のトルハルバンが数字を一つずつ守る。年長のトルハルバンから順に語る。<br>石は風と雨に長く当たるほど小さくなる。」",
+    "hint1": "ヒント1 · 順番は背の高さではなく年齢です。石碑の最後の行をもう一度読んでみましょう。", "hint2": "ヒント2 · いちばん長く風に当たったトルハルバンがいちばん小さく、苔も多いです。小さいものから読みましょう。",
+    "hint": "ヒント", "open": "開ける", "up": "数字を上げる", "down": "数字を下げる", "wrong": "錠が開かない。もう一度よく見よう。", "tries": "{n}回目",
+    "seal": "済州<br>獲得", "win": "錠が開いた！", "winSub": "トルハルバンが道をあけてくれた。<br>済州の色をノリゲにつけた。", "color": "済州 · 空色", "next": "次の道へ" },
+  "zh": { "tag": "济州 · 石头爷爷的秘密", "title": "石头爷爷守护的四位数", "clue": "石碑上刻着：<br>“四尊石头爷爷各守一个数字。年纪最大的先说，依次往下。<br>石头经受风雨越久，就越小。”",
+    "hint1": "提示1 · 顺序看的是年纪，不是身高。再读一遍石碑的最后一句。", "hint2": "提示2 · 经受风雨最久的石头爷爷最小，苔藓也最多。从最小的开始读。",
+    "hint": "提示", "open": "开锁", "up": "数字加一", "down": "数字减一", "wrong": "锁打不开。再仔细看看。", "tries": "第{n}次尝试",
+    "seal": "济州<br>获得", "win": "锁开了！", "winSub": "石头爷爷让开了路。<br>你把济州的颜色挂到了荷包上。", "color": "济州 · 天蓝色", "next": "下一个道" },
+  "es": { "tag": "Jeju · El secreto de los dol hareubang", "title": "Las cuatro cifras que guardan los guardianes de piedra", "clue": "La estela de piedra dice:<br>«Cuatro guardianes guardan una cifra cada uno. Habla primero el más anciano, y luego el siguiente.<br>Cuanto más tiempo resiste una piedra el viento y la lluvia, más pequeña se vuelve.»",
+    "hint1": "Pista 1 · El orden es por edad, no por altura. Vuelve a leer la última línea de la estela.", "hint2": "Pista 2 · El guardián más castigado por el viento es el más pequeño y el que más musgo tiene. Empieza por el más pequeño.",
+    "hint": "Pista", "open": "Abrir", "up": "Subir cifra", "down": "Bajar cifra", "wrong": "El candado no se abre. Mira otra vez.", "tries": "Intento {n}",
+    "seal": "Jeju<br>logrado", "win": "¡El candado se abrió!", "winSub": "Los guardianes de piedra te dejan pasar.<br>Añades el color de Jeju a tu norigae.", "color": "Jeju · Azul cielo", "next": "Siguiente provincia" }
+}
+</script>
+<script>
+(function () {
+  var ANSWER = "9427";                 // 나이 순(= 작은 순): C(배 9) → A(배 4) → D(손 돌판 2) → B(모자 7). 큰 순서로 읽은 7249 는 함정
+  var T = JSON.parse(document.getElementById("puzzle-text").textContent);
+  function $(id) { return document.getElementById(id); }
+  function q(k) { return (location.search.match(new RegExp("[?&]" + k + "=([^&]+)")) || [])[1] || ""; }
+  var nav = (navigator.language || "ko").slice(0, 2);
+  var lang = T[q("hl")] ? q("hl") : (T[nav] ? nav : "ko");
+  var t = T[lang]; document.documentElement.lang = lang;
+  var vals = [0, 0, 0, 0], tries = 0, hints = 0, done = false;
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function hb(s) { return esc(s).replace(/&lt;br\s*\/?&gt;/gi, "<br>"); }
+  function text() {
+    $("t_tag").innerHTML = hb(t.tag); $("t_title").innerHTML = hb(t.title); $("t_clue").innerHTML = hb(t.clue);
+    $("hint1").innerHTML = hb(t.hint1); $("hint2").innerHTML = hb(t.hint2);
+    $("btnHint").textContent = t.hint; $("btnOpen").textContent = t.open;
+    $("t_seal").innerHTML = hb(t.seal); $("t_win").innerHTML = hb(t.win); $("t_winSub").innerHTML = hb(t.winSub); $("t_color").innerHTML = hb(t.color); $("btnNext").textContent = t.next;
+  }
+  function dials() {
+    var d = $("dials"); d.innerHTML = "";
+    vals.forEach(function (v, i) {
+      var col = document.createElement("div"); col.className = "dial";
+      var up = document.createElement("button"); up.type = "button"; up.textContent = "▲"; up.setAttribute("aria-label", t.up);
+      var num = document.createElement("div"); num.className = "num"; num.textContent = v;
+      var dn = document.createElement("button"); dn.type = "button"; dn.textContent = "▼"; dn.setAttribute("aria-label", t.down);
+      up.addEventListener("click", function () { if (done) return; vals[i] = (vals[i] + 1) % 10; $("status").textContent = ""; dials(); });
+      dn.addEventListener("click", function () { if (done) return; vals[i] = (vals[i] + 9) % 10; $("status").textContent = ""; dials(); });
+      col.appendChild(up); col.appendChild(num); col.appendChild(dn); d.appendChild(col);
+    });
+    $("tries").textContent = tries ? t.tries.replace("{n}", tries) : "";
+  }
+  function check() {
+    if (done) return;
+    tries++;
+    if (vals.join("") === ANSWER) { done = true; dials(); $("dials").className = "dials open"; $("status").textContent = ""; setTimeout(function () { $("win").hidden = false; }, 350); return; }
+    $("status").textContent = t.wrong; dials();
+    var s = $("dials"); s.className = "dials"; void s.offsetWidth; s.className = "dials shake";
+  }
+  function hint() {
+    if (hints >= 2) return;
+    hints++; $("hint" + hints).hidden = false;
+    if (hints === 2) $("btnHint").disabled = true;
+  }
+  text(); dials();
+  $("btnHint").addEventListener("click", hint);
+  $("btnOpen").addEventListener("click", check);
+  $("btnNext").addEventListener("click", function () { $("win").hidden = true; });
+
+  // 캡처용 상태 지정: ?state=hint1 | hint2 | wrong | win  (운영에는 영향 없음)
+  var st = q("state");
+  function set(s) { vals = s.split("").map(Number); dials(); }
+  if (st === "hint1") hint();
+  if (st === "hint2") { hint(); hint(); }
+  if (st === "wrong") { hint(); set("7249"); check(); }
+  if (st === "win") { set(ANSWER); check(); }
+  window.__puzzle = { answer: ANSWER, state: function () { return { code: vals.join(""), tries: tries, hints: hints, done: done }; } };
+})();
+</script>
+</body>
+</html>

@@ -302,7 +302,30 @@
       + '<section class="panel c3"><div class="panel-head"><h2>언어</h2><span class="legend">전체 ' + fmtInt(L.langsTotal) + "명</span></div>" + barList(L.langs, L.langsTotal) + "</section>"
       + '<section class="panel c3"><div class="panel-head"><h2>브라우저</h2><span class="legend">상위 4 + 기타</span></div>' + barList(L.browsers, L.browsersTotal) + "</section>"
       + "</div>";
+    html += renderConcepts(d);
     return html;
+  }
+
+  /* ───── 노리개(DM) 편: 컨셉별 좋아한 것(DM 수락률) · 잘한 것(평균 별점) + 결산 유형 + 추천 지역 ───── */
+  function conceptBars(cs) {
+    if (!cs.some(function (c) { return c.ok + c.skip + c.rated > 0; })) return '<div class="empty">아직 DM 기록 없음</div>';
+    return '<table class="t compact"><thead><tr><th>컨셉</th><th>좋아한 것 — DM 수락률</th><th>잘한 것 — 평균 별점</th><th class="n">노리개</th></tr></thead><tbody>' + cs.map(function (c) {
+      var sw = c.avg_star == null ? 0 : c.avg_star / 3 * 100;
+      return '<tr><td><b>' + esc(c.name) + '</b> <span class="sub">' + esc(c.orn) + "</span></td>"
+        + '<td><span class="bar"><span style="width:' + (c.accept_rate || 0) + '%"></span></span><b>' + fmtPct(c.accept_rate) + '</b> <span class="sub">수락 ' + fmtInt(c.ok) + " · 넘김 " + fmtInt(c.skip) + "</span></td>"
+        + '<td><span class="bar"><span style="width:' + r1(sw) + '%;background:var(--chart-gold)"></span></span><b>' + (c.avg_star == null ? "—" : "★" + c.avg_star.toFixed(1)) + '</b> <span class="sub">' + fmtInt(c.rated) + "판</span></td>"
+        + '<td class="n">' + fmtInt(c.gifts) + "</td></tr>";
+    }).join("") + "</tbody></table>";
+  }
+  function renderConcepts(d) {
+    var types = sortBy(d.types.filter(function (t) { return t.sessions > 0; }).map(function (t) { return { k: t.name, v: t.sessions }; }), "v", "desc");
+    var tTotal = sum(types, "v");
+    var rec = sortBy(d.recommend.map(function (x) { return { k: x.name, v: x.sessions }; }), "v", "desc");
+    return '<div class="g12">'
+      + '<section class="panel c6"><div class="panel-head"><h2>컨셉별 관심 · 실력</h2><span class="legend">별점 0~3 · 노리개 = 방 끝 선물 수</span></div>' + conceptBars(d.concepts) + "</section>"
+      + '<section class="panel c3"><div class="panel-head"><h2>결산 유형</h2><span class="legend">결산 ' + fmtInt(tTotal) + "명</span></div>" + barList(foldTop(types, 6), tTotal) + "</section>"
+      + '<section class="panel c3"><div class="panel-head"><h2>추천받은 지역</h2></div>' + barList(rec, tTotal) + "</section>"
+      + "</div>";
   }
 
   /* ───── 놀이별 — 5열 ───── */
@@ -311,17 +334,17 @@
     var list = d.games.filter(function (g) { return !gf.room || g.room === gf.room; });
     if (gf.sort !== "default") list = sortBy(list, gf.sort, gf.dir);
     var opt = function (v, label, cur) { return '<option value="' + esc(v) + '"' + (v === cur ? " selected" : "") + ">" + esc(label) + "</option>"; };
-    var html = '<section class="panel"><div class="panel-head"><h2>놀이 63종</h2></div>';
-    html += '<div class="filters"><select id="fRoom"><option value="">모든 도</option>' + rooms.map(function (r) { return opt(r.id, r.region + " · " + r.name, gf.room); }).join("") + "</select>"
+    var html = '<section class="panel"><div class="panel-head"><h2>DM 의뢰 놀이 ' + d.games.length + '종</h2><span class="legend">수락률 = 열어 본 DM 중 수락 · 별점 0~3</span></div>';
+    html += '<div class="filters"><select id="fRoom"><option value="">모든 지역</option>' + rooms.map(function (r) { return opt(r.id, r.region + " · " + r.name, gf.room); }).join("") + "</select>"
       + '<span class="cnt">' + list.length + "종</span></div>";
-    var cols = [["room_name", "도"], ["name", "놀이"], ["kind_name", "유형"], ["clear_rate", "성공률", "n"], ["starts", "시도", "n"]];
+    var cols = [["room_name", "지역"], ["name", "놀이"], ["kind_name", "컨셉"], ["accept_rate", "수락률", "n"], ["avg_star", "평균 별점", "n"], ["clear_rate", "성공률", "n"], ["starts", "시도", "n"]];
     html += '<table class="t" id="gamesTable"><thead><tr>' + cols.map(function (c) {
       var sorted = gf.sort === c[0];
       return '<th class="sortable' + (c[2] ? " n" : "") + (sorted ? " sorted" : "") + '" data-sort="' + c[0] + '">' + c[1] + (sorted ? (gf.dir === "asc" ? " ▲" : " ▼") : "") + "</th>";
     }).join("") + "</tr></thead><tbody>";
     list.forEach(function (g) {
       var cr = g.clear_rate, cls = cr == null ? "gray" : cr < 45 ? "bad" : cr >= 92 ? "info" : "good";
-      html += '<tr><td class="pname"><span class="pdot p-' + esc(g.room || "") + '"></span>' + esc(g.room_name) + "</td><td><b>" + esc(g.name) + "</b>" + (g.registered ? "" : ' <span class="badge na">미등록 id</span>') + "</td><td>" + '<span class="badge kind-' + esc(g.kind || "common") + '">' + esc(g.kind_name) + "</span>" + '</td><td class="n"><span class="bar"><span class="' + cls + '" style="width:' + (cr || 0) + '%"></span></span><b>' + fmtPct(cr) + '</b></td><td class="n sub">' + fmtInt(g.starts) + "</td></tr>";
+      html += '<tr><td class="pname"><span class="pdot p-' + esc(g.room || "") + '"></span>' + esc(g.room_name) + "</td><td><b>" + esc(g.name) + "</b>" + (g.registered ? "" : ' <span class="badge na">미등록 id</span>') + "</td><td>" + '<span class="badge kind-' + esc(g.kind || "common") + '">' + esc(g.kind_name) + "</span>" + '</td><td class="n"><b>' + fmtPct(g.accept_rate) + '</b> <span class="sub">' + fmtInt(g.dm_ok) + "/" + fmtInt(g.dm_ok + g.dm_skip) + '</span></td><td class="n"><b>' + (g.avg_star == null ? "—" : "★" + g.avg_star.toFixed(1)) + '</b></td><td class="n"><span class="bar"><span class="' + cls + '" style="width:' + (cr || 0) + '%"></span></span><b>' + fmtPct(cr) + '</b></td><td class="n sub">' + fmtInt(g.starts) + "</td></tr>";
     });
     html += "</tbody></table>";
     if (!list.length) html += '<div class="empty">—</div>';
@@ -348,10 +371,11 @@
       + kpi("화질 자동 하향", fmtPct(s.qd_rate), { meter: { pct: s.qd_rate, cls: "bad" }, sub: fmtInt(s.qd_sessions) + "세션" })
       + kpi("오류 · WebGL 손실", fmtInt(L.sessions) + "<small>세션</small>", { sub: "오류 " + fmtInt(L.total) + "건 · WebGL " + fmtInt(s.wl_sessions) })
       + "</div>";
+    var gifts = sortBy(d.concepts.map(function (c) { return { k: c.orn + " (" + c.name + ")", v: c.gifts }; }), "v", "desc");
     var roles = kv(d.roles).map(function (x, i) { return { k: x.k, v: x.v, color: ["var(--chart-1)", "var(--chart-gold)", "var(--chart-3)", "var(--chart-neutral)"][i] || "var(--chart-neutral)" }; });
     html += '<div class="g12">'
       + '<section class="panel c6"><div class="panel-head"><h2>시간대별 방문</h2><span class="legend">세션 시작 시각 · 최대 칸만 표기</span></div>' + chartbox(function (w) { return hourlyChart(d.hourly, w, 150); }, 150) + "</section>"
-      + '<section class="panel c3"><div class="panel-head"><h2>노리개(직업)</h2></div>' + donut(roles.slice(0, 4), { label: "노리개 선택" }) + "</section>"
+      + '<section class="panel c3"><div class="panel-head"><h2>받은 노리개 장식</h2><span class="legend">방 끝 선물</span></div>' + barList(gifts, sum(gifts, "v")) + "</section>"
       + '<section class="panel c3"><div class="panel-head"><h2>성별 (건수)</h2></div>' + donut(OL.genders, { label: "성별" }) + "</section>"
       + "</div>";
     html += '<div class="g12">'
@@ -398,9 +422,9 @@
   /* ───── 내보내기 / 인쇄 ───── */
   function renderExport(d) {
     var items = [
-      ["demo", "방문자 구성", "동의·나이대·성별·언어·노리개·OS·브라우저"],
+      ["demo", "방문자 구성", "동의·나이대·성별·언어·컨셉·유형·OS·브라우저"],
       ["daily", "일별 방문", "날짜별 방문·완주·시도"],
-      ["games", "놀이별 집계", "63종 시도·성공률·소요·완주 기여"],
+      ["games", "놀이별 집계", "DM 의뢰 놀이별 수락·넘김·별점·시도·성공률"],
       ["rooms", "도별 집계", "8개 방 진입·완료·성공률"],
       ["funnel", "관람 퍼널", "단계별 세션"],
       ["sessions", "세션 목록", "세션 1행(무작위 번호·진행·기기)"],
@@ -435,7 +459,7 @@
     // 2쪽: 기기·동의·노리개·시간대
     html += '<div class="sheet">' + head("접속 기기 · 동의 · 시간대");
     html += '<div class="cols3"><div><h2>운영체제</h2>' + tbl(L.os, dv.total) + '</div><div><h2>브라우저</h2>' + tbl(L.browsers, dv.total) + '</div><div><h2>기기 모델</h2>' + tbl(foldTop(dv.device, 6), dv.total) + "</div></div>";
-    html += '<div class="cols2"><div><h2>동의 · 노리개(직업)</h2><table class="t"><tbody><tr><td>동의율</td><td class="n"><b>' + fmtPct(s.consent_rate) + '</b></td><td class="n">동의 ' + fmtInt(s.consent_agreed) + " · 미동의 " + fmtInt(s.consent_declined) + "</td></tr>" + kv(d.roles).map(function (x) { return "<tr><td>" + esc(x.k) + '</td><td class="n"><b>' + fmtInt(x.v) + '</b></td><td class="n">' + fmtPct(sum(d.roles, "sessions") ? x.v / sum(d.roles, "sessions") * 100 : null) + "</td></tr>"; }).join("") + '</tbody></table></div><div><h2>환경 지표</h2><table class="t"><tbody><tr><td>모바일 비율</td><td class="n"><b>' + fmtPct(s.mobile_rate) + '</b></td></tr><tr><td>인앱 브라우저</td><td class="n"><b>' + fmtPct(s.inapp_rate) + '</b></td></tr><tr><td>센서 권한 거부</td><td class="n"><b>' + fmtPct(s.denied_rate) + '</b></td></tr><tr><td>화질 자동 하향</td><td class="n"><b>' + fmtPct(s.qd_rate) + '</b></td></tr><tr><td>WebGL 손실 세션</td><td class="n"><b>' + fmtInt(s.wl_sessions) + "</b></td></tr></tbody></table></div></div>";
+    html += '<div class="cols2"><div><h2>동의 · 노리개 선물</h2><table class="t"><tbody><tr><td>동의율</td><td class="n"><b>' + fmtPct(s.consent_rate) + '</b></td><td class="n">동의 ' + fmtInt(s.consent_agreed) + " · 미동의 " + fmtInt(s.consent_declined) + "</td></tr>" + d.concepts.map(function (c) { return { k: c.orn + " (" + c.name + ")", v: c.gifts }; }).map(function (x) { return "<tr><td>" + esc(x.k) + '</td><td class="n"><b>' + fmtInt(x.v) + '</b></td><td class="n">' + fmtPct(sum(d.roles, "sessions") ? x.v / sum(d.roles, "sessions") * 100 : null) + "</td></tr>"; }).join("") + '</tbody></table></div><div><h2>환경 지표</h2><table class="t"><tbody><tr><td>모바일 비율</td><td class="n"><b>' + fmtPct(s.mobile_rate) + '</b></td></tr><tr><td>인앱 브라우저</td><td class="n"><b>' + fmtPct(s.inapp_rate) + '</b></td></tr><tr><td>센서 권한 거부</td><td class="n"><b>' + fmtPct(s.denied_rate) + '</b></td></tr><tr><td>화질 자동 하향</td><td class="n"><b>' + fmtPct(s.qd_rate) + '</b></td></tr><tr><td>WebGL 손실 세션</td><td class="n"><b>' + fmtInt(s.wl_sessions) + "</b></td></tr></tbody></table></div></div>";
     html += "<h2>시간대별 방문</h2>" + hourlyChart(d.hourly, PW, 120, true);
     html += foot(2) + "</div>";
 
@@ -443,9 +467,9 @@
     var order = {}; d.catalog.rooms.forEach(function (r, i) { order[r.id] = i; });
     var gs = d.games.slice().sort(function (a, b) { return (order[a.room] - order[b.room]) || (a.no - b.no); });
     var half = Math.ceil(gs.length / 2);
-    var gtbl = function (list) { return '<table class="t tiny"><thead><tr><th>도</th><th>놀이</th><th class="n">시도</th><th class="n">성공률</th><th class="n">완주기여</th></tr></thead><tbody>' + list.map(function (g) { return "<tr><td>" + esc(g.room_name) + "</td><td>" + esc(g.name) + '</td><td class="n">' + fmtInt(g.starts) + '</td><td class="n"><b>' + fmtPct(g.clear_rate) + '</b></td><td class="n">' + fmtInt(g.finishers) + "</td></tr>"; }).join("") + "</tbody></table>"; };
+    var gtbl = function (list) { return '<table class="t tiny"><thead><tr><th>지역</th><th>놀이</th><th class="n">수락률</th><th class="n">별점</th><th class="n">시도</th></tr></thead><tbody>' + list.map(function (g) { return "<tr><td>" + esc(g.room_name) + "</td><td>" + esc(g.name) + '</td><td class="n">' + fmtPct(g.accept_rate) + '</td><td class="n"><b>' + (g.avg_star == null ? "—" : g.avg_star.toFixed(1)) + '</b></td><td class="n">' + fmtInt(g.starts) + "</td></tr>"; }).join("") + "</tbody></table>"; };
     html += '<div class="sheet">' + head("놀이별 · 오류");
-    html += "<h2>놀이 63종 — 시도 · 성공률 · 완주 기여</h2>" + '<div class="cols2">' + gtbl(gs.slice(0, half)) + gtbl(gs.slice(half)) + "</div>";
+    html += "<h2>컨셉별 관심 · 실력</h2>" + conceptBars(d.concepts) + "<h2>DM 의뢰 놀이 — 수락률 · 별점 · 시도</h2>" + '<div class="cols2">' + gtbl(gs.slice(0, half)) + gtbl(gs.slice(half)) + "</div>";
     html += "<h2>오류 요약 — " + fmtInt(d.logs.total) + "건 · " + fmtInt(d.logs.sessions) + "세션</h2>" + (d.logs.grouped.length ? '<table class="t tiny"><thead><tr><th>메시지</th><th>브라우저</th><th class="n">건수</th><th class="n">세션</th></tr></thead><tbody>' + d.logs.grouped.slice(0, 6).map(function (x) { return '<tr><td style="word-break:break-all">' + esc(x.message.slice(0, 70)) + "</td><td>" + esc(x.browser) + " / " + esc(x.os) + '</td><td class="n">' + fmtInt(x.n) + '</td><td class="n">' + fmtInt(x.sessions) + "</td></tr>"; }).join("") + "</tbody></table>" : '<div class="note">기록된 오류 없음</div>');
     html += foot(3) + "</div>";
     return html;

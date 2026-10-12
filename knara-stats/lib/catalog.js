@@ -1,9 +1,14 @@
-/* 「K의 나라」 놀이 카탈로그 63종 — 개발완료보고서(2026-10-11) 기준.
-   ⚠️ type(놀이 id)은 앱 번들 순서로 매핑한 "추정"이다. 연동 시 앱 소스의 놀이 데이터({ role, art, type, ... })에서
-   실제 type 값을 확인해 이 표를 맞춰야 한다. 대시보드는 표에 없는 id가 들어오면 id 원문을 그대로 보여준다(미등록 표시).
-   유형: common=공용, idol=아이돌, chef=셰프, creator=크리에이터 */
+/* 「K의 나라」 카탈로그.
+   지금 게임 = 노리개(DM) 편. 방·놀이 목록은 lib/catalog-dm.js(게임 소스에서 자동 추출 — scripts/extract-dm-catalog.mjs)를 쓴다.
+   아래 LEGACY_ROOMS·RAW(63종)는 옛 직업 편(개발완료보고서 2026-10-11) 기준 기록으로만 남겨 둔다.
+   대시보드는 표에 없는 id가 들어오면 id 원문을 그대로 보여준다(미등록 표시). */
+import { DM_ROOMS, CONCEPTS, DMS, TYPES } from "./catalog-dm.js";
+export { CONCEPTS, TYPES };
 
-export const ROOMS = [
+// 방 이름은 게임과 같게: 권역(호남권…) + 현장 안내판의 한 단어(울림…)
+export const ROOMS = DM_ROOMS.map((r) => ({ id: r.id, region: r.region, name: String(r.name).split(/\s+[–-]\s+/)[0] }));
+
+export const LEGACY_ROOMS = [
   { id: "land", name: "땅의 방", region: "전남" },
   { id: "speech", name: "말의 방", region: "경북" },
   { id: "life", name: "삶의 방", region: "충북·충남" },
@@ -15,6 +20,8 @@ export const ROOMS = [
 ];
 
 export const ROLES = { idol: "아이돌", chef: "셰프", creator: "크리에이터", common: "공용" };
+/* 놀이 유형 이름 — DM 편은 컨셉 6개(뷰티·먹방·음식·관광·여행·전통) */
+export const KIND_NAMES = Object.assign({}, ROLES, Object.fromEntries(Object.entries(CONCEPTS).map(([k, v]) => [k, v.name])));
 export const LANGS = { ko: "한국어", en: "영어", ja: "일본어", zh: "중국어", es: "스페인어" };
 
 // [room, 순번, kind, name, controls, target(0=끝까지 완성), limit_s, type]
@@ -84,16 +91,22 @@ const RAW = [
   ["sea", 7, "common", "진해군항제 벚꽃", "폰 옆으로 옮기기 · 받기", 5, 13, "bsJinhae"],
 ];
 
-export const GAMES = RAW.map(([room, no, kind, name, controls, target, limit_s, type]) => ({
+export const LEGACY_GAMES = RAW.map(([room, no, kind, name, controls, target, limit_s, type]) => ({
   type, room, no, kind, name, controls, target, limit_s,
   // 센서(가속도·회전·마이크) 의존 여부 — 조작 설명에서 추정. 권한 거부 시 대체 조작 분석용.
   sensor: /폰|흔들|기울|응원봉|박수|걸음|휙/.test(controls),
 }));
 
+/* 지금 게임에서 뜨는 놀이 = DM 의뢰 75건(방마다 8~10건, 손님은 그중 3건을 수락해 플레이). kind = 컨셉, controls 자리에 의뢰인 */
+export const GAMES = DMS.map((d) => ({
+  type: d.type, room: d.room, no: d.no, kind: d.concept, name: d.title, controls: d.who,
+  target: null, limit_s: null, sensor: false, temp: d.temp,
+}));
+
 export const GAME_BY_TYPE = Object.fromEntries(GAMES.map((g) => [g.type, g]));
 export const ROOM_BY_ID = Object.fromEntries(ROOMS.map((r) => [r.id, r]));
 
-/** 대시보드에 그대로 내려주는 카탈로그 (클라이언트가 이름·제한시간을 조회) */
+/** 대시보드에 그대로 내려주는 카탈로그 (클라이언트가 이름·컨셉·유형 이름을 조회) */
 export function catalogForClient() {
-  return { rooms: ROOMS, roles: ROLES, langs: LANGS, games: GAMES };
+  return { rooms: ROOMS, roles: ROLES, langs: LANGS, games: GAMES, concepts: CONCEPTS, types: TYPES, kind_names: KIND_NAMES };
 }

@@ -19,6 +19,8 @@ export const EVENTS = new Set([
   "play_start", "play_clear", "play_fail", "play_swap",
   "room_done", "all_done", "result",
   "quality_down", "webgl_lost", "fallback_input", "staff", "demo", "consent",
+  // 노리개(DM) 편: DM 수락·넘김(kind=컨셉, game=놀이, hits=관심 점수), 별점(hits=0~3), 방 끝 노리개 선물, 결산 유형(kind=컨셉쌍, room=추천 지역)
+  "dm_ok", "dm_skip", "star", "gift", "type_result",
 ]);
 const ROOM_IDS = new Set(["land", "speech", "life", "story", "island", "field", "mountain", "sea"]);
 const ROLE_IDS = new Set(["idol", "chef", "creator"]);

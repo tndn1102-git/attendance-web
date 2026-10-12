@@ -3,7 +3,7 @@
    기간 = 세션 시작일(day_kst, KST) 기준 from~to 포함. staff=0 이면 스태프 세션 제외(기본). */
 
 import { query, dbKind, toISO } from "./db.js";
-import { GAME_BY_TYPE, ROOM_BY_ID, ROOMS, ROLES, LANGS, catalogForClient } from "./catalog.js";
+import { GAME_BY_TYPE, ROOM_BY_ID, ROOMS, ROLES, LANGS, KIND_NAMES, CONCEPTS, TYPES, catalogForClient } from "./catalog.js";
 import { toCSV } from "./csv.js";
 
 export const AGE_NAMES = { "10s": "10대", "20s": "20대", "30s": "30대", "40s": "40대", "50s": "50대", "60s+": "60대 이상", skip: "응답 안 함" };
@@ -143,10 +143,14 @@ export async function getStats(q) {
                     SUM(CASE WHEN event='play_fail' THEN hits ELSE 0 END) AS fail_hits,
                     SUM(CASE WHEN event='play_fail' THEN target ELSE 0 END) AS fail_target,
                     SUM(CASE WHEN event='fallback_input' THEN 1 ELSE 0 END) AS fallback_n,
+                    SUM(CASE WHEN event='dm_ok' THEN 1 ELSE 0 END) AS dm_ok,
+                    SUM(CASE WHEN event='dm_skip' THEN 1 ELSE 0 END) AS dm_skip,
+                    SUM(CASE WHEN event='star' THEN 1 ELSE 0 END) AS rated,
+                    SUM(CASE WHEN event='star' THEN hits ELSE 0 END) AS stars,
                     COUNT(DISTINCT CASE WHEN event='play_start' THEN sid END) AS players,
                     MAX(limit_s) AS limit_s, MAX(target) AS target, MAX(room) AS room, MAX(kind) AS kind
              FROM knara_events WHERE ${where(r)} AND game IS NOT NULL
-               AND event IN ('play_start','play_clear','play_fail','play_swap','fallback_input')
+               AND event IN ('play_start','play_clear','play_fail','play_swap','fallback_input','dm_ok','dm_skip','star')
              GROUP BY game`, P),
       query(`SELECT game, event, dur_ms/500 AS b, COUNT(*) AS n FROM knara_events
              WHERE ${where(r)} AND event IN ('play_clear','play_fail') AND dur_ms IS NOT NULL
@@ -184,6 +188,31 @@ export async function getStats(q) {
              WHERE ${where(r, "e")} AND e.event = 'play_clear' AND e.game IS NOT NULL GROUP BY e.game`, P), // $1,$2 를 두 번 참조 — 파라미터는 2개만
     ]);
 
+  // ── 노리개(DM) 편: 컨셉별 관심(DM 수락·넘김)·실력(별점), 방 끝 노리개 선물, 결산 유형, 추천 지역
+  const [conceptRows, giftRows, typeRows, recRows] = await Promise.all([
+    query(`SELECT kind,
+                  SUM(CASE WHEN event='dm_ok' THEN 1 ELSE 0 END) AS ok,
+                  SUM(CASE WHEN event='dm_skip' THEN 1 ELSE 0 END) AS skip,
+                  SUM(CASE WHEN event='star' THEN 1 ELSE 0 END) AS rated,
+                  SUM(CASE WHEN event='star' THEN hits ELSE 0 END) AS stars,
+                  SUM(CASE WHEN event='star' AND hits=3 THEN 1 ELSE 0 END) AS s3,
+                  SUM(CASE WHEN event='star' AND hits=0 THEN 1 ELSE 0 END) AS s0
+           FROM knara_events WHERE ${where(r)} AND event IN ('dm_ok','dm_skip','star') AND kind IS NOT NULL GROUP BY kind`, P),
+    query(`SELECT kind, COUNT(*) AS n FROM knara_events WHERE ${where(r)} AND event='gift' AND kind IS NOT NULL GROUP BY kind`, P),
+    query(`SELECT kind, COUNT(DISTINCT sid) AS sessions FROM knara_events WHERE ${where(r)} AND event='type_result' AND kind IS NOT NULL GROUP BY kind`, P),
+    query(`SELECT room, COUNT(DISTINCT sid) AS sessions FROM knara_events WHERE ${where(r)} AND event='type_result' AND room IS NOT NULL GROUP BY room`, P),
+  ]);
+  const concepts = Object.keys(CONCEPTS).map((k) => {
+    const x = conceptRows.find((y) => y.kind === k) || {}, g = giftRows.find((y) => y.kind === k) || {};
+    const ok = n(x.ok), skip = n(x.skip), rated = n(x.rated);
+    return { concept: k, name: CONCEPTS[k].name, orn: CONCEPTS[k].orn, ok, skip, accept_rate: rate(ok, ok + skip),
+      rated, avg_star: rated ? Math.round((n(x.stars) / rated) * 100) / 100 : null, star3_rate: rate(n(x.s3), rated), star0_rate: rate(n(x.s0), rated),
+      gifts: n(g.n) };
+  });
+  const types = Object.keys(TYPES).map((k) => ({ type: k, name: TYPES[k].name, sessions: n((typeRows.find((y) => y.kind === k) || {}).sessions) }))
+    .concat(typeRows.filter((y) => !TYPES[y.kind]).map((y) => ({ type: y.kind, name: y.kind + " (미등록)", sessions: n(y.sessions) })));
+  const recommend = ROOMS.map((rm) => ({ room: rm.id, name: rm.region, sessions: n((recRows.find((y) => y.room === rm.id) || {}).sessions) }));
+
   const s = summaryRows[0] || {};
   const pv = prevRows[0] || {};
   const visits = n(s.visits);
@@ -194,13 +223,13 @@ export async function getStats(q) {
   const funnel = [
     ["enter", "입장(첫 화면)", visits],
     ["sensor", "센서 권한 응답", n(s.sensor)],
-    ["role", "노리개(직업) 선택", n(s.role_picked)],
+    ["role", "채널 개설", n(s.role_picked)],
     ["map", "메인 지도", n(s.map)],
     ["room_enter", "방(도) 진입", n(s.room_entered)],
     ["play_start", "첫 놀이 시작", n(s.played)],
     ["room_done", "도 1개 이상 완료", n(s.room_done)],
-    ["all_done", "8색 완주", finished],
-    ["result", "결과 카드 도달", n(s.result)],
+    ["all_done", "8개 지역 완주", finished],
+    ["result", "채널 결산 도달", n(s.result)],
   ].map(([key, label, sessions], i, arr) => ({
     key, label, sessions,
     pct_of_visits: rate(sessions, visits),
@@ -252,7 +281,7 @@ export async function getStats(q) {
       room_name: cat ? ROOM_BY_ID[cat.room].region : ((x && x.room) || "—"),
       no: cat ? cat.no : null,
       kind: cat ? cat.kind : (x && x.kind) || null,
-      kind_name: ROLES[cat ? cat.kind : (x && x.kind)] || "기타",
+      kind_name: KIND_NAMES[cat ? cat.kind : (x && x.kind)] || "기타",
       name: cat ? cat.name : type + " (미등록)",
       controls: cat ? cat.controls : "",
       sensor: cat ? cat.sensor : null,
@@ -265,6 +294,9 @@ export async function getStats(q) {
       ratio_to_limit: qc.median != null && limit ? Math.round((qc.median / limit) * 100) : null,
       fail_progress: x && n(x.fail_target) > 0 ? Math.round((n(x.fail_hits) / n(x.fail_target)) * 100) : null,
       verdict,
+      dm_ok: n(x && x.dm_ok), dm_skip: n(x && x.dm_skip),
+      accept_rate: rate(n(x && x.dm_ok), n(x && x.dm_ok) + n(x && x.dm_skip)),
+      rated: n(x && x.rated), avg_star: n(x && x.rated) ? Math.round((n(x.stars) / n(x.rated)) * 100) / 100 : null,
     };
   };
   const gameMap = Object.fromEntries(gameRows.map((x) => [x.game, x]));
@@ -327,7 +359,7 @@ export async function getStats(q) {
     total_time_hist: totalHist.map((h) => ({ from_sec: n(h.b) * 10, n: n(h.n) })).sort((a, b) => a.from_sec - b.from_sec),
     daily: daily.map((d) => ({ day: d.day, visits: n(d.visits), finished: n(d.finished), plays: n(d.plays) })),
     hourly: Array.from({ length: 24 }, (_, h) => ({ hour: h, visits: n((hourly.find((x) => n(x.hour) === h) || {}).visits) })),
-    rooms, games,
+    rooms, games, concepts, types, recommend,
     ages: ["10s", "20s", "30s", "40s", "50s", "60s+", "skip"].map((k) => ({ age: k, name: AGE_NAMES[k], sessions: n((ageRows.find((x) => x.age === k) || {}).sessions) })),
     genders: ["f", "m", "other", "skip"].map((k) => ({ gender: k, name: GENDER_NAMES[k], sessions: n((genderRows.find((x) => x.gender === k) || {}).sessions) })),
     today: { day: kstToday(), visits: n(todayRows[0] && todayRows[0].visits), finished: n(todayRows[0] && todayRows[0].finished) },
@@ -363,8 +395,9 @@ export async function exportCSV(q) {
     const st = await getStats(q);
     if (kind === "games") {
       const rows = st.games.map((g) => ({
-        도: g.room_name, 순번: g.no, 놀이: g.name, 놀이id: g.game, 유형: g.kind_name, 조작: g.controls,
-        목표: g.target, 제한초: g.limit_s, 시도: g.starts, 플레이어수: g.players, 성공: g.clears, 실패: g.fails, "성공률%": g.clear_rate, 완주기여세션: g.finishers,
+        지역: g.room_name, 순번: g.no, 놀이: g.name, 놀이id: g.game, 컨셉: g.kind_name, 의뢰인: g.controls,
+        DM수락: g.dm_ok, DM넘김: g.dm_skip, "수락률%": g.accept_rate, 별점판수: g.rated, 평균별점: g.avg_star,
+        시도: g.starts, 플레이어수: g.players, 성공: g.clears, 실패: g.fails, "성공률%": g.clear_rate, 완주기여세션: g.finishers,
         시간초과실패: g.timeouts, 실패시진척도: g.fail_progress, 교체: g.swaps_out, 대체조작: g.fallback_n,
         성공소요중앙값초: g.median_clear_sec, 성공소요p25: g.p25_clear_sec, 성공소요p75: g.p75_clear_sec, "소요대비제한%": g.ratio_to_limit, 판정: g.verdict,
       }));
@@ -384,7 +417,11 @@ export async function exportCSV(q) {
         st.ages.map((x) => ({ 구분: "나이대", 값: x.name, 세션: x.sessions })),
         st.genders.map((x) => ({ 구분: "성별", 값: x.name, 세션: x.sessions })),
         st.langs.map((x) => ({ 구분: "언어", 값: x.name, 세션: x.sessions })),
-        st.roles.map((x) => ({ 구분: "노리개", 값: x.name, 세션: x.sessions })),
+        st.concepts.map((x) => ({ 구분: "컨셉 DM 수락(건)", 값: x.name, 세션: x.ok })),
+        st.concepts.map((x) => ({ 구분: "컨셉 DM 넘김(건)", 값: x.name, 세션: x.skip })),
+        st.concepts.map((x) => ({ 구분: "노리개 선물(건)", 값: x.orn + "(" + x.name + ")", 세션: x.gifts })),
+        st.types.map((x) => ({ 구분: "결산 유형", 값: x.name, 세션: x.sessions })),
+        st.recommend.map((x) => ({ 구분: "추천 지역", 값: x.name, 세션: x.sessions })),
         st.devices.os.map((x) => ({ 구분: "OS", 값: x.k, 세션: x.v })),
         st.devices.browser.map((x) => ({ 구분: "브라우저", 값: x.k, 세션: x.v })));
       return { filename: fname("demo"), csv: toCSV(["구분", "값", "세션"], rows) };
