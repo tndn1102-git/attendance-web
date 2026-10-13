@@ -286,7 +286,7 @@
     REQUIRE_CONSENT: false,                                // true = 동의 없이는 입장 불가("동의 없이 시작" 링크 숨김)
     PASS_LANG_QUERY: true,                                 // 게임 주소에 ?lang= 를 붙여 넘김(게임 쪽 지원 여부는 소스 확인)
     HANDOFF_SESSION: true,                                 // 게임이 다른 origin 이면 ?sid=&s0=(&kstat=off) 를 붙여 세션을 잇는다
-    RETENTION: { events: 400, logs: 180 }                  // 보존기간(일) — docs/데이터명세.md 와 같아야 한다
+    RETENTION: { events: 120, logs: 120 }                  // 보존기간(일) — 120일 뒤 `npm run wipe` 로 전부 수동 삭제
   };
 
   function $(id) { return document.getElementById(id); }

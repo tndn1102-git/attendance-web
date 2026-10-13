@@ -13,16 +13,12 @@
     "seed": "node scripts/seed.js",
     "verify": "node scripts/verify.js",
     "screenshots": "node scripts/screenshots.js",
-    "purge": "node scripts/purge.js",
-    "check-db": "node scripts/smoke-db.js",
+    "wipe": "node scripts/wipe.mjs",
     "deploy": "wrangler deploy",
     "edit-entry": "node scripts/entry-editor.js",
     "check": "node --check server.js && node --check track.js && node --check assets/dash.js && node scripts/lint.js",
     "edit-sample": "node docs/sample-puzzle/edit.mjs",
     "shoot-sample": "node docs/sample-puzzle/shoot.mjs",
     "edit-report": "node docs/client-report/edit.mjs"
-  },
-  "dependencies": {
-    "pg": "^8.13.0"
   }
 }

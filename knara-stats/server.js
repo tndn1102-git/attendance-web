@@ -1,5 +1,5 @@
-/* 독립 Node 서버 진입점 — 발주처 서버·로컬 검증용. Vercel 과 같은 lib/http.js 를 감싼다.
-   실행:  DATABASE_URL=... STATS_KEY=... node server.js   (PORT 기본 8787)
+/* 로컬 시험 서버 — 운영(Workers)과 같은 lib/http.js 를 감싼다. DB 는 로컬 SQLite 파일(D1 과 같은 방언).
+   실행:  node server.js   (.env 의 DATABASE_URL=sqlite:./data/knara.db, STATS_KEY. PORT 기본 8787)
    정적 파일(대시보드·수집 스니펫)은 화이트리스트로만 서빙한다. */
 
 import http from "node:http";

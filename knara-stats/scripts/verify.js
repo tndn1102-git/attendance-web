@@ -111,7 +111,7 @@ function median(arr) { if (!arr.length) return null; const s = arr.slice().sort(
   check("키 없는 요청 거부(401)", 401, r3.status);
   const r4 = await fetch(`${BASE}/api/export?kind=games&${q}`, { headers: { "x-stats-key": KEY } });
   const csv = await r4.text();
-  check("CSV 내보내기 행 수(헤더+63)", 64, csv.trim().split(/\r?\n/).length);
+  check("CSV 내보내기 행 수(헤더+놀이 수)", (d2.games || []).length + 1, csv.trim().split(/\r?\n/).length);
 
   // 출력
   const fails = results.filter((x) => !x.ok);

@@ -445,7 +445,7 @@
     var html = '<div class="grid c2 no-print"><section class="panel exports"><h2>CSV — ' + esc(d.range.from) + " ~ " + esc(d.range.to) + (d.range.include_staff ? " (스태프 포함)" : "") + "</h2>";
     items.forEach(function (it) { html += '<div class="row"><div><b>' + it[1] + '</b><div class="d">' + it[2] + '</div></div><button class="btn ghost" type="button" data-csv="' + it[0] + '">CSV 받기</button></div>'; });
     html += "</section>";
-    html += '<section class="panel"><h2>인쇄 보고서</h2><div class="report-tools"><button class="btn" type="button" id="btnPrint">인쇄 / PDF 저장</button><span class="muted" style="font-size:12.5px">A4 3장</span></div><div class="mini">마지막 수집 ' + kst(d.last_event_at) + " · 저장소 " + (d.db === "pg" ? "Postgres" : "SQLite(검증용)") + "</div></section></div>";
+    html += '<section class="panel"><h2>인쇄 보고서</h2><div class="report-tools"><button class="btn" type="button" id="btnPrint">인쇄 / PDF 저장</button><span class="muted" style="font-size:12.5px">A4 3장</span></div><div class="mini">마지막 수집 ' + kst(d.last_event_at) + " · 저장소 " + (d.db === "d1" ? "Cloudflare D1" : "로컬 SQLite(시험용)") + "</div></section></div>";
     html += renderReport(d);
     return html;
   }
@@ -498,7 +498,7 @@
     $("fromDate").value = state.from; $("toDate").value = state.to;
     $("rangeLabel").innerHTML = esc(d.range.from) + " ~ " + esc(d.range.to) + "<small>" + d.range.days + "일" + (d.range.include_staff ? " · 스태프 포함" : "") + "</small>";
     $("lastAt").innerHTML = "마지막 수집 <b>" + esc(kst(d.last_event_at)) + "</b>";
-    $("dbInfo").textContent = "생성 " + kst(d.generated_at) + " · " + (d.db === "pg" ? "Postgres" : "SQLite(검증용)") + " · 한국 표준시";
+    $("dbInfo").textContent = "생성 " + kst(d.generated_at) + " · " + (d.db === "d1" ? "Cloudflare D1" : "로컬 SQLite(시험용)") + " · 한국 표준시";
     var v = state.view, html;
     CH = {};
     if (v === "games") html = renderGames(d);

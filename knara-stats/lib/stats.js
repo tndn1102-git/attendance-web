@@ -1,5 +1,5 @@
 /* 집계 — 대시보드 1회 로드에 필요한 모든 수치를 한 번에 돌려준다.
-   원칙: 무거운 묶기(GROUP BY)는 SQL, 중앙값·판정 같은 마무리는 Node. SQL 은 Postgres/SQLite 공통 부분집합만 사용.
+   원칙: 무거운 묶기(GROUP BY)는 SQL, 중앙값·판정 같은 마무리는 Node. SQL 은 SQLite(D1) 방언.
    기간 = 세션 시작일(day_kst, KST) 기준 from~to 포함. staff=0 이면 스태프 세션 제외(기본). */
 
 import { query, batcher, dbKind, toISO } from "./db.js";
@@ -457,14 +457,4 @@ export async function exportCSV(q) {
     return { filename: fname("logs"), csv: toCSV(H, rows.map((x) => ({ ...x, event_at: toISO(x.event_at) }))) };
   }
   throw Object.assign(new Error("unknown_kind"), { status: 400 });
-}
-
-/* ───── 보존기간 정리 ───── */
-export async function purge({ eventDays = 400, logDays = 180 } = {}) {
-  const cutE = addDays(kstToday(), -eventDays);
-  const cutL = addDays(kstToday(), -logDays);
-  await query(`DELETE FROM knara_events WHERE day_kst < $1`, [cutE]);
-  await query(`DELETE FROM knara_sessions WHERE day_kst < $1`, [cutE]);
-  await query(`DELETE FROM knara_logs WHERE day_kst < $1`, [cutL]);
-  return { events_before: cutE, logs_before: cutL };
 }

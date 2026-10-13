@@ -1,4 +1,4 @@
-/* 라우터 — 진입점(Vercel 함수 / 독립 Node 서버)이 공통으로 감싸는 핸들러.
+/* 라우터 — 진입점(Workers = worker.js / 로컬 시험 서버 = server.js)이 공통으로 감싸는 핸들러.
    ctx = { method, path, query:{}, headers:{소문자 키}, body: string|object|null }
    반환 = { status, headers, body(string) }                                                      */
 
@@ -72,13 +72,13 @@ export async function handle(ctx) {
   return json(404, { error: "not_found" });
 }
 
-/* Node http / Vercel (req,res) 어댑터 */
+/* Node http (req,res) 어댑터 — 로컬 시험 서버용 */
 export async function nodeHandler(req, res) {
   try {
     const url = new URL(req.url, "http://local");
     const headers = {};
     for (const [k, v] of Object.entries(req.headers || {})) headers[k.toLowerCase()] = Array.isArray(v) ? v[0] : v;
-    let body = req.body; // Vercel 은 content-type 에 따라 미리 파싱해 둔다(object 또는 string)
+    let body = req.body;
     if (body === undefined && (req.method === "POST" || req.method === "PUT")) body = await readBody(req, 256 * 1024);
     const r = await handle({ method: req.method, path: url.pathname, query: Object.fromEntries(url.searchParams), headers, body });
     res.statusCode = r.status;
