@@ -1,0 +1,3446 @@
+{
+ "DO": [
+  {
+   "id": "jn",
+   "name": "전남",
+   "sub": "담양·여수·장흥·순천·진도",
+   "s2multi": true,
+   "s4": "text",
+   "lockNote": "",
+   "s1": [
+    [
+     "담양 죽녹원",
+     "2.4km 대숲 산책길",
+     "T",
+     "S",
+     0,
+     1
+    ],
+    [
+     "장흥 편백숲 산림욕",
+     "편백 향 맡으며 숲길 걷기",
+     "B",
+     "H",
+     1,
+     -1
+    ],
+    [
+     "순천 낙안읍성",
+     "초가가 그대로 남은 조선 읍성",
+     "H",
+     "",
+     0,
+     1
+    ],
+    [
+     "여수 밤바다",
+     "색이 바뀌는 다리 야경",
+     "S",
+     "",
+     0,
+     -1
+    ]
+   ],
+   "s2": [
+    [
+     "장흥 매생이 한 상",
+     "바다 향 가득 매생이전",
+     "B",
+     "M"
+    ],
+    [
+     "담양 대통밥",
+     "대나무 통에 지은 밥",
+     "H",
+     "F"
+    ],
+    [
+     "여수 돌게장 백반",
+     "밥도둑 한 숟갈",
+     "M",
+     "",
+     1
+    ],
+    [
+     "담양 떡갈비 굽기",
+     "다진 갈빗살을 빚어 구움",
+     "F",
+     ""
+    ]
+   ],
+   "s3": [
+    [
+     "돌게장 한 숟갈 리액션",
+     "게딱지에 밥 쓱쓱",
+     "M",
+     ""
+    ],
+    [
+     "꼬막정식 한입",
+     "쫄깃한 꼬막 무침 쓱쓱",
+     "F",
+     "B"
+    ],
+    [
+     "진도 바닷길 걷기 브이로그",
+     "열린 바닷길 따라 섬까지",
+     "S",
+     "T"
+    ],
+    [
+     "무등산 장불재 오르기",
+     "억새 능선 따라 고개로",
+     "T",
+     "",
+     1
+    ]
+   ]
+  },
+  {
+   "id": "gb",
+   "name": "경북",
+   "sub": "경주·대구·안동·영덕·문경",
+   "s2multi": false,
+   "s4": "slider",
+   "lockNote": "",
+   "s1": [
+    [
+     "경주 첨성대 야경",
+     "별 아래 신라 천문대",
+     "S",
+     "",
+     0,
+     -1
+    ],
+    [
+     "부용대에서 본 하회마을",
+     "강이 감싸 도는 마을 내려다보기",
+     "T",
+     "H",
+     1,
+     -1
+    ],
+    [
+     "경주 대릉원 한복 나들이",
+     "한복 입고 고분 사이 걷기",
+     "B",
+     "",
+     0,
+     1
+    ],
+    [
+     "하회별신굿탈놀이",
+     "탈 쓰고 한 마당",
+     "H",
+     "",
+     0,
+     1
+    ]
+   ],
+   "s2": [
+    [
+     "서문시장 야시장",
+     "매대 80여 개 불빛 골목",
+     "S",
+     "M"
+    ],
+    [
+     "상주 곶감 길손 간식",
+     "처마 밑 주렁주렁",
+     "T",
+     ""
+    ],
+    [
+     "영덕대게",
+     "다리 긴 겨울 대게",
+     "M",
+     "",
+     1
+    ],
+    [
+     "대구 막창구이",
+     "석쇠에 굽는 돼지막창",
+     "F",
+     ""
+    ]
+   ],
+   "s3": [
+    [
+     "대릉원 한복 스냅",
+     "고분 앞 한복 한 컷",
+     "B",
+     ""
+    ],
+    [
+     "문경 찻사발 물레 체험",
+     "물레 위에서 흙 빚기",
+     "H",
+     "S"
+    ],
+    [
+     "대게 다리 쏙 리액션",
+     "살 한 번에 빼기",
+     "M",
+     "",
+     1
+    ],
+    [
+     "막창 굽는 법",
+     "뒤집는 타이밍이 생명",
+     "F",
+     "M"
+    ]
+   ]
+  },
+  {
+   "id": "cc",
+   "name": "충청",
+   "sub": "단양·태안·아산·세종·보령·공주",
+   "s2multi": false,
+   "s4": "text",
+   "lockNote": "",
+   "s1": [
+    [
+     "단양 구경시장",
+     "마늘 순대·마늘빵 먹거리 시장",
+     "M",
+     "",
+     0,
+     1
+    ],
+    [
+     "광천 토굴새우젓 시장",
+     "토굴에서 익힌 새우젓",
+     "F",
+     "T",
+     1,
+     -1
+    ],
+    [
+     "단양 도담삼봉",
+     "강 위 세 봉우리",
+     "S",
+     "",
+     0,
+     -1
+    ],
+    [
+     "아산 외암민속마을 돌담길",
+     "돌담 따라 걷는 양반 마을",
+     "T",
+     "",
+     0,
+     1
+    ]
+   ],
+   "s2": [
+    [
+     "태안 조개구이",
+     "불판 위 가리비 톡톡",
+     "M",
+     ""
+    ],
+    [
+     "태안 게국지",
+     "게장 국물 김치로 끓인 찌개",
+     "F",
+     "B"
+    ],
+    [
+     "금산 인삼 삼계탕",
+     "수삼 한 뿌리 통째로",
+     "B",
+     "",
+     1
+    ],
+    [
+     "보은 대추 한 줌",
+     "가을 축제의 달달한 대추",
+     "H",
+     "F"
+    ]
+   ],
+   "s3": [
+    [
+     "세종호수공원 야경 드론샷",
+     "호수에 비친 도시 불빛",
+     "S",
+     ""
+    ],
+    [
+     "대천 스카이바이크 1인칭",
+     "바다 위 레일을 달리기",
+     "T",
+     "S"
+    ],
+    [
+     "초정 광천수 족욕",
+     "탄산 광천수에 발 담그기",
+     "B",
+     "",
+     1
+    ],
+    [
+     "백제문화제 금강 유등 촬영",
+     "강 위에 뜬 백제 등불",
+     "H",
+     ""
+    ]
+   ]
+  },
+  {
+   "id": "sg",
+   "name": "서울·경기",
+   "sub": "서울·수원·인천·양평·포천·광명",
+   "s2multi": true,
+   "s4": "slider",
+   "lockNote": "",
+   "s1": [
+    [
+     "수원 화성 성곽길",
+     "성곽 따라 걷기",
+     "T",
+     "H",
+     0,
+     1
+    ],
+    [
+     "경복궁 한복 나들이",
+     "한복 입고 궁궐 한 바퀴",
+     "B",
+     "",
+     0,
+     1
+    ],
+    [
+     "수원 화성행궁",
+     "정조가 머물던 행궁",
+     "H",
+     "",
+     1,
+     -1
+    ],
+    [
+     "양평 두물머리",
+     "두 강이 만나는 물안개 나루",
+     "S",
+     "",
+     0,
+     -1
+    ]
+   ],
+   "s2": [
+    [
+     "이천 쌀밥 한 상",
+     "임금님 진상미 돌솥밥",
+     "B",
+     ""
+    ],
+    [
+     "포천 이동갈비",
+     "잘게 자른 양념 소갈비",
+     "H",
+     "F"
+    ],
+    [
+     "광장시장 빈대떡",
+     "갓 부친 녹두전",
+     "M",
+     "",
+     1
+    ],
+    [
+     "차이나타운 공갈빵",
+     "속이 텅 빈 바삭한 빵",
+     "F",
+     "S"
+    ]
+   ],
+   "s3": [
+    [
+     "빈대떡 뒤집고 한입",
+     "찢어서 호호",
+     "M",
+     "",
+     1
+    ],
+    [
+     "공갈빵 톡 깨기",
+     "바삭! 깨서 한입",
+     "F",
+     ""
+    ],
+    [
+     "광명동굴 탐험 라이브",
+     "폐광이 바뀐 빛의 동굴",
+     "S",
+     ""
+    ],
+    [
+     "수원화성 국궁 체험",
+     "연무대에서 활쏘기",
+     "T",
+     "H"
+    ]
+   ]
+  },
+  {
+   "id": "jj",
+   "name": "제주",
+   "sub": "성산·조천·우도·서귀포",
+   "s2multi": false,
+   "s4": "text",
+   "lockNote": "",
+   "s1": [
+    [
+     "성산일출봉",
+     "해 뜨는 분화구",
+     "S",
+     "",
+     0,
+     1
+    ],
+    [
+     "감귤 따기 농장",
+     "겨울 귤밭",
+     "T",
+     "",
+     1,
+     -1
+    ],
+    [
+     "사려니숲길 숲 산책",
+     "삼나무 숲 피톤치드 산책",
+     "B",
+     "",
+     0,
+     -1
+    ],
+    [
+     "성산 해녀 물질",
+     "숨비소리 들리는 바다",
+     "H",
+     "T",
+     0,
+     1
+    ]
+   ],
+   "s2": [
+    [
+     "동문시장 해산물 매대",
+     "전복·갈치 가득한 시장",
+     "S",
+     "M"
+    ],
+    [
+     "우도 땅콩 아이스크림",
+     "땅콩 듬뿍 섬 간식",
+     "T",
+     ""
+    ],
+    [
+     "흑돼지 불고기",
+     "철판에 지글지글",
+     "M",
+     ""
+    ],
+    [
+     "고기국수",
+     "돼지 국물 국수",
+     "F",
+     "",
+     1
+    ]
+   ],
+   "s3": [
+    [
+     "사려니숲 숲멍 브이로그",
+     "삼나무 아래 심호흡",
+     "B",
+     ""
+    ],
+    [
+     "해녀 물질 숨참기",
+     "숨 참고 쏙",
+     "H",
+     "",
+     1
+    ],
+    [
+     "흑돼지 한 점 리액션",
+     "지글지글",
+     "M",
+     ""
+    ],
+    [
+     "고기국수 후루룩",
+     "수육 한 점 올려 한입",
+     "F",
+     "M"
+    ]
+   ]
+  },
+  {
+   "id": "jb",
+   "name": "전북",
+   "sub": "전주·김제·남원·고창·군산",
+   "s2multi": true,
+   "s4": "slider",
+   "lockNote": "",
+   "s1": [
+    [
+     "전주 한옥마을 골목",
+     "먹거리 가득한 골목",
+     "M",
+     "S",
+     0,
+     1
+    ],
+    [
+     "김제 지평선 들판",
+     "끝없는 황금 들판",
+     "F",
+     "T",
+     1,
+     -1
+    ],
+    [
+     "남원 광한루원",
+     "춘향 이야기의 정원",
+     "S",
+     "H",
+     0,
+     -1
+    ],
+    [
+     "고창 고인돌 유적",
+     "세계유산 고인돌 사이 산책",
+     "T",
+     "",
+     0,
+     1
+    ]
+   ],
+   "s2": [
+    [
+     "전주비빔밥",
+     "쓱쓱 비벼 크게 한입",
+     "M",
+     ""
+    ],
+    [
+     "순창 한정식",
+     "장 맛 반찬이 가득한 한 상",
+     "F",
+     ""
+    ],
+    [
+     "부안 바지락죽",
+     "속 데우는 뽀얀 죽",
+     "B",
+     ""
+    ],
+    [
+     "고창 풍천장어",
+     "복분자 양념 장어구이",
+     "H",
+     "",
+     1
+    ]
+   ],
+   "s3": [
+    [
+     "군산 근대 건물 롱테이크",
+     "옛 은행 건물 앞 한 번에",
+     "S",
+     ""
+    ],
+    [
+     "지평선축제 논그림 드론샷",
+     "하늘에서 본 황금 들판",
+     "T",
+     "F"
+    ],
+    [
+     "한복 입고 한옥길 걷기",
+     "치마 자락 날리며",
+     "B",
+     "H"
+    ],
+    [
+     "남원 춘향제 부채춤",
+     "부채 꽃이 활짝",
+     "H",
+     "",
+     1
+    ]
+   ]
+  },
+  {
+   "id": "gw",
+   "name": "강원",
+   "sub": "평창·강릉·춘천·양양·속초",
+   "s2multi": false,
+   "s4": "slider",
+   "lockNote": "11/11 공개",
+   "s1": [
+    [
+     "평창 스키점프대",
+     "점프대 꼭대기",
+     "T",
+     "",
+     0,
+     1
+    ],
+    [
+     "양양 오색약수",
+     "톡 쏘는 약수 한 모금",
+     "B",
+     "H",
+     1,
+     -1
+    ],
+    [
+     "관노가면극 마당",
+     "말 없는 탈춤",
+     "H",
+     "",
+     0,
+     1
+    ],
+    [
+     "정동진 해돋이",
+     "바다 옆 기차역",
+     "S",
+     "",
+     0,
+     -1
+    ]
+   ],
+   "s2": [
+    [
+     "초당 순두부",
+     "바닷물 간수로 몽글",
+     "B",
+     "F"
+    ],
+    [
+     "감자옹심이",
+     "감자로 빚은 새알",
+     "H",
+     "",
+     1
+    ],
+    [
+     "춘천 닭갈비",
+     "철판에 볶음밥까지",
+     "M",
+     ""
+    ],
+    [
+     "평창 메밀 막국수",
+     "새콤달콤 비벼 한 그릇",
+     "F",
+     ""
+    ]
+   ],
+   "s3": [
+    [
+     "닭갈비 철판 볶기",
+     "철판 위 지글지글",
+     "M",
+     ""
+    ],
+    [
+     "곤드레밥 한 숟갈",
+     "산나물 향 가득 한입",
+     "F",
+     "",
+     1
+    ],
+    [
+     "울산바위 타임랩스",
+     "눈 덮인 바위산 1분",
+     "S",
+     ""
+    ],
+    [
+     "스키점프",
+     "날아 봐요",
+     "T",
+     "S"
+    ]
+   ]
+  },
+  {
+   "id": "gn",
+   "name": "경남",
+   "sub": "부산·통영·진주·울산·하동·남해",
+   "s2multi": true,
+   "s4": "text",
+   "lockNote": "",
+   "s1": [
+    [
+     "부산 감천문화마을",
+     "알록달록 계단 마을",
+     "S",
+     "",
+     0,
+     -1
+    ],
+    [
+     "통영 바다길",
+     "섬 사이 케이블카",
+     "T",
+     "",
+     0,
+     1
+    ],
+    [
+     "영화의전당 레드카펫",
+     "포토월 서기 전",
+     "B",
+     "S",
+     0,
+     1
+    ],
+    [
+     "진주 남강 유등",
+     "강 위 수천 개 등",
+     "H",
+     "",
+     1,
+     -1
+    ]
+   ],
+   "s2": [
+    [
+     "울산 언양불고기",
+     "석쇠에 구운 양념 한우",
+     "S",
+     ""
+    ],
+    [
+     "통영 충무김밥",
+     "뱃길 도시락",
+     "T",
+     "M"
+    ],
+    [
+     "남포동 씨앗호떡",
+     "씨앗 꽉 채운 호떡",
+     "M",
+     "",
+     1
+    ],
+    [
+     "통영 멍게비빔밥",
+     "바다 향 멍게 쓱쓱 비비기",
+     "F",
+     ""
+    ]
+   ],
+   "s3": [
+    [
+     "하동 야생차밭 산책",
+     "지리산 자락 녹차 향",
+     "B",
+     ""
+    ],
+    [
+     "남강 유등 야경 촬영",
+     "강 위 등불 담기",
+     "H",
+     "",
+     1
+    ],
+    [
+     "언양불고기 한 점 리액션",
+     "석쇠에서 바로 한입",
+     "M",
+     "S"
+    ],
+    [
+     "남해 죽방렴 드론샷",
+     "물살로 멸치 잡는 대나무 발",
+     "F",
+     "T"
+    ]
+   ]
+  }
+ ],
+ "S4TEXT": [
+  [
+   "시네마틱 — 색보정까지 공들여",
+   -2,
+   -1
+  ],
+  [
+   "숏폼 — 컷컷컷 빠르게",
+   -1,
+   1
+  ],
+  [
+   "라이브 — 지금 바로 생중계",
+   2,
+   1
+  ],
+  [
+   "브이로그 — 있는 그대로 담담하게",
+   1,
+   -1
+  ]
+ ],
+ "E24": {
+  "B": {
+   "bc": [
+    "세계로 간 K-뷰티",
+    "팔도에서 찍은 뷰티 영상이 바다를 건넜다",
+    "해외 뷰티 박람회 초청 연사"
+   ],
+   "dc": [
+    "규방 화장 복원가",
+    "옛 분첩과 향갑의 쓰임을 되살렸다",
+    "박물관 상설 영상 채택"
+   ],
+   "lv": [
+    "팝업 라이브 완판",
+    "라이브 한 번에 공방 선반이 비었다",
+    "지역 공방 완판"
+   ],
+   "vl": [
+    "장날 꽃단장 사진관",
+    "장날마다 어르신들 화보를 찍어 드렸다",
+    "마을회관 사진전"
+   ]
+  },
+  "M": {
+   "bc": [
+    "팔도 먹방 예능 고정",
+    "한 숟갈 리액션이 금요일 밤 예능이 됐다",
+    "TV 예능 고정 출연"
+   ],
+   "dc": [
+    "다시 올라간 셔터",
+    "문 닫으려던 노포가 다시 문을 열었다",
+    "노포를 살림"
+   ],
+   "lv": [
+    "야시장 라이브 레전드",
+    "야시장 생중계 동시접속 신기록",
+    "라이브 최고 기록"
+   ],
+   "vl": [
+    "동네 사랑방 채널",
+    "구독자 312명, 모두 이름을 아는 사람들",
+    "작지만 매일 안부를 묻는 채널"
+   ]
+  },
+  "F": {
+   "bc": [
+    "요리 경연 심사위원",
+    "팔도 손맛을 아는 사람으로 불려 갔다",
+    "요리 프로그램 심사위원"
+   ],
+   "dc": [
+    "손맛 받아쓰기",
+    "\"간장은 한 숟갈쯤\"을 처음 글로 남겼다",
+    "팔도 레시피 책 출간"
+   ],
+   "lv": [
+    "장터 라이브 완판왕",
+    "라이브 한 번에 농가 창고가 비었다",
+    "특산물 완판"
+   ],
+   "vl": [
+    "할머니 손맛 브이로그",
+    "할머니 옆에서 배운 대로 끓였다",
+    "가족 레시피를 잇다"
+   ]
+  },
+  "S": {
+   "bc": [
+    "입국장 첫 화면",
+    "한국에 내리는 사람들이 처음 보는 영상",
+    "공항 홍보 영상 채택"
+   ],
+   "dc": [
+    "명승 사계절 다큐",
+    "같은 자리에서 봄여름가을겨울을 찍었다",
+    "사계절 다큐 방송"
+   ],
+   "lv": [
+    "팔도 축제 사회자",
+    "여덟 도의 축제를 한 무대에 모았다",
+    "축제 진행자 섭외"
+   ],
+   "vl": [
+    "골목 산책 브이로거",
+    "유명하지 않은 골목이 더 좋았다",
+    "동네 골목 지도의 주인"
+   ]
+  },
+  "T": {
+   "bc": [
+    "세계가 따라 걷는 길",
+    "내 동선이 다른 나라 사람들의 여행 코스가 됐다",
+    "여행 코스 채택"
+   ],
+   "dc": [
+    "팔도 길 지도 그린 사람",
+    "내 영상이 접는 종이 지도가 됐다",
+    "관광안내소 지도 출간"
+   ],
+   "lv": [
+    "국경 없는 공동채널",
+    "길에서 만난 외국인 친구와 채널을 합쳤다",
+    "해외 공동 운영"
+   ],
+   "vl": [
+    "느린 여행 브이로거",
+    "빨리 가지 않아서 보인 것들",
+    "느린 여행의 대명사"
+   ]
+  },
+  "H": {
+   "bc": [
+    "국악 콜라보 무대",
+    "팔도의 소리와 춤이 아이돌 무대에 올랐다",
+    "콜라보 무대 연출"
+   ],
+   "dc": [
+    "영화제의 다큐 감독",
+    "사라져 가는 소리와 손짓을 한 편에 묶었다",
+    "다큐 영화제 상영"
+   ],
+   "lv": [
+    "마당놀이 라이브 판",
+    "화면 너머 시청자도 \"얼쑤\"를 쳤다",
+    "마당놀이 생중계 단골"
+   ],
+   "vl": [
+    "교실 TV 속 선생님",
+    "내 영상으로 아이들이 전통놀이를 배운다",
+    "학교 수업 자료"
+   ]
+  }
+ },
+ "E_LOCAL": {
+  "jn": [
+   "남도 길잡이",
+   "편백숲·돌게장·장불재, 현지인 길만 따라 걸었다",
+   "동네 어르신들이 길을 물어 오는 채널"
+  ],
+  "gb": [
+   "대게 철 기다리는 사람",
+   "부용대에서 하회마을을 내려다보고, 대게 철엔 영덕으로 갔다",
+   "대게 철마다 초대받는 손님"
+  ],
+  "cc": [
+   "충청 장터 단골",
+   "새우젓 시장에서 흥정하고 광천수에 발을 담갔다",
+   "장날마다 기다려지는 장터 채널"
+  ],
+  "sg": [
+   "빈대떡집 둘째 줄 단골",
+   "메뉴판에 내 이름이 생겼다"
+  ],
+  "jj": [
+   "해녀 삼춘네 막내",
+   "해녀회 기록 담당이 됐다"
+  ],
+  "jb": [
+   "지평선 들녘 이웃",
+   "황금 들판을 걷고 춘향제 무대 앞에 앉았다",
+   "들녘 마을의 공식 기록 채널"
+  ],
+  "gw": [
+   "산골 밥상 기록자",
+   "약수 한 바가지, 옹심이와 곤드레밥으로 하루를 채웠다",
+   "강원 산골 밥상 기록 채널"
+  ],
+  "gn": [
+   "유등 띄우는 사람",
+   "유등축제 공식 기록자"
+  ]
+ },
+ "E_SP": {
+  "legend": [
+   "골드버튼 팔도 크리에이터",
+   "여덟 도의 이야기가 100만 명의 저녁이 됐다",
+   "구독자 100만"
+  ],
+  "unplug": [
+   "녹화 버튼을 안 눌렀다",
+   "영상은 0편, 사진첩은 꽉 찼다",
+   "추억 가득 (따뜻한 실패)"
+  ],
+  "allround": [
+   "팔도를 꿴 노리개",
+   "여섯 장식이 모두 한 띠에 꿰였다",
+   "노리개 장인과 협업"
+  ],
+  "ep1": [
+   "1화 업로드 완료",
+   "여기까지가 첫 화, 시작이 반이다",
+   "첫 업로드"
+  ]
+ },
+ "TYPE21": {
+  "BB": "매분구",
+  "BM": "꽃단장 미식가",
+  "BF": "약선 의녀",
+  "BS": "한양 멋쟁이",
+  "BT": "보부상",
+  "BH": "규방 장인",
+  "MM": "팔도 먹보",
+  "MF": "주막 사장",
+  "MS": "장터 구경꾼",
+  "MT": "팔도 식객",
+  "MH": "잔칫날 큰손",
+  "FF": "수라간 숙수",
+  "FS": "저잣거리 소개꾼",
+  "FT": "팔도 숙수",
+  "FH": "종갓집 종부",
+  "SS": "명승 안내인",
+  "ST": "팔도 유람객",
+  "SH": "도화서 화원",
+  "TT": "방랑 시인",
+  "TH": "암행어사",
+  "HH": "무형 전수자"
+ },
+ "CH_NAMES": [
+  "팔도 한입",
+  "K길 위에서",
+  "오늘도 로컬",
+  "한 숟갈 여행",
+  "길 위의 사랑채",
+  "느린 팔도"
+ ],
+ "DREAMS": [
+  "우리 동네 가게 살리기",
+  "세계에 한국 자랑하기",
+  "나만의 여행 기록 남기기",
+  "맛있는 거 실컷 먹기"
+ ],
+ "MANAGER_LINES": [
+  "좋아요, 첫 업로드 갑니다!",
+  "두 번째 도. 이제 손에 익었죠?",
+  "음… 이번엔 조회수가 좀 조용하네요. 그래도 좋은 영상이에요.",
+  "{prev}에서 만난 분이 댓글 달았어요!",
+  "저는 안 먹어요. …진짜 안 먹었어요.",
+  "썸네일에 제가 먹는 장면이 찍혔네요. 지워 주세요.",
+  "거의 다 왔어요. 마지막까지 가요.",
+  "마지막 업로드예요. 꾹 눌러 주세요."
+ ],
+ "GAMES": {
+  "jn": [
+   "timing",
+   "멈추기",
+   "움직이는 막대가 금빛 칸에 올 때 찰칵! (3번)"
+  ],
+  "gb": [
+   "mash",
+   "연타",
+   "5초 동안 화면을 마구 탭!"
+  ],
+  "cc": [
+   "catch",
+   "받기",
+   "좌우 버튼으로 바구니를 옮겨 떨어지는 걸 받아요"
+  ],
+  "sg": [
+   "memory",
+   "순서 기억",
+   "반짝인 순서대로 따라 누르기 (3라운드)"
+  ],
+  "jj": [
+   "hold",
+   "꾹 누르기",
+   "꾹 누르고, 금빛 칸에서 손을 떼요 (3번)"
+  ],
+  "jb": [
+   "rub",
+   "문지르기",
+   "5초 동안 쓱쓱 문질러 게이지를 채워요"
+  ],
+  "gw": [
+   "whack",
+   "튀어나오면 탭",
+   "튀어나오는 순간 바로 탭!"
+  ],
+  "gn": [
+   "pair",
+   "짝 맞추기",
+   "같은 그림 두 장을 찾아요"
+  ]
+ },
+ "POOL": {
+  "jn": [
+   {
+    "k": "음식",
+    "n": "나주곰탕",
+    "city": "나주",
+    "line": "뼈 대신 고기로 우린 맑은 곰탕",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://www.naju.go.kr/tour/food"
+   },
+   {
+    "k": "음식",
+    "n": "담양 떡갈비",
+    "city": "담양",
+    "line": "다진 갈빗살을 빚어 구운 고기",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=c44502c7-c646-46f3-b1c3-3f5845fa6651"
+   },
+   {
+    "k": "음식",
+    "n": "여수 돌게장 백반",
+    "city": "여수",
+    "line": "간장·양념 돌게장이 함께 나오는 밥상",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://www.yeosu.go.kr/tour/lodge_food/food/special_road/special_road_02"
+   },
+   {
+    "k": "음식",
+    "n": "영광 굴비",
+    "city": "영광",
+    "line": "해풍에 말린 참조기",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=c279097e-5647-4402-82d3-5127884fd146"
+   },
+   {
+    "k": "장소",
+    "n": "담양 죽녹원",
+    "city": "담양",
+    "line": "2.4km 대숲 산책길",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=f37bd9df-2940-460a-bea9-08765e946197"
+   },
+   {
+    "k": "장소",
+    "n": "순천만습지",
+    "city": "순천",
+    "line": "갈대밭과 S자 물길 갯벌",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://english.visitkorea.or.kr/svc/whereToGo/locIntrdn/locIntrdnList.do?vcontsId=96951&menuSn=351"
+   },
+   {
+    "k": "장소",
+    "n": "여수 밤바다·돌산대교",
+    "city": "여수",
+    "line": "색이 바뀌는 다리 야경",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://www.yeosu.go.kr/tour/travel/10tour/yeosu_nic"
+   },
+   {
+    "k": "장소",
+    "n": "무등산 장불재",
+    "city": "광주",
+    "line": "억새 능선이 펼쳐진 고개",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://tour.gwangju.go.kr/home/tour/info/load.cs?act=view&infoId=203&searchCondition=&searchKeyword=&pageIndex=1"
+   },
+   {
+    "k": "장소",
+    "n": "보성 녹차밭",
+    "city": "보성",
+    "line": "산비탈 계단식 초록 차밭",
+    "c": [
+     "S",
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=200a941f-770b-4017-8fe1-19c8773af788"
+   },
+   {
+    "k": "체험",
+    "n": "여수 해상케이블카",
+    "city": "여수",
+    "line": "바다 위를 건너는 케이블카",
+    "c": [
+     "S",
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://www.yeosu.go.kr/tour/travel/10tour/cablecar"
+   },
+   {
+    "k": "체험",
+    "n": "장흥 편백숲 산림욕",
+    "city": "장흥",
+    "line": "편백 숲에서 쉬어 가기",
+    "c": [
+     "T",
+     "B"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=506e6e32-74d4-40ee-b98a-04f7d7891d1a"
+   },
+   {
+    "k": "체험",
+    "n": "진도 신비의바닷길",
+    "city": "진도",
+    "line": "바다가 갈라져 섬까지 걷는 길",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=e6b3596c-3769-41a2-9090-84a7585db5e0"
+   },
+   {
+    "k": "체험",
+    "n": "함평나비대축제",
+    "city": "함평",
+    "line": "봄날 나비 날리기 체험",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=6995b351-4b45-4c86-947e-f44a07e087f8"
+   },
+   {
+    "k": "체험",
+    "n": "광주비엔날레",
+    "city": "광주",
+    "line": "2년마다 열리는 국제 현대미술전",
+    "c": [
+     "S"
+    ],
+    "snow": 1,
+    "url": "https://www.gwangjubiennale.org/"
+   }
+  ],
+  "gb": [
+   {
+    "k": "음식",
+    "n": "영덕대게",
+    "city": "영덕",
+    "line": "겨울~봄 제철, 다리 긴 대게",
+    "c": [
+     "M"
+    ],
+    "snow": 1,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=e08625ae-1044-40cf-a01e-77eee3d35305"
+   },
+   {
+    "k": "음식",
+    "n": "안동 간고등어",
+    "city": "안동",
+    "line": "소금 간을 한 안동 고등어",
+    "c": [
+     "F",
+     "M"
+    ],
+    "snow": 1,
+    "url": "https://www.andong.go.kr/agritec/contents.do?mId=0302020000"
+   },
+   {
+    "k": "음식",
+    "n": "대구 막창구이",
+    "city": "대구(남구)",
+    "line": "연탄불에 굽는 돼지막창",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=a97990d3-a8d3-4a4a-a2f2-f25ba9f1824c"
+   },
+   {
+    "k": "음식",
+    "n": "서문시장 야시장",
+    "city": "대구(중구)",
+    "line": "350m에 매대 80여 개, 국내 최대 야시장",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=efaf62c0-b493-4d29-82d5-d924c026bee7"
+   },
+   {
+    "k": "음식",
+    "n": "상주 곶감",
+    "city": "상주",
+    "line": "전국 생산 60% 안팎, 겨울 감 말리기",
+    "c": [
+     "F"
+    ],
+    "snow": 1,
+    "url": "https://www.sangju.go.kr/sangjugotgam/page/2395/5111.tc"
+   },
+   {
+    "k": "장소",
+    "n": "불국사·석굴암",
+    "city": "경주",
+    "line": "신라 불교문화 세계유산",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=a43fa503-b8db-42a8-817e-04f2e353fa42"
+   },
+   {
+    "k": "장소",
+    "n": "첨성대 야경",
+    "city": "경주",
+    "line": "8색 조명이 켜지는 신라 천문대",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://www.gyeongju.go.kr/tour/page.do?cmd=2&mnu_uid=2292&area_uid=47"
+   },
+   {
+    "k": "장소",
+    "n": "안동 하회마을",
+    "city": "안동",
+    "line": "강이 감아 도는 양반 마을 (세계유산)",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=3e375cc0-c11e-45de-9651-e77d6b40891e"
+   },
+   {
+    "k": "장소",
+    "n": "영주 무섬 외나무다리",
+    "city": "영주",
+    "line": "폭 30cm로 강을 건너는 다리",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=c9513dda-fb35-4a05-b309-56eca430bbc3"
+   },
+   {
+    "k": "장소",
+    "n": "포항 스페이스워크",
+    "city": "포항",
+    "line": "롤러코스터 모양 걷는 조형물",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=2a08732b-eba3-45e7-8b72-384abd02c9be"
+   },
+   {
+    "k": "체험",
+    "n": "경주 대릉원 한복 나들이",
+    "city": "경주",
+    "line": "한복 입고 고분 사이 걷기",
+    "c": [
+     "B",
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://www.gyeongju.go.kr/news/page.do?mnu_uid=1336&parm_bod_uid=256759&step=258"
+   },
+   {
+    "k": "체험",
+    "n": "하회별신굿탈놀이·안동국제탈춤페스티벌",
+    "city": "안동",
+    "line": "양반을 풍자하던 마을 탈놀이",
+    "c": [
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/fes_detail.do?cotid=4bddc447-19e4-44a6-9678-9d1f4dc2d3ec"
+   },
+   {
+    "k": "체험",
+    "n": "문경 찻사발 빚기",
+    "city": "문경",
+    "line": "장작가마 도자기와 다례",
+    "c": [
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=79a118fc-7a02-4262-be71-030a1fc3d815"
+   },
+   {
+    "k": "체험",
+    "n": "청송 사과 따기",
+    "city": "청송",
+    "line": "가을 산골 사과 축제",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=dc6b1834-4dd8-40c4-acf4-9cb13e9c4d0b"
+   }
+  ],
+  "cc": [
+   {
+    "k": "음식",
+    "n": "태안 게국지",
+    "city": "태안",
+    "line": "게장 국물 김치로 끓인 찌개",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=4c6da53b-b1ae-4383-a177-09bc94def6b1"
+   },
+   {
+    "k": "음식",
+    "n": "금산 인삼 삼계탕",
+    "city": "금산",
+    "line": "금산 수삼을 넣은 삼계탕",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://www.geumsan.go.kr/tour/html/sub05/050101.html"
+   },
+   {
+    "k": "음식",
+    "n": "보은 대추",
+    "city": "보은",
+    "line": "임금님께 올리던 가을 대추",
+    "c": [
+     "F"
+    ],
+    "snow": 1,
+    "url": "https://www.boeun.go.kr/tour/prog/tursmSghts/main/sub03_01/10/view.do?sghtsNo=85"
+   },
+   {
+    "k": "음식",
+    "n": "광천 토굴새우젓",
+    "city": "홍성",
+    "line": "토굴에서 숙성한 새우젓",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://www.hongseong.go.kr/tour/sub04_040302.do"
+   },
+   {
+    "k": "음식",
+    "n": "단양 마늘",
+    "city": "단양",
+    "line": "석회암 땅에서 자란 육쪽마늘",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://www.danyang.go.kr/dy21/964"
+   },
+   {
+    "k": "장소",
+    "n": "단양 도담삼봉",
+    "city": "단양",
+    "line": "남한강 위 세 봉우리, 단양팔경 첫째",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://www.danyang.go.kr/tour/537?action=read&action-value=ed9c4c1d3e712eb04c5c939d3d80d952&tags=%EB%8B%A8%EC%96%91%ED%8C%94%EA%B2%BD"
+   },
+   {
+    "k": "장소",
+    "n": "부여 궁남지",
+    "city": "부여",
+    "line": "백제 왕궁 남쪽 연꽃 연못",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://www.buyeo.go.kr/html/heritage/sub1/sub1_0101.html"
+   },
+   {
+    "k": "장소",
+    "n": "세종호수공원",
+    "city": "세종",
+    "line": "도심 속 큰 인공 호수 공원",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://www.sejong.go.kr/prog/tursmCn/tour/sub05_01_01/view.do?cntno=38"
+   },
+   {
+    "k": "장소",
+    "n": "대전 한빛탑",
+    "city": "대전",
+    "line": "1993 엑스포 기념 과학 전망탑",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=c1e3c24f-69c8-4d46-9b86-20b2bb8fd58e"
+   },
+   {
+    "k": "장소",
+    "n": "청남대",
+    "city": "청주",
+    "line": "대청호 옆 옛 대통령 별장 정원",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=76b6c051-df8b-416b-9d4a-488d7f3e6ab8"
+   },
+   {
+    "k": "체험",
+    "n": "대천해수욕장 스카이바이크",
+    "city": "보령",
+    "line": "바다 위 레일을 달리는 바이크",
+    "c": [
+     "T",
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://www.brcn.go.kr/prog/attraction/tour/sub01_07/view.do?attractionCode=147"
+   },
+   {
+    "k": "체험",
+    "n": "아산 외암민속마을",
+    "city": "아산",
+    "line": "돌담길이 이어진 양반 마을",
+    "c": [
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=fe12ba36-4815-436a-98b0-ff89b6e2e297"
+   },
+   {
+    "k": "체험",
+    "n": "단양 패러글라이딩",
+    "city": "단양",
+    "line": "남한강 위 2인 체험 비행",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=8909c08a-553d-449e-b70a-c38a82e0c8c2"
+   },
+   {
+    "k": "체험",
+    "n": "백제문화제",
+    "city": "공주·부여",
+    "line": "백제 왕의 행렬과 강 위 공연",
+    "c": [
+     "S",
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://www.baekje.org/site/kor/"
+   },
+   {
+    "k": "체험",
+    "n": "초정행궁 족욕",
+    "city": "청주",
+    "line": "초정 광천수에 발 담그기",
+    "c": [
+     "B",
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/fes_detail.do?cotid=329ad843-ee78-4478-9ee8-eaeee0331860"
+   }
+  ],
+  "sg": [
+   {
+    "k": "음식",
+    "n": "광장시장 빈대떡",
+    "city": "서울(종로)",
+    "line": "녹두를 갈아 부친 시장 전",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=9e683aeb-3158-44b6-a8c7-8836c6f20900"
+   },
+   {
+    "k": "음식",
+    "n": "인천 차이나타운 공갈빵",
+    "city": "인천(중구)",
+    "line": "속이 빈 바삭한 중국식 빵",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=7f9d2672-2325-4d0f-8d3b-b104f47555cb"
+   },
+   {
+    "k": "음식",
+    "n": "강화 인삼",
+    "city": "인천(강화)",
+    "line": "강화도에서 키운 인삼",
+    "c": [
+     "F",
+     "B"
+    ],
+    "snow": 0,
+    "url": "https://www.ganghwa.go.kr/open_content/tour/shopping/product/ginseng.jsp"
+   },
+   {
+    "k": "음식",
+    "n": "이천 쌀밥",
+    "city": "이천",
+    "line": "임금님 진상미로 지은 돌솥밥",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=21cf1623-7d70-4b4f-be11-f6af5c2b41ee"
+   },
+   {
+    "k": "장소",
+    "n": "경복궁 수문장 교대",
+    "city": "서울(종로)",
+    "line": "하루 두 번 조선 궁궐 문지기 의식",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://royal.khs.go.kr/ROYAL/contents/R201000000.do?act=view&ceIdx=202401240062&selDate=2024-6-9"
+   },
+   {
+    "k": "장소",
+    "n": "남산서울타워",
+    "city": "서울(용산)",
+    "line": "서울 한가운데 전망탑",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://english.visitkorea.or.kr/svc/whereToGo/locIntrdn/rgnContentsView.do?vcontsId=88026"
+   },
+   {
+    "k": "장소",
+    "n": "한강 달빛무지개분수",
+    "city": "서울(서초)",
+    "line": "세계에서 가장 긴 다리 분수",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://hangang.seoul.go.kr/www/contents/856.do?mid=849"
+   },
+   {
+    "k": "장소",
+    "n": "수원 화성 성곽길",
+    "city": "수원",
+    "line": "정조가 쌓은 성 (세계유산)",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://www.suwon.go.kr/sw-www/sw-visitsuwon/sw-visitsuwon-01/sw-visitsuwon-01-01/sw-visitsuwon-01-01-01.jsp"
+   },
+   {
+    "k": "장소",
+    "n": "월미바다열차",
+    "city": "인천(중구)",
+    "line": "월미도를 한 바퀴 도는 모노레일",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://www.ictr.or.kr/main/wst/intro.jsp"
+   },
+   {
+    "k": "체험",
+    "n": "경복궁 한복 나들이",
+    "city": "서울(종로)",
+    "line": "한복 입고 궁궐 걷기",
+    "c": [
+     "B",
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://royal.khs.go.kr/ROYAL/contents/R705000000.do"
+   },
+   {
+    "k": "체험",
+    "n": "수원화성 국궁 체험",
+    "city": "수원",
+    "line": "연무대에서 활쏘기",
+    "c": [
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://www.swcf.or.kr/?p=74&viewMode=view&idx=75"
+   },
+   {
+    "k": "체험",
+    "n": "한양도성 순성길",
+    "city": "서울",
+    "line": "옛 서울 성곽을 따라 걷는 길",
+    "c": [
+     "T",
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://seoulcitywall.seoul.go.kr/wallcourse.do"
+   },
+   {
+    "k": "체험",
+    "n": "창덕궁 달빛기행",
+    "city": "서울(종로)",
+    "line": "밤의 궁궐을 걷는 행사",
+    "c": [
+     "S",
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://www.kh.or.kr/short/yyK8"
+   },
+   {
+    "k": "체험",
+    "n": "정조대왕 능행차",
+    "city": "서울~수원~화성",
+    "line": "1795년 왕의 행차를 시민이 재현",
+    "c": [
+     "S",
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://www.suwon.go.kr/sw-www/sw-visitsuwon/sw-visitsuwon-03/sw-visitsuwon-03-02.jsp"
+   }
+  ],
+  "jj": [
+   {
+    "k": "음식",
+    "n": "흑돼지 불고기",
+    "city": "제주 전역",
+    "line": "흑돼지를 양념해 볶은 불고기",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=a272c5a8-2f65-4031-a7dd-c72a4fe380aa"
+   },
+   {
+    "k": "음식",
+    "n": "고기국수",
+    "city": "제주 전역",
+    "line": "돼지 뼈 국물에 수육 올린 국수",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=9955656b-e9a5-465a-ade7-537911a1e6db"
+   },
+   {
+    "k": "음식",
+    "n": "오메기떡",
+    "city": "제주",
+    "line": "차조 반죽에 팥을 묻힌 떡",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=179949"
+   },
+   {
+    "k": "음식",
+    "n": "은갈치",
+    "city": "서귀포",
+    "line": "은빛 갈치 조림·구이",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=9e1c6fbc-3d0d-486f-812b-ac8c7edacccf"
+   },
+   {
+    "k": "음식",
+    "n": "우도 땅콩",
+    "city": "제주시 우도면",
+    "line": "작은 섬 땅콩으로 만든 간식",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_300000000014703"
+   },
+   {
+    "k": "장소",
+    "n": "성산일출봉",
+    "city": "서귀포(성산)",
+    "line": "바다에서 솟은 분화구 (세계자연유산)",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500349"
+   },
+   {
+    "k": "장소",
+    "n": "한라산 백록담",
+    "city": "한라산",
+    "line": "정상의 분화구 호수",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=4f7edd2c-8bef-4e92-a444-3d1db9ecbb6c"
+   },
+   {
+    "k": "장소",
+    "n": "만장굴",
+    "city": "제주시(구좌)",
+    "line": "용암이 흘러 만든 긴 동굴",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=ce38e2e9-b992-4bbb-9d9b-728de593a168"
+   },
+   {
+    "k": "장소",
+    "n": "새별오름",
+    "city": "제주시(애월)",
+    "line": "가을 억새로 덮이는 오름",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500309"
+   },
+   {
+    "k": "장소",
+    "n": "제주돌문화공원 돌하르방",
+    "city": "제주시(조천)",
+    "line": "마을을 지키던 돌 할아버지",
+    "c": [
+     "S",
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=7c2cf2fb-f432-419e-95bf-1fe04003f37f"
+   },
+   {
+    "k": "체험",
+    "n": "해녀 물질",
+    "city": "제주시(구좌)",
+    "line": "숨 참고 바다로, 해녀문화 (유네스코)",
+    "c": [
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1606e304-520e-4497-b554-6b51511b6722"
+   },
+   {
+    "k": "체험",
+    "n": "감귤 따기",
+    "city": "서귀포(효돈)",
+    "line": "11월부터 귤밭에서 직접 따기",
+    "c": [
+     "T"
+    ],
+    "snow": 1,
+    "url": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500019"
+   },
+   {
+    "k": "체험",
+    "n": "사려니숲길 걷기",
+    "city": "제주시(조천)",
+    "line": "삼나무 숲 산책길",
+    "c": [
+     "T",
+     "B"
+    ],
+    "snow": 0,
+    "url": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500281"
+   },
+   {
+    "k": "체험",
+    "n": "제주 성읍민속마을",
+    "city": "서귀포(표선)",
+    "line": "초가와 돌담이 남은 옛 마을",
+    "c": [
+     "S",
+     "H"
+    ],
+    "snow": 1,
+    "url": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500351"
+   }
+  ],
+  "jb": [
+   {
+    "k": "음식",
+    "n": "전주비빔밥",
+    "city": "전주",
+    "line": "놋그릇에 오색 나물 비빔밥",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=36fadba7-5bab-476e-a10a-3752d54b2b40"
+   },
+   {
+    "k": "음식",
+    "n": "전주 콩나물국밥",
+    "city": "전주",
+    "line": "토렴한 국밥에 수란 곁들이기",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=dfe57413-e9b2-4e44-9145-26885260b03c"
+   },
+   {
+    "k": "음식",
+    "n": "부안 바지락죽",
+    "city": "부안",
+    "line": "바지락을 넣은 뽀얀 죽",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://www.buan.go.kr/tour/index.buan?menuCd=DOM_000000211002000000"
+   },
+   {
+    "k": "음식",
+    "n": "순창 한정식",
+    "city": "순창",
+    "line": "장류 반찬이 가득한 한 상",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=9c65a172-7bb5-45f1-b6d7-5791fce04652"
+   },
+   {
+    "k": "음식",
+    "n": "고창 풍천장어·복분자",
+    "city": "고창",
+    "line": "강 하구 장어에 복분자 양념",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=e9294ac9-7955-43ad-9e2a-4837c8fc8cd9"
+   },
+   {
+    "k": "장소",
+    "n": "전주 한옥마을",
+    "city": "전주",
+    "line": "기와지붕이 이어진 한옥 골목",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=111895&menuSn=351"
+   },
+   {
+    "k": "장소",
+    "n": "남원 광한루원",
+    "city": "남원",
+    "line": "춘향전 무대인 누각 정원",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=322dd6bb-487e-4a3b-8542-4e92b5ce3da2"
+   },
+   {
+    "k": "장소",
+    "n": "군산 시간여행마을",
+    "city": "군산",
+    "line": "1930년대 항구 거리 (근대역사)",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://www.gunsan.go.kr/tour/m2218"
+   },
+   {
+    "k": "장소",
+    "n": "진안 마이산",
+    "city": "진안",
+    "line": "말 귀 닮은 봉우리와 돌탑",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=917e0062-520f-4acf-b512-318b00dd65cf"
+   },
+   {
+    "k": "장소",
+    "n": "김제 벽골제",
+    "city": "김제",
+    "line": "1,700년 전 저수지 둑과 지평선 들판",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=fc97d739-69c2-4746-b1d3-65bbe7428f9d"
+   },
+   {
+    "k": "체험",
+    "n": "한복 입고 한옥길 걷기",
+    "city": "전주",
+    "line": "한옥마을에서 한복 입고 걷기",
+    "c": [
+     "B",
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://hanok.jeonju.go.kr/contents/exp10"
+   },
+   {
+    "k": "체험",
+    "n": "남원 춘향제",
+    "city": "남원",
+    "line": "춘향을 기리는 봄 축제",
+    "c": [
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=31a0fb6b-c075-402b-9cf7-a79e16451aab"
+   },
+   {
+    "k": "체험",
+    "n": "김제 지평선축제",
+    "city": "김제",
+    "line": "가을 들판의 농경 축제",
+    "c": [
+     "S",
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=52c26e05-2f86-4332-8181-ca3f68edb064"
+   },
+   {
+    "k": "체험",
+    "n": "고창 모양성 답성놀이",
+    "city": "고창",
+    "line": "머리에 돌 이고 성곽 돌기",
+    "c": [
+     "H"
+    ],
+    "snow": 1,
+    "url": "https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=53d646d1-9565-4c14-8888-81359ac8867a"
+   },
+   {
+    "k": "체험",
+    "n": "부안 곰소염전",
+    "city": "부안",
+    "line": "바닷물을 말려 소금 만드는 염전",
+    "c": [
+     "F",
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=4d88a926-a25f-4b7b-92b8-5a863f0de3a1"
+   }
+  ],
+  "gw": [
+   {
+    "k": "음식",
+    "n": "춘천 닭갈비",
+    "city": "춘천",
+    "line": "철판에 볶다가 볶음밥까지",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=3eb0b703-0e5b-4ad4-8f47-3559591a5475"
+   },
+   {
+    "k": "음식",
+    "n": "초당순두부",
+    "city": "강릉",
+    "line": "바닷물 간수로 굳힌 순두부",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=115b36e9-c686-42ff-8f51-714aaf746ba7"
+   },
+   {
+    "k": "음식",
+    "n": "속초 오징어순대",
+    "city": "속초",
+    "line": "오징어 몸통에 소를 채운 순대",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=9209780b-941c-49fc-9848-477c55997aba"
+   },
+   {
+    "k": "음식",
+    "n": "봉평 메밀전병",
+    "city": "평창",
+    "line": "메밀꽃 마을의 돌돌 만 전병",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=4fa64a2d-07fe-4998-9add-87c5fb22caee"
+   },
+   {
+    "k": "음식",
+    "n": "정선 곤드레밥",
+    "city": "정선",
+    "line": "산나물 넣고 지은 비빔밥",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=e0e2d3b0-cc7a-4066-a11b-0e7aab826eb0"
+   },
+   {
+    "k": "장소",
+    "n": "정동진 해돋이",
+    "city": "강릉",
+    "line": "바닷가 기차역의 해돋이",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=03c0a3c8-82c9-4fe8-aeab-adf5e613822b"
+   },
+   {
+    "k": "장소",
+    "n": "설악산 권금성·울산바위",
+    "city": "속초",
+    "line": "케이블카로 오르는 바위산",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=f5433080-87a1-46cf-bc2f-617f62ccba2c"
+   },
+   {
+    "k": "장소",
+    "n": "소양강 스카이워크",
+    "city": "춘천",
+    "line": "강 위 유리 바닥 산책로",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://www.chuncheon.go.kr/tour/destination/all-tour/detail/?tourId=216"
+   },
+   {
+    "k": "장소",
+    "n": "영월 장릉",
+    "city": "영월",
+    "line": "단종이 잠든 세계유산 왕릉",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=0944c772-17c3-4317-839e-41405e5091e7"
+   },
+   {
+    "k": "장소",
+    "n": "평창 스키점프대",
+    "city": "평창",
+    "line": "2018 올림픽 경기장 전망대",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=c9c47e66-6ee6-405e-b41f-b5e47741497c"
+   },
+   {
+    "k": "체험",
+    "n": "강릉단오제 관노가면극",
+    "city": "강릉",
+    "line": "대사 없는 몸짓 탈놀이 (유네스코)",
+    "c": [
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://www.danojefestival.or.kr/kor/info/play.html"
+   },
+   {
+    "k": "체험",
+    "n": "정선 레일바이크",
+    "city": "정선",
+    "line": "옛 철길을 달리는 레일바이크",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://www.jeongseon.go.kr/tour/jeongseontour/attractions?contentSeq=100&mode=read"
+   },
+   {
+    "k": "체험",
+    "n": "정선 화암약수",
+    "city": "정선",
+    "line": "톡 쏘는 탄산 약수 마시기",
+    "c": [
+     "B",
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://www.jeongseon.go.kr/tour/jeongseontour/attractions?contentSeq=419&mode=read"
+   },
+   {
+    "k": "체험",
+    "n": "원주 소금산 그랜드밸리",
+    "city": "원주",
+    "line": "출렁다리·케이블카가 있는 산",
+    "c": [
+     "T",
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://www.wonju.go.kr/tour/contents.do?key=5516"
+   },
+   {
+    "k": "체험",
+    "n": "대관령눈꽃축제",
+    "city": "평창",
+    "line": "1993년 시작한 눈조각 겨울 축제",
+    "c": [
+     "S"
+    ],
+    "snow": 1,
+    "url": "https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=cd23ea6b-7745-4ae5-aa52-dcb6b09b02e8"
+   }
+  ],
+  "gn": [
+   {
+    "k": "음식",
+    "n": "남포동 씨앗호떡",
+    "city": "부산(중구)",
+    "line": "갈라서 견과를 채운 튀김 호떡",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://english.visitkorea.or.kr/svc/whereToGo/locIntrdn/rgnContentsView.do?vcontsId=95411"
+   },
+   {
+    "k": "음식",
+    "n": "기장 멸치",
+    "city": "부산(기장)",
+    "line": "봄 대변항의 왕멸치와 멸치털이",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1cced6a2-4103-4eb3-8974-d474d9ba3880"
+   },
+   {
+    "k": "음식",
+    "n": "충무김밥",
+    "city": "통영",
+    "line": "밥과 반찬을 따로 담은 뱃길 도시락",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=46160c48-74d7-45de-933e-0091d02917a9"
+   },
+   {
+    "k": "음식",
+    "n": "언양불고기",
+    "city": "울산(울주)",
+    "line": "석쇠에 구운 양념 한우",
+    "c": [
+     "F"
+    ],
+    "snow": 0,
+    "url": "https://www.ulsan.go.kr/tour/korean/contents.ulsan?mId=001002001004007000"
+   },
+   {
+    "k": "음식",
+    "n": "진주냉면",
+    "city": "진주",
+    "line": "해물 육수에 육전 고명 냉면",
+    "c": [
+     "M"
+    ],
+    "snow": 0,
+    "url": "https://www.jinju.go.kr/02234/02349/02355.web"
+   },
+   {
+    "k": "장소",
+    "n": "감천문화마을",
+    "city": "부산(사하)",
+    "line": "산비탈 알록달록 계단 집",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=72894"
+   },
+   {
+    "k": "장소",
+    "n": "남해 다랭이마을",
+    "city": "남해",
+    "line": "바다로 내려가는 108층 계단 논",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=90688&menuSn=353"
+   },
+   {
+    "k": "장소",
+    "n": "울산 대왕암공원",
+    "city": "울산(동구)",
+    "line": "바다 바위와 303m 출렁다리",
+    "c": [
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=fd291e12-42e6-479c-8d4e-ef0e234caa38"
+   },
+   {
+    "k": "장소",
+    "n": "통영 동피랑",
+    "city": "통영",
+    "line": "철거 대신 벽화로 살아난 언덕 마을",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://www.utour.go.kr/00056/00058/00072.web?amode=view&idx=1702"
+   },
+   {
+    "k": "체험",
+    "n": "진주남강유등축제",
+    "city": "진주",
+    "line": "강 위에 등을 띄우는 가을 축제",
+    "c": [
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://yudeung.com/"
+   },
+   {
+    "k": "체험",
+    "n": "부산국제영화제 레드카펫",
+    "city": "부산(해운대)",
+    "line": "10월 영화의전당 레드카펫",
+    "c": [
+     "B",
+     "S"
+    ],
+    "snow": 0,
+    "url": "https://www.biff.kr/kor/addon/10000001/page.asp?page_num=10892"
+   },
+   {
+    "k": "체험",
+    "n": "해운대 블루라인파크",
+    "city": "부산(해운대)",
+    "line": "바닷가 해변열차·스카이캡슐",
+    "c": [
+     "S",
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=2670917c-c7b0-43be-a174-bd5ae40372f1"
+   },
+   {
+    "k": "체험",
+    "n": "진해군항제 벚꽃",
+    "city": "창원(진해)",
+    "line": "1.5km 하천 벚꽃 터널",
+    "c": [
+     "S",
+     "T"
+    ],
+    "snow": 0,
+    "url": "https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=43c334af-9024-4c3f-8742-39f57db887f6"
+   },
+   {
+    "k": "체험",
+    "n": "함안 낙화놀이",
+    "city": "함안",
+    "line": "연못 위로 불꽃이 쏟아지는 놀이",
+    "c": [
+     "H"
+    ],
+    "snow": 0,
+    "url": "https://www.haman.go.kr/02212/02213/02219.web"
+   }
+  ]
+ },
+ "PH": {
+  "cards": {
+   "jn|담양 죽녹원": {
+    "f": "img/p/4260bdfafd.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "jn|장흥 편백숲 산림욕": {
+    "f": "img/p/82d8fb36fd.webp",
+    "by": "김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|순천 낙안읍성": {
+    "f": "img/p/8e83b0bf96.webp",
+    "by": "정판종",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|여수 밤바다": {
+    "f": "img/p/5142d8d2c0.webp",
+    "by": "배근한",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|장흥 매생이 한 상": {
+    "f": "img/p/1b16e279d8.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|담양 대통밥": {
+    "f": "img/p/5de285a8fd.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|여수 돌게장 백반": {
+    "f": "img/p/edbdf5a1cb.webp",
+    "by": "스튜디오 4cats",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|담양 떡갈비 굽기": {
+    "f": "img/p/b45d898638.webp",
+    "by": "스튜디오 4cats",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|돌게장 한 숟갈 리액션": {
+    "f": "img/p/331bad5732.webp",
+    "by": "스튜디오 4cats",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|꼬막정식 한입": {
+    "f": "img/p/d859bf075a.webp",
+    "by": "스튜디오 4cats",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|진도 바닷길 걷기 브이로그": {
+    "f": "img/p/f64aad78ed.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|무등산 장불재 오르기": {
+    "f": "img/p/c27c2933b3.webp",
+    "by": "배근한",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|경주 첨성대 야경": {
+    "f": "img/p/ddfb046a0d.webp",
+    "by": "황성훈",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|부용대에서 본 하회마을": {
+    "f": "img/p/6e07df831f.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|경주 대릉원 한복 나들이": {
+    "f": "img/p/63f9e2c643.webp",
+    "by": "장재윤",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|하회별신굿탈놀이": {
+    "f": "img/p/50699ad6c6.webp",
+    "by": "라이브스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|서문시장 야시장": {
+    "f": "img/p/3ff5eb6c4c.webp",
+    "by": "니오타니 스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|상주 곶감 길손 간식": {
+    "f": "img/p/00034bfe7a.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|영덕대게": {
+    "f": "img/p/738bb1d524.webp",
+    "by": "스튜디오 4cats",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|대구 막창구이": {
+    "f": "img/p/e092b1c0e2.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|대릉원 한복 스냅": {
+    "f": "img/p/752d6be130.webp",
+    "by": "장재윤",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|문경 찻사발 물레 체험": {
+    "f": "img/p/736e1225fa.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|대게 다리 쏙 리액션": {
+    "f": "img/p/ee3d6776d7.webp",
+    "by": "스튜디오 4cats",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|막창 굽는 법": {
+    "f": "img/p/4470a9ba07.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|단양 구경시장": {
+    "f": "img/p/f138216275.webp",
+    "by": "우창민",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|광천 토굴새우젓 시장": {
+    "f": "img/p/4ad475df51.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|단양 도담삼봉": {
+    "f": "img/p/a46a0c8a02.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "cc|아산 외암민속마을 돌담길": {
+    "f": "img/p/f270957758.webp",
+    "by": "김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|태안 조개구이": {
+    "f": "img/p/99190c8de5.webp",
+    "by": "천준교",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|태안 게국지": {
+    "f": "img/p/15fa61103d.webp",
+    "by": "천준교",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|금산 인삼 삼계탕": {
+    "f": "img/p/618b9ba393.webp",
+    "by": "한국관광공사 전형준",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|보은 대추 한 줌": {
+    "f": "img/p/244bdbb687.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|세종호수공원 야경 드론샷": {
+    "f": "img/p/9430d487fc.webp",
+    "by": "김용훈",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|대천 스카이바이크 1인칭": {
+    "f": "img/p/baa379307e.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "cc|초정 광천수 족욕": {
+    "f": "img/p/c8e9c3024a.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|백제문화제 금강 유등 촬영": {
+    "f": "img/p/cd2f6cf377.webp",
+    "by": "노희완",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|수원 화성 성곽길": {
+    "f": "img/p/14ef070cb6.webp",
+    "by": "김주원",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|경복궁 한복 나들이": {
+    "f": "img/p/cfff60581c.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|수원 화성행궁": {
+    "f": "img/p/99d85ba926.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "sg|양평 두물머리": {
+    "f": "img/p/2afe533747.webp",
+    "by": "라이브스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|이천 쌀밥 한 상": {
+    "f": "img/p/8edd534570.webp",
+    "by": "스튜디오 4cats",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|포천 이동갈비": {
+    "f": "img/p/9b0bb5a585.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|광장시장 빈대떡": {
+    "f": "img/p/09f15b762a.webp",
+    "by": "한국관광공사 박은경",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|차이나타운 공갈빵": {
+    "f": "img/p/0ac8db8f4f.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|빈대떡 뒤집고 한입": {
+    "f": "img/p/09f15b762a.webp",
+    "by": "한국관광공사 박은경",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|공갈빵 톡 깨기": {
+    "f": "img/p/f90041ae23.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|광명동굴 탐험 라이브": {
+    "f": "img/p/721190e2cd.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|수원화성 국궁 체험": {
+    "f": "img/p/c5362c843a.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|성산일출봉": {
+    "f": "img/p/25d1eb65f8.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "jj|감귤 따기 농장": {
+    "f": "img/p/44825fc6b2.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|사려니숲길 숲 산책": {
+    "f": "img/p/344c5fce36.webp",
+    "by": "라이브스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|성산 해녀 물질": {
+    "f": "img/p/fe6e1a7170.webp",
+    "by": "김정선",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|동문시장 해산물 매대": {
+    "f": "img/p/bff9d7deb6.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|우도 땅콩 아이스크림": {
+    "f": "img/p/d152e1d83c.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|흑돼지 불고기": {
+    "f": "img/p/042d801086.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|고기국수": {
+    "f": "img/p/5799e88b1d.webp",
+    "by": "황성훈",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|사려니숲 숲멍 브이로그": {
+    "f": "img/p/2de13d8583.webp",
+    "by": "라이브스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|해녀 물질 숨참기": {
+    "f": "img/p/228f448224.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|흑돼지 한 점 리액션": {
+    "f": "img/p/a536b6e70a.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|고기국수 후루룩": {
+    "f": "img/p/4ed8689b2f.webp",
+    "by": "황성훈",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|전주 한옥마을 골목": {
+    "f": "img/p/373ab899f4.webp",
+    "by": "김찬영",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|김제 지평선 들판": {
+    "f": "img/p/585d0aa575.webp",
+    "by": "홍성준",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|남원 광한루원": {
+    "f": "img/p/1bf140f799.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "jb|고창 고인돌 유적": {
+    "f": "img/p/1607ab0edf.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "jb|전주비빔밥": {
+    "f": "img/p/e7281f7341.webp",
+    "by": "디엔에이스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|순창 한정식": {
+    "f": "img/p/071ba6283b.webp",
+    "by": "스튜디오 4cats",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|부안 바지락죽": {
+    "f": "img/p/92bff0f1da.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|고창 풍천장어": {
+    "f": "img/p/e1d934cf2b.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|군산 근대 건물 롱테이크": {
+    "f": "img/p/f3c764ecee.webp",
+    "by": "임태진",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|지평선축제 논그림 드론샷": {
+    "f": "img/p/6d16722caf.webp",
+    "by": "홍성준",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|한복 입고 한옥길 걷기": {
+    "f": "img/p/f2cedce0ed.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|남원 춘향제 부채춤": {
+    "f": "img/p/294b8de651.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|평창 스키점프대": {
+    "f": "img/p/9fd73d41ae.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|양양 오색약수": {
+    "f": "img/p/d0b4857e5b.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|관노가면극 마당": {
+    "f": "img/p/346745ef5c.webp",
+    "by": "IR 스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|정동진 해돋이": {
+    "f": "img/p/636e44005a.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "gw|초당 순두부": {
+    "f": "img/p/b811fd94da.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|감자옹심이": {
+    "f": "img/p/ccc596bd24.webp",
+    "by": "IR 스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|춘천 닭갈비": {
+    "f": "img/p/1535a288e6.webp",
+    "by": "황성훈",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|평창 메밀 막국수": {
+    "f": "img/p/d79fde1103.webp",
+    "by": "천준교",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|닭갈비 철판 볶기": {
+    "f": "img/p/ddfa2208bd.webp",
+    "by": "황성훈",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|곤드레밥 한 숟갈": {
+    "f": "img/p/da7750dc3c.webp",
+    "by": "한국관광공사 박은경",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|울산바위 타임랩스": {
+    "f": "img/p/7f8eaf77e9.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "gw|스키점프": {
+    "f": "img/p/c742dde983.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|부산 감천문화마을": {
+    "f": "img/p/d7199f2f7e.webp",
+    "by": "한국관광공사 송재근",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|통영 바다길": {
+    "f": "img/p/394d77d90e.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "gn|영화의전당 레드카펫": {
+    "f": "img/p/25a51ee1f4.webp",
+    "by": "라이브스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|진주 남강 유등": {
+    "f": "img/p/14523daee4.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|울산 언양불고기": {
+    "f": "img/p/6299292c8a.webp",
+    "by": "한국관광공사 박은경",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|통영 충무김밥": {
+    "f": "img/p/15a029b741.webp",
+    "by": "김효서",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|남포동 씨앗호떡": {
+    "f": "img/p/1f9d9b1d5f.webp",
+    "by": "부산관광공사",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|통영 멍게비빔밥": {
+    "f": "img/p/7007e9210c.webp",
+    "by": "한국관광공사 송재근",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|하동 야생차밭 산책": {
+    "f": "img/p/6160324b65.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|남강 유등 야경 촬영": {
+    "f": "img/p/62d25c9a63.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|언양불고기 한 점 리액션": {
+    "f": "img/p/8470a262a9.webp",
+    "by": "한국관광공사 박은경",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|남해 죽방렴 드론샷": {
+    "f": "img/p/18ca9f2667.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   }
+  },
+  "pool": {
+   "jn|나주곰탕": {
+    "f": "img/p/47cbe51e9e.webp",
+    "by": "황성훈",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|담양 떡갈비": {
+    "f": "img/p/b45d898638.webp",
+    "by": "스튜디오 4cats",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|여수 돌게장 백반": {
+    "f": "img/p/edbdf5a1cb.webp",
+    "by": "스튜디오 4cats",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|영광 굴비": {
+    "f": "img/p/aabec2400b.webp",
+    "by": "스튜디오 4cats",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|담양 죽녹원": {
+    "f": "img/p/4260bdfafd.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "jn|순천만습지": {
+    "f": "img/p/a466a09a04.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "jn|여수 밤바다·돌산대교": {
+    "f": "img/p/5142d8d2c0.webp",
+    "by": "배근한",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|무등산 장불재": {
+    "f": "img/p/c27c2933b3.webp",
+    "by": "배근한",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|보성 녹차밭": {
+    "f": "img/p/998178218e.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "jn|여수 해상케이블카": {
+    "f": "img/p/97abb3ed57.webp",
+    "by": "김찬영",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|장흥 편백숲 산림욕": {
+    "f": "img/p/82d8fb36fd.webp",
+    "by": "김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|진도 신비의바닷길": {
+    "f": "img/p/f64aad78ed.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|함평나비대축제": {
+    "f": "img/p/3c427d2b7d.webp",
+    "by": "한국관광공사-브이앤드",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jn|광주비엔날레": {
+    "f": "img/p/e012320eaa.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|영덕대게": {
+    "f": "img/p/738bb1d524.webp",
+    "by": "스튜디오 4cats",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|안동 간고등어": {
+    "f": "img/p/6020051e35.webp",
+    "by": "디엔에이스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|대구 막창구이": {
+    "f": "img/p/e092b1c0e2.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|서문시장 야시장": {
+    "f": "img/p/3ff5eb6c4c.webp",
+    "by": "니오타니 스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|상주 곶감": {
+    "f": "img/p/00034bfe7a.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|불국사·석굴암": {
+    "f": "img/p/01bb5fcbb1.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "gb|첨성대 야경": {
+    "f": "img/p/ddfb046a0d.webp",
+    "by": "황성훈",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|안동 하회마을": {
+    "f": "img/p/d07190f639.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "gb|영주 무섬 외나무다리": {
+    "f": "img/p/1fcf770557.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "gb|포항 스페이스워크": {
+    "f": "img/p/40abdc4530.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "gb|경주 대릉원 한복 나들이": {
+    "f": "img/p/63f9e2c643.webp",
+    "by": "장재윤",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|하회별신굿탈놀이·안동국제탈춤페스티벌": {
+    "f": "img/p/50699ad6c6.webp",
+    "by": "라이브스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|문경 찻사발 빚기": {
+    "f": "img/p/736e1225fa.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gb|청송 사과 따기": {
+    "f": "img/p/7d5b37e939.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|태안 게국지": {
+    "f": "img/p/15fa61103d.webp",
+    "by": "천준교",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|금산 인삼 삼계탕": {
+    "f": "img/p/618b9ba393.webp",
+    "by": "한국관광공사 전형준",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|보은 대추": {
+    "f": "img/p/244bdbb687.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|광천 토굴새우젓": {
+    "f": "img/p/4ad475df51.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|단양 마늘": {
+    "f": "img/p/1d9e40cf6e.webp",
+    "by": "우창민",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|단양 도담삼봉": {
+    "f": "img/p/a46a0c8a02.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "cc|부여 궁남지": {
+    "f": "img/p/6b82a7c6c5.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "cc|세종호수공원": {
+    "f": "img/p/03dfd62a80.webp",
+    "by": "이효직",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|대전 한빛탑": {
+    "f": "img/p/b0814d36af.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "cc|청남대": {
+    "f": "img/p/748d02499a.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "cc|대천해수욕장 스카이바이크": {
+    "f": "img/p/baa379307e.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "cc|아산 외암민속마을": {
+    "f": "img/p/f270957758.webp",
+    "by": "김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|단양 패러글라이딩": {
+    "f": "img/p/3708057100.webp",
+    "by": "우제용",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|백제문화제": {
+    "f": "img/p/4bbc300c49.webp",
+    "by": "노희완",
+    "src": "한국관광공사 포토코리아"
+   },
+   "cc|초정행궁 족욕": {
+    "f": "img/p/c8e9c3024a.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|광장시장 빈대떡": {
+    "f": "img/p/09f15b762a.webp",
+    "by": "한국관광공사 박은경",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|인천 차이나타운 공갈빵": {
+    "f": "img/p/0ac8db8f4f.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|강화 인삼": {
+    "f": "img/p/c724892773.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|이천 쌀밥": {
+    "f": "img/p/8edd534570.webp",
+    "by": "스튜디오 4cats",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|경복궁 수문장 교대": {
+    "f": "img/p/7471ca4d48.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|남산서울타워": {
+    "f": "img/p/af97cf24ef.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "sg|한강 달빛무지개분수": {
+    "f": "img/p/dd77209065.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "sg|수원 화성 성곽길": {
+    "f": "img/p/c3226e75b6.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "sg|월미바다열차": {
+    "f": "img/p/7ae0d1ded2.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "sg|경복궁 한복 나들이": {
+    "f": "img/p/cfff60581c.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|수원화성 국궁 체험": {
+    "f": "img/p/c5362c843a.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|한양도성 순성길": {
+    "f": "img/p/65e6c37e06.webp",
+    "by": "서문교",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|창덕궁 달빛기행": {
+    "f": "img/p/681725c26a.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "sg|정조대왕 능행차": {
+    "f": "img/p/faffedfd11.webp",
+    "by": "이형찬",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|흑돼지 불고기": {
+    "f": "img/p/042d801086.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|고기국수": {
+    "f": "img/p/5799e88b1d.webp",
+    "by": "황성훈",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|오메기떡": {
+    "f": "img/p/1735214f4f.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|은갈치": {
+    "f": "img/p/1586c65999.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|우도 땅콩": {
+    "f": "img/p/d152e1d83c.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|성산일출봉": {
+    "f": "img/p/25d1eb65f8.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "jj|한라산 백록담": {
+    "f": "img/p/eb36c30f45.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "jj|만장굴": {
+    "f": "img/p/b8be3899d2.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|새별오름": {
+    "f": "img/p/559d8206c7.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "jj|제주돌문화공원 돌하르방": {
+    "f": "img/p/f57b20d443.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|해녀 물질": {
+    "f": "img/p/fe6e1a7170.webp",
+    "by": "김정선",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|감귤 따기": {
+    "f": "img/p/44825fc6b2.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|사려니숲길 걷기": {
+    "f": "img/p/344c5fce36.webp",
+    "by": "라이브스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jj|제주 성읍민속마을": {
+    "f": "img/p/fb11bdb5cb.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|전주비빔밥": {
+    "f": "img/p/e7281f7341.webp",
+    "by": "디엔에이스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|전주 콩나물국밥": {
+    "f": "img/p/9e3c96935a.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|부안 바지락죽": {
+    "f": "img/p/92bff0f1da.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|순창 한정식": {
+    "f": "img/p/071ba6283b.webp",
+    "by": "스튜디오 4cats",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|고창 풍천장어·복분자": {
+    "f": "img/p/e1d934cf2b.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|전주 한옥마을": {
+    "f": "img/p/373ab899f4.webp",
+    "by": "김찬영",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|남원 광한루원": {
+    "f": "img/p/1bf140f799.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "jb|군산 시간여행마을": {
+    "f": "img/p/f3c764ecee.webp",
+    "by": "임태진",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|진안 마이산": {
+    "f": "img/p/bf559d2851.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "jb|김제 벽골제": {
+    "f": "img/p/f1490152d4.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "jb|한복 입고 한옥길 걷기": {
+    "f": "img/p/f2cedce0ed.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|남원 춘향제": {
+    "f": "img/p/294b8de651.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|김제 지평선축제": {
+    "f": "img/p/6d16722caf.webp",
+    "by": "홍성준",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|고창 모양성 답성놀이": {
+    "f": "img/p/5a6f4cd965.webp",
+    "by": "김영근",
+    "src": "한국관광공사 포토코리아"
+   },
+   "jb|부안 곰소염전": {
+    "f": "img/p/26a6f5803e.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|춘천 닭갈비": {
+    "f": "img/p/1535a288e6.webp",
+    "by": "황성훈",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|초당순두부": {
+    "f": "img/p/b811fd94da.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|속초 오징어순대": {
+    "f": "img/p/28f71455ac.webp",
+    "by": "황성훈",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|봉평 메밀전병": {
+    "f": "img/p/f8f51fbcd2.webp",
+    "by": "IR 스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|정선 곤드레밥": {
+    "f": "img/p/da7750dc3c.webp",
+    "by": "한국관광공사 박은경",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|정동진 해돋이": {
+    "f": "img/p/636e44005a.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "gw|설악산 권금성·울산바위": {
+    "f": "img/p/7f8eaf77e9.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "gw|소양강 스카이워크": {
+    "f": "img/p/d3c092f79b.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "gw|영월 장릉": {
+    "f": "img/p/986cc0051f.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "gw|평창 스키점프대": {
+    "f": "img/p/9fd73d41ae.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|강릉단오제 관노가면극": {
+    "f": "img/p/346745ef5c.webp",
+    "by": "IR 스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|정선 레일바이크": {
+    "f": "img/p/b0e9ffffb3.webp",
+    "by": "마이픽쳐스",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|정선 화암약수": {
+    "f": "img/p/6fa3967e97.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|원주 소금산 그랜드밸리": {
+    "f": "img/p/83db517c5a.webp",
+    "by": "홍정표",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gw|대관령눈꽃축제": {
+    "f": "img/p/964cd47ed3.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|남포동 씨앗호떡": {
+    "f": "img/p/1f9d9b1d5f.webp",
+    "by": "부산관광공사",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|기장 멸치": {
+    "f": "img/p/d83a645b8f.webp",
+    "by": "부산관광공사",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|충무김밥": {
+    "f": "img/p/15a029b741.webp",
+    "by": "김효서",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|언양불고기": {
+    "f": "img/p/6299292c8a.webp",
+    "by": "한국관광공사 박은경",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|진주냉면": {
+    "f": "img/p/930c28aaf7.webp",
+    "by": "한국관광공사 박은경",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|감천문화마을": {
+    "f": "img/p/d7199f2f7e.webp",
+    "by": "한국관광공사 송재근",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|남해 다랭이마을": {
+    "f": "img/p/61d480852d.webp",
+    "by": "한국관광공사 김지호",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|울산 대왕암공원": {
+    "f": "img/p/2c9a740ba4.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "gn|통영 동피랑": {
+    "f": "img/p/5507d5efe4.webp",
+    "by": "오경택",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|진주남강유등축제": {
+    "f": "img/p/14523daee4.webp",
+    "by": "한국관광공사 이범수",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|부산국제영화제 레드카펫": {
+    "f": "img/p/25a51ee1f4.webp",
+    "by": "라이브스튜디오",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|해운대 블루라인파크": {
+    "f": "img/p/12f2a2bca3.webp",
+    "by": "이병현",
+    "src": "한국관광공사 포토코리아"
+   },
+   "gn|진해군항제 벚꽃": {
+    "f": "img/p/ab36eaf8fc.webp",
+    "by": "",
+    "src": "한국관광공사 TourAPI"
+   },
+   "gn|함안 낙화놀이": {
+    "f": "img/p/604edc0066.webp",
+    "by": "이영진",
+    "src": "한국관광공사 포토코리아"
+   }
+  }
+ }
+}

@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>K의 나라 개편 시안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@600;800;900&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --hanji:#F5EFE4;--hanji-2:#EBE2D2;--hanji-3:#DED2BE;
+  --meok:#211E1A;--meok-2:#4B443B;--mute:#8D8477;--line:rgba(33,30,26,.13);
+  --jeok:#C33A2E;--cheong:#1F4A8C;--hwang:#DFA42A;--nok:#2E7D6B;--brass:#C9A24B;--brass-d:#8E6B22;
+  --f-disp:"Hahmlet","Noto Serif KR",serif;--f-story:"Gowun Batang","Noto Serif KR",serif;--f-ui:"Noto Sans KR",sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+[hidden]{display:none!important}
+body{background:var(--hanji-2);color:var(--meok);font-family:var(--f-ui);font-size:15px;line-height:1.6}
+.wrap{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:28px;max-width:1280px;margin:0 auto;padding:24px 16px 80px}
+@media (max-width:980px){.wrap{grid-template-columns:1fr}.phone-col{order:-1;position:static!important}}
+/* ---------- 문서 쪽 ---------- */
+.doc h1{font-family:var(--f-disp);font-weight:900;font-size:30px;letter-spacing:-.02em;margin:0 0 4px}
+.doc .sub{color:var(--mute);margin:0 0 22px}
+.doc h2{font-family:var(--f-disp);font-weight:800;font-size:20px;margin:34px 0 10px;padding-top:14px;border-top:1.5px solid var(--line)}
+.doc h2 .n{display:inline-block;min-width:28px;color:var(--jeok)}
+.doc p{margin:6px 0}
+.doc table{border-collapse:collapse;width:100%;font-size:13.5px;background:rgba(255,255,255,.5);border-radius:12px;overflow:hidden}
+.doc th,.doc td{border-bottom:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+.doc th{background:var(--hanji-3);font-weight:700;white-space:nowrap}
+.tbl-scroll{overflow-x:auto}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0}
+.flow span{background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;white-space:nowrap}
+.flow b{color:var(--mute);font-weight:400}
+.flow .loop{background:var(--meok);color:var(--hanji);border-color:var(--meok)}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:640px){.cmp{grid-template-columns:1fr}}
+.box{background:rgba(255,255,255,.6);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px}
+.box h3{margin:0 0 6px;font-size:15px}
+.box ul{margin:0;padding-left:18px}
+.tag{display:inline-block;font-size:11.5px;border-radius:999px;padding:1px 8px;background:var(--hanji-3);margin-right:4px}
+.ask li{margin:4px 0}
+.ask b{color:var(--jeok)}
+.grid36{display:grid;grid-template-columns:110px repeat(4,1fr);gap:4px;font-size:12.5px}
+.grid36 div{background:rgba(255,255,255,.6);border-radius:8px;padding:6px 8px}
+.grid36 .h{background:var(--meok);color:var(--hanji);font-weight:700;text-align:center}
+.grid36 .rh{background:var(--hanji-3);font-weight:700}
+@media (max-width:640px){.grid36{grid-template-columns:70px repeat(4,1fr);font-size:11px}}
+.pct{color:var(--mute);font-size:11px}
+/* ---------- 폰 쪽 ---------- */
+.phone-col{position:sticky;top:16px;align-self:start}
+.phone-col .cap{font-size:13px;color:var(--mute);margin:0 0 8px;text-align:center}
+.phone{width:100%;max-width:400px;margin:0 auto;height:min(820px,calc(100svh - 70px));min-height:600px;border-radius:34px;background:var(--hanji);border:10px solid var(--meok);box-shadow:0 20px 50px rgba(33,30,26,.3);overflow:hidden;position:relative;display:flex;flex-direction:column}
+.hud{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 14px;background:var(--hanji-2);border-bottom:1.5px solid var(--line);font-size:12.5px;flex:none}
+.hud .ch{font-family:var(--f-disp);font-weight:800;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hud .subs{font-family:var(--f-disp);font-weight:800;color:var(--jeok);white-space:nowrap}
+.hud .dex{background:var(--meok);color:var(--hanji);border:0;border-radius:999px;padding:5px 10px;font-size:12px;cursor:pointer;font-family:var(--f-ui);white-space:nowrap}
+.nori{display:flex;gap:3px}
+.nori i{width:14px;height:14px;border-radius:50%;background:var(--hanji-3);display:block;font-style:normal;font-size:10px;line-height:14px;text-align:center}
+.screen{flex:1;overflow-y:auto;padding:16px 14px 24px;scroll-behavior:smooth}
+.btn{display:block;width:100%;min-height:54px;border:0;border-radius:16px;background:var(--meok);color:var(--hanji);font-family:var(--f-ui);font-weight:700;font-size:16px;box-shadow:0 4px 0 #000,0 8px 18px rgba(33,30,26,.22);cursor:pointer;margin-top:14px;transition:transform .1s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #000}
+.btn.ghost{background:rgba(255,255,255,.6);color:var(--meok);box-shadow:inset 0 0 0 1.5px var(--line);min-height:46px;font-size:14px}
+.btn[disabled]{opacity:.35;cursor:not-allowed}
+.poster{text-align:center;padding-top:26px}
+.poster .t{font-family:var(--f-disp);font-weight:900;font-size:46px;letter-spacing:-.03em;line-height:1.1}
+.poster .s{font-family:var(--f-story);font-size:17px;margin:10px 0 18px}
+.poster .map{font-size:64px;line-height:1.1;margin:12px 0}
+.saek{height:8px;border-radius:999px;background:linear-gradient(90deg,var(--jeok) 0 20%,var(--hwang) 0 40%,var(--nok) 0 60%,var(--cheong) 0 80%,#fff 0);margin:14px auto;width:70%;box-shadow:inset 0 0 0 1.5px var(--line)}
+.bubble{display:flex;gap:8px;align-items:flex-start;margin:4px 0 12px}
+.bubble .av{flex:none;width:32px;height:32px;border-radius:50%;background:var(--cheong);color:#fff;display:grid;place-items:center;font-size:14px;font-weight:700}
+.bubble .tx{background:#fff;border-radius:4px 14px 14px 14px;padding:8px 12px;font-family:var(--f-story);font-size:15px;box-shadow:inset 0 0 0 1.5px var(--line)}
+.bubble .nm{font-size:11px;color:var(--mute);margin-bottom:2px}
+.qcard{background:rgba(255,255,255,.6);border-radius:18px;box-shadow:inset 0 0 0 1.5px var(--line),0 2px 0 rgba(33,30,26,.06);padding:14px;margin-bottom:14px;transition:opacity .3s}
+.qcard.dim{opacity:.35;pointer-events:none}
+.qcard h4{margin:0 0 10px;font-family:var(--f-story);font-size:16.5px;font-weight:700}
+.qcard h4 small{font-family:var(--f-ui);font-weight:500;color:var(--mute);font-size:12px;margin-left:4px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opt{position:relative;border:0;background:#fff;border-radius:14px;box-shadow:inset 0 0 0 1.5px var(--line);padding:10px 8px 9px;text-align:center;cursor:pointer;font-family:var(--f-ui);transition:transform .12s var(--ease),box-shadow .12s}
+.opt .em{font-size:34px;line-height:1.15;display:block;height:46px;border-radius:10px;background:var(--hanji-2);margin-bottom:6px;padding-top:4px}
+.opt .nm{font-weight:700;font-size:13.5px;line-height:1.3;display:block}
+.opt .ln{font-size:11.5px;color:var(--mute);line-height:1.3;display:block;margin-top:2px}
+.opt.on{box-shadow:inset 0 0 0 3px var(--meok);transform:translateY(-2px)}
+.opt.on::after{content:"✓";position:absolute;top:6px;right:8px;background:var(--meok);color:var(--hanji);width:20px;height:20px;border-radius:50%;font-size:12px;line-height:20px}
+.opt .loc{position:absolute;top:6px;left:6px;font-size:10px;background:var(--nok);color:#fff;border-radius:999px;padding:0 6px}
+.textopts{display:flex;flex-direction:column;gap:7px}
+.textopts .opt{text-align:left;padding:12px 14px;font-size:14px}
+.textopts .opt.small{font-size:12px;color:var(--mute);background:transparent}
+.slider{padding:8px 4px}
+.slider input{width:100%;accent-color:var(--meok)}
+.slider .ends{display:flex;justify-content:space-between;font-size:12px;color:var(--cheong);font-weight:700}
+.slider .ticks{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);padding:0 4px}
+.mapgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.do{border:0;border-radius:14px;padding:12px 10px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);cursor:pointer;text-align:left;font-family:var(--f-ui)}
+.do b{display:block;font-size:15px}
+.do span{font-size:11.5px;color:var(--mute)}
+.do.done{background:var(--hanji-3);opacity:.7}
+.do.done b::after{content:" ✓";color:var(--nok)}
+.do .lock{font-size:10.5px;color:var(--jeok)}
+.game{text-align:center}
+.track{position:relative;height:46px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);margin:18px 0 8px;overflow:hidden}
+.track .gold{position:absolute;top:0;bottom:0;left:42%;width:16%;background:rgba(201,162,75,.45)}
+.track .pin{position:absolute;top:4px;bottom:4px;width:8px;border-radius:4px;background:var(--jeok);left:0}
+.rec{display:inline-block;color:var(--jeok);font-weight:700;font-size:12px;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.3}}
+.stars{font-size:34px;letter-spacing:4px;color:var(--brass)}
+.cmt{background:#fff;border-radius:12px;padding:8px 12px;margin:6px 0;font-size:13.5px;box-shadow:inset 0 0 0 1.5px var(--line);animation:up .4s var(--ease) both}
+.cmt b{font-size:12px;color:var(--cheong);margin-right:6px}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.big{font-family:var(--f-disp);font-weight:900;font-size:30px;color:var(--jeok);text-align:center}
+.spinner{width:46px;height:46px;border-radius:50%;border:4px solid var(--hanji-3);border-top-color:var(--meok);animation:spin .8s linear infinite;margin:120px auto 14px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ending{text-align:center}
+.ending .scene{font-size:70px;line-height:1.1;background:linear-gradient(180deg,var(--hanji-3),#fff);border-radius:18px;padding:22px 0 14px;margin-bottom:12px;box-shadow:inset 0 0 0 1.5px var(--line)}
+.ending .no{font-size:12px;color:var(--mute)}
+.ending h3{font-family:var(--f-disp);font-weight:900;font-size:26px;margin:4px 0;letter-spacing:-.02em}
+.ending .one{font-family:var(--f-story);font-size:15.5px;margin:0 0 6px}
+.ending .succ{display:inline-block;background:var(--meok);color:var(--hanji);border-radius:999px;padding:3px 12px;font-size:12.5px;margin:4px 0 10px}
+.why{text-align:left;background:rgba(255,255,255,.6);border-radius:14px;padding:10px 12px;margin:10px 0;box-shadow:inset 0 0 0 1.5px var(--line);font-size:13px}
+.why h5{margin:0 0 6px;font-size:12.5px;color:var(--mute);font-weight:500}
+.bars .r{display:grid;grid-template-columns:38px 1fr 36px;gap:6px;align-items:center;margin:3px 0;font-size:12px}
+.bars .b{height:10px;border-radius:999px;background:var(--hanji-3);overflow:hidden}
+.bars .b i{display:block;height:100%;background:var(--cheong);border-radius:999px}
+.bars .r.top .b i{background:var(--jeok)}
+.axis{display:grid;grid-template-columns:44px 1fr 44px;gap:6px;align-items:center;font-size:11.5px;margin:5px 0}
+.axis .l{position:relative;height:6px;background:var(--hanji-3);border-radius:999px}
+.axis .l i{position:absolute;top:-4px;width:14px;height:14px;border-radius:50%;background:var(--meok);margin-left:-7px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 0}
+.badges span{background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);border-radius:999px;padding:3px 10px;font-size:12px}
+.question{font-family:var(--f-story);color:var(--meok-2);font-size:14px;margin:10px 0 0}
+.dexgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.dexgrid .c{background:#fff;border-radius:10px;box-shadow:inset 0 0 0 1.5px var(--line);padding:6px 4px;text-align:center;font-size:10.5px;line-height:1.25;min-height:68px}
+.dexgrid .c .e{font-size:22px;display:block}
+.dexgrid .c.off{background:var(--hanji-3);color:var(--mute)}
+.dexgrid .c.off .e{filter:grayscale(1) brightness(.3);opacity:.35}
+.dexrow{font-size:12px;font-weight:700;margin:12px 0 5px}
+.toast{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);background:var(--meok);color:var(--hanji);padding:8px 14px;border-radius:999px;font-size:13px;opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap}
+.toast.on{opacity:1}
+.mini{font-size:12px;color:var(--mute);text-align:center;margin-top:8px}
+/* 사진 */
+.ph{display:block;object-fit:cover;background:var(--hanji-3)}
+.ph.none{display:grid;place-items:center;background:repeating-linear-gradient(135deg,var(--hanji-2) 0 10px,var(--hanji-3) 10px 20px);color:var(--meok-2);font-family:var(--f-story);text-align:center;padding:4px;overflow:hidden}
+.ph.none b{font-size:12.5px;line-height:1.25;word-break:keep-all}
+.ph.card{width:100%;height:92px;border-radius:10px;margin-bottom:7px}
+.ph.col{width:100%;height:100%;border-radius:12px}
+.collage{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:96px 96px;gap:6px;margin:6px 0 10px}
+.ph.hero{width:100%;height:100%;position:absolute;inset:0}
+.scene.hero{position:relative;height:210px;padding:0!important;overflow:hidden;background:var(--hanji-3)}
+.scene.hero.sm{height:150px}
+.scene.hero .cap{position:absolute;left:8px;bottom:8px;background:rgba(33,30,26,.72);color:var(--hanji);font-size:11.5px;border-radius:999px;padding:2px 10px}
+.ph.slot{width:46px;height:46px;border-radius:9px}
+.ph.slot.none b{font-size:9px}
+.slot{grid-template-columns:34px 46px 1fr!important}
+.ph.vg{width:100%;height:58px;border-radius:8px;margin-bottom:4px}
+.nd{display:inline-block;width:12px;height:12px;border-radius:50%;box-shadow:inset 0 0 0 1.5px rgba(33,30,26,.25);vertical-align:-1px;margin:0 1px}
+.nori .nd{width:14px;height:14px}
+.tok{display:inline-block;width:56px;height:56px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px #fff,0 2px 6px rgba(0,0,0,.25);vertical-align:middle}
+.tok.none{display:inline-grid;place-items:center;background:var(--hwang);color:var(--meok);font-weight:700;font-size:14px}
+.tok.sh.s1{background:var(--cheong);border-radius:12px}
+.tok.sh.s2{background:var(--jeok);clip-path:polygon(50% 0,100% 100%,0 100%);border-radius:0;box-shadow:none}
+.bigtap .tok,.rubpad .tok{width:120px;height:120px}
+.pad.c0{background:var(--jeok)}.pad.c1{background:var(--hwang)}.pad.c2{background:var(--nok)}.pad.c3{background:var(--cheong)}
+.bk{font-size:13px!important;font-weight:700;background:var(--brass);color:var(--meok);border-radius:0 0 18px 18px;padding:10px 14px}
+.hole.hit{background:#FFD9A0!important}
+.opt .loc{z-index:1}
+/* 미니게임 */
+.gname{font-size:11.5px;background:var(--hanji-3);border-radius:999px;padding:2px 9px;margin-left:4px}
+.gtip{font-family:var(--f-story);font-size:15px;margin:4px 0 10px;color:var(--meok-2)}
+.gauge{height:12px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);overflow:hidden;margin:12px 0 4px}
+.gauge i{display:block;height:100%;width:0;background:var(--jeok);transition:width .08s}
+.bigtap{width:170px;height:170px;border-radius:50%;border:0;background:#fff;box-shadow:inset 0 0 0 3px var(--meok),0 6px 0 var(--meok);font-size:80px;cursor:pointer;margin:8px auto 0;display:block;transition:transform .06s;touch-action:manipulation;user-select:none}
+.lanes{position:relative;height:250px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;overflow:hidden}
+.lane{background:#fff;border-radius:12px;box-shadow:inset 0 0 0 1.5px var(--line)}
+.bk{position:absolute;bottom:6px;transform:translateX(-50%);font-size:40px;transition:left .12s}
+.fall{position:absolute;top:0;transform:translateX(-50%);font-size:32px;transition:top 1.25s linear}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.row2 .btn{font-size:22px}
+.pads{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:260px;margin:0 auto}
+.pad{height:100px;border:0;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);font-size:44px;cursor:pointer;opacity:.55;transition:all .12s}
+.pad.lit{opacity:1;transform:scale(1.07);box-shadow:inset 0 0 0 4px var(--brass),0 0 18px rgba(201,162,75,.6)}
+.vg{position:relative;width:74px;height:210px;margin:6px auto;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);overflow:hidden}
+.vg i{position:absolute;bottom:0;left:0;right:0;height:0;background:var(--cheong);display:block}
+.vgold{position:absolute;left:0;right:0;bottom:68%;height:16%;background:rgba(201,162,75,.6);z-index:1;border-top:2px solid var(--brass-d);border-bottom:2px solid var(--brass-d)}
+#hb{touch-action:none;user-select:none}
+.rubpad{height:210px;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);display:grid;place-items:center;font-size:76px;touch-action:none;user-select:none;cursor:grab}
+.rubpad span{display:block}
+.holes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.hole{height:78px;border:0;border-radius:50%;background:var(--hanji-3);box-shadow:inset 0 6px 0 rgba(33,30,26,.15);font-size:38px;cursor:pointer}
+.hole.up{background:#fff;box-shadow:inset 0 0 0 2px var(--meok)}
+.hole.hit{background:#FFD9A0}
+.pairs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pc{height:88px;border:0;border-radius:14px;background:var(--meok);font-size:38px;cursor:pointer;color:#fff}
+.pc.open{background:#fff;box-shadow:inset 0 0 0 1.5px var(--line)}
+/* 엔딩 */
+.edots{display:flex;gap:5px;justify-content:center;margin:0 0 12px}
+.edots i{width:22px;height:5px;border-radius:999px;background:var(--hanji-3)}
+.edots i.on{background:var(--meok)}
+.scene.sm{font-size:48px;padding:14px 0 8px}
+.story{text-align:center}
+.story .scene{background:linear-gradient(180deg,var(--hanji-3),#fff);border-radius:18px;margin-bottom:14px;box-shadow:inset 0 0 0 1.5px var(--line)}
+.story p{font-family:var(--f-story);font-size:17px;line-height:1.6;margin:10px 0;opacity:0;animation:up .6s var(--ease) both}
+.vign{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:14px;opacity:0;animation:up .6s var(--ease) both}
+.vign div{background:#fff;border-radius:12px;padding:8px 4px;font-size:12px;box-shadow:inset 0 0 0 1.5px var(--line)}
+.vign span{font-size:28px;display:block}
+.vign small{color:var(--mute)}
+.eh{font-family:var(--f-disp);font-weight:800;font-size:20px;margin:0 0 4px}
+.mrow{margin:6px 0;padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.5)}
+.mrow.top{background:#fff;box-shadow:inset 0 0 0 1.5px var(--line)}
+.mh{display:grid;grid-template-columns:18px 64px 1fr 36px;gap:6px;align-items:center;font-size:13.5px}
+.mh b{color:var(--jeok)}
+.mh .b{height:9px;border-radius:999px;background:var(--hanji-3);overflow:hidden}
+.mh .b i{display:block;height:100%;background:var(--cheong)}
+.mrow.top .mh .b i{background:var(--jeok)}
+.mh em{font-style:normal;font-weight:700;font-size:12.5px}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.chips span{font-size:11.5px;background:var(--hanji-2);border-radius:999px;padding:2px 8px}
+.chips span.best{background:var(--meok);color:var(--hanji)}
+.day{font-weight:700;font-size:13px;margin:12px 0 4px;color:var(--cheong)}
+.slot{display:grid;grid-template-columns:34px 30px 1fr;gap:6px;align-items:start;background:#fff;border-radius:12px;padding:8px;margin:5px 0;box-shadow:inset 0 0 0 1.5px var(--line);font-size:13px}
+.slot .t{font-size:11.5px;color:var(--mute);padding-top:3px}
+.slot .e{font-size:22px;line-height:1}
+.slot .ln{font-size:11.5px;color:var(--mute);margin-top:2px}
+.slot a,.why a{font-size:11.5px;color:var(--cheong);font-weight:700;text-decoration:none}
+.tg{display:inline-block;font-size:10px;border-radius:999px;padding:0 6px;vertical-align:1px;margin-left:2px}
+.tg.mine{background:var(--meok);color:var(--hanji)}
+.tg.new{background:var(--nok);color:#fff}
+.tg.snow{background:var(--cheong);color:#fff}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- =================== 왼쪽: 결정안 =================== -->
+<main class="doc">
+  <h1>K의 나라 개편 시안</h1>
+  <p class="sub">팔도 여행 → 성공한 K-크리에이터 · 멀티엔딩 36개 · 2026-10-18 · 오른쪽 폰 화면은 실제로 눌러 볼 수 있음</p>
+
+  <h2><span class="n">1</span>참고 사이트에서 가져오는 것</h2>
+  <div class="cmp">
+    <div class="box"><h3>물회의 취향 (mulhoe.vercel.app)</h3>
+      <ul>
+        <li>포스터 시작 화면 → 질문 카드 10장이 <b>세로로 이어짐</b></li>
+        <li>형식 4종: 택1 · <b>사진 카드 다중선택</b> · 사진 카드 택1 · 0~5 슬라이더</li>
+        <li>"분석 중..." → 맞춤 결과(맛집 1·2위) → 다시 하기</li>
+        <li>오른쪽 위 상시 <b>"도감"</b> (결과 25개 모음)</li>
+        <li>약점: 이야기 없음, 결과 2개만, 앞 선택이 뒤에 영향 없음</li>
+      </ul></div>
+    <div class="box"><h3>K의 나라 새 구조</h3>
+      <ul>
+        <li>도 안에서는 물회처럼 <b>카드 4장 세로</b>, 탭 한 번에 다음 카드</li>
+        <li>도와 도 사이는 <b>지도에서 자유 이동</b> (여행 느낌)</li>
+        <li>도마다 미니게임 1개 = "촬영" (실력 측정, 원청 요구)</li>
+        <li>구독자가 쌓이고, 매니저 '다온'·'첫댓요정'이 말을 건다</li>
+        <li>결과 = 엔딩 <b>36개</b> 중 하나 + 도감</li>
+      </ul></div>
+  </div>
+
+  <h2><span class="n">2</span>관람 흐름 (8도 완주 약 9분, 엔딩 약 1분 30초)</h2>
+  <div class="flow">
+    <span>포스터</span><b>→</b><span>채널 이름</span><b>→</b><span>꿈 고르기</span><b>→</b><span>지도</span><b>→</b>
+    <span class="loop">도 ×8 (순서 자유)</span><b>→</b><span>분석 중</span><b>→</b><span>엔딩 장면·결과 카드</span><b>→</b><span>도감·다시하기</span>
+  </div>
+  <p><b>도 하나 (약 55초)</b></p>
+  <div class="flow">
+    <span>① 어디부터 갈까 (장소·사진 택1)</span><b>→</b><span>② 뭐 먹지 (택1 또는 다중)</span><b>→</b><span>③ 오늘 메인 영상 (택1 = 미니게임)</span><b>→</b><span>④ 어떻게 찍지 (슬라이더 또는 5지선다)</span><b>→</b><span>도별 미니게임 5~12초</span><b>→</b><span>업로드 반응·노리개</span>
+  </div>
+  <p>4도부터 지도에 "여기서 결산" 버튼. 2도 이하에서 끝내면 '1화 업로드 완료' 엔딩.</p>
+
+  <h2><span class="n">3</span>엔딩을 가르는 것</h2>
+  <div class="tbl-scroll"><table>
+    <tr><th>축</th><th>어디서 재나</th><th>엔딩에서</th></tr>
+    <tr><td>컨셉 6 (뷰티·먹방·음식·관광·여행·전통)</td><td>①②③ 카드</td><td>1위 컨셉 = 엔딩의 "무대"</td></tr>
+    <tr><td>촬영 스타일 (연출 – 날것)</td><td>④</td><td rowspan="2">두 축으로 사분면: 방송국형 · 다큐형 · 라이브형 · 브이로그형</td></tr>
+    <tr><td>여행 페이스 (꽉 찬 일정 – 느긋)</td><td>① 카드 태그, ② 고른 개수, ④</td></tr>
+    <tr><td>지역 몰입</td><td>장면마다 1장 있는 <span class="tag" style="background:var(--nok);color:#fff">현지인 추천</span> 카드</td><td>한 도에서 현지인 말만 따르면 그 도의 숨은 엔딩</td></tr>
+    <tr><td>실력 ★0~3</td><td>촬영 미니게임</td><td>구독자 → '골드버튼' 숨은 엔딩</td></tr>
+  </table></div>
+  <p class="pct">판정 순서: 1화(2도 이하) → 언플러그드 → 지역 몰입 → 골드버튼 → 팔도 만능 → 정규 24. 무작위 응답 10만 회 시뮬: 정규 엔딩 각 3.0~4.4%, 숨은 엔딩 각 0.7~2.7%, 안 나오는 엔딩 0개.</p>
+
+  <h2><span class="n">4</span>엔딩 36개</h2>
+  <p><b>정규 24</b> = 1위 컨셉 × 사분면</p>
+  <div class="grid36" id="grid24"></div>
+  <p style="margin-top:12px"><b>지역 몰입 8</b> · <b>특수 4</b></p>
+  <div class="grid36" id="grid12" style="grid-template-columns:repeat(4,1fr)"></div>
+  <p class="pct">엔딩마다 "성공의 모양"이 다름: 해외 연사, 박물관 상설 영상, 노포가 다시 문 엶, 교실 수업 자료, 공항 홍보 영상, 축제 사회자 등. 결과 카드에는 21유형 배지·삼작노리개·추천 지역이 함께 붙음.</p>
+
+  <h2><span class="n">5</span>도별 미니게임 8종 (모두 조작이 다름)</h2>
+  <div class="tbl-scroll"><table>
+    <tr><th>도</th><th>조작</th><th>하는 일</th><th>★ 기준</th></tr>
+    <tr><td>전남</td><td>멈추기</td><td>움직이는 막대가 금빛 칸에 올 때 탭 (3번)</td><td>맞힌 수</td></tr>
+    <tr><td>경북</td><td>연타</td><td>5초 동안 마구 탭</td><td>12 / 22 / 30번</td></tr>
+    <tr><td>충청</td><td>받기</td><td>좌우 버튼으로 바구니 옮겨 떨어지는 것 받기 (7개)</td><td>2 / 4 / 6개</td></tr>
+    <tr><td>서울·경기</td><td>순서 기억</td><td>반짝인 순서 따라 누르기 (2·3·4칸)</td><td>통과 라운드</td></tr>
+    <tr><td>제주</td><td>꾹 누르기</td><td>누르고 있다가 금빛 칸에서 떼기 (숨 참기)</td><td>맞힌 수</td></tr>
+    <tr><td>전북</td><td>문지르기</td><td>5초 동안 쓱쓱 문질러 게이지 채우기 (비비기)</td><td>33 / 66 / 100%</td></tr>
+    <tr><td>강원</td><td>튀어나오면 탭</td><td>9칸 중 튀어나오는 것 바로 탭 (8번)</td><td>3 / 5 / 7번</td></tr>
+    <tr><td>경남</td><td>짝 맞추기</td><td>1초 보여 준 그림 6장 중 짝 찾기</td><td>틀린 횟수</td></tr>
+  </table></div>
+  <p class="pct">조작은 도마다 고정이고, 그림(이모지)과 제목은 ③에서 고른 메인 영상으로 바뀜. 한 판 5~12초.</p>
+
+  <h2><span class="n">6</span>엔딩 6장면 — 실제 방문까지 잇기</h2>
+  <div class="flow">
+    <span>마지막 업로드 (꾹 누르기)</span><b>→</b><span>① 엔딩 장면·칭호</span><b>→</b><span>② 1년 뒤 이야기</span><b>→</b><span class="loop">③ 나랑 잘 맞은 팔도 순위</span><b>→</b><span class="loop">④ 실제로 가 보기 1박 2일</span><b>→</b><span>⑤ 채널 결산</span><b>→</b><span>⑥ 첫댓요정 반전·도감</span>
+  </div>
+  <ul>
+    <li><b>③ 잘 맞은 팔도:</b> 다녀온 도마다 궁합 % = 고른 카드가 내 1·2위 컨셉과 맞는 정도 + 촬영 별점 + 현지인 추천 따른 정도. 1~3위는 그 도에서 고른 것과 "가장 나다웠던 것 ★"을 보여 줌</li>
+    <li><b>④ 실제로 가 보기:</b> 1위 도의 1박 2일 코스. <span class="tag">고른 것</span>(내가 게임에서 고른 장소·음식·체험)에 <span class="tag" style="background:var(--nok);color:#fff">새로 발견</span>(같은 도에서 내 취향과 맞는 곳)을 섞음. 항목마다 시군·한 줄·<b>공식 관광 안내 링크</b>(대한민국 구석구석·지자체·국가유산청, 큐레이터가 확인한 115곳), 11~12월 제철·행사 표시, 2·3위 도와 안 가 본 도 추천</li>
+    <li>본 작업: 코스를 <b>이미지 저장 + QR</b>로 폰에 가져가게 → 전시장 밖 실제 방문으로</li>
+  </ul>
+
+  <h2><span class="n">7</span>에이전트 논의 — 갈린 점과 결정</h2>
+  <div class="tbl-scroll"><table>
+    <tr><th>쟁점</th><th>의견</th><th>결정</th></tr>
+    <tr><td>도 하나 분량</td><td>구조설계: 4장+촬영(55초) / 서사: 9장면(1분30초)</td><td><b>4장+촬영</b> — 9장면은 8도에 16분 넘음, 먹방·음식 84% 쏠림</td></tr>
+    <tr><td>엔딩 판정 축</td><td>구조설계: 스타일×페이스 / 엔딩: 화제·진심×혼자·함께</td><td><b>스타일×페이스</b> — 다른 안은 시뮬에서 한 갈래 47% 쏠림</td></tr>
+    <tr><td>엔딩 수</td><td>36 / 30</td><td><b>36</b> (격자는 구조설계, 이름·장면은 엔딩 설계)</td></tr>
+    <tr><td>미니게임</td><td>두 안 모두 도마다 1개</td><td><b>도마다 1개</b> — 없애면 원청 "무엇을 잘했나" 못 잼</td></tr>
+    <tr><td>서사 장치</td><td>매니저 다온, 첫댓요정(엔딩 반전: 첫댓요정 = 다온)</td><td><b>채택</b> — 화면 추가 없이 말풍선·댓글로만</td></tr>
+    <tr><td>카드 소재</td><td>팔도 115장, 실제 상호 0, 출처 확인</td><td>도당 12장 골라 씀 (시안은 이 중 96장)</td></tr>
+  </table></div>
+
+  <h2><span class="n">8</span>정해 주셔야 할 것</h2>
+  <ol class="ask">
+    <li>코스를 가져가는 방법: <b>이미지 저장 / QR로 폰에 결과 페이지 / 현장 출력</b> 중 무엇 — 그리고 게임 안에서 공식 관광 사이트 링크를 열어도 되는지(원청)</li>
+    <li>결산 가능 최소 도: <b>4도</b>(시안) vs 3도 · 노리개 굿즈는 몇 도부터 주는지</li>
+    <li>엔딩에 실존 기관명(공항·영화제·박물관·성산일출봉 등) 써도 되는지 — 원청 확인</li>
+    <li>개인 폰인지 <b>사랑채 공용 태블릿</b>인지 (공용이면 도감을 관람객마다 비워야 함)</li>
+    <li>카드 그림: 지금은 이모지 자리표시. 일러스트(물회처럼 손그림) vs 사진 vs 기존 3D</li>
+    <li>새 문구 약 250개 × 5개 언어 — 납기(11-01) 전 번역 범위</li>
+  </ol>
+  <p class="pct">상세 문서: docs/restructure/ 01_구조설계 · 02_팔도카드 · 03_멀티엔딩 · 04_서사흐름 · 05_합의안 · sim.mjs</p>
+</main>
+
+<!-- =================== 오른쪽: 폰 시안 =================== -->
+<aside class="phone-col">
+  <p class="cap">눌러 보는 시안 · 8도 모두 플레이 가능 · 지도에서 "나머지 자동"으로 엔딩 빨리 보기</p>
+  <div class="phone">
+    <div class="hud" id="hud" hidden>
+      <span class="ch" id="hudCh">채널</span>
+      <span class="nori" id="hudNori"></span>
+      <span class="subs" id="hudSubs">구독자 0</span>
+      <button class="dex" id="dexBtn">도감</button>
+    </div>
+    <div class="screen" id="scr"></div>
+    <div class="toast" id="toast"></div>
+  </div>
+</aside>
+</div>
+
+<script>
+// ---------------- 데이터 ----------------
+const POOL = {"jn":[{"k":"음식","n":"나주곰탕","city":"나주","line":"뼈 대신 고기로 우린 맑은 곰탕","c":["M"],"snow":0,"url":"https://www.naju.go.kr/tour/food"},{"k":"음식","n":"담양 떡갈비","city":"담양","line":"다진 갈빗살을 빚어 구운 고기","c":["F"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=c44502c7-c646-46f3-b1c3-3f5845fa6651"},{"k":"음식","n":"여수 돌게장 백반","city":"여수","line":"간장·양념 돌게장이 함께 나오는 밥상","c":["M"],"snow":0,"url":"https://www.yeosu.go.kr/tour/lodge_food/food/special_road/special_road_02"},{"k":"음식","n":"영광 굴비","city":"영광","line":"해풍에 말린 참조기","c":["F"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=c279097e-5647-4402-82d3-5127884fd146"},{"k":"장소","n":"담양 죽녹원","city":"담양","line":"2.4km 대숲 산책길","c":["T"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=f37bd9df-2940-460a-bea9-08765e946197"},{"k":"장소","n":"순천만습지","city":"순천","line":"갈대밭과 S자 물길 갯벌","c":["S"],"snow":0,"url":"https://english.visitkorea.or.kr/svc/whereToGo/locIntrdn/locIntrdnList.do?vcontsId=96951&menuSn=351"},{"k":"장소","n":"여수 밤바다·돌산대교","city":"여수","line":"색이 바뀌는 다리 야경","c":["S"],"snow":0,"url":"https://www.yeosu.go.kr/tour/travel/10tour/yeosu_nic"},{"k":"장소","n":"무등산 장불재","city":"광주","line":"억새 능선이 펼쳐진 고개","c":["T"],"snow":0,"url":"https://tour.gwangju.go.kr/home/tour/info/load.cs?act=view&infoId=203&searchCondition=&searchKeyword=&pageIndex=1"},{"k":"장소","n":"보성 녹차밭","city":"보성","line":"산비탈 계단식 초록 차밭","c":["S","T"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=200a941f-770b-4017-8fe1-19c8773af788"},{"k":"체험","n":"여수 해상케이블카","city":"여수","line":"바다 위를 건너는 케이블카","c":["S","T"],"snow":0,"url":"https://www.yeosu.go.kr/tour/travel/10tour/cablecar"},{"k":"체험","n":"장흥 편백숲 산림욕","city":"장흥","line":"편백 숲에서 쉬어 가기","c":["T","B"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=506e6e32-74d4-40ee-b98a-04f7d7891d1a"},{"k":"체험","n":"진도 신비의바닷길","city":"진도","line":"바다가 갈라져 섬까지 걷는 길","c":["T"],"snow":0,"url":"https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=e6b3596c-3769-41a2-9090-84a7585db5e0"},{"k":"체험","n":"함평나비대축제","city":"함평","line":"봄날 나비 날리기 체험","c":["S"],"snow":0,"url":"https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=6995b351-4b45-4c86-947e-f44a07e087f8"},{"k":"체험","n":"광주비엔날레","city":"광주","line":"2년마다 열리는 국제 현대미술전","c":["S"],"snow":1,"url":"https://www.gwangjubiennale.org/"}],"gb":[{"k":"음식","n":"영덕대게","city":"영덕","line":"겨울~봄 제철, 다리 긴 대게","c":["M"],"snow":1,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=e08625ae-1044-40cf-a01e-77eee3d35305"},{"k":"음식","n":"안동 간고등어","city":"안동","line":"소금 간을 한 안동 고등어","c":["F","M"],"snow":1,"url":"https://www.andong.go.kr/agritec/contents.do?mId=0302020000"},{"k":"음식","n":"대구 막창구이","city":"대구(남구)","line":"연탄불에 굽는 돼지막창","c":["F"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=a97990d3-a8d3-4a4a-a2f2-f25ba9f1824c"},{"k":"음식","n":"서문시장 야시장","city":"대구(중구)","line":"350m에 매대 80여 개, 국내 최대 야시장","c":["M"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=efaf62c0-b493-4d29-82d5-d924c026bee7"},{"k":"음식","n":"상주 곶감","city":"상주","line":"전국 생산 60% 안팎, 겨울 감 말리기","c":["F"],"snow":1,"url":"https://www.sangju.go.kr/sangjugotgam/page/2395/5111.tc"},{"k":"장소","n":"불국사·석굴암","city":"경주","line":"신라 불교문화 세계유산","c":["S"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=a43fa503-b8db-42a8-817e-04f2e353fa42"},{"k":"장소","n":"첨성대 야경","city":"경주","line":"8색 조명이 켜지는 신라 천문대","c":["S"],"snow":0,"url":"https://www.gyeongju.go.kr/tour/page.do?cmd=2&mnu_uid=2292&area_uid=47"},{"k":"장소","n":"안동 하회마을","city":"안동","line":"강이 감아 도는 양반 마을 (세계유산)","c":["T"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=3e375cc0-c11e-45de-9651-e77d6b40891e"},{"k":"장소","n":"영주 무섬 외나무다리","city":"영주","line":"폭 30cm로 강을 건너는 다리","c":["T"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=c9513dda-fb35-4a05-b309-56eca430bbc3"},{"k":"장소","n":"포항 스페이스워크","city":"포항","line":"롤러코스터 모양 걷는 조형물","c":["T"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=2a08732b-eba3-45e7-8b72-384abd02c9be"},{"k":"체험","n":"경주 대릉원 한복 나들이","city":"경주","line":"한복 입고 고분 사이 걷기","c":["B","H"],"snow":0,"url":"https://www.gyeongju.go.kr/news/page.do?mnu_uid=1336&parm_bod_uid=256759&step=258"},{"k":"체험","n":"하회별신굿탈놀이·안동국제탈춤페스티벌","city":"안동","line":"양반을 풍자하던 마을 탈놀이","c":["H"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/fes_detail.do?cotid=4bddc447-19e4-44a6-9678-9d1f4dc2d3ec"},{"k":"체험","n":"문경 찻사발 빚기","city":"문경","line":"장작가마 도자기와 다례","c":["H"],"snow":0,"url":"https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=79a118fc-7a02-4262-be71-030a1fc3d815"},{"k":"체험","n":"청송 사과 따기","city":"청송","line":"가을 산골 사과 축제","c":["T"],"snow":0,"url":"https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=dc6b1834-4dd8-40c4-acf4-9cb13e9c4d0b"}],"cc":[{"k":"음식","n":"태안 게국지","city":"태안","line":"게장 국물 김치로 끓인 찌개","c":["M"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=4c6da53b-b1ae-4383-a177-09bc94def6b1"},{"k":"음식","n":"금산 인삼 삼계탕","city":"금산","line":"금산 수삼을 넣은 삼계탕","c":["M"],"snow":0,"url":"https://www.geumsan.go.kr/tour/html/sub05/050101.html"},{"k":"음식","n":"보은 대추","city":"보은","line":"임금님께 올리던 가을 대추","c":["F"],"snow":1,"url":"https://www.boeun.go.kr/tour/prog/tursmSghts/main/sub03_01/10/view.do?sghtsNo=85"},{"k":"음식","n":"광천 토굴새우젓","city":"홍성","line":"토굴에서 숙성한 새우젓","c":["F"],"snow":0,"url":"https://www.hongseong.go.kr/tour/sub04_040302.do"},{"k":"음식","n":"단양 마늘","city":"단양","line":"석회암 땅에서 자란 육쪽마늘","c":["F"],"snow":0,"url":"https://www.danyang.go.kr/dy21/964"},{"k":"장소","n":"단양 도담삼봉","city":"단양","line":"남한강 위 세 봉우리, 단양팔경 첫째","c":["S"],"snow":0,"url":"https://www.danyang.go.kr/tour/537?action=read&action-value=ed9c4c1d3e712eb04c5c939d3d80d952&tags=%EB%8B%A8%EC%96%91%ED%8C%94%EA%B2%BD"},{"k":"장소","n":"부여 궁남지","city":"부여","line":"백제 왕궁 남쪽 연꽃 연못","c":["S"],"snow":0,"url":"https://www.buyeo.go.kr/html/heritage/sub1/sub1_0101.html"},{"k":"장소","n":"세종호수공원","city":"세종","line":"도심 속 큰 인공 호수 공원","c":["S"],"snow":0,"url":"https://www.sejong.go.kr/prog/tursmCn/tour/sub05_01_01/view.do?cntno=38"},{"k":"장소","n":"대전 한빛탑","city":"대전","line":"1993 엑스포 기념 과학 전망탑","c":["S"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=c1e3c24f-69c8-4d46-9b86-20b2bb8fd58e"},{"k":"장소","n":"청남대","city":"청주","line":"대청호 옆 옛 대통령 별장 정원","c":["T"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=76b6c051-df8b-416b-9d4a-488d7f3e6ab8"},{"k":"체험","n":"대천해수욕장 스카이바이크","city":"보령","line":"바다 위 레일을 달리는 바이크","c":["T","S"],"snow":0,"url":"https://www.brcn.go.kr/prog/attraction/tour/sub01_07/view.do?attractionCode=147"},{"k":"체험","n":"아산 외암민속마을","city":"아산","line":"돌담길이 이어진 양반 마을","c":["H"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=fe12ba36-4815-436a-98b0-ff89b6e2e297"},{"k":"체험","n":"단양 패러글라이딩","city":"단양","line":"남한강 위 2인 체험 비행","c":["T"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=8909c08a-553d-449e-b70a-c38a82e0c8c2"},{"k":"체험","n":"백제문화제","city":"공주·부여","line":"백제 왕의 행렬과 강 위 공연","c":["S","H"],"snow":0,"url":"https://www.baekje.org/site/kor/"},{"k":"체험","n":"초정행궁 족욕","city":"청주","line":"초정 광천수에 발 담그기","c":["B","H"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/fes_detail.do?cotid=329ad843-ee78-4478-9ee8-eaeee0331860"}],"sg":[{"k":"음식","n":"광장시장 빈대떡","city":"서울(종로)","line":"녹두를 갈아 부친 시장 전","c":["M"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=9e683aeb-3158-44b6-a8c7-8836c6f20900"},{"k":"음식","n":"인천 차이나타운 공갈빵","city":"인천(중구)","line":"속이 빈 바삭한 중국식 빵","c":["M"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=7f9d2672-2325-4d0f-8d3b-b104f47555cb"},{"k":"음식","n":"강화 인삼","city":"인천(강화)","line":"강화도에서 키운 인삼","c":["F","B"],"snow":0,"url":"https://www.ganghwa.go.kr/open_content/tour/shopping/product/ginseng.jsp"},{"k":"음식","n":"이천 쌀밥","city":"이천","line":"임금님 진상미로 지은 돌솥밥","c":["F"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=21cf1623-7d70-4b4f-be11-f6af5c2b41ee"},{"k":"장소","n":"경복궁 수문장 교대","city":"서울(종로)","line":"하루 두 번 조선 궁궐 문지기 의식","c":["S"],"snow":0,"url":"https://royal.khs.go.kr/ROYAL/contents/R201000000.do?act=view&ceIdx=202401240062&selDate=2024-6-9"},{"k":"장소","n":"남산서울타워","city":"서울(용산)","line":"서울 한가운데 전망탑","c":["S"],"snow":0,"url":"https://english.visitkorea.or.kr/svc/whereToGo/locIntrdn/rgnContentsView.do?vcontsId=88026"},{"k":"장소","n":"한강 달빛무지개분수","city":"서울(서초)","line":"세계에서 가장 긴 다리 분수","c":["S"],"snow":0,"url":"https://hangang.seoul.go.kr/www/contents/856.do?mid=849"},{"k":"장소","n":"수원 화성 성곽길","city":"수원","line":"정조가 쌓은 성 (세계유산)","c":["T"],"snow":0,"url":"https://www.suwon.go.kr/sw-www/sw-visitsuwon/sw-visitsuwon-01/sw-visitsuwon-01-01/sw-visitsuwon-01-01-01.jsp"},{"k":"장소","n":"월미바다열차","city":"인천(중구)","line":"월미도를 한 바퀴 도는 모노레일","c":["T"],"snow":0,"url":"https://www.ictr.or.kr/main/wst/intro.jsp"},{"k":"체험","n":"경복궁 한복 나들이","city":"서울(종로)","line":"한복 입고 궁궐 걷기","c":["B","H"],"snow":0,"url":"https://royal.khs.go.kr/ROYAL/contents/R705000000.do"},{"k":"체험","n":"수원화성 국궁 체험","city":"수원","line":"연무대에서 활쏘기","c":["H"],"snow":0,"url":"https://www.swcf.or.kr/?p=74&viewMode=view&idx=75"},{"k":"체험","n":"한양도성 순성길","city":"서울","line":"옛 서울 성곽을 따라 걷는 길","c":["T","H"],"snow":0,"url":"https://seoulcitywall.seoul.go.kr/wallcourse.do"},{"k":"체험","n":"창덕궁 달빛기행","city":"서울(종로)","line":"밤의 궁궐을 걷는 행사","c":["S","H"],"snow":0,"url":"https://www.kh.or.kr/short/yyK8"},{"k":"체험","n":"정조대왕 능행차","city":"서울~수원~화성","line":"1795년 왕의 행차를 시민이 재현","c":["S","H"],"snow":0,"url":"https://www.suwon.go.kr/sw-www/sw-visitsuwon/sw-visitsuwon-03/sw-visitsuwon-03-02.jsp"}],"jj":[{"k":"음식","n":"흑돼지 불고기","city":"제주 전역","line":"흑돼지를 양념해 볶은 불고기","c":["M"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=a272c5a8-2f65-4031-a7dd-c72a4fe380aa"},{"k":"음식","n":"고기국수","city":"제주 전역","line":"돼지 뼈 국물에 수육 올린 국수","c":["F"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=9955656b-e9a5-465a-ade7-537911a1e6db"},{"k":"음식","n":"오메기떡","city":"제주","line":"차조 반죽에 팥을 묻힌 떡","c":["M"],"snow":0,"url":"https://english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=179949"},{"k":"음식","n":"은갈치","city":"서귀포","line":"은빛 갈치 조림·구이","c":["F"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=9e1c6fbc-3d0d-486f-812b-ac8c7edacccf"},{"k":"음식","n":"우도 땅콩","city":"제주시 우도면","line":"작은 섬 땅콩으로 만든 간식","c":["M"],"snow":0,"url":"https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_300000000014703"},{"k":"장소","n":"성산일출봉","city":"서귀포(성산)","line":"바다에서 솟은 분화구 (세계자연유산)","c":["S"],"snow":0,"url":"https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500349"},{"k":"장소","n":"한라산 백록담","city":"한라산","line":"정상의 분화구 호수","c":["T"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=4f7edd2c-8bef-4e92-a444-3d1db9ecbb6c"},{"k":"장소","n":"만장굴","city":"제주시(구좌)","line":"용암이 흘러 만든 긴 동굴","c":["T"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=ce38e2e9-b992-4bbb-9d9b-728de593a168"},{"k":"장소","n":"새별오름","city":"제주시(애월)","line":"가을 억새로 덮이는 오름","c":["T"],"snow":0,"url":"https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500309"},{"k":"장소","n":"제주돌문화공원 돌하르방","city":"제주시(조천)","line":"마을을 지키던 돌 할아버지","c":["S","H"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=7c2cf2fb-f432-419e-95bf-1fe04003f37f"},{"k":"체험","n":"해녀 물질","city":"제주시(구좌)","line":"숨 참고 바다로, 해녀문화 (유네스코)","c":["H"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1606e304-520e-4497-b554-6b51511b6722"},{"k":"체험","n":"감귤 따기","city":"서귀포(효돈)","line":"11월부터 귤밭에서 직접 따기","c":["T"],"snow":1,"url":"https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500019"},{"k":"체험","n":"사려니숲길 걷기","city":"제주시(조천)","line":"삼나무 숲 산책길","c":["T","B"],"snow":0,"url":"https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500281"},{"k":"체험","n":"제주 성읍민속마을","city":"서귀포(표선)","line":"초가와 돌담이 남은 옛 마을","c":["S","H"],"snow":1,"url":"https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500351"}],"jb":[{"k":"음식","n":"전주비빔밥","city":"전주","line":"놋그릇에 오색 나물 비빔밥","c":["M"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=36fadba7-5bab-476e-a10a-3752d54b2b40"},{"k":"음식","n":"전주 콩나물국밥","city":"전주","line":"토렴한 국밥에 수란 곁들이기","c":["F"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=dfe57413-e9b2-4e44-9145-26885260b03c"},{"k":"음식","n":"부안 바지락죽","city":"부안","line":"바지락을 넣은 뽀얀 죽","c":["F"],"snow":0,"url":"https://www.buan.go.kr/tour/index.buan?menuCd=DOM_000000211002000000"},{"k":"음식","n":"순창 한정식","city":"순창","line":"장류 반찬이 가득한 한 상","c":["F"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=9c65a172-7bb5-45f1-b6d7-5791fce04652"},{"k":"음식","n":"고창 풍천장어·복분자","city":"고창","line":"강 하구 장어에 복분자 양념","c":["M"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=e9294ac9-7955-43ad-9e2a-4837c8fc8cd9"},{"k":"장소","n":"전주 한옥마을","city":"전주","line":"기와지붕이 이어진 한옥 골목","c":["S"],"snow":0,"url":"https://english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=111895&menuSn=351"},{"k":"장소","n":"남원 광한루원","city":"남원","line":"춘향전 무대인 누각 정원","c":["S"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=322dd6bb-487e-4a3b-8542-4e92b5ce3da2"},{"k":"장소","n":"군산 시간여행마을","city":"군산","line":"1930년대 항구 거리 (근대역사)","c":["T"],"snow":0,"url":"https://www.gunsan.go.kr/tour/m2218"},{"k":"장소","n":"진안 마이산","city":"진안","line":"말 귀 닮은 봉우리와 돌탑","c":["T"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=917e0062-520f-4acf-b512-318b00dd65cf"},{"k":"장소","n":"김제 벽골제","city":"김제","line":"1,700년 전 저수지 둑과 지평선 들판","c":["T"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=fc97d739-69c2-4746-b1d3-65bbe7428f9d"},{"k":"체험","n":"한복 입고 한옥길 걷기","city":"전주","line":"한옥마을에서 한복 입고 걷기","c":["B","H"],"snow":0,"url":"https://hanok.jeonju.go.kr/contents/exp10"},{"k":"체험","n":"남원 춘향제","city":"남원","line":"춘향을 기리는 봄 축제","c":["H"],"snow":0,"url":"https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=31a0fb6b-c075-402b-9cf7-a79e16451aab"},{"k":"체험","n":"김제 지평선축제","city":"김제","line":"가을 들판의 농경 축제","c":["S","F"],"snow":0,"url":"https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=52c26e05-2f86-4332-8181-ca3f68edb064"},{"k":"체험","n":"고창 모양성 답성놀이","city":"고창","line":"머리에 돌 이고 성곽 돌기","c":["H"],"snow":1,"url":"https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=53d646d1-9565-4c14-8888-81359ac8867a"},{"k":"체험","n":"부안 곰소염전","city":"부안","line":"바닷물을 말려 소금 만드는 염전","c":["F","S"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=4d88a926-a25f-4b7b-92b8-5a863f0de3a1"}],"gw":[{"k":"음식","n":"춘천 닭갈비","city":"춘천","line":"철판에 볶다가 볶음밥까지","c":["M"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=3eb0b703-0e5b-4ad4-8f47-3559591a5475"},{"k":"음식","n":"초당순두부","city":"강릉","line":"바닷물 간수로 굳힌 순두부","c":["F"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=115b36e9-c686-42ff-8f51-714aaf746ba7"},{"k":"음식","n":"속초 오징어순대","city":"속초","line":"오징어 몸통에 소를 채운 순대","c":["M"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=9209780b-941c-49fc-9848-477c55997aba"},{"k":"음식","n":"봉평 메밀전병","city":"평창","line":"메밀꽃 마을의 돌돌 만 전병","c":["F"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=4fa64a2d-07fe-4998-9add-87c5fb22caee"},{"k":"음식","n":"정선 곤드레밥","city":"정선","line":"산나물 넣고 지은 비빔밥","c":["F"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=e0e2d3b0-cc7a-4066-a11b-0e7aab826eb0"},{"k":"장소","n":"정동진 해돋이","city":"강릉","line":"바닷가 기차역의 해돋이","c":["S"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=03c0a3c8-82c9-4fe8-aeab-adf5e613822b"},{"k":"장소","n":"설악산 권금성·울산바위","city":"속초","line":"케이블카로 오르는 바위산","c":["T"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=f5433080-87a1-46cf-bc2f-617f62ccba2c"},{"k":"장소","n":"소양강 스카이워크","city":"춘천","line":"강 위 유리 바닥 산책로","c":["T"],"snow":0,"url":"https://www.chuncheon.go.kr/tour/destination/all-tour/detail/?tourId=216"},{"k":"장소","n":"영월 장릉","city":"영월","line":"단종이 잠든 세계유산 왕릉","c":["S"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=0944c772-17c3-4317-839e-41405e5091e7"},{"k":"장소","n":"평창 스키점프대","city":"평창","line":"2018 올림픽 경기장 전망대","c":["T"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=c9c47e66-6ee6-405e-b41f-b5e47741497c"},{"k":"체험","n":"강릉단오제 관노가면극","city":"강릉","line":"대사 없는 몸짓 탈놀이 (유네스코)","c":["H"],"snow":0,"url":"https://www.danojefestival.or.kr/kor/info/play.html"},{"k":"체험","n":"정선 레일바이크","city":"정선","line":"옛 철길을 달리는 레일바이크","c":["T"],"snow":0,"url":"https://www.jeongseon.go.kr/tour/jeongseontour/attractions?contentSeq=100&mode=read"},{"k":"체험","n":"정선 화암약수","city":"정선","line":"톡 쏘는 탄산 약수 마시기","c":["B","T"],"snow":0,"url":"https://www.jeongseon.go.kr/tour/jeongseontour/attractions?contentSeq=419&mode=read"},{"k":"체험","n":"원주 소금산 그랜드밸리","city":"원주","line":"출렁다리·케이블카가 있는 산","c":["T","S"],"snow":0,"url":"https://www.wonju.go.kr/tour/contents.do?key=5516"},{"k":"체험","n":"대관령눈꽃축제","city":"평창","line":"1993년 시작한 눈조각 겨울 축제","c":["S"],"snow":1,"url":"https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=cd23ea6b-7745-4ae5-aa52-dcb6b09b02e8"}],"gn":[{"k":"음식","n":"남포동 씨앗호떡","city":"부산(중구)","line":"갈라서 견과를 채운 튀김 호떡","c":["M"],"snow":0,"url":"https://english.visitkorea.or.kr/svc/whereToGo/locIntrdn/rgnContentsView.do?vcontsId=95411"},{"k":"음식","n":"기장 멸치","city":"부산(기장)","line":"봄 대변항의 왕멸치와 멸치털이","c":["F"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1cced6a2-4103-4eb3-8974-d474d9ba3880"},{"k":"음식","n":"충무김밥","city":"통영","line":"밥과 반찬을 따로 담은 뱃길 도시락","c":["M"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=46160c48-74d7-45de-933e-0091d02917a9"},{"k":"음식","n":"언양불고기","city":"울산(울주)","line":"석쇠에 구운 양념 한우","c":["F"],"snow":0,"url":"https://www.ulsan.go.kr/tour/korean/contents.ulsan?mId=001002001004007000"},{"k":"음식","n":"진주냉면","city":"진주","line":"해물 육수에 육전 고명 냉면","c":["M"],"snow":0,"url":"https://www.jinju.go.kr/02234/02349/02355.web"},{"k":"장소","n":"감천문화마을","city":"부산(사하)","line":"산비탈 알록달록 계단 집","c":["S"],"snow":0,"url":"https://english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=72894"},{"k":"장소","n":"남해 다랭이마을","city":"남해","line":"바다로 내려가는 108층 계단 논","c":["T"],"snow":0,"url":"https://english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=90688&menuSn=353"},{"k":"장소","n":"울산 대왕암공원","city":"울산(동구)","line":"바다 바위와 303m 출렁다리","c":["T"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=fd291e12-42e6-479c-8d4e-ef0e234caa38"},{"k":"장소","n":"통영 동피랑","city":"통영","line":"철거 대신 벽화로 살아난 언덕 마을","c":["S"],"snow":0,"url":"https://www.utour.go.kr/00056/00058/00072.web?amode=view&idx=1702"},{"k":"체험","n":"진주남강유등축제","city":"진주","line":"강 위에 등을 띄우는 가을 축제","c":["S"],"snow":0,"url":"https://yudeung.com/"},{"k":"체험","n":"부산국제영화제 레드카펫","city":"부산(해운대)","line":"10월 영화의전당 레드카펫","c":["B","S"],"snow":0,"url":"https://www.biff.kr/kor/addon/10000001/page.asp?page_num=10892"},{"k":"체험","n":"해운대 블루라인파크","city":"부산(해운대)","line":"바닷가 해변열차·스카이캡슐","c":["S","T"],"snow":0,"url":"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=2670917c-c7b0-43be-a174-bd5ae40372f1"},{"k":"체험","n":"진해군항제 벚꽃","city":"창원(진해)","line":"1.5km 하천 벚꽃 터널","c":["S","T"],"snow":0,"url":"https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=43c334af-9024-4c3f-8742-39f57db887f6"},{"k":"체험","n":"함안 낙화놀이","city":"함안","line":"연못 위로 불꽃이 쏟아지는 놀이","c":["H"],"snow":0,"url":"https://www.haman.go.kr/02212/02213/02219.web"}]};
+const CN = {B:'뷰티',M:'먹방',F:'음식',S:'관광',T:'여행',H:'전통'};
+const CK = Object.keys(CN);
+const NORI = {B:'#E59AA8',M:'#C33A2E',F:'#C9A24B',S:'#1F4A8C',T:'#2E7D6B',H:'#EDE6D6'}; // 향갑(분홍)·석류(홍)·방아다리(금)·나비(칠보 파랑)·호리병(비취)·매미(백옥)
+const nd=k=>`<i class="nd" style="background:${NORI[k]}" title="${CN[k]}"></i>`;
+const PHOTOS = /*PHOTOS*/{"cards":{"jn|담양 죽녹원":{"img":"https://tong.visitkorea.or.kr/cms/resource/36/4017136_image2_1.jpg","t":"죽녹원","src":"한국관광공사 TourAPI","by":""},"jn|장흥 편백숲 산림욕":{"img":"https://tong.visitkorea.or.kr/cms2/website/50/4072650.jpg","t":"정남진 편백숲 우드랜드","src":"한국관광공사 포토코리아","by":"김지호"},"jn|순천 낙안읍성":{"img":"https://tong.visitkorea.or.kr/cms2/website/90/3415090.jpg","t":"안개속의 낙안읍성","src":"한국관광공사 포토코리아","by":"정판종"},"jn|여수 밤바다":{"img":"https://tong.visitkorea.or.kr/cms2/website/26/3361326.jpg","t":"돌산대교","src":"한국관광공사 포토코리아","by":"배근한"},"jn|장흥 매생이 한 상":{"img":"https://tong.visitkorea.or.kr/cms2/website/17/2008917.jpg","t":"정남진 장흥토요시장","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jn|담양 대통밥":{"img":"https://tong.visitkorea.or.kr/cms2/website/83/2023783.jpg","t":"대나무통밥","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jn|여수 돌게장 백반":{"img":"https://tong.visitkorea.or.kr/cms2/website/37/2824237.jpg","t":"돌게장","src":"한국관광공사 포토코리아","by":"스튜디오 4cats"},"jn|담양 떡갈비 굽기":{"img":"https://tong.visitkorea.or.kr/cms2/website/22/2823822.jpg","t":"떡갈비정식","src":"한국관광공사 포토코리아","by":"스튜디오 4cats"},"jn|돌게장 한 숟갈 리액션":{"img":"https://tong.visitkorea.or.kr/cms2/website/31/2824231.jpg","t":"돌게장","src":"한국관광공사 포토코리아","by":"스튜디오 4cats"},"jn|꼬막정식 한입":{"img":"https://tong.visitkorea.or.kr/cms2/website/92/2824092.jpg","t":"꼬막정식","src":"한국관광공사 포토코리아","by":"스튜디오 4cats"},"jn|무등산 장불재 오르기":{"img":"https://tong.visitkorea.or.kr/cms2/website/30/3405630.jpg","t":"무등산국립공원","src":"한국관광공사 포토코리아","by":"배근한"},"gb|경주 첨성대 야경":{"img":"https://tong.visitkorea.or.kr/cms2/website/86/3052886.jpg","t":"첨성대","src":"한국관광공사 포토코리아","by":"황성훈"},"gb|부용대에서 본 하회마을":{"img":"https://tong.visitkorea.or.kr/cms2/website/07/2940007.jpg","t":"안동하회마을","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"gb|경주 대릉원 한복 나들이":{"img":"https://tong.visitkorea.or.kr/cms2/website/77/3501177.jpg","t":"경주 대릉원 일원","src":"한국관광공사 포토코리아","by":"장재윤"},"gb|하회별신굿탈놀이":{"img":"https://tong.visitkorea.or.kr/cms2/website/33/2587433.jpg","t":"안동국제탈춤페스티벌","src":"한국관광공사 포토코리아","by":"라이브스튜디오"},"gb|서문시장 야시장":{"img":"https://tong.visitkorea.or.kr/cms2/website/14/2588714.jpg","t":"서문시장","src":"한국관광공사 포토코리아","by":"니오타니 스튜디오"},"gb|상주 곶감 길손 간식":{"img":"https://tong.visitkorea.or.kr/cms2/website/73/2787873.jpg","t":"상주곶감공원","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"gb|영덕대게":{"img":"https://tong.visitkorea.or.kr/cms2/website/15/2824615.jpg","t":"영덕 대게거리","src":"한국관광공사 포토코리아","by":"스튜디오 4cats"},"gb|대구 막창구이":{"img":"https://tong.visitkorea.or.kr/cms2/website/88/2011788.jpg","t":"안지랑곱창골목","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"gb|대릉원 한복 스냅":{"img":"https://tong.visitkorea.or.kr/cms2/website/79/3501179.jpg","t":"경주 대릉원 일원","src":"한국관광공사 포토코리아","by":"장재윤"},"gb|대게 다리 쏙 리액션":{"img":"https://tong.visitkorea.or.kr/cms2/website/14/2824614.jpg","t":"영덕 대게거리","src":"한국관광공사 포토코리아","by":"스튜디오 4cats"},"gb|막창 굽는 법":{"img":"https://tong.visitkorea.or.kr/cms2/website/96/2011796.jpg","t":"안지랑곱창골목","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"cc|단양 구경시장":{"img":"https://tong.visitkorea.or.kr/cms2/website/13/3022913.jpg","t":"단양 구경시장","src":"한국관광공사 포토코리아","by":"우창민"},"cc|광천 토굴새우젓 시장":{"img":"https://tong.visitkorea.or.kr/cms2/website/88/2048188.jpg","t":"광천토굴새우젓 전통시장","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"cc|단양 도담삼봉":{"img":"https://tong.visitkorea.or.kr/cms/resource/29/4085729_image2_1.jpg","t":"도담삼봉","src":"한국관광공사 TourAPI","by":""},"cc|태안 조개구이":{"img":"https://tong.visitkorea.or.kr/cms2/website/34/3052834.jpg","t":"조개구이","src":"한국관광공사 포토코리아","by":"천준교"},"cc|태안 게국지":{"img":"https://tong.visitkorea.or.kr/cms2/website/38/3052838.jpg","t":"게국지","src":"한국관광공사 포토코리아","by":"천준교"},"cc|금산 인삼 삼계탕":{"img":"https://tong.visitkorea.or.kr/cms2/website/04/884404.jpg","t":"삼계탕","src":"한국관광공사 포토코리아","by":"한국관광공사 전형준"},"cc|보은 대추 한 줌":{"img":"https://tong.visitkorea.or.kr/cms2/website/51/1861051.jpg","t":"보은 대추축제","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"cc|초정 광천수 족욕":{"img":"https://tong.visitkorea.or.kr/cms2/website/50/3505750.JPG","t":"초정행궁","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"cc|백제문화제 금강 유등 촬영":{"img":"https://tong.visitkorea.or.kr/cms2/website/34/3454434.jpg","t":"공주 백제문화제","src":"한국관광공사 포토코리아","by":"노희완"},"sg|수원 화성 성곽길":{"img":"https://tong.visitkorea.or.kr/cms2/website/43/3343243.jpg","t":"수원화성","src":"한국관광공사 포토코리아","by":"김주원"},"sg|경복궁 한복 나들이":{"img":"https://tong.visitkorea.or.kr/cms2/website/29/2976629.JPG","t":"경복궁","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"sg|수원 화성행궁":{"img":"https://tong.visitkorea.or.kr/cms/resource/62/4078262_image2_1.jpg","t":"화성행궁","src":"한국관광공사 TourAPI","by":""},"sg|이천 쌀밥 한 상":{"img":"https://tong.visitkorea.or.kr/cms2/website/50/2824750.jpg","t":"쌀밥정식","src":"한국관광공사 포토코리아","by":"스튜디오 4cats"},"sg|광장시장 빈대떡":{"img":"https://tong.visitkorea.or.kr/cms2/website/74/1833874.jpg","t":"광장시장","src":"한국관광공사 포토코리아","by":"한국관광공사 박은경"},"sg|차이나타운 공갈빵":{"img":"https://tong.visitkorea.or.kr/cms2/website/04/2488404.jpg","t":"공갈빵","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"sg|빈대떡 뒤집고 한입":{"img":"https://tong.visitkorea.or.kr/cms2/website/74/1833874.jpg","t":"광장시장","src":"한국관광공사 포토코리아","by":"한국관광공사 박은경"},"sg|공갈빵 톡 깨기":{"img":"https://tong.visitkorea.or.kr/cms2/website/06/2488406.jpg","t":"공갈빵","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"sg|수원화성 국궁 체험":{"img":"https://tong.visitkorea.or.kr/cms2/website/86/2445686.jpg","t":"수원화성","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"jj|성산일출봉":{"img":"https://tong.visitkorea.or.kr/cms/resource_photo/26/3052926_image2_1.jpg","t":"성산일출봉 [유네스코 세계자연유산]","src":"한국관광공사 TourAPI","by":""},"jj|감귤 따기 농장":{"img":"https://tong.visitkorea.or.kr/cms2/website/10/2704210.jpg","t":"제주 감귤","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jj|사려니숲길 숲 산책":{"img":"https://tong.visitkorea.or.kr/cms2/website/02/2586102.jpg","t":"사려니숲길","src":"한국관광공사 포토코리아","by":"라이브스튜디오"},"jj|성산 해녀 물질":{"img":"https://tong.visitkorea.or.kr/cms2/website/63/2563763.jpg","t":"해녀 어멍의 삶","src":"한국관광공사 포토코리아","by":"김정선"},"jj|동문시장 해산물 매대":{"img":"https://tong.visitkorea.or.kr/cms2/website/77/2514377.jpg","t":"동문재래시장","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jj|우도 땅콩 아이스크림":{"img":"https://tong.visitkorea.or.kr/cms2/website/79/2003679.jpg","t":"우도","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jj|흑돼지 불고기":{"img":"https://tong.visitkorea.or.kr/cms2/website/87/1805787.jpg","t":"흑돼지 불고기","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"jj|고기국수":{"img":"https://tong.visitkorea.or.kr/cms2/website/01/3052901.jpg","t":"고기국수","src":"한국관광공사 포토코리아","by":"황성훈"},"jj|사려니숲 숲멍 브이로그":{"img":"https://tong.visitkorea.or.kr/cms2/website/14/2586114.jpg","t":"사려니숲길","src":"한국관광공사 포토코리아","by":"라이브스튜디오"},"jj|해녀 물질 숨참기":{"img":"https://tong.visitkorea.or.kr/cms2/website/95/2514395.jpg","t":"마라도","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jj|흑돼지 한 점 리액션":{"img":"https://tong.visitkorea.or.kr/cms2/website/85/1805785.jpg","t":"흑돼지 불고기","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"jj|고기국수 후루룩":{"img":"https://tong.visitkorea.or.kr/cms2/website/98/3052898.jpg","t":"고기국수","src":"한국관광공사 포토코리아","by":"황성훈"},"jb|전주 한옥마을 골목":{"img":"https://tong.visitkorea.or.kr/cms2/website/45/3590945.JPG","t":"전주한옥마을","src":"한국관광공사 포토코리아","by":"김찬영"},"jb|김제 지평선 들판":{"img":"https://tong.visitkorea.or.kr/cms2/website/75/3052875.jpg","t":"김제 지평선축제","src":"한국관광공사 포토코리아","by":"홍성준"},"jb|남원 광한루원":{"img":"https://tong.visitkorea.or.kr/cms/resource/15/4060015_image2_1.jpg","t":"광한루원","src":"한국관광공사 TourAPI","by":""},"jb|고창 고인돌 유적":{"img":"https://tong.visitkorea.or.kr/cms/resource/22/3018322_image2_1.jpg","t":"고창 고인돌 유적 [유네스코 세계유산]","src":"한국관광공사 TourAPI","by":""},"jb|전주비빔밥":{"img":"https://tong.visitkorea.or.kr/cms2/website/55/2826455.jpg","t":"전주비빔밥","src":"한국관광공사 포토코리아","by":"디엔에이스튜디오"},"jb|순창 한정식":{"img":"https://tong.visitkorea.or.kr/cms2/website/52/2823652.jpg","t":"한정식","src":"한국관광공사 포토코리아","by":"스튜디오 4cats"},"jb|부안 바지락죽":{"img":"https://tong.visitkorea.or.kr/cms2/website/53/1959153.jpg","t":"바지락죽","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jb|지평선축제 논그림 드론샷":{"img":"https://tong.visitkorea.or.kr/cms2/website/72/3052872.jpg","t":"김제 지평선축제","src":"한국관광공사 포토코리아","by":"홍성준"},"jb|한복 입고 한옥길 걷기":{"img":"https://tong.visitkorea.or.kr/cms2/website/51/2613551.jpg","t":"전주한옥마을","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jb|남원 춘향제 부채춤":{"img":"https://tong.visitkorea.or.kr/cms2/website/08/1022108.jpg","t":"춘향제","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"gw|평창 스키점프대":{"img":"https://tong.visitkorea.or.kr/cms2/website/00/1588700.jpg","t":"알펜시아","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"gw|양양 오색약수":{"img":"https://tong.visitkorea.or.kr/cms2/website/92/1748992.jpg","t":"오색약수","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"gw|관노가면극 마당":{"img":"https://tong.visitkorea.or.kr/cms2/website/48/2505848.jpg","t":"관노가면극","src":"한국관광공사 포토코리아","by":"IR 스튜디오"},"gw|정동진 해돋이":{"img":"https://tong.visitkorea.or.kr/cms/resource/82/3534482_image2_1.jpg","t":"정동진해변","src":"한국관광공사 TourAPI","by":""},"gw|초당 순두부":{"img":"https://tong.visitkorea.or.kr/cms2/website/48/2028948.jpg","t":"초당 순두부마을","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"gw|감자옹심이":{"img":"https://tong.visitkorea.or.kr/cms2/website/51/2536151.jpg","t":"감자옹심이","src":"한국관광공사 포토코리아","by":"IR 스튜디오"},"gw|춘천 닭갈비":{"img":"https://tong.visitkorea.or.kr/cms2/website/96/3513396.jpg","t":"닭갈비","src":"한국관광공사 포토코리아","by":"황성훈"},"gw|평창 메밀 막국수":{"img":"https://tong.visitkorea.or.kr/cms2/website/18/3035418.jpg","t":"막국수","src":"한국관광공사 포토코리아","by":"천준교"},"gw|닭갈비 철판 볶기":{"img":"https://tong.visitkorea.or.kr/cms2/website/97/3513397.jpg","t":"닭갈비","src":"한국관광공사 포토코리아","by":"황성훈"},"gw|스키점프":{"img":"https://tong.visitkorea.or.kr/cms2/website/35/1590635.jpg","t":"알펜시아","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"gn|부산 감천문화마을":{"img":"https://tong.visitkorea.or.kr/cms2/website/73/2988673.jpg","t":"감천문화마을","src":"한국관광공사 포토코리아","by":"한국관광공사 송재근"},"gn|통영 바다길":{"img":"https://tong.visitkorea.or.kr/cms/resource_photo/35/3478735_image2_1.jpg","t":"통영케이블카","src":"한국관광공사 TourAPI","by":""},"gn|영화의전당 레드카펫":{"img":"https://tong.visitkorea.or.kr/cms2/website/88/2587788.jpg","t":"영화의 전당","src":"한국관광공사 포토코리아","by":"라이브스튜디오"},"gn|진주 남강 유등":{"img":"https://tong.visitkorea.or.kr/cms2/website/63/1966263.jpg","t":"진주남강유등축제","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"gn|통영 충무김밥":{"img":"https://tong.visitkorea.or.kr/cms2/website/92/3032692.jpg","t":"충무김밥","src":"한국관광공사 포토코리아","by":"김효서"},"gn|남포동 씨앗호떡":{"img":"https://tong.visitkorea.or.kr/cms2/website/04/2927804.jpg","t":"비프광장","src":"한국관광공사 포토코리아","by":"부산관광공사"},"gn|하동 야생차밭 산책":{"img":"https://tong.visitkorea.or.kr/cms2/website/19/3312619.jpg","t":"화개동천 야생차밭","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"gn|남강 유등 야경 촬영":{"img":"https://tong.visitkorea.or.kr/cms2/website/62/1966262.jpg","t":"진주남강유등축제","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"jn|진도 바닷길 걷기 브이로그":{"img":"https://tong.visitkorea.or.kr/cms2/website/12/2009012.jpg","t":"진도 신비의 바닷길 축제","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"gb|문경 찻사발 물레 체험":{"img":"https://tong.visitkorea.or.kr/cms2/website/94/2012694.jpg","t":"문경전통찻사발축제","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"cc|세종호수공원 야경 드론샷":{"img":"https://tong.visitkorea.or.kr/cms2/website/64/3585764.jpg","t":"세종호수공원","src":"한국관광공사 포토코리아","by":"김용훈"},"cc|아산 외암민속마을 돌담길":{"img":"https://tong.visitkorea.or.kr/cms2/website/53/4071653.jpg","t":"외암민속마을","src":"한국관광공사 포토코리아","by":"김지호"},"cc|대천 스카이바이크 1인칭":{"img":"https://tong.visitkorea.or.kr/cms/resource/42/4112942_image2_1.jpg","t":"대천해수욕장 스카이바이크","src":"한국관광공사 TourAPI","by":""},"sg|양평 두물머리":{"img":"https://tong.visitkorea.or.kr/cms2/website/58/3090258.jpg","t":"두물머리","src":"한국관광공사 포토코리아","by":"라이브스튜디오"},"sg|포천 이동갈비":{"img":"https://tong.visitkorea.or.kr/cms2/website/17/1435917.jpg","t":"이동갈비","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"sg|광명동굴 탐험 라이브":{"img":"https://tong.visitkorea.or.kr/cms2/website/14/2564014.jpg","t":"광명동굴","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"jb|고창 풍천장어":{"img":"https://tong.visitkorea.or.kr/cms2/website/05/1958305.jpg","t":"풍천장어","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jb|군산 근대 건물 롱테이크":{"img":"https://tong.visitkorea.or.kr/cms2/website/50/3052250.jpg","t":"군산 근대미술관","src":"한국관광공사 포토코리아","by":"임태진"},"gw|울산바위 타임랩스":{"img":"https://tong.visitkorea.or.kr/cms/resource/91/3494891_image2_1.jpg","t":"설악산 울산바위","src":"한국관광공사 TourAPI","by":""},"gw|곤드레밥 한 숟갈":{"img":"https://tong.visitkorea.or.kr/cms2/website/37/1834537.jpg","t":"곤드레나물밥","src":"한국관광공사 포토코리아","by":"한국관광공사 박은경"},"gn|울산 언양불고기":{"img":"https://tong.visitkorea.or.kr/cms2/website/39/1834539.jpg","t":"언양불고기","src":"한국관광공사 포토코리아","by":"한국관광공사 박은경"},"gn|통영 멍게비빔밥":{"img":"https://tong.visitkorea.or.kr/cms2/website/87/2849187.jpg","t":"멍게비빔밥","src":"한국관광공사 포토코리아","by":"한국관광공사 송재근"},"gn|언양불고기 한 점 리액션":{"img":"https://tong.visitkorea.or.kr/cms2/website/38/1834538.jpg","t":"언양불고기","src":"한국관광공사 포토코리아","by":"한국관광공사 박은경"},"gn|남해 죽방렴 드론샷":{"img":"https://tong.visitkorea.or.kr/cms2/website/99/2613899.jpg","t":"남해 지족해협 죽방렴","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"}},"pool":{"jn|나주곰탕":{"img":"https://tong.visitkorea.or.kr/cms2/website/52/3367852.jpg","t":"나주곰탕","src":"한국관광공사 포토코리아","by":"황성훈"},"jn|담양 떡갈비":{"img":"https://tong.visitkorea.or.kr/cms2/website/22/2823822.jpg","t":"떡갈비정식","src":"한국관광공사 포토코리아","by":"스튜디오 4cats"},"jn|여수 돌게장 백반":{"img":"https://tong.visitkorea.or.kr/cms2/website/37/2824237.jpg","t":"돌게장","src":"한국관광공사 포토코리아","by":"스튜디오 4cats"},"jn|영광 굴비":{"img":"https://tong.visitkorea.or.kr/cms2/website/39/2824539.jpg","t":"굴비정식","src":"한국관광공사 포토코리아","by":"스튜디오 4cats"},"jn|담양 죽녹원":{"img":"https://tong.visitkorea.or.kr/cms/resource/36/4017136_image2_1.jpg","t":"죽녹원","src":"한국관광공사 TourAPI","by":""},"jn|순천만습지":{"img":"https://tong.visitkorea.or.kr/cms/resource/14/4088614_image2_1.jpg","t":"순천만습지","src":"한국관광공사 TourAPI","by":""},"jn|여수 밤바다·돌산대교":{"img":"https://tong.visitkorea.or.kr/cms2/website/26/3361326.jpg","t":"돌산대교","src":"한국관광공사 포토코리아","by":"배근한"},"jn|무등산 장불재":{"img":"https://tong.visitkorea.or.kr/cms2/website/30/3405630.jpg","t":"무등산국립공원","src":"한국관광공사 포토코리아","by":"배근한"},"jn|보성 녹차밭":{"img":"https://tong.visitkorea.or.kr/cms/resource/20/4061220_image2_1.jpg","t":"대한다원","src":"한국관광공사 TourAPI","by":""},"jn|여수 해상케이블카":{"img":"https://tong.visitkorea.or.kr/cms2/website/94/3544294.JPG","t":"여수 해상케이블카","src":"한국관광공사 포토코리아","by":"김찬영"},"jn|장흥 편백숲 산림욕":{"img":"https://tong.visitkorea.or.kr/cms2/website/50/4072650.jpg","t":"정남진 편백숲 우드랜드","src":"한국관광공사 포토코리아","by":"김지호"},"jn|진도 신비의바닷길":{"img":"https://tong.visitkorea.or.kr/cms2/website/12/2009012.jpg","t":"진도 신비의 바닷길 축제","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jn|함평나비대축제":{"img":"https://tong.visitkorea.or.kr/cms2/website/91/907391.jpg","t":"함평나비대축제","src":"한국관광공사 포토코리아","by":"한국관광공사-브이앤드"},"jn|광주비엔날레":{"img":"https://tong.visitkorea.or.kr/cms2/website/61/1440761.jpg","t":"광주비엔날레","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"gb|영덕대게":{"img":"https://tong.visitkorea.or.kr/cms2/website/15/2824615.jpg","t":"영덕 대게거리","src":"한국관광공사 포토코리아","by":"스튜디오 4cats"},"gb|안동 간고등어":{"img":"https://tong.visitkorea.or.kr/cms2/website/63/2825863.jpg","t":"안동간고등어","src":"한국관광공사 포토코리아","by":"디엔에이스튜디오"},"gb|대구 막창구이":{"img":"https://tong.visitkorea.or.kr/cms2/website/88/2011788.jpg","t":"안지랑곱창골목","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"gb|서문시장 야시장":{"img":"https://tong.visitkorea.or.kr/cms2/website/14/2588714.jpg","t":"서문시장","src":"한국관광공사 포토코리아","by":"니오타니 스튜디오"},"gb|상주 곶감":{"img":"https://tong.visitkorea.or.kr/cms2/website/73/2787873.jpg","t":"상주곶감공원","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"gb|불국사·석굴암":{"img":"https://tong.visitkorea.or.kr/cms/resource/70/3506170_image2_1.jpg","t":"경주 불국사 [유네스코 세계유산]","src":"한국관광공사 TourAPI","by":""},"gb|첨성대 야경":{"img":"https://tong.visitkorea.or.kr/cms2/website/86/3052886.jpg","t":"첨성대","src":"한국관광공사 포토코리아","by":"황성훈"},"gb|안동 하회마을":{"img":"https://tong.visitkorea.or.kr/cms/resource/62/4059762_image2_1.jpg","t":"안동 하회마을 [유네스코 세계유산]","src":"한국관광공사 TourAPI","by":""},"gb|영주 무섬 외나무다리":{"img":"https://tong.visitkorea.or.kr/cms/resource/02/3513802_image2_1.jpg","t":"무섬 외나무다리","src":"한국관광공사 TourAPI","by":""},"gb|포항 스페이스워크":{"img":"https://tong.visitkorea.or.kr/cms/resource/63/4078963_image2_1.jpg","t":"환호공원 스페이스워크","src":"한국관광공사 TourAPI","by":""},"gb|경주 대릉원 한복 나들이":{"img":"https://tong.visitkorea.or.kr/cms2/website/77/3501177.jpg","t":"경주 대릉원 일원","src":"한국관광공사 포토코리아","by":"장재윤"},"gb|하회별신굿탈놀이·안동국제탈춤페스티벌":{"img":"https://tong.visitkorea.or.kr/cms2/website/33/2587433.jpg","t":"안동국제탈춤페스티벌","src":"한국관광공사 포토코리아","by":"라이브스튜디오"},"gb|문경 찻사발 빚기":{"img":"https://tong.visitkorea.or.kr/cms2/website/94/2012694.jpg","t":"문경전통찻사발축제","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"gb|청송 사과 따기":{"img":"https://tong.visitkorea.or.kr/cms2/website/10/2454010.jpg","t":"청송사과","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"cc|태안 게국지":{"img":"https://tong.visitkorea.or.kr/cms2/website/38/3052838.jpg","t":"게국지","src":"한국관광공사 포토코리아","by":"천준교"},"cc|금산 인삼 삼계탕":{"img":"https://tong.visitkorea.or.kr/cms2/website/04/884404.jpg","t":"삼계탕","src":"한국관광공사 포토코리아","by":"한국관광공사 전형준"},"cc|보은 대추":{"img":"https://tong.visitkorea.or.kr/cms2/website/51/1861051.jpg","t":"보은 대추축제","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"cc|광천 토굴새우젓":{"img":"https://tong.visitkorea.or.kr/cms2/website/88/2048188.jpg","t":"광천토굴새우젓 전통시장","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"cc|단양 마늘":{"img":"https://tong.visitkorea.or.kr/cms2/website/24/3022924.jpg","t":"단양 구경시장","src":"한국관광공사 포토코리아","by":"우창민"},"cc|단양 도담삼봉":{"img":"https://tong.visitkorea.or.kr/cms/resource/29/4085729_image2_1.jpg","t":"도담삼봉","src":"한국관광공사 TourAPI","by":""},"cc|부여 궁남지":{"img":"https://tong.visitkorea.or.kr/cms/resource/24/4063424_image2_1.jpg","t":"서동공원과 궁남지","src":"한국관광공사 TourAPI","by":""},"cc|세종호수공원":{"img":"https://tong.visitkorea.or.kr/cms2/website/36/4062636.jpg","t":"세종호수공원","src":"한국관광공사 포토코리아","by":"이효직"},"cc|대전 한빛탑":{"img":"https://tong.visitkorea.or.kr/cms/resource/29/3564829_image2_1.jpg","t":"한빛탑","src":"한국관광공사 TourAPI","by":""},"cc|청남대":{"img":"https://tong.visitkorea.or.kr/cms/resource/44/3502344_image2_1.jpg","t":"청남대","src":"한국관광공사 TourAPI","by":""},"cc|대천해수욕장 스카이바이크":{"img":"https://tong.visitkorea.or.kr/cms/resource/42/4112942_image2_1.jpg","t":"대천해수욕장 스카이바이크","src":"한국관광공사 TourAPI","by":""},"cc|아산 외암민속마을":{"img":"https://tong.visitkorea.or.kr/cms2/website/53/4071653.jpg","t":"외암민속마을","src":"한국관광공사 포토코리아","by":"김지호"},"cc|단양 패러글라이딩":{"img":"https://tong.visitkorea.or.kr/cms2/website/77/2563877.jpg","t":"아름다운 비행","src":"한국관광공사 포토코리아","by":"우제용"},"cc|백제문화제":{"img":"https://tong.visitkorea.or.kr/cms2/website/32/3454432.jpg","t":"공주 백제문화제","src":"한국관광공사 포토코리아","by":"노희완"},"cc|초정행궁 족욕":{"img":"https://tong.visitkorea.or.kr/cms2/website/50/3505750.JPG","t":"초정행궁","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"sg|광장시장 빈대떡":{"img":"https://tong.visitkorea.or.kr/cms2/website/74/1833874.jpg","t":"광장시장","src":"한국관광공사 포토코리아","by":"한국관광공사 박은경"},"sg|인천 차이나타운 공갈빵":{"img":"https://tong.visitkorea.or.kr/cms2/website/04/2488404.jpg","t":"공갈빵","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"sg|강화 인삼":{"img":"https://tong.visitkorea.or.kr/cms2/website/86/1755486.jpg","t":"강화인삼센터","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"sg|이천 쌀밥":{"img":"https://tong.visitkorea.or.kr/cms2/website/50/2824750.jpg","t":"쌀밥정식","src":"한국관광공사 포토코리아","by":"스튜디오 4cats"},"sg|경복궁 수문장 교대":{"img":"https://tong.visitkorea.or.kr/cms2/website/06/1892406.jpg","t":"경복궁 수문장 교대의식","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"sg|남산서울타워":{"img":"https://tong.visitkorea.or.kr/cms/resource/56/3539656_image2_1.jpg","t":"남산공원(서울)","src":"한국관광공사 TourAPI","by":""},"sg|한강 달빛무지개분수":{"img":"https://tong.visitkorea.or.kr/cms/resource/46/3515046_image2_1.jpg","t":"반포대교 달빛무지개분수","src":"한국관광공사 TourAPI","by":""},"sg|수원 화성 성곽길":{"img":"https://tong.visitkorea.or.kr/cms/resource_photo/57/3478557_image2_1.jpg","t":"수원화성 성곽길","src":"한국관광공사 TourAPI","by":""},"sg|월미바다열차":{"img":"https://tong.visitkorea.or.kr/cms/resource_photo/20/3581320_image2_1.jpg","t":"월미바다열차","src":"한국관광공사 TourAPI","by":""},"sg|경복궁 한복 나들이":{"img":"https://tong.visitkorea.or.kr/cms2/website/29/2976629.JPG","t":"경복궁","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"sg|수원화성 국궁 체험":{"img":"https://tong.visitkorea.or.kr/cms2/website/86/2445686.jpg","t":"수원화성","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"sg|한양도성 순성길":{"img":"https://tong.visitkorea.or.kr/cms2/website/16/3580616.jpg","t":"한양도성길","src":"한국관광공사 포토코리아","by":"서문교"},"sg|창덕궁 달빛기행":{"img":"https://tong.visitkorea.or.kr/cms2/website/91/1316291.jpg","t":"창덕궁 달빛기행","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"sg|정조대왕 능행차":{"img":"https://tong.visitkorea.or.kr/cms2/website/85/3051985.jpg","t":"정조대왕능행차 공동재현","src":"한국관광공사 포토코리아","by":"이형찬"},"jj|흑돼지 불고기":{"img":"https://tong.visitkorea.or.kr/cms2/website/87/1805787.jpg","t":"흑돼지 불고기","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"jj|고기국수":{"img":"https://tong.visitkorea.or.kr/cms2/website/01/3052901.jpg","t":"고기국수","src":"한국관광공사 포토코리아","by":"황성훈"},"jj|오메기떡":{"img":"https://tong.visitkorea.or.kr/cms2/website/26/1940426.jpg","t":"오메기떡","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"jj|은갈치":{"img":"https://tong.visitkorea.or.kr/cms2/website/02/2814602.jpg","t":"갈치구이","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jj|우도 땅콩":{"img":"https://tong.visitkorea.or.kr/cms2/website/79/2003679.jpg","t":"우도","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jj|성산일출봉":{"img":"https://tong.visitkorea.or.kr/cms/resource_photo/26/3052926_image2_1.jpg","t":"성산일출봉 [유네스코 세계자연유산]","src":"한국관광공사 TourAPI","by":""},"jj|한라산 백록담":{"img":"https://tong.visitkorea.or.kr/cms/resource/95/3035595_image2_1.jpg","t":"한라산 백록담","src":"한국관광공사 TourAPI","by":""},"jj|만장굴":{"img":"https://tong.visitkorea.or.kr/cms2/website/86/1862686.jpg","t":"만장굴","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"jj|새별오름":{"img":"https://tong.visitkorea.or.kr/cms/resource/28/4088628_image2_1.jpg","t":"새별오름","src":"한국관광공사 TourAPI","by":""},"jj|제주돌문화공원 돌하르방":{"img":"https://tong.visitkorea.or.kr/cms2/website/02/2009302.jpg","t":"제주돌문화공원","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"jj|해녀 물질":{"img":"https://tong.visitkorea.or.kr/cms2/website/63/2563763.jpg","t":"해녀 어멍의 삶","src":"한국관광공사 포토코리아","by":"김정선"},"jj|감귤 따기":{"img":"https://tong.visitkorea.or.kr/cms2/website/10/2704210.jpg","t":"제주 감귤","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jj|사려니숲길 걷기":{"img":"https://tong.visitkorea.or.kr/cms2/website/02/2586102.jpg","t":"사려니숲길","src":"한국관광공사 포토코리아","by":"라이브스튜디오"},"jj|제주 성읍민속마을":{"img":"https://tong.visitkorea.or.kr/cms2/website/57/2643357.jpg","t":"성읍민속마을","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jb|전주비빔밥":{"img":"https://tong.visitkorea.or.kr/cms2/website/55/2826455.jpg","t":"전주비빔밥","src":"한국관광공사 포토코리아","by":"디엔에이스튜디오"},"jb|전주 콩나물국밥":{"img":"https://tong.visitkorea.or.kr/cms2/website/59/2558359.jpg","t":"전주콩나물국밥","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"jb|부안 바지락죽":{"img":"https://tong.visitkorea.or.kr/cms2/website/53/1959153.jpg","t":"바지락죽","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jb|순창 한정식":{"img":"https://tong.visitkorea.or.kr/cms2/website/52/2823652.jpg","t":"한정식","src":"한국관광공사 포토코리아","by":"스튜디오 4cats"},"jb|고창 풍천장어·복분자":{"img":"https://tong.visitkorea.or.kr/cms2/website/05/1958305.jpg","t":"풍천장어","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jb|전주 한옥마을":{"img":"https://tong.visitkorea.or.kr/cms2/website/45/3590945.JPG","t":"전주한옥마을","src":"한국관광공사 포토코리아","by":"김찬영"},"jb|남원 광한루원":{"img":"https://tong.visitkorea.or.kr/cms/resource/15/4060015_image2_1.jpg","t":"광한루원","src":"한국관광공사 TourAPI","by":""},"jb|군산 시간여행마을":{"img":"https://tong.visitkorea.or.kr/cms2/website/50/3052250.jpg","t":"군산 근대미술관","src":"한국관광공사 포토코리아","by":"임태진"},"jb|진안 마이산":{"img":"https://tong.visitkorea.or.kr/cms/resource/66/3540866_image2_1.jpg","t":"마이산도립공원","src":"한국관광공사 TourAPI","by":""},"jb|김제 벽골제":{"img":"https://tong.visitkorea.or.kr/cms/resource/96/4053496_image2_1.jpg","t":"김제 벽골제","src":"한국관광공사 TourAPI","by":""},"jb|한복 입고 한옥길 걷기":{"img":"https://tong.visitkorea.or.kr/cms2/website/51/2613551.jpg","t":"전주한옥마을","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jb|남원 춘향제":{"img":"https://tong.visitkorea.or.kr/cms2/website/08/1022108.jpg","t":"춘향제","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"jb|김제 지평선축제":{"img":"https://tong.visitkorea.or.kr/cms2/website/72/3052872.jpg","t":"김제 지평선축제","src":"한국관광공사 포토코리아","by":"홍성준"},"jb|고창 모양성 답성놀이":{"img":"https://tong.visitkorea.or.kr/cms2/website/59/2563759.jpg","t":"무병장수 비는 고창답성놀이","src":"한국관광공사 포토코리아","by":"김영근"},"jb|부안 곰소염전":{"img":"https://tong.visitkorea.or.kr/cms2/website/26/1959526.jpg","t":"곰소염전","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"gw|춘천 닭갈비":{"img":"https://tong.visitkorea.or.kr/cms2/website/96/3513396.jpg","t":"닭갈비","src":"한국관광공사 포토코리아","by":"황성훈"},"gw|초당순두부":{"img":"https://tong.visitkorea.or.kr/cms2/website/48/2028948.jpg","t":"초당 순두부마을","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"gw|속초 오징어순대":{"img":"https://tong.visitkorea.or.kr/cms2/website/19/3566419.jpg","t":"속초관광수산시장","src":"한국관광공사 포토코리아","by":"황성훈"},"gw|봉평 메밀전병":{"img":"https://tong.visitkorea.or.kr/cms2/website/66/2536166.jpg","t":"메밀전병","src":"한국관광공사 포토코리아","by":"IR 스튜디오"},"gw|정선 곤드레밥":{"img":"https://tong.visitkorea.or.kr/cms2/website/37/1834537.jpg","t":"곤드레나물밥","src":"한국관광공사 포토코리아","by":"한국관광공사 박은경"},"gw|정동진 해돋이":{"img":"https://tong.visitkorea.or.kr/cms/resource/82/3534482_image2_1.jpg","t":"정동진해변","src":"한국관광공사 TourAPI","by":""},"gw|설악산 권금성·울산바위":{"img":"https://tong.visitkorea.or.kr/cms/resource/91/3494891_image2_1.jpg","t":"설악산 울산바위","src":"한국관광공사 TourAPI","by":""},"gw|소양강 스카이워크":{"img":"https://tong.visitkorea.or.kr/cms/resource/64/4087664_image2_1.jpg","t":"소양강스카이워크","src":"한국관광공사 TourAPI","by":""},"gw|영월 장릉":{"img":"https://tong.visitkorea.or.kr/cms/resource/15/4041415_image2_1.png","t":"영월 장릉(단종) [유네스코 세계유산]","src":"한국관광공사 TourAPI","by":""},"gw|평창 스키점프대":{"img":"https://tong.visitkorea.or.kr/cms2/website/00/1588700.jpg","t":"알펜시아","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"gw|강릉단오제 관노가면극":{"img":"https://tong.visitkorea.or.kr/cms2/website/48/2505848.jpg","t":"관노가면극","src":"한국관광공사 포토코리아","by":"IR 스튜디오"},"gw|정선 레일바이크":{"img":"https://tong.visitkorea.or.kr/cms2/website/93/2046193.jpg","t":"정선레일바이크","src":"한국관광공사 포토코리아","by":"마이픽쳐스"},"gw|정선 화암약수":{"img":"https://tong.visitkorea.or.kr/cms2/website/31/2516931.jpg","t":"화암약수","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"gw|원주 소금산 그랜드밸리":{"img":"https://tong.visitkorea.or.kr/cms2/website/73/3590373.jpg","t":"소금산 그랜드밸리","src":"한국관광공사 포토코리아","by":"홍정표"},"gw|대관령눈꽃축제":{"img":"https://tong.visitkorea.or.kr/cms2/website/74/1599174.jpg","t":"대관령눈꽃축제","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"gn|남포동 씨앗호떡":{"img":"https://tong.visitkorea.or.kr/cms2/website/04/2927804.jpg","t":"비프광장","src":"한국관광공사 포토코리아","by":"부산관광공사"},"gn|기장 멸치":{"img":"https://tong.visitkorea.or.kr/cms2/website/69/2928469.jpg","t":"멸치쌈밥","src":"한국관광공사 포토코리아","by":"부산관광공사"},"gn|충무김밥":{"img":"https://tong.visitkorea.or.kr/cms2/website/92/3032692.jpg","t":"충무김밥","src":"한국관광공사 포토코리아","by":"김효서"},"gn|언양불고기":{"img":"https://tong.visitkorea.or.kr/cms2/website/39/1834539.jpg","t":"언양불고기","src":"한국관광공사 포토코리아","by":"한국관광공사 박은경"},"gn|진주냉면":{"img":"https://tong.visitkorea.or.kr/cms2/website/32/1853232.jpg","t":"진주 냉면","src":"한국관광공사 포토코리아","by":"한국관광공사 박은경"},"gn|감천문화마을":{"img":"https://tong.visitkorea.or.kr/cms2/website/73/2988673.jpg","t":"감천문화마을","src":"한국관광공사 포토코리아","by":"한국관광공사 송재근"},"gn|남해 다랭이마을":{"img":"https://tong.visitkorea.or.kr/cms2/website/57/2653457.jpg","t":"가천 다랭이마을","src":"한국관광공사 포토코리아","by":"한국관광공사 김지호"},"gn|울산 대왕암공원":{"img":"https://tong.visitkorea.or.kr/cms/resource/16/3583516_image2_1.jpg","t":"대왕암공원","src":"한국관광공사 TourAPI","by":""},"gn|통영 동피랑":{"img":"https://tong.visitkorea.or.kr/cms2/website/21/3048421.jpg","t":"동피랑 마을","src":"한국관광공사 포토코리아","by":"오경택"},"gn|진주남강유등축제":{"img":"https://tong.visitkorea.or.kr/cms2/website/63/1966263.jpg","t":"진주남강유등축제","src":"한국관광공사 포토코리아","by":"한국관광공사 이범수"},"gn|부산국제영화제 레드카펫":{"img":"https://tong.visitkorea.or.kr/cms2/website/88/2587788.jpg","t":"영화의 전당","src":"한국관광공사 포토코리아","by":"라이브스튜디오"},"gn|해운대 블루라인파크":{"img":"https://tong.visitkorea.or.kr/cms2/website/58/3392558.jpg","t":"해운대블루라인파크","src":"한국관광공사 포토코리아","by":"이병현"},"gn|진해군항제 벚꽃":{"img":"https://tong.visitkorea.or.kr/cms/resource/04/3516504_image2_1.jpg","t":"경화역 벚꽃길","src":"한국관광공사 TourAPI","by":""},"gn|함안 낙화놀이":{"img":"https://tong.visitkorea.or.kr/cms2/website/84/2907784.jpg","t":"함안 낙화놀이","src":"한국관광공사 포토코리아","by":"이영진"}}}/*/PHOTOS*/;
+function phCard(id,c){return PHOTOS.cards[id+'|'+c[1]]||null}
+function phPool(id,x){return x?PHOTOS.pool[id+'|'+x.n]||null:null}
+function imgTag(p,label,cls){cls=cls||'';return p?`<img class="ph ${cls}" src="${esc(p.img)}" alt="${esc(label)}" loading="lazy" referrerpolicy="no-referrer">`:`<span class="ph none ${cls}"><b>${esc(label)}</b></span>`}
+function anyPhoto(n){const a=Object.values(PHOTOS.cards).filter(Boolean);return a.length?a[n%a.length]:null}
+// 카드: [이모지, 이름, 한 줄, 1차컨셉, 2차컨셉|'', 현지인?, 페이스]
+const DO = [
+ {id:'jn',name:'전남',sub:'담양·여수·장흥·순천·진도',s2multi:true,s4:'text',
+  s1:[['','담양 죽녹원','2.4km 대숲 산책길','T','S',0,1],['','장흥 편백숲 산림욕','편백 향 맡으며 숲길 걷기','B','H',1,-1],['','순천 낙안읍성','초가가 그대로 남은 조선 읍성','H','',0,1],['','여수 밤바다','색이 바뀌는 다리 야경','S','',0,-1]],
+  s2:[['','장흥 매생이 한 상','바다 향 가득 매생이전','B','M'],['','담양 대통밥','대나무 통에 지은 밥','H','F'],['','여수 돌게장 백반','밥도둑 한 숟갈','M','',1],['','담양 떡갈비 굽기','다진 갈빗살을 빚어 구움','F','']],
+  s3:[['','돌게장 한 숟갈 리액션','게딱지에 밥 쓱쓱','M',''],['','꼬막정식 한입','쫄깃한 꼬막 무침 쓱쓱','F','B'],['','진도 바닷길 걷기 브이로그','열린 바닷길 따라 섬까지','S','T'],['','무등산 장불재 오르기','억새 능선 따라 고개로','T','',1]]},
+ {id:'gb',name:'경북',sub:'경주·대구·안동·영덕·문경',s2multi:false,s4:'slider',
+  s1:[['','경주 첨성대 야경','별 아래 신라 천문대','S','',0,-1],['','부용대에서 본 하회마을','강이 감싸 도는 마을 내려다보기','T','H',1,-1],['','경주 대릉원 한복 나들이','한복 입고 고분 사이 걷기','B','',0,1],['','하회별신굿탈놀이','탈 쓰고 한 마당','H','',0,1]],
+  s2:[['','서문시장 야시장','매대 80여 개 불빛 골목','S','M'],['','상주 곶감 길손 간식','처마 밑 주렁주렁','T',''],['','영덕대게','다리 긴 겨울 대게','M','',1],['','대구 막창구이','석쇠에 굽는 돼지막창','F','']],
+  s3:[['','대릉원 한복 스냅','고분 앞 한복 한 컷','B',''],['','문경 찻사발 물레 체험','물레 위에서 흙 빚기','H','S'],['','대게 다리 쏙 리액션','살 한 번에 빼기','M','',1],['','막창 굽는 법','뒤집는 타이밍이 생명','F','M']]},
+ {id:'cc',name:'충청',sub:'단양·태안·아산·세종·보령·공주',s2multi:false,s4:'text',
+  s1:[['','단양 구경시장','마늘 순대·마늘빵 먹거리 시장','M','',0,1],['','광천 토굴새우젓 시장','토굴에서 익힌 새우젓','F','T',1,-1],['','단양 도담삼봉','강 위 세 봉우리','S','',0,-1],['','아산 외암민속마을 돌담길','돌담 따라 걷는 양반 마을','T','',0,1]],
+  s2:[['','태안 조개구이','불판 위 가리비 톡톡','M',''],['','태안 게국지','게장 국물 김치로 끓인 찌개','F','B'],['','금산 인삼 삼계탕','수삼 한 뿌리 통째로','B','',1],['','보은 대추 한 줌','가을 축제의 달달한 대추','H','F']],
+  s3:[['','세종호수공원 야경 드론샷','호수에 비친 도시 불빛','S',''],['','대천 스카이바이크 1인칭','바다 위 레일을 달리기','T','S'],['','초정 광천수 족욕','탄산 광천수에 발 담그기','B','',1],['','백제문화제 금강 유등 촬영','강 위에 뜬 백제 등불','H','']]},
+ {id:'sg',name:'서울·경기',sub:'서울·수원·인천·양평·포천·광명',s2multi:true,s4:'slider',
+  s1:[['','수원 화성 성곽길','성곽 따라 걷기','T','H',0,1],['','경복궁 한복 나들이','한복 입고 궁궐 한 바퀴','B','',0,1],['','수원 화성행궁','정조가 머물던 행궁','H','',1,-1],['','양평 두물머리','두 강이 만나는 물안개 나루','S','',0,-1]],
+  s2:[['','이천 쌀밥 한 상','임금님 진상미 돌솥밥','B',''],['','포천 이동갈비','잘게 자른 양념 소갈비','H','F'],['','광장시장 빈대떡','갓 부친 녹두전','M','',1],['','차이나타운 공갈빵','속이 텅 빈 바삭한 빵','F','S']],
+  s3:[['','빈대떡 뒤집고 한입','찢어서 호호','M','',1],['','공갈빵 톡 깨기','바삭! 깨서 한입','F',''],['','광명동굴 탐험 라이브','폐광이 바뀐 빛의 동굴','S',''],['','수원화성 국궁 체험','연무대에서 활쏘기','T','H']]},
+ {id:'jj',name:'제주',sub:'성산·조천·우도·서귀포',s2multi:false,s4:'text',
+  s1:[['','성산일출봉','해 뜨는 분화구','S','',0,1],['','감귤 따기 농장','겨울 귤밭','T','',1,-1],['','사려니숲길 숲 산책','삼나무 숲 피톤치드 산책','B','',0,-1],['','성산 해녀 물질','숨비소리 들리는 바다','H','T',0,1]],
+  s2:[['','동문시장 해산물 매대','전복·갈치 가득한 시장','S','M'],['','우도 땅콩 아이스크림','땅콩 듬뿍 섬 간식','T',''],['','흑돼지 불고기','철판에 지글지글','M',''],['','고기국수','돼지 국물 국수','F','',1]],
+  s3:[['','사려니숲 숲멍 브이로그','삼나무 아래 심호흡','B',''],['','해녀 물질 숨참기','숨 참고 쏙','H','',1],['','흑돼지 한 점 리액션','지글지글','M',''],['','고기국수 후루룩','수육 한 점 올려 한입','F','M']]},
+ {id:'jb',name:'전북',sub:'전주·김제·남원·고창·군산',s2multi:true,s4:'slider',
+  s1:[['','전주 한옥마을 골목','먹거리 가득한 골목','M','S',0,1],['','김제 지평선 들판','끝없는 황금 들판','F','T',1,-1],['','남원 광한루원','춘향 이야기의 정원','S','H',0,-1],['','고창 고인돌 유적','세계유산 고인돌 사이 산책','T','',0,1]],
+  s2:[['','전주비빔밥','쓱쓱 비벼 크게 한입','M',''],['','순창 한정식','장 맛 반찬이 가득한 한 상','F',''],['','부안 바지락죽','속 데우는 뽀얀 죽','B',''],['','고창 풍천장어','복분자 양념 장어구이','H','',1]],
+  s3:[['','군산 근대 건물 롱테이크','옛 은행 건물 앞 한 번에','S',''],['','지평선축제 논그림 드론샷','하늘에서 본 황금 들판','T','F'],['','한복 입고 한옥길 걷기','치마 자락 날리며','B','H'],['','남원 춘향제 부채춤','부채 꽃이 활짝','H','',1]]},
+ {id:'gw',name:'강원',sub:'평창·강릉·춘천·양양·속초',s2multi:false,s4:'slider',lockNote:'11/11 공개',
+  s1:[['','평창 스키점프대','점프대 꼭대기','T','',0,1],['','양양 오색약수','톡 쏘는 약수 한 모금','B','H',1,-1],['','관노가면극 마당','말 없는 탈춤','H','',0,1],['','정동진 해돋이','바다 옆 기차역','S','',0,-1]],
+  s2:[['','초당 순두부','바닷물 간수로 몽글','B','F'],['','감자옹심이','감자로 빚은 새알','H','',1],['','춘천 닭갈비','철판에 볶음밥까지','M',''],['','평창 메밀 막국수','새콤달콤 비벼 한 그릇','F','']],
+  s3:[['','닭갈비 철판 볶기','철판 위 지글지글','M',''],['','곤드레밥 한 숟갈','산나물 향 가득 한입','F','',1],['','울산바위 타임랩스','눈 덮인 바위산 1분','S',''],['','스키점프','날아 봐요','T','S']]},
+ {id:'gn',name:'경남',sub:'부산·통영·진주·울산·하동·남해',s2multi:true,s4:'text',
+  s1:[['','부산 감천문화마을','알록달록 계단 마을','S','',0,-1],['','통영 바다길','섬 사이 케이블카','T','',0,1],['','영화의전당 레드카펫','포토월 서기 전','B','S',0,1],['','진주 남강 유등','강 위 수천 개 등','H','',1,-1]],
+  s2:[['','울산 언양불고기','석쇠에 구운 양념 한우','S',''],['','통영 충무김밥','뱃길 도시락','T','M'],['','남포동 씨앗호떡','씨앗 꽉 채운 호떡','M','',1],['','통영 멍게비빔밥','바다 향 멍게 쓱쓱 비비기','F','']],
+  s3:[['','하동 야생차밭 산책','지리산 자락 녹차 향','B',''],['','남강 유등 야경 촬영','강 위 등불 담기','H','',1],['','언양불고기 한 점 리액션','석쇠에서 바로 한입','M','S'],['','남해 죽방렴 드론샷','물살로 멸치 잡는 대나무 발','F','T']]},
+];
+const S4TEXT = [
+  ['시네마틱 — 색보정까지 공들여',-2,-1],
+  ['숏폼 — 컷컷컷 빠르게',-1,1],
+  ['라이브 — 지금 바로 생중계',2,1],
+  ['브이로그 — 있는 그대로 담담하게',1,-1],
+];
+const QUAD = {bc:'방송국형',dc:'다큐형',lv:'라이브형',vl:'브이로그형'};
+// 정규 24: [이모지, 이름, 한 줄, 성공의 모양]
+const E24 = {
+ B:{bc:['','세계로 간 K-뷰티','녹차팩·머드팩·동백이 바다를 건넜다','해외 뷰티 박람회 초청 연사'],dc:['','규방 화장 복원가','옛 분첩과 향갑의 쓰임을 되살렸다','박물관 상설 영상 채택'],lv:['','팝업 라이브 완판','라이브 한 번에 공방 선반이 비었다','지역 공방 완판'],vl:['','장날 꽃단장 사진관','장날마다 어르신들 화보를 찍어 드렸다','마을회관 사진전']},
+ M:{bc:['','팔도 먹방 예능 고정','한 숟갈 리액션이 금요일 밤 예능이 됐다','TV 예능 고정 출연'],dc:['','다시 올라간 셔터','문 닫으려던 노포가 다시 문을 열었다','노포를 살림'],lv:['','야시장 라이브 레전드','야시장 생중계 동시접속 신기록','라이브 최고 기록'],vl:['','동네 사랑방 채널','구독자 312명, 모두 이름을 아는 사람들','작지만 매일 안부를 묻는 채널']},
+ F:{bc:['','요리 경연 심사위원','팔도 손맛을 아는 사람으로 불려 갔다','요리 프로그램 심사위원'],dc:['','손맛 받아쓰기','"간장은 한 숟갈쯤"을 처음 글로 남겼다','팔도 레시피 책 출간'],lv:['','장터 라이브 완판왕','라이브 한 번에 농가 창고가 비었다','특산물 완판'],vl:['','할머니 손맛 브이로그','할머니 옆에서 배운 대로 끓였다','가족 레시피를 잇다']},
+ S:{bc:['','입국장 첫 화면','한국에 내리는 사람들이 처음 보는 영상','공항 홍보 영상 채택'],dc:['','명승 사계절 다큐','같은 자리에서 봄여름가을겨울을 찍었다','사계절 다큐 방송'],lv:['','팔도 축제 사회자','여덟 도의 축제를 한 무대에 모았다','축제 진행자 섭외'],vl:['','골목 산책 브이로거','유명하지 않은 골목이 더 좋았다','동네 골목 지도의 주인']},
+ T:{bc:['','세계가 따라 걷는 길','내 동선이 다른 나라 사람들의 여행 코스가 됐다','여행 코스 채택'],dc:['','팔도 길 지도 그린 사람','내 영상이 접는 종이 지도가 됐다','관광안내소 지도 출간'],lv:['','국경 없는 공동채널','길에서 만난 외국인 친구와 채널을 합쳤다','해외 공동 운영'],vl:['','느린 여행 브이로거','빨리 가지 않아서 보인 것들','느린 여행의 대명사']},
+ H:{bc:['','국악 콜라보 무대','상모와 판소리가 아이돌 무대에 올랐다','콜라보 무대 연출'],dc:['','영화제의 다큐 감독','사라져 가는 소리와 손짓을 한 편에 묶었다','다큐 영화제 상영'],lv:['','마당놀이 라이브 판','화면 너머 시청자도 "얼쑤"를 쳤다','마당놀이 생중계 단골'],vl:['','교실 TV 속 선생님','내 영상으로 아이들이 상모를 돌린다','학교 수업 자료']},
+};
+const E_LOCAL = {jn:['','새벽 차밭 이랑지기','다원이 첫물차에 내 이름을 붙였다'],gb:['','첨성대 별밤 해설사','명예 야간 해설사가 됐다'],cc:['','직지 활자 한 줄','명예 조판공이 됐다'],sg:['','빈대떡집 둘째 줄 단골','메뉴판에 내 이름이 생겼다'],jj:['','해녀 삼춘네 막내','해녀회 기록 담당이 됐다'],jb:['','명창 옆 북 잡이','전수관 무대의 고수 자리'],gw:['','정동진 365일','1년 내내 아침 해돋이 방송'],gn:['','유등 띄우는 사람','유등축제 공식 기록자']};
+const E_SP = {
+ legend:['','골드버튼 팔도 크리에이터','여덟 도의 이야기가 100만 명의 저녁이 됐다','구독자 100만'],
+ unplug:['','녹화 버튼을 안 눌렀다','영상은 0편, 사진첩은 꽉 찼다','추억 가득 (따뜻한 실패)'],
+ allround:['','팔도를 꿴 노리개','여섯 장식이 모두 한 띠에 꿰였다','노리개 장인과 협업'],
+ ep1:['','1화 업로드 완료','여기까지가 첫 화, 시작이 반이다','첫 업로드'],
+};
+const TYPE21 = {BB:'매분구',BM:'꽃단장 미식가',BF:'약선 의녀',BS:'한양 멋쟁이',BT:'보부상',BH:'규방 장인',MM:'팔도 먹보',MF:'주막 사장',MS:'장터 구경꾼',MT:'팔도 식객',MH:'잔칫날 큰손',FF:'수라간 숙수',FS:'저잣거리 소개꾼',FT:'팔도 숙수',FH:'종갓집 종부',SS:'명승 안내인',ST:'팔도 유람객',SH:'도화서 화원',TT:'방랑 시인',TH:'암행어사',HH:'무형 전수자'};
+const CH_NAMES = ['팔도 한입','K길 위에서','오늘도 로컬','한 숟갈 여행','길 위의 사랑채','느린 팔도'];
+const DREAMS = [['','우리 동네 가게 살리기'],['','세계에 한국 자랑하기'],['','나만의 여행 기록 남기기'],['','맛있는 거 실컷 먹기']];
+const MANAGER_LINES = ['좋아요, 첫 업로드 갑니다!','두 번째 도. 이제 손에 익었죠?','음… 이번엔 조회수가 좀 조용하네요. 그래도 좋은 영상이에요.','{prev}에서 만난 분이 댓글 달았어요!','저는 안 먹어요. …진짜 안 먹었어요.','썸네일에 제가 먹는 장면이 찍혔네요. 지워 주세요.','거의 다 왔어요. 마지막까지 가요.','마지막 업로드예요. 꾹 눌러 주세요.'];
+
+// ---------------- 상태 ----------------
+let st;
+function fresh(){ st={ch:'',dream:'',visits:[],subs:0}; }
+fresh();
+const $=s=>document.querySelector(s);
+const scr=$('#scr');
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),1600)}
+function hud(){
+  $('#hud').hidden=!st.ch;
+  $('#hudCh').textContent=st.ch||'';
+  $('#hudSubs').textContent='구독자 '+st.subs.toLocaleString();
+  $('#hudNori').innerHTML=DO.map(d=>{const v=st.visits.find(x=>x.id===d.id);return v?nd(v.gift):'<i></i>'}).join('');
+}
+function bubble(t,nm='매니저 다온',av='다'){return `<div class="bubble"><div class="av">${av}</div><div><div class="nm">${nm}</div><div class="tx">${esc(t)}</div></div></div>`}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a}
+function toTop(){scr.scrollTop=0}
+
+// ---------------- 화면 ----------------
+function vPoster(){
+  hud();
+  scr.innerHTML=`<div class="poster">
+    <div class="saek"></div>
+    <div class="t">K의 나라</div>
+    <div class="s">팔도를 여행하고,<br>성공한 K-크리에이터가 되어 보세요</div>
+    <div class="collage">${['jj|성산일출봉','gb|경주 첨성대 야경','jb|전주비빔밥','sg|수원 화성 성곽길'].map((k,n)=>imgTag(PHOTOS.cards[k]||anyPhoto(n*7),'K의 나라','col')).join('')}</div>
+    <p class="mini">8도 · 엔딩 36개 · 약 9분<br>사진: 한국관광공사 (공공누리 제1유형)</p>
+    <button class="btn" id="go">여행 시작하기</button></div>`;
+  $('#go').onclick=vName;
+}
+function vName(){
+  const names=shuffle(CH_NAMES).slice(0,3);
+  scr.innerHTML=bubble('매니저 다온이에요. 채널 이름부터 정하죠.')+
+   `<div class="qcard"><h4>채널 이름은?<small>택1</small></h4><div class="textopts">${names.map(n=>`<button class="opt" data-n="${esc(n)}">${esc(n)}</button>`).join('')}</div></div>
+   <button class="btn ghost" id="re">다시 뽑기</button>`;
+  scr.querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>{st.ch=b.dataset.n;st.subs=1;hud();toast('구독자 1명. 누군지 몰라도 시작!');setTimeout(vDream,500)});
+  $('#re').onclick=vName; toTop();
+}
+function vDream(){
+  scr.innerHTML=bubble('구독자 많아지면, 뭐 하고 싶어요?')+
+   `<div class="qcard"><h4>나의 꿈<small>택1 · 엔딩 마지막 줄에 다시 나와요</small></h4><div class="textopts">${DREAMS.map((d,i)=>`<button class="opt" data-i="${i}">${d[1]}</button>`).join('')}</div></div>`;
+  scr.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{st.dream=DREAMS[b.dataset.i][1];vMap()}); toTop();
+}
+function vMap(){
+  hud();
+  const n=st.visits.length;
+  scr.innerHTML=bubble(n===0?'첫 촬영지 골라요. 순서는 마음대로예요.':n<4?'다음은 어디로 갈까요?':'4도 넘게 왔어요. 여기서 결산해도 되고, 더 가도 돼요.')+
+   `<div class="mapgrid">${DO.map(d=>{const v=st.visits.find(x=>x.id===d.id);return `<button class="do ${v?'done':''}" data-id="${d.id}" ${v?'disabled':''}><b>${d.name}</b><span>${d.sub}</span>${d.lockNote?`<div class="lock">현장: ${d.lockNote}</div>`:''}</button>`}).join('')}</div>
+   ${n>=4&&n<8?'<button class="btn" id="fin">여기서 결산하기</button>':''}
+   ${n===8?'<button class="btn" id="fin">결산하러 가기</button>':''}
+   <button class="btn ghost" id="auto">나머지 도 자동으로 돌리기 (시안 확인용)</button>`;
+  scr.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>vDo(DO.find(d=>d.id===b.dataset.id)));
+  const f=$('#fin'); if(f) f.onclick=vFinal;
+  $('#auto').onclick=()=>{DO.forEach(d=>{if(!st.visits.find(x=>x.id===d.id)) autoVisit(d)});hud();vFinal()};
+  toTop();
+}
+function vDo(d){
+  const cur={id:d.id,s1:null,s2:[],s3:null,s4:null,order:{}};
+  const o1=shuffle(d.s1),o2=shuffle(d.s2),o3=shuffle(d.s3);
+  const card=(c,k,i)=>`<button class="opt" data-k="${k}" data-i="${i}">${c[5]?'<span class="loc">현지인 추천</span>':''}${imgTag(phCard(d.id,c),c[1],'card')}<span class="nm">${esc(c[1])}</span><span class="ln">${esc(c[2])}</span></button>`;
+  const s4html = d.s4==='text'
+    ? `<div class="textopts">${S4TEXT.map((t,i)=>`<button class="opt" data-k="s4" data-i="${i}">${t[0]}</button>`).join('')}<button class="opt small" data-k="s4" data-i="9">…오늘은 안 찍고 그냥 즐길래요</button></div>`
+    : `<div class="slider"><div class="ends"><span>편집 꽉꽉</span><span>원테이크 날것</span></div><input type="range" min="0" max="4" step="1" value="2" id="sl"><div class="ticks"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span></div><button class="btn ghost" id="slok" style="margin-top:8px">이렇게 찍을게요</button></div>`;
+  scr.innerHTML=bubble(`${d.name} 도착! 카드 네 장만 고르면 촬영 들어가요.`)+
+   `<div class="qcard" id="q1"><h4>① 어디부터 갈까?<small>택1</small></h4><div class="opts">${o1.map((c,i)=>card(c,'s1',d.s1.indexOf(c))).join('')}</div></div>
+    <div class="qcard dim" id="q2"><h4>② 뭐 먹지?<small>${d.s2multi?'골라 담기 1~3개':'택1'}</small></h4><div class="opts">${o2.map(c=>card(c,'s2',d.s2.indexOf(c))).join('')}</div>${d.s2multi?'<button class="btn ghost" id="s2ok" disabled>다 골랐어요</button>':''}</div>
+    <div class="qcard dim" id="q3"><h4>③ 오늘 메인 영상은?<small>택1 · 이게 촬영 미니게임이 돼요</small></h4><div class="opts">${o3.map(c=>card(c,'s3',d.s3.indexOf(c))).join('')}</div></div>
+    <div class="qcard dim" id="q4"><h4>④ 어떻게 찍을까?<small>${d.s4==='text'?'택1':'슬라이더'}</small></h4>${s4html}</div>`;
+  toTop();
+  const open=(id)=>{const q=$(id);q.classList.remove('dim');setTimeout(()=>scr.scrollTo({top:q.offsetTop-70,behavior:'smooth'}),120)};
+  scr.querySelectorAll('[data-k="s1"]').forEach(b=>b.onclick=()=>{scr.querySelectorAll('[data-k="s1"]').forEach(x=>x.classList.remove('on'));b.classList.add('on');cur.s1=+b.dataset.i;open('#q2')});
+  scr.querySelectorAll('[data-k="s2"]').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i;
+    if(!d.s2multi){scr.querySelectorAll('[data-k="s2"]').forEach(x=>x.classList.remove('on'));b.classList.add('on');cur.s2=[i];open('#q3');return}
+    if(cur.s2.includes(i)){cur.s2=cur.s2.filter(x=>x!==i);b.classList.remove('on')}
+    else if(cur.s2.length<3){cur.s2.push(i);b.classList.add('on')} else toast('최대 3개까지');
+    $('#s2ok').disabled=!cur.s2.length;
+  });
+  if(d.s2multi) $('#s2ok').onclick=()=>open('#q3');
+  scr.querySelectorAll('[data-k="s3"]').forEach(b=>b.onclick=()=>{scr.querySelectorAll('[data-k="s3"]').forEach(x=>x.classList.remove('on'));b.classList.add('on');cur.s3=+b.dataset.i;open('#q4')});
+  if(d.s4==='text') scr.querySelectorAll('[data-k="s4"]').forEach(b=>b.onclick=()=>{cur.s4=+b.dataset.i;b.classList.add('on');setTimeout(()=>cur.s4===9?finishDo(d,cur,null):vShoot(d,cur),350)});
+  else $('#slok').onclick=()=>{cur.s4=+$('#sl').value;vShoot(d,cur)};
+}
+// ---------------- 도별 미니게임 8종 (조작이 모두 다름, 각 5~12초) ----------------
+const GAMES={
+  jn:['timing','멈추기','움직이는 막대가 금빛 칸에 올 때 찰칵! (3번)'],
+  gb:['mash','연타','5초 동안 화면을 마구 탭!'],
+  cc:['catch','받기','좌우 버튼으로 바구니를 옮겨 떨어지는 걸 받아요'],
+  sg:['memory','순서 기억','반짝인 순서대로 따라 누르기 (3라운드)'],
+  jj:['hold','꾹 누르기','꾹 누르고, 금빛 칸에서 손을 떼요 (3번)'],
+  jb:['rub','문지르기','5초 동안 쓱쓱 문질러 게이지를 채워요'],
+  gw:['whack','튀어나오면 탭','튀어나오는 순간 바로 탭!'],
+  gn:['pair','짝 맞추기','같은 그림 두 장을 찾아요'],
+};
+const MG={
+ timing(el,inf,em,done){
+  el.innerHTML=`<div class="track"><div class="gold"></div><div class="pin" id="pin"></div></div><button class="btn" id="tap">찰칵!</button>`;
+  let x=0,dir=1,hits=0,tries=3,raf;const pin=$('#pin'),sp=1.3+Math.random()*.5;inf.textContent='남은 기회 3';
+  const loop=()=>{x+=dir*sp;if(x>=97||x<=0)dir*=-1;pin.style.left=x+'%';raf=requestAnimationFrame(loop)};loop();
+  $('#tap').onclick=()=>{tries--;if(x>=41&&x<=57){hits++;toast('좋아요!')}else toast('아깝다');inf.textContent='남은 기회 '+tries;
+    if(!tries){cancelAnimationFrame(raf);$('#tap').disabled=true;done(hits)}};
+ },
+ mash(el,inf,em,done){
+  el.innerHTML=`<button class="bigtap" id="bt">${em}</button><div class="gauge"><i id="gg"></i></div>`;
+  let n=0,t0=0;inf.textContent='탭하면 시작 · 5초';
+  $('#bt').onclick=()=>{
+    if(!t0){t0=Date.now();const iv=setInterval(()=>{const left=5-(Date.now()-t0)/1000;inf.textContent=left>0?left.toFixed(1)+'초':'끝!';
+      if(left<=0){clearInterval(iv);$('#bt').onclick=null;done(n>=30?3:n>=22?2:n>=12?1:0)}},100)}
+    n++;$('#gg').style.width=Math.min(100,n/30*100)+'%';const b=$('#bt');b.style.transform='scale(.9)';setTimeout(()=>b.style.transform='',60);
+  };
+ },
+ catch(el,inf,em,done){
+  const N=7;let lane=1,caught=0,drops=0;
+  el.innerHTML=`<div class="lanes" id="ln"><div class="lane"></div><div class="lane"></div><div class="lane"></div><div class="bk" id="bk">바구니</div></div><div class="row2"><button class="btn ghost" id="lf">‹ 왼쪽</button><button class="btn ghost" id="rt">오른쪽 ›</button></div>`;
+  const bk=$('#bk'),ln=$('#ln'),pos=()=>bk.style.left=(lane*33.33+16.66)+'%';pos();
+  $('#lf').onclick=()=>{lane=Math.max(0,lane-1);pos()};$('#rt').onclick=()=>{lane=Math.min(2,lane+1);pos()};
+  inf.textContent='0 / '+N;
+  const drop=()=>{if(drops>=N){done(caught>=6?3:caught>=4?2:caught>=2?1:0);return}drops++;
+    const l=Math.random()*3|0,it=document.createElement('div');it.className='fall';it.innerHTML=em;it.style.left=(l*33.33+16.66)+'%';ln.appendChild(it);
+    requestAnimationFrame(()=>requestAnimationFrame(()=>it.style.top='74%'));
+    setTimeout(()=>{if(l===lane){caught++;toast('받았다!')}it.remove();inf.textContent=caught+' / '+N;setTimeout(drop,250)},1300)};
+  setTimeout(drop,700);
+ },
+ memory(el,inf,em,done){
+  el.innerHTML=`<div class="pads">${[0,1,2,3].map(i=>`<button class="pad c${i}" data-p="${i}"></button>`).join('')}</div>`;
+  const pads=[...el.querySelectorAll('.pad')];let round=0,ok=0,seq=[],inp=[],lock=true;
+  const play=()=>{if(round>=3){done(ok);return}const len=round+2;seq=Array.from({length:len},()=>Math.random()*4|0);inp=[];lock=true;inf.textContent=(round+1)+'라운드 · 잘 보세요';
+    seq.forEach((p,i)=>setTimeout(()=>{pads[p].classList.add('lit');setTimeout(()=>pads[p].classList.remove('lit'),380)},600+i*560));
+    setTimeout(()=>{lock=false;inf.textContent=(round+1)+'라운드 · 따라 누르세요'},600+len*560)};
+  pads.forEach(b=>b.onclick=()=>{if(lock)return;const p=+b.dataset.p;b.classList.add('lit');setTimeout(()=>b.classList.remove('lit'),150);inp.push(p);
+    if(seq[inp.length-1]!==p){lock=true;toast('앗, 틀렸어요');round++;setTimeout(play,700);return}
+    if(inp.length===seq.length){lock=true;ok++;toast('정확해요!');round++;setTimeout(play,700)}});
+  play();
+ },
+ hold(el,inf,em,done){
+  el.innerHTML=`<div class="vg"><div class="vgold"></div><i id="vf"></i></div><button class="btn" id="hb">꾹 누르기</button>`;
+  let tries=3,hits=0,v=0,raf,holding=false;const f=$('#vf');inf.textContent='남은 기회 3';
+  const release=()=>{if(!holding)return;holding=false;tries--;if(v>=68&&v<=84){hits++;toast('딱 좋아요!')}else toast(v>84?'너무 오래!':'조금 더!');
+    inf.textContent='남은 기회 '+tries;if(!tries){cancelAnimationFrame(raf);$('#hb').disabled=true;done(hits)}};
+  const tick=()=>{if(holding){v+=0.9;if(v>=100){v=100;release()}}f.style.height=v+'%';raf=requestAnimationFrame(tick)};raf=requestAnimationFrame(tick);
+  const hb=$('#hb');hb.addEventListener('pointerdown',e=>{e.preventDefault();if(tries>0){holding=true;v=0}});
+  hb.addEventListener('pointerup',release);hb.addEventListener('pointerleave',release);
+ },
+ rub(el,inf,em,done){
+  el.innerHTML=`<div class="rubpad" id="rp"><span>${em}</span></div><div class="gauge"><i id="gg"></i></div>`;
+  const goal=3000;let dist=0,last=null,t0=0,fin=false;const rp=$('#rp');inf.textContent='문지르면 시작 · 5초';
+  rp.addEventListener('pointerdown',e=>{last=[e.clientX,e.clientY];try{rp.setPointerCapture(e.pointerId)}catch(_){}
+    if(!t0){t0=Date.now();const iv=setInterval(()=>{const left=5-(Date.now()-t0)/1000;inf.textContent=left>0?left.toFixed(1)+'초':'끝!';
+      if(left<=0){clearInterval(iv);fin=true;const r=dist/goal;done(r>=1?3:r>=.66?2:r>=.33?1:0)}},100)}});
+  rp.addEventListener('pointermove',e=>{if(!last||fin)return;dist+=Math.hypot(e.clientX-last[0],e.clientY-last[1]);last=[e.clientX,e.clientY];
+    $('#gg').style.width=Math.min(100,dist/goal*100)+'%';rp.firstChild.style.transform=`rotate(${dist/8}deg)`});
+  rp.addEventListener('pointerup',()=>last=null);
+ },
+ whack(el,inf,em,done){
+  const N=8;el.innerHTML=`<div class="holes">${Array.from({length:9},(_,i)=>`<button class="hole" data-h="${i}"></button>`).join('')}</div>`;
+  const hs=[...el.querySelectorAll('.hole')];let n=0,hit=0,cur=-1;inf.textContent='0 / '+N;
+  hs.forEach(b=>b.onclick=()=>{if(+b.dataset.h===cur){hit++;cur=-1;b.classList.add('hit');inf.textContent=hit+' / '+N}});
+  const pop=()=>{hs.forEach(b=>{b.innerHTML='';b.classList.remove('up','hit')});if(n>=N){done(hit>=7?3:hit>=5?2:hit>=3?1:0);return}
+    n++;cur=Math.random()*9|0;hs[cur].innerHTML=em;hs[cur].classList.add('up');setTimeout(()=>{cur=-1;setTimeout(pop,200)},850)};
+  setTimeout(pop,600);
+ },
+ pair(el,inf,em,done){
+  const kinds=[em,'<span class="tok sh s1"></span>','<span class="tok sh s2"></span>'],cards=shuffle([0,1,2,0,1,2]);
+  el.innerHTML=`<div class="pairs">${cards.map((c,i)=>`<button class="pc open" data-i="${i}">${kinds[c]}</button>`).join('')}</div>`;
+  const bs=[...el.querySelectorAll('.pc')];let open=[],matched=0,miss=0,lock=true,ended=false;inf.textContent='잘 봐 두세요!';
+  const finish=()=>{if(ended)return;ended=true;clearTimeout(timer);bs.forEach(b=>b.disabled=true);done(matched<3?(matched?1:0):miss<=1?3:miss<=3?2:1)};
+  const timer=setTimeout(finish,20000);
+  setTimeout(()=>{bs.forEach(b=>{b.innerHTML='';b.classList.remove('open')});lock=false;inf.textContent='틀린 횟수 0'},1300);
+  bs.forEach(b=>b.onclick=()=>{if(lock||b.classList.contains('open'))return;b.innerHTML=kinds[cards[b.dataset.i]];b.classList.add('open');open.push(b);
+    if(open.length===2){lock=true;const [a,c]=open;
+      if(cards[a.dataset.i]===cards[c.dataset.i]){matched++;open=[];lock=false;if(matched===3)setTimeout(finish,300)}
+      else{miss++;inf.textContent='틀린 횟수 '+miss;setTimeout(()=>{a.innerHTML='';c.innerHTML='';a.classList.remove('open');c.classList.remove('open');open=[];lock=false},600)}}});
+ },
+};
+function vShoot(d,cur){
+  const c=d.s3[cur.s3],g=GAMES[d.id];
+  scr.innerHTML=`<div class="game"><span class="rec">● REC</span> <span class="gname">${d.name} 미니게임 · ${g[1]}</span>
+    <h4 style="font-family:var(--f-story);font-size:18px;margin:8px 0 2px">${esc(c[1])}</h4>
+    <p class="gtip">${g[2]}</p><div id="stage"></div><p id="ginfo" class="mini"></p></div>`;
+  toTop();
+  const tk=p=>p?`<img class="tok" src="${esc(p.img)}" alt="" referrerpolicy="no-referrer">`:`<span class="tok none">${esc(c[1].slice(0,2))}</span>`;
+  MG[g[0]]($('#stage'),$('#ginfo'),tk(phCard(d.id,c)),hits=>setTimeout(()=>finishDo(d,cur,hits),500));
+}
+function subsGain(star,c3,order){const t=topConcept(scores().score);return Math.round((300+900*star)*(c3===t?1.6:1)*(1+0.15*order))}
+function finishDo(d,cur,star){
+  const c3=d.s3[cur.s3];
+  const v={id:d.id,s1:cur.s1,s2:cur.s2,s3:cur.s3,s4:cur.s4,star,unplug:cur.s4===9};
+  const gain=v.unplug?0:subsGain(star,c3[3],st.visits.length+1);
+  st.visits.push(v); st.subs+=gain;
+  // 이 도에서 가장 점수 높은 컨셉 → 노리개 장식
+  const loc={}; CK.forEach(k=>loc[k]=0); addVisit(loc,{},v,d);
+  v.gift=CK.reduce((a,b)=>loc[b]>loc[a]?b:a,'M'); if(!v.unplug&&loc[c3[3]]===loc[v.gift]) v.gift=c3[3];
+  hud();
+  const n=st.visits.length;
+  const prev=n>1?DO.find(x=>x.id===st.visits[n-2].id).name:'';
+  const line=MANAGER_LINES[Math.min(n-1,7)].replace('{prev}',prev);
+  const cmts=v.unplug?[['다온','오늘은 카메라 내려놓고 쉬었어요. 그것도 여행이죠.']]:
+    [['첫댓요정','1등! '+(n===3?'…오늘은 조용하네요. 그래도 제가 봤어요.':'방금 봤어요')],[d.name+' 의뢰인',star===3?'사장님이 영상 가게에 틀어 놨대요!':star===0?'그래도 와 주셔서 고마워요':'다음에 또 와요!'],['구독자','저도 '+d.name+' 가 보고 싶어요']];
+  scr.innerHTML=`<div class="game">
+    <p class="mini">${v.unplug?'촬영 생략':'업로드 완료'}</p>
+    ${v.unplug?'<div class="big">쉬어 감</div>':`<div class="stars">${'★'.repeat(star)}${'☆'.repeat(3-star)}</div><div class="big">+${gain.toLocaleString()}</div><p class="mini">구독자</p>`}
+    ${cmts.map((c,i)=>`<div class="cmt" style="animation-delay:${i*.25}s"><b>${esc(c[0])}</b>${esc(c[1])}</div>`).join('')}
+    <div class="cmt" style="animation-delay:.8s;background:var(--hanji-3)"><b>노리개</b>${nd(v.gift)} ${CN[v.gift]} 장식을 선물받았어요</div>
+    </div>${bubble(line)}<button class="btn" id="next">지도로</button>`;
+  $('#next').onclick=vMap; toTop();
+}
+// ---------------- 판정 (01_구조설계 judge 축약판) ----------------
+function addVisit(score,acc,v,d){
+  const add=(c,w)=>{score[c[3]]+=w; if(c[4]) score[c[4]]+=w/2};
+  const c1=d.s1[v.s1]; add(c1,2); acc.pace=(acc.pace||0)+c1[6];
+  v.s2.forEach(i=>add(d.s2[i],2/v.s2.length));
+  if(d.s2multi) acc.pace+= {1:-1,2:0,3:1}[v.s2.length];
+  add(d.s3[v.s3],2);
+  if(d.s4==='text'){ acc.textDo=(acc.textDo||0)+1; if(v.s4===9){acc.unplug=(acc.unplug||0)+1} else {acc.style=(acc.style||0)+S4TEXT[v.s4][1]; acc.pace+=S4TEXT[v.s4][2]; acc.last=S4TEXT[v.s4][1]} }
+  else { acc.style=(acc.style||0)+(v.s4-2); if(v.s4!==2) acc.last=v.s4-2 }
+  let local=(c1[5]?1:0)+(v.s2.some(i=>d.s2[i][5])&&v.s2.length<=2?1:0)+(d.s3[v.s3][5]?1:0);
+  acc.full=acc.full||[]; if(local===3) acc.full.push(d.id);
+  acc.local=(acc.local||0)+local+(v.unplug?1:0);
+  acc.depth=acc.depth||{}; acc.depth[d.id]=local;
+}
+function scores(){
+  const score={},skill={},cnt={},acc={}; CK.forEach(k=>{score[k]=0;skill[k]=0;cnt[k]=0});
+  st.visits.forEach(v=>{const d=DO.find(x=>x.id===v.id);addVisit(score,acc,v,d);if(!v.unplug){const c=d.s3[v.s3][3];skill[c]+=v.star;cnt[c]++}});
+  CK.forEach(k=>{if(cnt[k]) score[k]+=0.6*skill[k]/cnt[k]});
+  return {score,skill,acc};
+}
+function topConcept(score){return CK.reduce((a,b)=>score[b]>score[a]?b:a)}
+function judge(){
+  const {score,acc}=scores(); const n=st.visits.length;
+  const t=topConcept(score);
+  const style=acc.style||0,pace=acc.pace||0;
+  const raw=style<0||(style===0&&(acc.last||0)<0); // 연출
+  const q=raw?(pace>0?'bc':'dc'):(pace>0?'lv':'vl');
+  const vals=CK.map(k=>score[k]),mx=Math.max(...vals),mn=Math.min(...vals);
+  let key,e;
+  if(n<=2){key='ep1';e=E_SP.ep1}
+  else if((acc.textDo||0)>=3&&(acc.unplug||0)>=3){key='unplug';e=E_SP.unplug}
+  else if(acc.full&&acc.full.length&&acc.local>=10*n/8){const id=acc.full.sort((a,b)=>acc.depth[b]-acc.depth[a]).pop();key='L_'+id;e=E_LOCAL[id].concat(['그 도의 사람이 된 크리에이터'])}
+  else if(n>=6&&st.subs>=41000*n/8){key='legend';e=E_SP.legend}
+  else if(n>=6&&(mx-mn)/mx<=0.30){key='allround';e=E_SP.allround}
+  else {key=t+'_'+q;e=E24[t][q]}
+  return {key,e,t,q,score,acc,style,pace};
+}
+function autoVisit(d){
+  const r=a=>Math.random()*a|0;
+  const s2=d.s2multi?shuffle([0,1,2,3]).slice(0,1+r(3)):[r(4)];
+  const s4=d.s4==='text'?(Math.random()<.12?9:r(4)):r(5);
+  const v={id:d.id,s1:r(4),s2,s3:r(4),s4,unplug:s4===9,star:0};
+  if(!v.unplug){const p=.3+Math.random()*.5;v.star=[0,0,0].reduce(a=>a+(Math.random()<p?1:0),0)}
+  st.visits.push(v); st.subs+=v.unplug?0:subsGain(v.star,d.s3[v.s3][3],st.visits.length);
+  const loc={}; CK.forEach(k=>loc[k]=0); addVisit(loc,{},v,d); v.gift=CK.reduce((a,b)=>loc[b]>loc[a]?b:a,'M');
+}
+// ---------------- 엔딩 (6장면: 장면 → 그 뒤 이야기 → 잘 맞은 곳 → 실제로 가 보기 → 채널 결산 → 마지막) ----------------
+function vFinal(){
+  scr.innerHTML=bubble('마지막 업로드예요. 꾹 눌러 주세요.')+
+   `<div class="game"><div class="big" id="cnt">${st.subs.toLocaleString()}</div><p class="mini">구독자</p>
+    <button class="btn" id="up">꾹 눌러서 업로드</button><div class="gauge"><i id="ug"></i></div></div>`;
+  toTop();
+  let v=0,iv=null;const g=$('#ug'),b=$('#up');
+  const stop=()=>{clearInterval(iv);iv=null;if(v<100){v=0;g.style.width='0%'}};
+  b.addEventListener('pointerdown',e=>{e.preventDefault();if(iv)return;iv=setInterval(()=>{v+=5;g.style.width=v+'%';
+    $('#cnt').textContent=Math.round(st.subs*(0.6+0.4*v/100)).toLocaleString();
+    if(v>=100){clearInterval(iv);iv=null;toast('업로드 완료!');setTimeout(vAnalyze,500)}},50)});
+  b.addEventListener('pointerup',stop);b.addEventListener('pointerleave',stop);
+}
+function vAnalyze(){
+  scr.innerHTML='<div class="spinner"></div><p class="mini">여덟 도의 영상을 분석하고 있어요…</p>';toTop();
+  setTimeout(vEnding,1800);
+}
+function dexLoad(){try{return JSON.parse(localStorage.getItem('knara_dex_draft')||'[]')}catch(e){return []}}
+function dexSave(k){try{const a=dexLoad();if(!a.includes(k)){a.push(k);localStorage.setItem('knara_dex_draft',JSON.stringify(a))}}catch(e){}}
+
+const STOP=new Set(['체험','축제','마을','골목','거리','한상','야경','리액션','굽기','오르기','한입','한','상','직접','공방','마당']);
+function toks(s){return s.split(/[\s·()\/,]+/).filter(t=>t.length>=2&&!STOP.has(t))}
+function findRef(pool,name){
+  let best=null,bs=0;const ct=toks(name);
+  pool.forEach(p=>{const pt=toks(p.n);const s=pt.filter(t=>name.includes(t)).length*2+ct.filter(t=>p.n.includes(t)).length;if(s>bs){bs=s;best=p}});
+  return bs>=1?best:null;
+}
+let EN;
+function buildCtx(){
+  const R=judge();const {score}=R;
+  const sorted=CK.slice().sort((a,b)=>score[b]-score[a]);const t1=sorted[0],t2=sorted[1];
+  const w=c=>c===t1?3:c===t2?2:c===sorted[2]?1:0.5;
+  const per=st.visits.map(v=>{const d=DO.find(x=>x.id===v.id);
+    const picked=[d.s1[v.s1],...v.s2.map(i=>d.s2[i]),d.s3[v.s3]];
+    let fit=0;picked.forEach(c=>{fit+=w(c[3])+(c[4]?w(c[4])/2:0)+(c[5]?1:0)});
+    fit=fit/picked.length*3+(v.unplug?1.5:v.star);
+    const bestCard=picked.slice().sort((a,b)=>(w(b[3])+(b[5]?1:0))-(w(a[3])+(a[5]?1:0)))[0];
+    return {d,v,picked,fit,bestCard,pct:Math.min(99,Math.round(40+60*fit/19.5))};
+  }).sort((a,b)=>b.fit-a.fit);
+  const total=CK.reduce((s,k)=>s+score[k],0);
+  const pair=[t1,t2].sort((a,b)=>CK.indexOf(a)-CK.indexOf(b)).join('');
+  const typ=score[t1]>total/2?TYPE21[t1+t1]:TYPE21[pair];
+  const unvisited=DO.filter(d=>!st.visits.find(v=>v.id===d.id)).map(d=>({d,items:POOL[d.id].filter(p=>p.c.includes(t1))})).sort((a,b)=>b.items.length-a.items.length);
+  return {R,sorted,t1,t2,per,typ,unvisited};
+}
+function makeCourse(p){
+  const {t1,t2}=EN;const pool=POOL[p.d.id];const used=new Set();
+  const mine=p.picked.map(c=>{const ref=findRef(pool,c[1]);if(ref)used.add(ref);return {ph:phCard(p.d.id,c)||phPool(p.d.id,ref),n:c[1],line:c[2],ref,tag:'mine'}});
+  const fit=x=>(x.c.includes(t1)?2:0)+(x.c.includes(t2)?1:0)+x.snow;
+  const rest=pool.filter(x=>!used.has(x)).sort((a,b)=>fit(b)-fit(a));
+  const pick=k=>{const i=rest.findIndex(x=>k?(x.k==='음식')===(k==='food'):true);return i<0?null:rest.splice(i,1)[0]};
+  const nf=pick('food'),np=pick('place'),np2=pick('place');
+  const asNew=x=>x&&({ph:phPool(p.d.id,x),n:x.n,line:x.line,ref:x,tag:'new'});
+  const s2=mine.slice(1,-1);
+  return [
+    ['첫째 날','오전',mine[0]],['첫째 날','점심',s2[0]],['첫째 날','오후',mine[mine.length-1]],['첫째 날','저녁',asNew(nf)||s2[1]],
+    ['둘째 날','오전',asNew(np)],['둘째 날','점심',s2[1]&&nf?s2[1]:asNew(pick('food'))],['둘째 날','오후',asNew(np2)],
+  ].filter(x=>x[2]);
+}
+const ESC_=[eScene,eStory,eMatch,eCourse,eChannel,eOutro];
+const ENEXT=['그 뒤 이야기 ›','나랑 잘 맞은 곳은? ›','실제로 가 보기 ›','내 채널 결산 ›','마지막 한 장면 ›'];
+function vEnding(){EN=buildCtx();EN.hero=EN.per.map(p=>phCard(p.d.id,p.bestCard)).find(Boolean)||anyPhoto(3);dexSave(EN.R.key);showE(0)}
+function showE(i){
+  scr.innerHTML=`<div class="edots">${ESC_.map((_,j)=>`<i class="${j<=i?'on':''}"></i>`).join('')}</div>`+ESC_[i]()+
+    (i<ESC_.length-1?`<button class="btn" id="enext">${ENEXT[i]}</button>`:'')+(i>0?`<button class="btn ghost" id="eprev">‹ 이전</button>`:'');
+  toTop();
+  const n=$('#enext');if(n)n.onclick=()=>showE(i+1);
+  const p=$('#eprev');if(p)p.onclick=()=>showE(i-1);
+  if(ESC_[i]===eOutro)bindOutro();
+}
+function eScene(){
+  const {R}=EN,no=allKeys().indexOf(R.key)+1;
+  const hidden=R.key.startsWith('L_')||['legend','unplug','allround'].includes(R.key);
+  return `<div class="ending"><div class="scene hero">${imgTag(EN.hero,R.e[1],'hero')}<div class="cap">${esc(EN.per[0].d.name)} · ${esc(EN.per[0].bestCard[1])}</div></div>
+    <div class="no">엔딩 ${no} / 36 · ${hidden?'숨은 엔딩 ●●':'●'}</div>
+    <h3>${esc(R.e[1])}</h3><p class="one">${esc(R.e[2])}</p>
+    <span class="succ">성공의 모양 · ${esc(R.e[3])}</span>
+    <div class="badges"><span>${esc(st.ch)}</span><span>구독자 ${st.subs.toLocaleString()}</span><span>${st.visits.length}도 여행</span></div></div>`;
+}
+function eStory(){
+  const {R,per}=EN,b=per[0],n=st.visits.length;
+  const dreamLine={'우리 동네 가게 살리기':`영상 보고 ${b.d.name}까지 찾아온 손님이 ${Math.max(7,Math.round(st.subs/37)).toLocaleString()}명이래요.`,
+    '세계에 한국 자랑하기':`댓글이 ${Math.min(5,1+Math.floor(st.subs/9000))}개 나라 말로 달렸어요.`,
+    '나만의 여행 기록 남기기':`처음 찍은 ${DO.find(d=>d.id===st.visits[0].id).name} 영상부터 ${n}편, 다 남아 있어요.`,
+    '맛있는 거 실컷 먹기':`여행 내내 먹은 게 ${st.visits.reduce((s,v)=>s+v.s2.length,0)+n}그릇이래요.`}[st.dream]||'';
+  const lines=[
+    `${n}도를 돌고 1년이 지났다.`,
+    `시작은 ${b.d.name}의 ‘${b.bestCard[1]}’.`,
+    R.e[2]+'.',
+    `다온: ${dreamLine}`,
+  ];
+  return `<div class="story"><div class="scene hero sm">${imgTag(EN.hero,R.e[1],'hero')}</div>${lines.map((l,i)=>`<p style="animation-delay:${.3+i*.7}s">${esc(l)}</p>`).join('')}
+    <div class="vign" style="animation-delay:3.2s">${per.slice(0,3).map(p=>`<div>${imgTag(phCard(p.d.id,p.bestCard),p.bestCard[1],'vg')}${esc(p.d.name)}<br><small>${esc(p.bestCard[1])}</small></div>`).join('')}</div></div>`;
+}
+function eMatch(){
+  const {per,t1,t2}=EN;
+  return `<h4 class="eh">나랑 잘 맞은 팔도</h4><p class="mini" style="text-align:left;margin:0 0 10px">고른 카드가 내 채널 색깔(${CN[t1]}·${CN[t2]})과 얼마나 맞았는지, 촬영 별점, 현지인 추천을 따라간 정도로 매겼어요.</p>
+   ${per.map((p,i)=>`<div class="mrow ${i<3?'top':''}"><div class="mh"><b>${i+1}</b><span>${esc(p.d.name)}</span><div class="b"><i style="width:${p.pct}%"></i></div><em>${p.pct}%</em></div>
+     ${i<3?`<div class="chips">${p.picked.map(c=>`<span class="${c===p.bestCard?'best':''}">${esc(c[1])}${c===p.bestCard?' ★':''}</span>`).join('')}</div>`:''}</div>`).join('')}`;
+}
+function eCourse(){
+  const {per,unvisited,t1}=EN,b=per[0],c=makeCourse(b);
+  const snow=POOL[b.d.id].filter(x=>x.snow);
+  let h=`<h4 class="eh">${esc(b.d.name)} 1박 2일, 실제로 가 보세요</h4>
+    <p class="mini" style="text-align:left;margin:0 0 8px">내가 고른 것 <span class="tg mine">고른 것</span> + 나랑 맞을 것 같은 곳 <span class="tg new">새로 발견</span></p>`;
+  let day='';
+  c.forEach(([d,t,x])=>{if(d!==day){h+=`<div class="day">${d}</div>`;day=d}
+    h+=`<div class="slot"><span class="t">${t}</span>${imgTag(x.ph,x.n,'slot')}<div class="x"><b>${esc(x.n)}</b> <span class="tg ${x.tag}">${x.tag==='mine'?'고른 것':'새로 발견'}</span>${x.ref&&x.ref.snow?'<span class="tg snow">11~12월 제철</span>':''}
+      <div class="ln">${x.ref?esc(x.ref.city)+' · ':''}${esc(x.ref?x.ref.line:x.line)}</div>
+      ${x.ref?`<a href="${esc(x.ref.url)}" target="_blank" rel="noopener">공식 안내 →</a>`:''}</div></div>`});
+  if(snow.length) h+=`<div class="why"><h5>지금(11~12월) 가면 더 좋은 것</h5>${snow.map(x=>`${esc(x.n)} (${esc(x.city)})`).join(' · ')}</div>`;
+  if(per[1]) h+=`<div class="why"><h5>이런 것도 잘 맞았어요</h5>${per.slice(1,3).map(p=>{const r=findRef(POOL[p.d.id],p.bestCard[1]);return `<b>${esc(p.d.name)}</b> ${esc(p.bestCard[1])} ${r?`<a href="${esc(r.url)}" target="_blank" rel="noopener">안내 →</a>`:''}`}).join('<br>')}</div>`;
+  if(unvisited.length&&unvisited[0].items.length) h+=`<div class="why"><h5>아직 안 가 본 곳 중 추천 · ${CN[t1]} 좋아하는 나에게</h5><b>${esc(unvisited[0].d.name)}</b> — ${unvisited[0].items.slice(0,3).map(x=>esc(x.n)).join(' · ')}</div>`;
+  h+=`<button class="btn ghost" onclick="toast('본 작업: 코스 이미지 저장 + QR(폰으로 가져가기)')">이 코스 저장하기 (시안: 자리만)</button><p class="mini">사진: 한국관광공사 TourAPI·포토코리아 (공공누리 제1유형)</p>`;
+  return h;
+}
+function eChannel(){
+  const {R,sorted,typ,per}=EN,{score}=R,mx=Math.max(...CK.map(k=>score[k]),1);
+  const dial=v=>Math.max(4,Math.min(96,50+v*6));
+  return `<h4 class="eh">내 채널 결산</h4>
+   <div class="why"><h5>채널 색깔 (관심 + 실력)</h5><div class="bars">${CK.map(k=>`<div class="r ${k===R.t?'top':''}"><span>${CN[k]}</span><div class="b"><i style="width:${Math.round(score[k]/mx*100)}%"></i></div><span>${score[k].toFixed(1)}</span></div>`).join('')}</div>
+    <div class="axis"><span>연출</span><div class="l"><i style="left:${dial(R.style)}%"></i></div><span>날것</span></div>
+    <div class="axis"><span>느긋</span><div class="l"><i style="left:${dial(R.pace)}%"></i></div><span>꽉 찬</span></div>
+    <p class="mini" style="text-align:left">촬영 성향: ${QUAD[R.q]}</p></div>
+   <div class="why"><h5>도별 촬영 별점</h5>${st.visits.map(v=>{const d=DO.find(x=>x.id===v.id);return `${esc(d.name)} ${v.unplug?'쉬어 감':'★'.repeat(v.star)+'☆'.repeat(3-v.star)} <small>(${GAMES[d.id][1]})</small>`}).join('<br>')}</div>
+   <div class="badges"><span>성향 배지 · ${esc(typ)} 크리에이터</span><span>삼작노리개 ${sorted.slice(0,3).map(nd).join('')}</span></div>`;
+}
+function eOutro(){
+  const {per}=EN;
+  return `<div class="ending">
+    ${bubble('그동안 1등 댓글은 누가 달았는지 알아요?')}
+    <div class="bubble"><div class="av" style="background:var(--jeok)">첫</div><div><div class="nm">첫댓요정 — 다온의 휴대폰에 로그인된 계정</div><div class="tx">1등은 늘 제가 했어요. 구독 취소는 안 할게요. 아마도.</div></div></div>
+    <p class="question">"${esc(st.dream)}" — 다음 화는 ${esc(per[0].d.name)}에서 직접 찍어 볼까요?</p>
+    <button class="btn" id="dex2">엔딩 도감 보기</button>
+    <button class="btn ghost" id="again">처음부터 다시</button>
+    <button class="btn ghost" id="rand">무작위로 한 판 더 (다른 엔딩 확인용)</button></div>`;
+}
+function bindOutro(){
+  $('#dex2').onclick=vDex;$('#again').onclick=()=>{fresh();vPoster()};
+  $('#rand').onclick=()=>{const ch=st.ch,dr=st.dream;fresh();st.ch=ch;st.dream=dr;shuffle(DO).forEach(d=>autoVisit(d));hud();vAnalyze()};
+}
+
+function allKeys(){const a=[];CK.forEach(k=>Object.keys(QUAD).forEach(q=>a.push(k+'_'+q)));DO.forEach(d=>a.push('L_'+d.id));a.push('legend','unplug','allround','ep1');return a}
+function vDex(){
+  const got=dexLoad();
+  const cell=(k,e)=>`<div class="c ${got.includes(k)?'':'off'}">${got.includes(k)?esc(e[1]):'???'}</div>`;
+  let h=`<h4 style="font-family:var(--f-disp);font-size:20px;margin:0 0 4px">엔딩 도감 ${got.length} / 36</h4><p class="mini" style="text-align:left;margin:0">못 본 엔딩은 실루엣. 실제판은 힌트 한 줄 표시.</p>`;
+  CK.forEach(k=>{h+=`<div class="dexrow">${CN[k]}</div><div class="dexgrid">${Object.keys(QUAD).map(q=>cell(k+'_'+q,E24[k][q])).join('')}</div>`});
+  h+=`<div class="dexrow">지역 몰입</div><div class="dexgrid">${DO.map(d=>cell('L_'+d.id,E_LOCAL[d.id])).join('')}</div>`;
+  h+=`<div class="dexrow">특수</div><div class="dexgrid">${['legend','unplug','allround','ep1'].map(k=>cell(k,E_SP[k])).join('')}</div>`;
+  h+=`<button class="btn ghost" id="back">돌아가기</button><button class="btn ghost" id="clr">도감 비우기</button>`;
+  scr.innerHTML=h; toTop();
+  $('#back').onclick=()=>st.visits.length&&st.ch?vEnding():vPoster();
+  $('#clr').onclick=()=>{try{localStorage.removeItem('knara_dex_draft')}catch(e){}vDex()};
+}
+$('#dexBtn').onclick=vDex;
+
+// ---------------- 왼쪽 문서의 엔딩 표 ----------------
+(function(){
+  const pct={B:[3.17,4.19,3.59,3.63],M:[3.44,3.84,3.85,3.36],F:[3.54,3.96,3.99,3.40],S:[3.52,4.22,3.79,3.63],T:[3.75,3.29,4.21,3.00],H:[3.82,3.69,4.43,3.12]};
+  let h='<div class="h"></div>'+['방송국형<br><small>연출·꽉</small>','다큐형<br><small>연출·느긋</small>','라이브형<br><small>날것·꽉</small>','브이로그형<br><small>날것·느긋</small>'].map(x=>`<div class="h">${x}</div>`).join('');
+  CK.forEach(k=>{h+=`<div class="rh">${CN[k]}</div>`+Object.keys(QUAD).map((q,i)=>`<div>${E24[k][q][1]}<br><span class="pct">${E24[k][q][3]} · ${pct[k][i]}%</span></div>`).join('')});
+  document.getElementById('grid24').innerHTML=h;
+  let g=DO.map(d=>`<div><b>${d.name}</b> ${E_LOCAL[d.id][1]}<br><span class="pct">${E_LOCAL[d.id][2]} · 약 0.8%</span></div>`).join('');
+  const sp={legend:'1.2%',unplug:'2.7%',allround:'1.6%',ep1:'2도 이하 종료 시'};
+  g+=Object.keys(E_SP).map(k=>`<div><b>${E_SP[k][1]}</b><br><span class="pct">${E_SP[k][3]} · ${sp[k]}</span></div>`).join('');
+  document.getElementById('grid12').innerHTML=g;
+})();
+vPoster();
+// 바로 보기: ?demo=do:jn | shoot:gw | end:3 (캡처·검토용)
+(function(){const m=(location.search.match(/demo=([a-z]+):?([a-z0-9]*)/)||[]);if(!m[1])return;
+  fresh();st.ch='팔도 한입';st.dream='우리 동네 가게 살리기';
+  if(m[1]==='do'){hud();vDo(DO.find(d=>d.id===m[2])||DO[0])}
+  else if(m[1]==='shoot'){hud();const d=DO.find(x=>x.id===m[2])||DO[0];vShoot(d,{s1:0,s2:[0],s3:0,s4:1})}
+  else if(m[1]==='end'){DO.forEach(d=>autoVisit(d));hud();EN=null;vEnding();showE(+m[2]||0)}
+  document.querySelectorAll('img.ph').forEach(i=>i.loading='eager');
+  if(/full/.test(location.search)){const p=document.querySelector('.phone');p.style.height='auto';scr.style.overflow='visible';document.querySelectorAll('.qcard').forEach(q=>q.classList.remove('dim'))}})();
+</script>
+</body>
+</html>

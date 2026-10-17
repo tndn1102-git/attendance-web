@@ -28,14 +28,14 @@ const STATIC = {
   "/game/": "game/index.html",
   "/game/index.html": "game/index.html",
 };
-const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".jpg": "image/jpeg", ".png": "image/png" };
+const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".jpg": "image/jpeg", ".png": "image/png", ".webp": "image/webp" };
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, "http://local");
   if (url.pathname.startsWith("/api/")) return nodeHandler(req, res);
   if (url.pathname === "/favicon.ico") { res.statusCode = 204; return res.end(); }
-  // 게임 그림(game/img/**.jpg|png)은 폴더 밖으로 못 나가게 이름만 검사해서 서빙
-  const img = /^\/game\/img\/[A-Za-z0-9_\-\/]+\.(jpg|png)$/.test(url.pathname) && !url.pathname.includes("..") ? url.pathname.slice(1) : null;
+  // 게임 그림(game/img/**.jpg|png|webp)은 폴더 밖으로 못 나가게 이름만 검사해서 서빙
+  const img = /^\/game\/img\/[A-Za-z0-9_\-\/]+\.(jpg|png|webp)$/.test(url.pathname) && !url.pathname.includes("..") ? url.pathname.slice(1) : null;
   const rel = STATIC[url.pathname] || img;
   if (!rel) { res.statusCode = 404; res.setHeader("Content-Type", "text/plain; charset=utf-8"); return res.end("not found"); }
   const file = path.join(ROOT, rel);

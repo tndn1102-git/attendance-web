@@ -5,9 +5,11 @@
   "compatibility_date": "2026-06-01",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
+  // 손님용 짧은 주소 (fantastrick.co.kr 존은 같은 CF 계정). DNS 는 wrangler 가 만든다
+  "routes": [{ "pattern": "knara.fantastrick.co.kr", "custom_domain": true }],
   "observability": { "enabled": true },
   // 정적 파일: 프로젝트 루트를 그대로 올리되 .assetsignore 로 lib·docs·data 등은 제외. _headers 로 noindex·CORS.
-  "assets": { "directory": "./", "binding": "ASSETS", "not_found_handling": "none" },
+  "assets": { "directory": "./", "binding": "ASSETS", "not_found_handling": "none", "run_worker_first": ["/"] },
   "d1_databases": [
     { "binding": "DB", "database_name": "knara-stats", "database_id": "fe4a6176-4a6d-409b-abe6-ef7381b633f2" }
   ],

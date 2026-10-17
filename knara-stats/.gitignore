@@ -8,3 +8,5 @@ data/
 .vercel
 .env*
 .wrangler/
+game-src/.photo-dl/
+game-src/.e2e/

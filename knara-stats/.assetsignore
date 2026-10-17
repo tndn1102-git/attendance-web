@@ -16,3 +16,4 @@ package-lock.json
 .wrangler/
 .assetsignore
 .gitignore
+game-src/

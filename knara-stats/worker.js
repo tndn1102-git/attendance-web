@@ -10,6 +10,8 @@ const ENV_KEYS = ["STATS_KEY", "TRACK_TOKEN", "EXHIBIT_START", "EXHIBIT_END"];
 export default {
   async fetch(req, env) {
     const url = new URL(req.url);
+    // 손님용 짧은 주소(knara.fantastrick.co.kr)는 첫 화면이 입장(동의) 페이지. 운영 통계는 workers.dev 주소 그대로
+    if (url.hostname === "knara.fantastrick.co.kr" && url.pathname === "/") return Response.redirect(url.origin + "/entry/" + url.search, 302);
     if (!url.pathname.startsWith("/api/")) return env.ASSETS.fetch(req);
 
     // lib/ 는 process.env 를 읽는다 → Worker 바인딩(vars·secrets)을 옮겨 준다
