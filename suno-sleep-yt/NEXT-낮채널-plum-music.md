@@ -1,3 +1,69 @@
+# 💳 2026-10-22 사장님 확정 — 11-01까지 Mureka 크레딧 배분 (리필 11-02)
+
+- 잔액 **564 Gold**(10-22 `.pw-profile-n` 로 조회, 실효 23 Gold/생성 ≈ 24생성). 필요 = 달빛 EP28·29 18 + plum EP26 10 = **28생성(644 Gold) → 약 4생성 부족.**
+- 결정 = **plum EP26 을 리필 전에 만든다(11-02 08:00 공개 유지). 곡 수는 줄이지 않는다. 모자라는 만큼은 예전에 쓴 곡을 재활용해 채운다.**
+- 순서 = 달빛 EP28(10-29) → EP29(10-31) 는 **9생성 그대로**(달빛은 "전부 신곡" 규칙 유지, 재생성 0~최소) → 남은 Gold 로 plum EP26.
+- **plum EP26 신곡 수 = 착수 직전 `node tools/_mureka_gold.js`(PW_PROFILE=.pw-profile-n) 잔액 ÷ 23 내림.** 나머지 자리 = 예전 곡 재활용(EP25 방식: 쇼츠에 안 쓴 곡 · 게이트 통과곡 · 직전 몇 편과 겹치지 않게 · 한 곡 재사용 최소). 10곡·20트랙 편성 유지.
+- ⚠️ 잔액 0 근처에서 제출하면 로그가 "제출 완료"로 거짓 보고한다(09월 EP17) — 마지막 생성 전 잔액 한 번 더 확인.
+
+# 🌲 2026-10-21 — EP25 제작·예약 완료 · 가을 13편째 (배경 4안 → 사용자 C 선택)
+```
+본편   youtu.be/EqwX1Nk-urs   10-30(금) 08:00  3:34:01 · 886MB · 「Cafe Playlist ☕ 여기 오면 오늘 좋은 일이 생길 것만 같아요 🍂 Chill Cafe Music」
+쇼츠70 youtu.be/5VD7Jn1S6Ic   11-24(화) 19:00  something's on its way (호숫가 와이드)
+쇼츠71 youtu.be/sJOXdqmmwZo   11-25(수) 19:00  the morning's got a secret (데크 끝 클로즈업)
+쇼츠72 youtu.be/AqnkH0qxmMo   11-26(목) 19:00  i keep the window open for it (실내에서 호수 조망)
+```
+- 컨셉 = 기대/예감(시간의 방향, 문형 25번째) · 씬 = **C 자작나무 호숫가 카페 · 물 건너 정면 반영**(신규 구도) · 썸네일 딥 자작 골드 #5A4612(7.4:1, 난색 복귀) → `plum/ep25/컨셉-ep25.md`
+- 곡: 10생성(1,020 Gold 시작) · 찬송가 0 · 보컬 6축 20/20 · CLAP ❌ 04·10(보사)·13(남성 A) + 보사 게이트 ❌ 09 → **보사 #5 두 테이크 다 탈락** → EP15 「i take it in slow」2 + EP20 「i hear my own breath」2 재활용 · 남성곡 B테이크(14, F0 185Hz) 생존 · 20트랙·11곡·71.1분 × 3
+- 렌더 NVENC → alimiter(level=disabled) → I −14.9 / 피크 −3.3 / LRA 2.9 · 점검기 plum판 본편·쇼츠 실패 0·경고 0 · AI 표시 4/4 · `plum-ep25-comment` 10-30 08:05 · 대장 mains 25 + s70~s72 · 쇼츠 큐 끝 = **11-26**
+- 🐞 C안 간판이 뭉개져 나옴("plem cmmn") → `bg/_fix_sign.py` 로 다시 씀 · 세로 배경 ✦ 는 실제로 **약 37px**(box 461,913,44,44) — 30px 상자는 덜 지운다 · ✦ 가 판자 이음매에 걸리면 손 오프셋은 다 자국 → **테두리 오차 최소 오프셋 자동 탐색**으로 해결(Gemini 편집은 ✦ 를 다시 찍어 넣는다) · `yt_studio_altered.js` 는 **ID 하나씩** 호출해야 한다(여러 개 넘기면 첫 편만 처리)
+- 다음 = **EP26 (11-02 월 08:00)** — 남은 배경 후보 A 억새·B 은행나무·D 벽난로 라운지(D 는 커피머신 글자 지울 것) · 착수 전 `node tools/_mureka_gold.js` · 여운 자리 다음 = EP18 조합
+
+# ☁️ 2026-10-20 — EP24 제작·예약 완료 · 가을 12편째 (사용자 "이번엔 배경도 너가 추천으로 선택" · Claude 가 B 운해 선택)
+```
+본편   youtu.be/E3VihSZNXSw   10-26(월) 08:00  3:34:21 · 688MB · 「Cafe Playlist ☕ 여기 올라오면 걱정이 구름 아래로 작아져요 🍂 Chill Cafe Music」
+쇼츠67 youtu.be/7K13Hbf0M0o   11-19(목) 19:00  funny how it shrinks (테라스 와이드)
+쇼츠68 youtu.be/-vhuJF7QMxI   11-20(금) 19:00  the air goes on for miles (난간 끝 클로즈업)
+쇼츠69 youtu.be/NUp7wBa0DA0   11-23(월) 19:00  a little distance does it (실내에서 운해 조망)
+```
+- 컨셉 = 내려다봄(관점, 문형 24번째) · 씬 = **B 운해 능선 테라스 대각선**(EP22 생성분) · 고른 근거 = 난색 2연속(호두·감) 끊기 + 최근 5편에 없는 대각선 구도 · 썸네일 딥 화강암 슬레이트 #2E3B3D(9.86:1) → `plum/ep24/컨셉-ep24.md`
+- 곡: 10생성(1,476 Gold 시작) · 찬송가 0 · 보컬 6축 20/20 · CLAP ❌ 12·15(남성 A)·보사 08 → EP18 「the hour is wide open」2 + EP19 「the hush has a colour」1 재활용 · 남성곡 B테이크(F0 184Hz) 생존 · 20트랙·12곡·71.2분 × 3
+- 렌더 NVENC → alimiter(level=disabled) → I −14.9 / 피크 −3.5 / LRA 2.9 · 점검기 plum판 본편·쇼츠 실패 0·경고 0(난색 연속 경고 해소) · AI 표시 4/4 · `plum-ep24-comment` 10-26 08:05 · 대장 mains 24 + s67~s69 · 쇼츠 큐 끝 = **11-23**
+- 🐞 `yt_studio_altered.js` 를 `-- <id>` 로 부르면 "--" 를 ID 로 받아 조용히 실패(verify 0/4) → 하이픈 시작 ID(-vhuJF7QMxI)도 그냥 인자로 넘기면 된다 · 세로 배경 ✦ 는 3장 다 같은 자리(≈487,934) — 고양이 없는 쪽은 아래 잘라내기(905px), 와이드는 --source 20,40
+- 다음 = **EP25 (10-30 금 08:00)** — 배경 후보 남은 것 A 팜파스 저각 정면(샴페인 은빛) 또는 새 4안 · 직전 주색 한색이므로 난색 가능 · 착수 전 `node tools/_mureka_gold.js` · 여운 자리 다음 = EP17 조합
+
+# 🍂 2026-10-18 — EP23 제작·예약 완료 · 가을 11편째 (사용자 "배경 선택 먼저 → 저장해둔 배경으로 진행" · 배경 C)
+```
+본편   youtu.be/VH2ne5LjzSM   10-23(금) 08:00  3:36:56 · 932MB · 「Cafe Playlist ☕ 여기 앉아 있으면 마음까지 말랑하게 익어가요 🍂 Chill Cafe Music」
+쇼츠64 youtu.be/BUJNg1Q9dRE   11-16(월) 19:00  let it come in its own time (실내에서 마당 조망)
+쇼츠65 youtu.be/_XsI59HDzuM   11-17(화) 19:00  the hard edge goes soft (마당 와이드)
+쇼츠66 youtu.be/PG5Gs7k3jrE   11-18(수) 19:00  it gets there on its own (감나무 아래 클로즈업)
+```
+- 컨셉 = 무르익음(마음의 질감, 문형 23번째) · 씬 = **C 감나무 돌담 마당 부감**(EP22 때 생성분) · 썸네일 딥 가을 하늘 네이비 #1F3552(7.8:1, 난색 연속 경고 회피로 하늘색에서 뽑음) → `plum/ep23/컨셉-ep23.md`
+- 곡: 10생성 · 찬송가 0 · 보컬 6축 20/20 · CLAP ❌ 08(남성 B)·보사 14 → EP19 「turn up the colour」 2테이크 재활용 · **남성곡 A테이크 통과(F0 166Hz) — EP21·22 연속 탈락 뒤 처음** · 20트랙·11곡·72.0분 × 3
+- 렌더 NVENC → alimiter(level=disabled) → I −15.0 / TP −3.8 / LRA 3.1 · 점검기 plum판 본편 통과(경고 1 = 배경 난색) · 쇼츠 통과(0·0) · AI 표시 4/4 · `plum-ep23-comment` 10-23 08:05 · 대장 mains 23 + s64~s66 · 쇼츠 큐 끝 = **11-18**
+- 🐞 Gemini 세로 와이드에서 건물이 두 채로 겹쳐 그려짐 → "exactly one building, never repeated/stacked" 넣고 재생성 1회로 해결 · pick_shorts 가 또 같은 곡 두 테이크를 1·3위로 뽑음(빠름 자리 수동 교체)
+- 💳 Gold 1,932 → 1,476 (같은 시간 달빛 EP25 생성 포함) · 음악감독 지적: EP21 기록의 남성곡 「the line has gone slack」은 실제로 여성 저음(F0 264Hz)
+- 🐞 **EP22 쇼츠가 10-14 에 두 번 업로드돼 있었다**(같은 곡·같은 시각 3쌍). 대장에 없는 RyeHEAP7QrM·r55g1UwCWD0·FZTL4yKWD_U 3편을 예약 해제(비공개 유지, 백업 `tools/_publishAt_backup_ep22dupes_1018.json`). 쇼츠 업로드 뒤 현황판으로 중복 확인할 것
+- 다음 = **EP24 (10-26 월 08:00)** — 착수 전 `node tools/_mureka_gold.js` · 여운 자리 다음 재사용 = EP16 조합 {2,5,6,9}
+
+# 🍂 2026-10-14~15 — EP22 제작·예약 완료 · 가을 10편째 (사용자 "배경만 알려줘, 내가 고를게" · 배경 D 선택, 다음 편 C 지정)
+```
+본편   youtu.be/zosbABS8z1I   10-19(월) 08:00  3:27:54 · 686MB · 「Cafe Playlist ☕ 여기선 나한테 좀 더 다정해져요 🍂 Chill Cafe Music」
+쇼츠61 youtu.be/O20r2AaJJGY   11-11(수) 19:00  i don't keep score in here (호두 라운지 와이드)
+쇼츠62 youtu.be/tyny97QFhjM   11-12(목) 19:00  i'm good company (소파 고양이)
+쇼츠63 youtu.be/joD1tN6Ndqc   11-13(금) 19:00  i let me off the hook (유리문 너머 숲)
+```
+- 컨셉 = 다정(자기에게 하는 말, 문형 22번째) · 씬 = **D 호두 원목 라운지 실내 정면 카운터** · 썸네일 딥 호두 #543C24(7.0:1) → `plum/ep22/컨셉-ep22.md`
+- 곡: 10생성(2,700 Gold 시작) · 보컬 6축 20/20 · 찬송가 0 · CLAP ❌ 04·13·14(남성곡 #7 둘 다) → EP13 「warm feels good again」2테이크 + EP12 「i am coming back to this」1테이크 재활용 · 이번 편 **남성곡 없음** · 20트랙·11곡·69.1분 × 3
+- 렌더 NVENC 7.5x → alimiter(level=disabled) → I −14.9 / TP −2.7 / LRA 3.4 · 점검기 plum판 통과(실패 0·경고 1 = 난색 연속) · AI 표시 4/4 · `plum-ep22-comment` 10-19 08:05 · 대장 mains 22 + s61~s63 · 쇼츠 큐 끝 = **11-13**
+- 🔔 **다음 = EP23 (10-23 금 08:00) 배경은 C 감나무 돌담 마당 부감으로 사용자 지정** — `plum/ep22/bg/C_persimmon_court_high.png`(과슈)·`real/`(실사) 이미 있음. ⚠️ 난색 4연속 경고가 이미 뜸 → 썸네일 글자색은 주홍이 아니라 씬의 어두운 돌담·나무 줄기색(한색~중성)에서 뽑을 것. 착수 전 `node tools/_mureka_gold.js`
+- 🐞 이번에 안 빠뜨린 것: 곡 파일 접두(`NN_`) 2자리 고정이라 재활용 곡은 비는 번호에 넣었다 · pick_shorts 가 같은 곡 두 테이크를 1·3위로 뽑아 「빠름」 자리를 수동 교체
+
+## 🟢 2026-10-08 저녁 사장님 확정 — **plum 재개: 본편 주 2(월·금 08:00) + 쇼츠 주 5** (낮에 적었던 제작 중지는 취소)
+- 편당 10생성 · 달빛국악 주 3 과 합쳐 월 204/217생성. 다음 = **EP22 (다음 본편 슬롯 = 10-19 월 08:00)** — EP21 10-16 예약 완료. 판정 11-04 구독 300 그대로.
+- 반복 콘텐츠 규칙(AI 표기·설명문에 사람이 한 일·색/구도 다양화)도 적용 — suno-sleep-yt/CLAUDE.md 맨 위 🟢 블록.
+
 ## 🚨 90일 게이트 — 2026-08-06 사전등록. **판정일에 이 기준을 바꾸지 않는다.**
 
 > **왜 지금 박는가:** 밤 채널(Ember & Rain)이 철수 기준 없이 67일을 표류하다 2026-08-06 에이전트 3인
@@ -24,6 +90,44 @@
 - ⚠️ 밤 채널에서 회수한 시간을 **전액 낮으로 옮기지 말 것.** 그건 KILL 이 아니라 이름만 바꾼 KEEP 이다.
 
 ---
+
+# 🍂 2026-10-13 — EP21 제작·예약 완료 · 가을 9편째 (사용자 "배경만 내가 정할게, 예약업로드까지 알아서" · 배경 C 선택)
+```
+본편   youtu.be/GaBgkvPkgoc   10-16(금) 08:00  3:29:57 · 846MB · 「Cafe Playlist ☕ 여기 앉으면 나도 모르게 웃음이 나요 🍂 Chill Cafe Music」
+쇼츠58 youtu.be/bj0deliRy5A   11-06(금) 19:00  you can see it on my face (온실 와이드)
+쇼츠59 youtu.be/2VFVu34nGNU   11-09(월) 19:00  my face forgets to try (소파 고양이 클로즈업)
+쇼츠60 youtu.be/ZilpAbttIi4   11-10(화) 19:00  it slips out of me (보사 · 올리브 정원 조망)
+```
+- 컨셉 = 미소(표정, 감각 축 다음) · 씬 = **C 올리브 글라스하우스 라운지 실내** · 썸네일 딥 올리브 #3E4A2A → `plum/ep21/컨셉-ep21.md`
+- 곡: 10생성(3,228 Gold 시작) · CLAP ❌4테이크(남성곡 둘 다 포함) → EP11 남성곡 「the line has gone slack」 + EP18 「open on every side」 재활용 · 20트랙 · 쇼츠 큐 끝 = **11-10**
+- 한 세션 약 2.5시간(15:20 착수 → 18:30 예약 완료). 배경 선택 대기 중에 곡·믹스·훅을 먼저 돌렸다
+- 🐞 쇼츠 plan 에 `ai_disclosure:true` 빠지면 점검기 실패 3 → 넣고 재실행
+- 다음 = **EP22 = 10-19(월) 08:00** — 착수 전 `node tools/_mureka_gold.js` · 여운 자리 조합 재사용 3번째(EP14 {2,4,6,9})
+
+# 🍂 2026-10-10 — EP20 제작·예약 완료 · 가을 8편째 · 10-08 재개 후 첫 편 (사용자 "플럼뮤직 본편 작업하자" · 배경 A 선택)
+```
+본편   youtu.be/uXjiCblpr5g   10-12(월) 08:00  3:25:37 · 891MB · 「Cafe Playlist ☕ 여기 앉으면 작은 소리까지 다정하게 들려요 🍂 Chill Cafe Music」
+쇼츠55 youtu.be/GG58mTTFZc0   11-03(화) 19:00  i'm all ears now (와이드)
+쇼츠56 youtu.be/2tAdy6gtGJE   11-04(수) 19:00  i can hear the small things (물살 클로즈업)
+쇼츠57 youtu.be/thWmlEBAP7U   11-05(목) 19:00  you make the room ring (실내 · 남성)
+```
+- 컨셉 = 소리(청각, 감각 축 마지막) · 씬 = **A 계곡 물가 카페 측면** · 썸네일 딥 스트림 틸 #1D4246 → `plum/ep20/컨셉-ep20.md`
+- 곡: 10생성(3,684 → 3,444 Gold) · CLAP ❌3테이크 → EP18 「the space between the notes」 재활용 · 19트랙 · 쇼츠 큐 끝 = **11-05**
+- 🆕 10-08 반복 콘텐츠 규칙 첫 적용: 점검기 plum판(`dalbit_similarity_gate.py --channel plum`) · 설명문에 트랙리스트+"직접 한 일" · 쇼츠 설명문에 본편 링크 · AI 표시 4/4
+- ⚠️ EP19 를 점검기에 대 보니 설명문이 EP18 과 0.63(기준 0.50) — 다음 편도 설명문은 템플릿 복사 말고 새로 쓸 것
+- 다음 = **EP21 = 10-16(금) 08:00** — 착수 전 `node tools/_mureka_gold.js`
+
+# 🍂 2026-10-04 — EP19 제작·예약 완료 · 가을 7편째 (사용자 "다음편 시작하자" · 배경 A 선택)
+```
+본편   youtu.be/FESX9obBWM4   10-09(금) 08:00  3:26:15 · 823MB · 「Cafe Playlist ☕ 여기 앉으면 하루가 고운 색으로 물들어요 🍂 Chill Cafe Music」
+쇼츠52 youtu.be/qd3BkeFaJ_8   10-29(목) 19:00  i see it in full colour (와이드)
+쇼츠53 youtu.be/Ppgd1oDt0YU   10-30(금) 19:00  the colour comes in low (테라스 클로즈업)
+쇼츠54 youtu.be/nFVU_ojLqpI   11-02(월) 19:00  you tint the whole room (숲길 · 남성)
+```
+- 컨셉 = 색/물듦 · 씬 = **사용자 선택 A 메타세쿼이아 숲길 카페 모서리 3/4** · 문형 = 색 체감형(19번째) → `plum/ep19/컨셉-ep19.md`
+- 곡: 10생성(4,140 → 3,900 Gold) · CLAP 탈락 3테이크(1번 곡 둘 + 보사 #4 한쪽) → EP15 재활용 1곡 · 19트랙 · 쇼츠 큐 끝 = **11-02**
+- 🐞 `verify_prompts.py` 는 `--words 230-250` 필요 · 세로 배경 572×1024 는 위 8px 잘라야 build_short 통과
+- 다음 = **EP20 = 10-12(월) 08:00** — 착수 전 `node tools/_mureka_gold.js` · 여운 자리 조합 소진 → 오래된 조합부터 재사용
 
 # 🍂 2026-10-03 — EP18 제작·예약 완료 · 가을 6편째 (사용자 "배경만 내가 정할게, 예약업로드까지")
 ```

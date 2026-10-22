@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 r"""
-4채널 업로드 예약 현황판 — plum music · 달빛국악 · 추억 감성가요 · 기업잔혹사
+업로드 예약 현황판 — plum music · 달빛국악 (10-08부터 두 채널만)
 
   py -3 tools\yt_schedule_board.py            # → suno-sleep-yt\업로드일정.html 생성
   py -3 tools\yt_schedule_board.py --open     # 생성 후 브라우저로 열기
@@ -23,11 +23,14 @@ WD = '월화수목금토일'
 CHANNELS = [
     ('plum',  'plum music',  os.path.join(HERE, 'yt_token.json'),        'plum'),
     ('night', '달빛국악',     os.path.join(HERE, 'yt_token_night.json'),  'night'),
-    ('gayo',  '추억 감성가요', os.path.join(HERE, 'yt_token_gayo.json'),   'gayo'),
-    ('gieop', '기업잔혹사',   r'D:\test3\gieopjanhoksa\config\token.json', 'gieop'),
+    # 2026-10-08 사장님 확정: 추억 감성가요·기업잔혹사 제작 중지 → 현황판에서 뺐다(되살리려면 .bak-20261008)
 ]
 PAST_DAYS = 7      # 지난 며칠까지 보여줄지
 SHORTS_MAX = 180   # 이 초 이하면 쇼츠
+STAT_DAYS = 30     # 구독 추이 기간
+RECENT_LONG, RECENT_SHORT = 3, 4   # 채널당 최근 공개 몇 편까지 조회수를 보여줄지
+COMMENT_DAYS = 14  # 시청자 댓글을 며칠치 보여줄지
+HIST = os.path.join(HERE, '_board_history.json')   # 날마다 구독·조회 스냅샷 → 집계 지연 메우기·전날 대비
 
 
 def access_token(path):
@@ -41,7 +44,16 @@ def access_token(path):
 def get(at, ep, params):
     url = 'https://www.googleapis.com/youtube/v3/%s?%s' % (ep, urllib.parse.urlencode(params))
     req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + at})
-    return json.load(urllib.request.urlopen(req))
+    # 🐞 2026-10-08: 갓 받은 access token 이 첫 호출에서 401 을 내다가 몇 초 뒤엔 통했다(plum, 재현 2회).
+    #    → 재인증해도 같았다: plum 만 호출의 약 절반이 401(구글 쪽 간헐 거절). 8회까지 다시 시도한다.
+    for i in range(8):
+        try:
+            return json.load(urllib.request.urlopen(req))
+        except urllib.error.HTTPError as e:
+            if e.code != 401 or i == 7:
+                raise
+            import time
+            time.sleep(2)
 
 
 def secs(iso):
@@ -83,8 +95,72 @@ def fetch(token_path, n=100):
             'views': int(v.get('statistics', {}).get('viewCount') or 0),
             'bad': st.get('uploadStatus') not in ('processed', 'uploaded'),
         })
+    titles = {v['id']: v['snippet']['title'] for v in vids}
+    try:
+        cm = comments(at, ch['id'], titles)
+    except Exception as e:
+        print('  댓글 실패:', e)
+        cm = None
     return {'title': ch['snippet']['title'], 'subs': int(ch['statistics'].get('subscriberCount') or 0),
-            'videos': out}
+            'videos': out, 'daily': daily(at), 'cid': ch['id'], 'comments': cm}
+
+
+def comments(at, cid, titles):
+    """채널 전체 영상의 최신 댓글 스레드 100개를 한 번에 받는다(영상별로 돌지 않는다).
+    시청자가 쓴 최상위 댓글·답글마다 '내 채널 답글이 그 뒤에 달렸나'를 붙인다. 검토 대기 댓글은 따로 센다."""
+    th = get(at, 'commentThreads', {'part': 'snippet,replies', 'allThreadsRelatedToChannelId': cid,
+                                    'maxResults': 100, 'order': 'time'}).get('items', [])
+    out = []
+    for t in th:
+        top = t['snippet']['topLevelComment']
+        reps = t.get('replies', {}).get('comments', [])
+        if t['snippet'].get('totalReplyCount', 0) > len(reps):   # replies 필드는 최대 5개뿐
+            reps = get(at, 'comments', {'part': 'snippet', 'parentId': t['id'], 'maxResults': 100}).get('items', [])
+        msgs = sorted([top] + reps, key=lambda c: c['snippet']['publishedAt'])
+        for i, c in enumerate(msgs):
+            s = c['snippet']
+            out.append({'id': c['id'], 'vid': t['snippet'].get('videoId'),
+                        'author': s.get('authorDisplayName', ''),
+                        'aid': s.get('authorChannelId', {}).get('value'),
+                        'text': s.get('textOriginal', ''),
+                        'at': datetime.datetime.fromisoformat(s['publishedAt'].replace('Z', '+00:00')).astimezone(KST),
+                        'reply': c is not top,
+                        # 이 댓글 뒤에 같은 스레드에서 내 채널이 답했으면 답한 것으로 본다
+                        'answered': any(m['snippet'].get('authorChannelId', {}).get('value') == cid
+                                        for m in msgs[i + 1:])})
+    held = get(at, 'commentThreads', {'part': 'id', 'allThreadsRelatedToChannelId': cid,
+                                      'moderationStatus': 'heldForReview', 'maxResults': 100}).get('items', [])
+    miss = sorted({c['vid'] for c in out if c['vid'] and c['vid'] not in titles})
+    for i in range(0, len(miss), 50):
+        for v in get(at, 'videos', {'part': 'snippet', 'id': ','.join(miss[i:i + 50])}).get('items', []):
+            titles[v['id']] = v['snippet']['title']
+    for c in out:
+        c['title'] = titles.get(c['vid'], '')
+    return {'list': out, 'held': len(held)}
+
+
+def daily(at, days=STAT_DAYS):
+    """채널 일별 구독 증감·조회 (Analytics). 2~3일 늦게 집계된다. 실패해도 현황판은 그대로 나가게 None."""
+    end = datetime.date.today()
+    q = urllib.parse.urlencode({'ids': 'channel==MINE', 'startDate': (end - datetime.timedelta(days=days)).isoformat(),
+                                'endDate': end.isoformat(), 'dimensions': 'day', 'sort': 'day',
+                                'metrics': 'subscribersGained,subscribersLost,views'})
+    try:
+        req = urllib.request.Request('https://youtubeanalytics.googleapis.com/v2/reports?' + q,
+                                     headers={'Authorization': 'Bearer ' + at})
+        for i in range(8):   # plum 간헐 401 대비 (get() 주석 참조)
+            try:
+                rows = json.load(urllib.request.urlopen(req)).get('rows', [])
+                break
+            except urllib.error.HTTPError as e:
+                if e.code != 401 or i == 7:
+                    raise
+                import time
+                time.sleep(2)
+    except Exception as e:
+        print('  analytics 실패:', e)
+        return None
+    return [{'d': datetime.date.fromisoformat(r[0]), 'net': int(r[1]) - int(r[2]), 'views': int(r[3])} for r in rows]
 
 
 def fmt_day(d):
@@ -173,7 +249,7 @@ def days_left(d, now):
     return '오늘' if n == 0 else '내일' if n == 1 else '%d일 뒤' % n
 
 
-def render(data, now):
+def render(data, now, hist=None):
     today = now.date()
     names = {k: n for k, n, _, _ in CHANNELS}
     start = today - datetime.timedelta(days=PAST_DAYS)
@@ -289,7 +365,183 @@ def render(data, now):
                     for _, name, _, cls in CHANNELS)
     return TEMPLATE.format(
         updated=now.strftime('%Y-%m-%d %H:%M'), now_block=now_block, status=''.join(rows),
-        heads=heads, rows=''.join(trs), rdays=RHYTHM_DAYS)
+        heads=heads, rows=''.join(trs), rdays=RHYTHM_DAYS,
+        stats=render_stats(data, hist or {}, now), comments=render_comments(data, now))
+
+
+# ── 구독·조회 ───────────────────────────────────────────────
+def load_hist():
+    try:
+        return json.load(open(HIST, encoding='utf-8'))
+    except Exception:
+        return {}
+
+
+def save_hist(h, data, now):
+    """오늘 스냅샷(구독 수 · 최근 공개 영상 조회수)을 남긴다. 오래된 건 버린다."""
+    today = now.date().isoformat()
+    snap = {}
+    for k, c in data.items():
+        if 'error' in c:
+            continue
+        snap[k] = {'subs': c['subs'],
+                   'views': {v['id']: v['views'] for v in c['videos'] if not v['sched']
+                             and v['at'] > now - datetime.timedelta(days=STAT_DAYS)}}
+    h[today] = {**h.get(today, {}), **snap}
+    cut = (now.date() - datetime.timedelta(days=STAT_DAYS + 5)).isoformat()
+    h = {d: x for d, x in h.items() if d >= cut}
+    tmp = HIST + '.tmp'
+    json.dump(h, open(tmp, 'w', encoding='utf-8'), ensure_ascii=False)
+    os.replace(tmp, HIST)
+
+
+def prev_views(h, key, now):
+    """오늘 이전 가장 최근 스냅샷의 조회수 {id: views}, 그 날짜."""
+    for d in sorted(h, reverse=True):
+        if d < now.date().isoformat() and key in h[d]:
+            return h[d][key].get('views', {}), datetime.date.fromisoformat(d)
+    return {}, None
+
+
+def subs_series(c, key, h, now):
+    """날짜별 구독자 수. Analytics 일별 증감을 거꾸로 쌓아 복원하고, 집계 안 된 최근 며칠은 스냅샷·현재값으로 잇는다."""
+    pts = {}
+    dl = c.get('daily') or []
+    if dl:
+        last = dl[-1]['d']
+        n = h.get(last.isoformat(), {}).get(key, {}).get('subs', c['subs'])
+        for r in reversed(dl):
+            pts[r['d']] = n
+            n -= r['net']
+    for d, x in h.items():
+        dd = datetime.date.fromisoformat(d)
+        if key in x and (not dl or dd > dl[-1]['d']):
+            pts[dd] = x[key]['subs']
+    pts[now.date()] = c['subs']
+    lo = now.date() - datetime.timedelta(days=STAT_DAYS)
+    return sorted((d, n) for d, n in pts.items() if d >= lo)
+
+
+def spark(series, w=150, hgt=34):
+    if len(series) < 2:
+        return ''
+    d0 = series[0][0]
+    span = max((series[-1][0] - d0).days, 1)
+    vs = [n for _, n in series]
+    lo, hi = min(vs), max(vs)
+    rng = max(hi - lo, 1)
+    xy = ['%.1f,%.1f' % ((d - d0).days / span * (w - 4) + 2, hgt - 3 - (n - lo) / rng * (hgt - 6))
+          for d, n in series]
+    cx, cy = xy[-1].split(',')
+    return ('<svg class="spark" viewBox="0 0 %d %d" width="%d" height="%d" aria-hidden="true">'
+            '<polyline points="%s" fill="none" stroke="currentColor" stroke-width="1.6" '
+            'stroke-linejoin="round" stroke-linecap="round"/>'
+            '<circle cx="%s" cy="%s" r="2.4" fill="currentColor"/></svg>'
+            % (w, hgt, w, hgt, ' '.join(xy), cx, cy))
+
+
+def signed(n):
+    return ('+%s' % format(n, ',')) if n > 0 else ('−%s' % format(-n, ',')) if n < 0 else '±0'
+
+
+def ago(t, now):
+    n = (now.date() - t.date()).days
+    return '오늘' if n == 0 else '어제' if n == 1 else '%d일 전' % n
+
+
+def render_stats(data, h, now):
+    cards, prevs = [], []
+    for key, name, _, cls in CHANNELS:
+        c = data[key]
+        if 'error' in c:
+            continue
+        ser = subs_series(c, key, h, now)
+
+        def delta(days):
+            ref = now.date() - datetime.timedelta(days=days)
+            old = next((n for d, n in ser if d >= ref), None)
+            return None if old is None or len(ser) < 2 else c['subs'] - old
+        d7, d30 = delta(7), delta(STAT_DAYS)
+        dl = c.get('daily') or []
+        v7 = sum(r['views'] for r in dl[-7:]) if dl else None
+        pv, pday = prev_views(h, key, now)
+        if pday:
+            prevs.append(pday)
+        pub = sorted([v for v in c['videos'] if not v['sched']], key=lambda v: v['at'], reverse=True)
+
+        def rows(vs):
+            if not vs:
+                return '<li class="none">없음</li>'
+            out = []
+            for v in vs:
+                inc = '<span class="inc"></span>'
+                if v['id'] in pv:
+                    dv = v['views'] - pv[v['id']]
+                    inc = '<span class="inc%s">%s</span>' % (' up' if dv > 0 else '', signed(dv))
+                out.append('<li><a href="%s" target="_blank" rel="noopener" title="%s">'
+                           '<span class="tt">%s</span><span class="ag">%s</span>'
+                           '<span class="vw mono">%s</span>%s</a></li>'
+                           % (link(v), esc(tip(v, name)), esc(v['title']), ago(v['at'], now),
+                              format(v['views'], ','), inc))
+            return ''.join(out)
+
+        meta = []
+        if d7 is not None:
+            meta.append('7일 <b>%s</b>' % signed(d7))
+        if d30 is not None:
+            meta.append('%d일 <b>%s</b>' % (STAT_DAYS, signed(d30)))
+        if v7 is not None:
+            meta.append('채널 조회 7일 %s' % format(v7, ','))
+        cards.append(
+            '<article class="sc %s"><header><div><div class="nm"><span class="dot"></span>%s</div>'
+            '<div class="big mono">%s<span>구독</span></div><small>%s</small></div>%s</header>'
+            '<h3>최근 롱폼</h3><ul>%s</ul><h3>최근 쇼츠</h3><ul>%s</ul></article>'
+            % (cls, esc(name), format(c['subs'], ','), ' · '.join(meta) or '추이 데이터 없음', spark(ser),
+               rows([v for v in pub if not v['short']][:RECENT_LONG]),
+               rows([v for v in pub if v['short']][:RECENT_SHORT])))
+    since = (' · 초록 숫자 = %s 기록보다 늘어난 조회' % fmt_day(max(prevs))) if prevs else ''
+    return ('<section class="stats"><h2 class="sh">구독 추이 · 최근 영상 조회<small>그래프 = 최근 %d일 구독자 · '
+            'YouTube 통계는 2~3일 늦게 집계돼 그 사이는 매일 남긴 기록으로 잇습니다%s</small></h2>'
+            '<div class="cards">%s</div></section>' % (STAT_DAYS, since, ''.join(cards)))
+
+
+def render_comments(data, now):
+    """시청자 댓글 — 최근 COMMENT_DAYS 일. 우리 채널들(plum·달빛)이 쓴 건 빼고, 내 답글 유무를 붙인다."""
+    own = {data[k].get('cid') for k in data} - {None}
+    cut = now - datetime.timedelta(days=COMMENT_DAYS)
+    cards, total_no, total_held = [], 0, 0
+    for key, name, _, cls in CHANNELS:
+        c = data[key]
+        if 'error' in c:
+            continue
+        cm = c.get('comments')
+        if cm is None:
+            cards.append('<article class="sc cm %s"><header><div class="nm"><span class="dot"></span>%s</div></header>'
+                         '<p class="err">댓글 불러오기 실패</p></article>' % (cls, esc(name)))
+            continue
+        vs = sorted([x for x in cm['list'] if x['aid'] not in own and x['at'] >= cut],
+                    key=lambda x: x['at'], reverse=True)
+        no = sum(1 for x in vs if not x['answered'])
+        total_no += no
+        total_held += cm['held']
+        lis = ''.join(
+            '<li><a href="https://www.youtube.com/watch?v=%s&amp;lc=%s" target="_blank" rel="noopener" title="%s">'
+            '<span class="ag">%s</span><span class="who">%s%s</span><span class="tx">%s</span>'
+            '<span class="vt">%s</span><b class="%s">%s</b></a></li>'
+            % (x['vid'], x['id'], esc(x['text']), ago(x['at'], now), esc(x['author']),
+               ' <i>답글</i>' if x['reply'] else '', esc(x['text'].replace('\n', ' ')), esc(x['title']),
+               'ok' if x['answered'] else 'no', '답함' if x['answered'] else '답 없음')
+            for x in vs) or '<li class="none">최근 %d일 시청자 댓글 없음</li>' % COMMENT_DAYS
+        meta = '%d개 · 답 없음 <b>%d</b>' % (len(vs), no)
+        if cm['held']:
+            meta += ' · <b class="bad">검토 대기 %d</b>' % cm['held']
+        cards.append('<article class="sc cm %s"><header><div><div class="nm"><span class="dot"></span>%s</div>'
+                     '<small>%s</small></div></header><ul>%s</ul></article>' % (cls, esc(name), meta, lis))
+    head = '답 없는 댓글 %d개' % total_no
+    if total_held:
+        head += ' · 검토 대기 %d개(Studio 댓글 › 검토 대기에서만 보임)' % total_held
+    return ('<section class="cmts"><h2 class="sh">시청자 댓글<small>최근 %d일 · %s · 누르면 그 댓글로 이동</small></h2>'
+            '<div class="cards">%s</div></section>' % (COMMENT_DAYS, head, ''.join(cards)))
 
 
 def pattern(r):
@@ -297,7 +549,7 @@ def pattern(r):
     return '%s %s' % (''.join(WD[w] for w in sorted(r)), '·'.join('%02d:00' % h for h in hs))
 
 
-TEMPLATE = '''<title>4채널 예약 현황판</title>
+TEMPLATE = '''<title>업로드 예약 현황판</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -393,6 +645,43 @@ h1 {{ margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }}
   .st em {{ display: block; }}
 }}
 
+/* 구독·조회 */
+.sh {{ margin: 0 0 8px; font-size: 13px; font-weight: 700; }}
+.sh small {{ display: inline; margin-left: 8px; }}
+.cards {{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }}
+.sc {{ background: var(--paper); border: 1px solid var(--line); border-top: 3px solid var(--c); padding: 10px 12px; min-width: 0; }}
+.sc header {{ display: flex; justify-content: space-between; align-items: flex-end; gap: 8px; margin-bottom: 4px; }}
+.sc header > div {{ min-width: 0; }}
+.sc .big {{ font-size: 22px; font-weight: 500; line-height: 1.2; margin-top: 2px; }}
+.sc .big span {{ font-family: "IBM Plex Sans KR", sans-serif; font-size: 12px; color: var(--muted); margin-left: 4px; }}
+.sc small b {{ color: var(--ink); font-weight: 500; }}
+.spark {{ color: var(--c); flex: none; max-width: 45%; height: auto; }}
+.sc h3 {{ margin: 8px 0 2px; font-size: 11.5px; font-weight: 500; color: var(--faint); }}
+.sc ul {{ list-style: none; margin: 0; padding: 0; }}
+.sc li a {{ display: grid; grid-template-columns: minmax(0, 1fr) auto auto 38px; gap: 6px; align-items: baseline;
+  text-decoration: none; font-size: 12.5px; padding: 2px 0; }}
+.sc li a:hover .tt {{ text-decoration: underline; }}
+.sc .tt {{ overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }}
+.sc .ag {{ color: var(--faint); font-size: 11.5px; }}
+.sc .vw {{ font-size: 12px; text-align: right; }}
+.sc .inc {{ font-family: "IBM Plex Mono", Consolas, monospace; font-size: 11px; color: var(--faint); text-align: right; }}
+.sc .inc.up {{ color: var(--ok); }}
+.sc li.none {{ color: var(--faint); font-size: 12px; }}
+@media (max-width: 1000px) {{ .cards {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }} }}
+@media (max-width: 560px) {{ .cards {{ grid-template-columns: 1fr; }} .sh small {{ display: block; margin: 2px 0 0; }} }}
+
+/* 시청자 댓글 */
+.cm ul {{ max-height: 260px; overflow-y: auto; }}
+.cm li a {{ grid-template-columns: 44px minmax(0, 7em) minmax(0, 1fr) minmax(0, 9em) auto; }}
+.cm .who {{ color: var(--muted); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }}
+.cm .who i {{ font-style: normal; font-size: 10.5px; color: var(--faint); }}
+.cm .tx {{ overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }}
+.cm .vt {{ color: var(--faint); font-size: 11.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }}
+.cm b.no {{ color: var(--crit); font-size: 11.5px; }}
+.cm b.ok {{ color: var(--ok); font-size: 11.5px; font-weight: 500; }}
+.cm li a:hover .tx {{ text-decoration: underline; }}
+@media (max-width: 560px) {{ .cm li a {{ grid-template-columns: 44px minmax(0, 1fr) auto; }} .cm .who, .cm .vt {{ display: none; }} }}
+
 /* 표 */
 .bar {{ display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; color: var(--muted); font-size: 12px; }}
 .bar .ev {{ pointer-events: none; }}
@@ -441,7 +730,7 @@ tr.toggle .on {{ display: none; }}
 </style>
 <div class="wrap">
   <div class="top">
-    <h1>4채널 예약 현황판</h1>
+    <h1>plum · 달빛국악 예약 현황판</h1>
     <span class="upd">기준 {updated} KST</span>
   </div>
   {now_block}
@@ -449,6 +738,8 @@ tr.toggle .on {{ display: none; }}
     <div class="phead"><span>채널</span><span>다음 롱폼</span><span>다음 쇼츠</span><span>첫 빈칸 (이 날 전에 올릴 것)</span></div>
     {status}
   </section>
+  {stats}
+  {comments}
   <div>
     <input type="checkbox" id="showpast">
     <div class="bar" style="margin-bottom:8px">
@@ -460,13 +751,13 @@ tr.toggle .on {{ display: none; }}
     </div>
     <div class="tblwrap">
       <table>
-        <colgroup><col class="dcol"><col><col><col><col></colgroup>
+        <colgroup><col class="dcol"><col><col></colgroup>
         <thead><tr><th scope="col">날짜</th>{heads}</tr></thead>
         <tbody>{rows}</tbody>
       </table>
     </div>
   </div>
-  <p class="note">"평소"는 유형별 마지막 편(예약 포함)에서 거꾸로 {rdays}일 동안 2번 이상 나온 요일과 가장 흔한 시각으로 추정합니다. 3일 이내 빈칸은 빨강, 7일 이내는 노랑. 예약 없는 비공개·[구판]은 뺐고, 3분 이하는 쇼츠로 봅니다. 새로 고침: py -3 tools\\yt_schedule_board.py</p>
+  <p class="note">"평소"는 유형별 마지막 편(예약 포함)에서 거꾸로 {rdays}일 동안 2번 이상 나온 요일과 가장 흔한 시각으로 추정합니다. 3일 이내 빈칸은 빨강, 7일 이내는 노랑. 예약 없는 비공개·[구판]은 뺐고, 3분 이하는 쇼츠로 봅니다. 새로 고침: py -3 tools\\yt_schedule_board.py (PC 로그온 때 자동)</p>
 </div>
 '''
 
@@ -495,7 +786,9 @@ def main():
         c['sum'] = s = summarize(c, now, horizon)
         print('%-6s %s  예약 %d건 (끝 %s) · 상태 %s' % (key, c['title'], len(s['fut']),
                                                  fmt_day(s['end']) if s['end'] else '-', s['level']))
-    open(OUT, 'w', encoding='utf-8').write(render(data, now))
+    hist = load_hist()
+    open(OUT, 'w', encoding='utf-8').write(render(data, now, hist))
+    save_hist(hist, data, now)
     print('→', OUT)
     if '--open' in sys.argv:
         webbrowser.open('file:///' + OUT.replace('\\', '/'))
