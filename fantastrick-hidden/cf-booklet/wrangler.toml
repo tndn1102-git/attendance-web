@@ -1,0 +1,6 @@
+# 1호점 설정집(태초의 신부) 단독 배포 — 정적 파일만. 히든페이지와 합치기 전 임시 주소용.
+name = "eve-booklet"
+compatibility_date = "2025-01-15"
+
+[assets]
+directory = "./public"
