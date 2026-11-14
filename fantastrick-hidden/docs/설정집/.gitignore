@@ -1,0 +1,9 @@
+# 다시 만들 수 있는 것·용량 큰 중간물은 저장소에서 제외
+out/
+.tmp/
+raw/_*
+raw/_gen.log
+bgm/*.mp3
+bgm/spec_*.png
+bgm/specs.png
+card/_*
